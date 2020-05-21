@@ -17,12 +17,12 @@ Vue.use(VueTailwind, {
     classes: 'form-radio h-4 w-4 text-orange-500 transition duration-150 ease-in-out'
   },
   TInput: {
-    classes: 'form-input border-2 bg-orange-100'
+    classes: 'form-input border-2 bg-orange-100 w-full text-gray-700'
   },
   TTextarea: {
-    classes: 'form-textarea border-2 bg-orange-100'
+    classes: 'form-textarea border-2 bg-orange-100 w-full text-gray-700'
   },
   TSelect: {
-    classes: 'form-select border-2 bg-orange-100'
+    classes: 'form-select border-2 bg-orange-100 w-full text-gray-700'
   }
 })

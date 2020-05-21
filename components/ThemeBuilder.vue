@@ -5,8 +5,13 @@
       <form action="#" method="POST">
         <div class="w-full pl-4">
           <theme-builder-step-select-components
-            v-show="step === 0"
+            v-if="step === 0"
             v-model="form.selectedComponents"
+          />
+
+          <theme-builder-step-build-theme
+            v-if="step === 1"
+            :components="form.selectedComponents"
           />
 
           <div class="flex justify-between mt-8 pt-4 border-t">
@@ -32,14 +37,17 @@ import Vue from 'vue'
 import Form from 'vform'
 import ThemeBuilderSteps from './ThemeBuilderSteps.vue'
 import ThemeBuilderStepSelectComponents from './ThemeBuilderStepSelectComponents.vue'
+import ThemeBuilderStepBuildTheme from './ThemeBuilderStepBuildTheme.vue'
+
 export default Vue.extend({
   components: {
     ThemeBuilderSteps,
-    ThemeBuilderStepSelectComponents
+    ThemeBuilderStepSelectComponents,
+    ThemeBuilderStepBuildTheme
   },
   data () {
     return {
-      step: 0,
+      step: 1,
       form: new Form({
         selectedComponents: [
           'TInput',
