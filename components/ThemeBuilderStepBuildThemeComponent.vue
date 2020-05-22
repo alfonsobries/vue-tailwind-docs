@@ -23,12 +23,12 @@
           First name
         </label>
         <div class="mt-1 sm:mt-0 sm:col-span-2">
-          <t-input v-model="classes" />
+          <classes-autocomplete v-model="classes" />
         </div>
       </div>
       <div class="flex flex-col items-center justify-center border-dotted border-4 bg-gray-100 p-4 relative">
         <span class="absolute left-0 top-0 m-2 pointer-events-none text-gray-500 uppercase text-sm">Preview</span>
-        <t-input :classes="classes" />
+        <t-input v-model="inputValue" :classes="classes ? classes : ''" />
       </div>
     </div>
   </fieldset>
@@ -36,9 +36,11 @@
 <script>
 import Vue from 'vue'
 import Icon from '@/components/Icon'
+import ClassesAutocomplete from '@/components/ClassesAutocomplete.vue'
 export default Vue.extend({
   components: {
-    Icon
+    Icon,
+    ClassesAutocomplete
   },
   props: {
     selected: {
@@ -50,13 +52,14 @@ export default Vue.extend({
       required: true
     },
     componentName: {
-      type: Array,
+      type: String,
       required: true
     }
   },
   data () {
     return {
-      classes: 'form-input'
+      classes: 'form-input',
+      inputValue: 'Hello there!'
     }
   }
 })

@@ -17,7 +17,7 @@
           <div class="flex justify-between mt-8 pt-4 border-t">
             <t-button
               type="button"
-              :variant="[step <= 0 ? 'disabledLink' : 'link']"
+              :variant="step <= 0 ? 'disabledLink' : 'link'"
               :disabled="step <= 0"
               @click="prevStep"
             >

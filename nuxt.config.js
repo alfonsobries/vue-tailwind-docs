@@ -1,3 +1,4 @@
+require('dotenv').config()
 
 export default {
   mode: 'spa',
@@ -15,6 +16,11 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+
+  env: {
+    apiUrl: process.env.API_URL || 'http://vue-tailwind-themes-api.test'
+  },
+
   /*
   ** Customize the progress-bar color
   */
@@ -28,7 +34,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@plugins/vue-tailwind'
+    '@plugins/axios.js',
+    '@plugins/vue-tailwind.js'
   ],
   /*
   ** Nuxt.js dev-modules
