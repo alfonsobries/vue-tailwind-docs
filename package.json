@@ -19,7 +19,7 @@
     "dotenv": "^8.2.0",
     "nuxt": "^2.0.0",
     "vform": "^1.0.1",
-    "vue-tailwind": "^1.0.0-3"
+    "vue-tailwind": "^1.0.0-5"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^1.0.0",

@@ -17,11 +17,14 @@
           <div class="flex justify-between mt-8 pt-4 border-t">
             <t-button
               type="button"
-              :variant="step <= 0 ? 'disabledLink' : 'link'"
+              :variant="{
+                'disabledLink': step <= 0,
+                'link' : step > 0
+              }"
               :disabled="step <= 0"
               @click="prevStep"
             >
-              prev step
+              Prev step
             </t-button>
             <t-button type="button" @click="nextStep">
               Next step

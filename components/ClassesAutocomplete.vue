@@ -1,57 +1,55 @@
 <template>
-  <div class="space-y-1">
-    <label id="assigned-to-label" class="block text-sm leading-5 font-medium text-gray-700">Assigned to</label>
-    <div class="relative">
-      <span class="inline-block w-full">
-        <t-input
-          ref="input"
-          v-model="localValue"
-          aria-haspopup="listbox"
-          :aria-expanded="open"
-          @focus="focusHandler"
-          @blur="blurHandler"
-          @input="inputHandler"
-          @keydown="keydownHandler"
-          @keydown.up.prevent="onArrowUp"
-          @keydown.down.prevent="onArrowDown"
-          @keydown.enter.stop.prevent="selectHighligtedOption"
-        />
-      </span>
-      <div
-        v-show="open"
-        x-description="Select popover, show/hide based on select state."
-        x-transition:leave="transition ease-in duration-100"
-        x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0"
-        class="absolute mt-1 w-full rounded-md bg-white shadow-lg z-10"
+  <div class="relative">
+    <span class="inline-block w-full">
+      <t-input
+        ref="input"
+        v-model="localValue"
+        class="w-full"
+        aria-haspopup="listbox"
+        :aria-expanded="open"
+        @focus="focusHandler"
+        @blur="blurHandler"
+        @input="inputHandler"
+        @keydown="keydownHandler"
+        @keydown.up.prevent="onArrowUp"
+        @keydown.down.prevent="onArrowDown"
+        @keydown.enter.stop.prevent="selectHighligtedOption"
+      />
+    </span>
+    <div
+      v-show="open"
+      x-description="Select popover, show/hide based on select state."
+      x-transition:leave="transition ease-in duration-100"
+      x-transition:leave-start="opacity-100"
+      x-transition:leave-end="opacity-0"
+      class="absolute mt-1 w-full rounded-md bg-white shadow-lg z-10"
+    >
+      <ul
+        ref="listbox"
+        tabindex="-1"
+        role="listbox"
+        aria-labelledby="assigned-to-label"
+        :aria-activedescendant="activeDescendant"
+        class="max-h-56 rounded-md py-1 text-base leading-6 shadow-xs overflow-auto focus:outline-none sm:text-sm sm:leading-5"
       >
-        <ul
-          ref="listbox"
-          tabindex="-1"
-          role="listbox"
-          aria-labelledby="assigned-to-label"
-          :aria-activedescendant="activeDescendant"
-          class="max-h-56 rounded-md py-1 text-base leading-6 shadow-xs overflow-auto focus:outline-none sm:text-sm sm:leading-5"
+        <li
+          v-for="(option, index) in options"
+          :id="option"
+          :key="option"
+          role="option"
+          :class="{ 'text-white bg-orange-500': highlighted === index, 'text-gray-900': highlighted !== index}"
+          class="cursor-default select-none relative py-2 pl-4 pr-9"
+          @click="selectOptionAtIndex(index)"
+          @mouseenter="highlighted = index"
+          @mouseleave="highlighted = null"
         >
-          <li
-            v-for="(option, index) in options"
-            :id="option"
-            :key="option"
-            role="option"
-            :class="{ 'text-white bg-orange-500': highlighted === index, 'text-gray-900': highlighted !== index}"
-            class="cursor-default select-none relative py-2 pl-4 pr-9"
-            @click="selectOptionAtIndex(index)"
-            @mouseenter="highlighted = index"
-            @mouseleave="highlighted = null"
-          >
-            <div class="flex items-center space-x-3">
-              <span :class="{ 'font-semibold': highlighted === index, 'font-normal': highlighted !== index }" class="font-normal block truncate">
-                {{ option }}
-              </span>
-            </div>
-          </li>
-        </ul>
-      </div>
+          <div class="flex items-center space-x-3">
+            <span :class="{ 'font-semibold': highlighted === index, 'font-normal': highlighted !== index }" class="font-normal block truncate">
+              {{ option }}
+            </span>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </template>

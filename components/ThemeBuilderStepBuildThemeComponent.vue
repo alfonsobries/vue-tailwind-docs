@@ -18,17 +18,15 @@
     </div>
 
     <div v-show="selected" class="p-4">
-      <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-b sm:border-gray-200 sm:py-5 sm:mb-5">
-        <label for="first_name" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
-          First name
-        </label>
-        <div class="mt-1 sm:mt-0 sm:col-span-2">
+      <div class="sm:items-start">
+        <div class="space-y-1">
+          <label id="assigned-to-label" class="block text-sm leading-5 font-medium text-gray-700">Default Classes</label>
           <classes-autocomplete v-model="classes" />
         </div>
       </div>
       <div class="flex flex-col items-center justify-center border-dotted border-4 bg-gray-100 p-4 relative">
         <span class="absolute left-0 top-0 m-2 pointer-events-none text-gray-500 uppercase text-sm">Preview</span>
-        <t-input v-model="inputValue" :classes="classes ? classes : ''" />
+        <t-input v-model="inputValue" class="relative" :classes="classes ? classes : ''" />
       </div>
     </div>
   </fieldset>
