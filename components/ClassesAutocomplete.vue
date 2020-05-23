@@ -16,41 +16,46 @@
         @keydown.enter.stop.prevent="selectHighligtedOption"
       />
     </span>
-    <div
-      v-show="open"
-      x-description="Select popover, show/hide based on select state."
-      x-transition:leave="transition ease-in duration-100"
-      x-transition:leave-start="opacity-100"
-      x-transition:leave-end="opacity-0"
-      class="absolute mt-1 w-full rounded-md bg-white shadow-lg z-10"
+    <transition
+      enter-active-class="transition ease-out duration-100"
+      leave-active-class="transition ease-in duration-100"
+      enter-class="opacity-0"
+      enter-to-class="opacity-100"
+      leave-class="opacity-100"
+      leave-to-class="opacity-0"
     >
-      <ul
-        ref="listbox"
-        tabindex="-1"
-        role="listbox"
-        aria-labelledby="assigned-to-label"
-        :aria-activedescendant="activeDescendant"
-        class="max-h-56 rounded-md py-1 text-base leading-6 shadow-xs overflow-auto focus:outline-none sm:text-sm sm:leading-5"
+      <div
+        v-show="open"
+        class="absolute mt-1 w-full rounded-md bg-white shadow-lg z-10"
       >
-        <li
-          v-for="(option, index) in options"
-          :id="option"
-          :key="option"
-          role="option"
-          :class="{ 'text-white bg-orange-500': highlighted === index, 'text-gray-900': highlighted !== index}"
-          class="cursor-default select-none relative py-2 pl-4 pr-9"
-          @click="selectOptionAtIndex(index)"
-          @mouseenter="highlighted = index"
-          @mouseleave="highlighted = null"
+        <ul
+          ref="listbox"
+          tabindex="-1"
+          role="listbox"
+          aria-labelledby="assigned-to-label"
+          :aria-activedescendant="activeDescendant"
+          class="max-h-56 rounded-md py-1 text-base leading-6 shadow-xs overflow-auto focus:outline-none sm:text-sm sm:leading-5"
         >
-          <div class="flex items-center space-x-3">
-            <span :class="{ 'font-semibold': highlighted === index, 'font-normal': highlighted !== index }" class="font-normal block truncate">
-              {{ option }}
-            </span>
-          </div>
-        </li>
-      </ul>
-    </div>
+          <li
+            v-for="(option, index) in options"
+            :id="option"
+            :key="option"
+            role="option"
+            :class="{ 'text-white bg-orange-500': highlighted === index, 'text-gray-900': highlighted !== index}"
+            class="cursor-default select-none relative py-2 pl-4 pr-9"
+            @click="selectOptionAtIndex(index)"
+            @mouseenter="highlighted = index"
+            @mouseleave="highlighted = null"
+          >
+            <div class="flex items-center space-x-3">
+              <span :class="{ 'font-semibold': highlighted === index, 'font-normal': highlighted !== index }" class="font-normal block truncate">
+                {{ option }}
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </transition>
   </div>
 </template>
 <script>

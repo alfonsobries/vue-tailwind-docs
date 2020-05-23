@@ -1,10 +1,10 @@
 <template>
-  <fieldset>
-    <!-- 'border-t': index > 0, -->
+  <fieldset :class="{ 'border-2 border-orange-300': selected }">
     <div
       class="text-base leading-6 font-medium text-gray-900 p-4 flex items-center"
       :class="{
         'border-b': selected,
+        'border-t': index > 0,
         'border border-green-200 cursor-pointer': ready
       }"
       @click="ready ? $emit('select') : undefined"
@@ -27,48 +27,66 @@
       </icon>
     </div>
 
-    <div v-show="selected" class="p-4">
-      <div class="mb-4">
-        <div class="sm:items-start">
-          <div class="space-y-1">
-            <h3>
-              Default Classes
-            </h3>
-            <classes-autocomplete v-model="currentComponentTheme.classes" />
+    <transition
+      enter-active-class="transition ease-out duration-100"
+      leave-active-class="transition ease-in duration-100"
+      enter-class="opacity-0"
+      enter-to-class="opacity-100"
+      leave-class="opacity-100"
+      leave-to-class="opacity-0"
+    >
+      <div v-show="selected" class="p-4">
+        <div class="mb-4">
+          <div class="sm:items-start">
+            <div class="space-y-1">
+              <h3>
+                Default Classes
+              </h3>
+              <classes-autocomplete v-model="currentComponentTheme.classes" />
+            </div>
+          </div>
+          <div class="flex flex-col items-center justify-center bg-gray-100 p-4 relative mt-2 shadow-inner">
+            <span class="absolute left-0 top-0 m-2 pointer-events-none text-gray-500 uppercase text-sm">Preview</span>
+            <t-input v-model="inputValue" class="relative" :classes="currentComponentTheme.classes ? currentComponentTheme.classes : ''" />
           </div>
         </div>
-        <div class="flex flex-col items-center justify-center bg-gray-100 p-4 relative mt-2 shadow-inner">
-          <span class="absolute left-0 top-0 m-2 pointer-events-none text-gray-500 uppercase text-sm">Preview</span>
-          <t-input v-model="inputValue" class="relative" :classes="currentComponentTheme.classes ? currentComponentTheme.classes : ''" />
+
+        <div class="border-2 bg-gray-100 rounded mb-4">
+          <h3 class="p-4 border-b">
+            Variants:
+          </h3>
+
+          <transition-group
+            enter-active-class="transition ease-out duration-100"
+            leave-active-class="transition ease-in duration-100"
+            enter-class="opacity-0"
+            enter-to-class="opacity-100"
+            leave-class="opacity-100"
+            leave-to-class="opacity-0"
+          >
+            <theme-builder-step-build-theme-component-variant
+              v-for="(variant, vIndex) in currentComponentTheme.theme"
+              :key="variant.id"
+              v-model="currentComponentTheme.theme[vIndex]"
+              :index="vIndex"
+              @delete="currentComponentTheme.theme.splice(vIndex, 1)"
+            />
+          </transition-group>
+
+          <p class="p-4 border-t">
+            <t-button type="button" variant="secondary" @click="addVariant">
+              Add variant
+            </t-button>
+          </p>
+        </div>
+
+        <div class="flex justify-between">
+          <t-button type="button" variant="link" @click="nextComponent">
+            Next component →
+          </t-button>
         </div>
       </div>
-
-      <div class="border-2 bg-gray-100 rounded mb-4">
-        <h3 class="p-4 border-b">
-          Variants:
-        </h3>
-
-        <theme-builder-step-build-theme-component-variant
-          v-for="(variant, vIndex) in currentComponentTheme.theme"
-          :key="variant.id"
-          v-model="currentComponentTheme.theme[vIndex]"
-          :index="vIndex"
-          @delete="currentComponentTheme.theme.splice(vIndex, 1)"
-        />
-
-        <p class="p-4 border-t">
-          <t-button type="button" variant="secondary" @click="addVariant">
-            Add variant
-          </t-button>
-        </p>
-      </div>
-
-      <div class="flex justify-between">
-        <t-button type="button" variant="link" @click="nextComponent">
-          Next component →
-        </t-button>
-      </div>
-    </div>
+    </transition>
   </fieldset>
 </template>
 <script>
@@ -87,6 +105,10 @@ export default Vue.extend({
   props: {
     value: {
       type: Object,
+      required: true
+    },
+    index: {
+      type: Number,
       required: true
     },
     selected: {

@@ -4,6 +4,7 @@
       v-for="(componentTheme, componentName) in currentTheme"
       :key="componentName"
       v-model="currentTheme[componentName]"
+      :index="Object.keys(currentTheme).indexOf(componentName)"
       :component-name="componentName"
       :selected="componentName === selected"
       @select="selected = componentName"
