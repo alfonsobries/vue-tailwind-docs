@@ -4,7 +4,8 @@
       Personalize your component CSS classes
     </h2>
     <p>Browse among the components you chose and assign them a list of default classes as well as all the variants you need.</p>
-    <div class="border rounded mt-3">
+    <hr class="border-t my-4">
+    <div class="border rounded">
       <theme-builder-step-build-theme-component
         v-for="(componentTheme, componentName) in currentTheme"
         :key="componentName"

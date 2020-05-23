@@ -1,5 +1,10 @@
 <template>
   <div>
+    <h2 class="text-2xl font-medium text-gray-900">
+      Choose the component you need
+    </h2>
+    <p>Select the components that you want to personalize</p>
+    <hr class="border-t my-4">
     <fieldset>
       <legend class="text-base leading-6 font-medium text-gray-900">
         HTML Inputs

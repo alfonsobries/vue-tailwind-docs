@@ -33,15 +33,15 @@ export default Vue.extend({
       steps: [
         {
           label: 'Choose the components',
-          description: 'Select the component you want to personalize'
+          description: 'Select the component you need for your application'
         },
         {
           label: 'Personalize them',
           description: 'Create yout own theme for every single element'
         },
         {
-          label: 'Save and download',
-          description: 'Grab the code for your own personal theme'
+          label: 'Save and install',
+          description: 'Grab the code to use with the VueTailwnd plugin'
         },
         {
           label: 'Share it',

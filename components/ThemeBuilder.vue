@@ -18,7 +18,12 @@
           <theme-builder-step-build-theme
             v-show="step === 1"
             v-model="theme"
-            @ready="step === 1 ? stepReady = 1 : undefined"
+            @ready="step === 1 ? stepReady = 2 : undefined"
+          />
+
+          <theme-builder-step-install
+            v-show="step === 2"
+            :theme="theme"
           />
 
           <div class="flex justify-between mt-8 pt-4 border-t">
@@ -55,6 +60,7 @@ import clone from 'lodash/clone'
 import ThemeBuilderSteps from './ThemeBuilderSteps.vue'
 import ThemeBuilderStepSelectComponents from './ThemeBuilderStepSelectComponents.vue'
 import ThemeBuilderStepBuildTheme from './ThemeBuilderStepBuildTheme.vue'
+import ThemeBuilderStepInstall from './ThemeBuilderStepInstall.vue'
 
 const defaultTheme = {
   TInput: {
@@ -98,11 +104,12 @@ export default Vue.extend({
   components: {
     ThemeBuilderSteps,
     ThemeBuilderStepSelectComponents,
-    ThemeBuilderStepBuildTheme
+    ThemeBuilderStepBuildTheme,
+    ThemeBuilderStepInstall
   },
   data () {
     return {
-      step: 0,
+      step: 2,
       stepReady: 0,
       lastActiveStep: 0,
       selectedComponents: Object.keys(defaultTheme),
