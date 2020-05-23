@@ -1,14 +1,25 @@
 <template>
   <div class="flex flex-col items-center justify-center bg-white p-4 relative mt-2 shadow-sm rounded border-dashed border">
     <span class="absolute left-0 top-0 m-2 pointer-events-none text-gray-500 uppercase text-sm">Preview</span>
-    <div class="relative">
+    <label
+      class="relative"
+      :class="{
+        'flex items-center': hasLabel
+      }"
+      :for="`${componentName}-${_uid}`"
+    >
       <component
         :is="componentName"
-        :value="componentValue"
+        :id="`${componentName}-${_uid}`"
+        v-model="componentValue"
+        :value="hasLabel ? componentValue: undefined"
+        :checked="true"
         :classes="classes ? classes : null"
         v-bind="componentAttribs"
       />
-    </div>
+
+      <span v-if="hasLabel" class="ml-2 text-gray-700 text-sm">Hello there!</span>
+    </label>
   </div>
 </template>
 <script>
@@ -25,10 +36,16 @@ export default Vue.extend({
       required: true
     }
   },
+  data () {
+    return {
+      componentValue: 'Hello there!'
+    }
+  },
   computed: {
-    componentValue () {
-      return 'Hello there!'
+    hasLabel () {
+      return ['TRadio', 'TCheckbox'].includes(this.componentName)
     },
+
     componentAttribs () {
       if (this.componentName === 'TSelect') {
         return {

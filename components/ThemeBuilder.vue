@@ -67,15 +67,15 @@ const defaultTheme = {
   TRadio: {
     classes: 'form-radio',
     theme: {
-      danger: 'form-radio border-red-300 bg-red-100',
-      success: 'form-radio border-green-300 bg-green-100'
+      danger: 'form-radio border-red-300 bg-red-100 text-red-500',
+      success: 'form-radio border-green-300 bg-green-100 text-green-500'
     }
   },
   TCheckbox: {
     classes: 'form-checkbox',
     theme: {
-      danger: 'form-checkbox border-red-300 bg-red-100',
-      success: 'form-checkbox border-green-300 bg-green-100'
+      danger: 'form-checkbox border-red-300 bg-red-100 text-red-500',
+      success: 'form-checkbox border-green-300 bg-green-100 text-green-500'
     }
   }
 }
