@@ -86,7 +86,6 @@ pre[class*="language-"] {
 .language-css .token.string,
 .style .token.string {
   color: #d4d4d4;
-  @apply bg-gray-900 rounded shadow-inner p-4;
 }
 
 .token.atrule,
