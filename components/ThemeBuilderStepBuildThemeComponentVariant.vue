@@ -33,10 +33,16 @@
           </div>
         </div>
 
-        <component-preview :classes="localVariant.classes" />
+        <component-preview
+          :classes="localVariant.classes"
+          :component-name="componentName"
+        />
       </div>
-      <p class="text-right">
-        <a class="text-red-500 text-sm underline" href="#" @click.prevent="$emit('delete')">Remove variant</a>
+      <p class="flex justify-between text-sm items-end">
+        <span v-if="formPluginClass" class="text-gray-500 mr-3 text-xs">
+          To use the class <strong>`{{ formPluginClass }}`</strong> you will need to install the <a class="underline" target="_blank" href="https://github.com/tailwindcss/custom-forms">custom-forms</a> plugin.
+        </span>
+        <a class="text-red-500 underline ml-auto" href="#" @click.prevent="$emit('delete')">Remove variant</a>
       </p>
     </div>
   </div>
@@ -53,6 +59,10 @@ export default Vue.extend({
     ComponentPreview
   },
   props: {
+    componentName: {
+      type: String,
+      required: true
+    },
     value: {
       type: Object,
       required: true
@@ -68,6 +78,14 @@ export default Vue.extend({
       currentName: this.value.name
     }
   },
+  computed: {
+    formPluginClass () {
+      const pluginClasses = ['form-input', 'form-select', 'form-textarea', 'form-radio', 'form-chexkbox']
+      return pluginClasses.find((className) => {
+        return this.localVariant.classes.includes(className)
+      })
+    }
+  },
   watch: {
     localVariant: {
       handler (localVariant) {
@@ -76,5 +94,6 @@ export default Vue.extend({
       deep: true
     }
   }
+
 })
 </script>

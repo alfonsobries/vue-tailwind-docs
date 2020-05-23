@@ -47,7 +47,14 @@
             </div>
           </div>
 
-          <component-preview :classes="currentComponentTheme.classes" />
+          <component-preview
+            :classes="currentComponentTheme.classes"
+            :component-name="componentName"
+          />
+
+          <p v-if="formPluginClass" class="text-gray-500 mr-3 text-xs">
+            To use the class <strong>`{{ formPluginClass }}`</strong> you will need to install the <a class="underline" target="_blank" href="https://github.com/tailwindcss/custom-forms">custom-forms</a> plugin.
+          </p>
         </div>
 
         <div class="border-2 bg-gray-100 rounded mb-4">
@@ -67,6 +74,7 @@
               v-for="(variant, vIndex) in currentComponentTheme.theme"
               :key="variant.id"
               v-model="currentComponentTheme.theme[vIndex]"
+              :component-name="componentName"
               :index="vIndex"
               @delete="currentComponentTheme.theme.splice(vIndex, 1)"
             />
@@ -125,19 +133,15 @@ export default Vue.extend({
   data () {
     return {
       currentComponentTheme: {},
-      ready: false,
-      inputValue: 'Hello there!'
+      ready: false
     }
   },
-
   computed: {
-    defaultClasses () {
-      switch (this.componentName) {
-        case 'TInput':
-          return 'form-input'
-      }
-
-      return ''
+    formPluginClass () {
+      const pluginClasses = ['form-input', 'form-select', 'form-textarea', 'form-radio', 'form-chexkbox']
+      return pluginClasses.find((className) => {
+        return this.currentComponentTheme.classes.includes(className)
+      })
     }
   },
 
