@@ -5,12 +5,12 @@
       <form action="#" method="POST">
         <div class="w-full pl-4">
           <theme-builder-step-select-components
-            v-if="step === 0"
+            v-show="step === 0"
             v-model="selectedComponents"
           />
 
           <theme-builder-step-build-theme
-            v-if="step === 1"
+            v-show="step === 1"
             v-model="theme"
           />
 

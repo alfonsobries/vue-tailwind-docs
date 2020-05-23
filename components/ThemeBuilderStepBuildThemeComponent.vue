@@ -42,13 +42,12 @@
               <h3>
                 Default Classes
               </h3>
-              <classes-autocomplete v-model="currentComponentTheme.classes" />
+
+              <classes-form-t-input v-model="currentComponentTheme.classes" />
             </div>
           </div>
-          <div class="flex flex-col items-center justify-center bg-gray-100 p-4 relative mt-2 shadow-inner">
-            <span class="absolute left-0 top-0 m-2 pointer-events-none text-gray-500 uppercase text-sm">Preview</span>
-            <t-input v-model="inputValue" class="relative" :classes="currentComponentTheme.classes ? currentComponentTheme.classes : ''" />
-          </div>
+
+          <component-preview :classes="currentComponentTheme.classes" />
         </div>
 
         <div class="border-2 bg-gray-100 rounded mb-4">
@@ -94,13 +93,16 @@ import Vue from 'vue'
 import uniqid from 'uniqid'
 import isEqual from 'lodash/isEqual'
 import ThemeBuilderStepBuildThemeComponentVariant from './ThemeBuilderStepBuildThemeComponentVariant'
+import ComponentPreview from './ThemeBuilderStepBuildThemeComponentPreview.vue'
 import Icon from '@/components/Icon'
-import ClassesAutocomplete from '@/components/ClassesAutocomplete.vue'
+import ClassesFormTInput from '@/components/ClassesForm/ClassesFormTInput.vue'
+
 export default Vue.extend({
   components: {
     Icon,
-    ClassesAutocomplete,
-    ThemeBuilderStepBuildThemeComponentVariant
+    ThemeBuilderStepBuildThemeComponentVariant,
+    ClassesFormTInput,
+    ComponentPreview
   },
   props: {
     value: {

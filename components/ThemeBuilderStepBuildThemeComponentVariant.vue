@@ -22,24 +22,18 @@
         </div>
       </div>
 
-      <div class="sm:items-start">
-        <div class="mb-3">
-          <label
-            :for="`classes-${localVariant.id}`"
-            class="block text-sm leading-5 font-medium text-gray-700"
-          >Variant classes</label>
-          <classes-autocomplete v-model="localVariant.classes" />
+      <div>
+        <div class="sm:items-start">
+          <div class="mb-3">
+            <label
+              :for="`classes-${localVariant.id}`"
+              class="block text-sm leading-5 font-medium text-gray-700"
+            >Variant classes</label>
+            <classes-form-t-input v-model="localVariant.classes" />
+          </div>
         </div>
-      </div>
-      <div class="flex flex-col items-center justify-center bg-white p-4 relative mt-2 shadow-sm rounded">
-        <span class="absolute left-0 top-0 m-2 pointer-events-none text-gray-400 uppercase text-sm">Preview</span>
-        <t-input
-          :id="`classes-${localVariant.id}`"
-          v-model="inputValue"
-          :name="`classes-${localVariant.id}`"
-          class="relative"
-          :classes="localVariant.classes ? localVariant.classes : ''"
-        />
+
+        <component-preview :classes="localVariant.classes" />
       </div>
       <p class="text-right">
         <a class="text-red-500 text-sm underline" href="#" @click.prevent="$emit('delete')">Remove variant</a>
@@ -49,12 +43,14 @@
 </template>
 <script>
 import Vue from 'vue'
-import ClassesAutocomplete from '@/components/ClassesAutocomplete.vue'
+import ComponentPreview from './ThemeBuilderStepBuildThemeComponentPreview.vue'
 import Icon from '@/components/Icon'
+import ClassesFormTInput from '@/components/ClassesForm/ClassesFormTInput.vue'
 export default Vue.extend({
   components: {
-    ClassesAutocomplete,
-    Icon
+    Icon,
+    ClassesFormTInput,
+    ComponentPreview
   },
   props: {
     value: {
@@ -69,7 +65,6 @@ export default Vue.extend({
   data () {
     return {
       localVariant: { ...this.value },
-      inputValue: 'Hello there!',
       currentName: this.value.name
     }
   },
