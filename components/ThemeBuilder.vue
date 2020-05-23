@@ -6,12 +6,12 @@
         <div class="w-full pl-4">
           <theme-builder-step-select-components
             v-if="step === 0"
-            v-model="form.selectedComponents"
+            v-model="selectedComponents"
           />
 
           <theme-builder-step-build-theme
             v-if="step === 1"
-            :components="form.selectedComponents"
+            v-model="theme"
           />
 
           <div class="flex justify-between mt-8 pt-4 border-t">
@@ -37,10 +37,48 @@
 </template>
 <script>
 import Vue from 'vue'
-import Form from 'vform'
+import clone from 'lodash/clone'
 import ThemeBuilderSteps from './ThemeBuilderSteps.vue'
 import ThemeBuilderStepSelectComponents from './ThemeBuilderStepSelectComponents.vue'
 import ThemeBuilderStepBuildTheme from './ThemeBuilderStepBuildTheme.vue'
+
+const defaultTheme = {
+  TInput: {
+    classes: 'form-input',
+    theme: {
+      danger: 'form-input border-red-300 bg-red-100',
+      success: 'form-input border-green-300 bg-green-100'
+    }
+  },
+  TTextarea: {
+    classes: 'form-textarea',
+    theme: {
+      danger: 'form-textarea border-red-300 bg-red-100',
+      success: 'form-textarea border-green-300 bg-green-100'
+    }
+  },
+  TSelect: {
+    classes: 'form-select',
+    theme: {
+      danger: 'form-select border-red-300 bg-red-100',
+      success: 'form-select border-green-300 bg-green-100'
+    }
+  },
+  TRadio: {
+    classes: 'form-radio',
+    theme: {
+      danger: 'form-radio border-red-300 bg-red-100',
+      success: 'form-radio border-green-300 bg-green-100'
+    }
+  },
+  TCheckbox: {
+    classes: 'form-checkbox',
+    theme: {
+      danger: 'form-checkbox border-red-300 bg-red-100',
+      success: 'form-checkbox border-green-300 bg-green-100'
+    }
+  }
+}
 
 export default Vue.extend({
   components: {
@@ -51,15 +89,17 @@ export default Vue.extend({
   data () {
     return {
       step: 1,
-      form: new Form({
-        selectedComponents: [
-          'TInput',
-          'TTextarea',
-          'TSelect',
-          'TRadio',
-          'TCheckbox'
-        ]
+      selectedComponents: Object.keys(defaultTheme),
+      theme: clone(defaultTheme)
+    }
+  },
+  watch: {
+    selectedComponents (selectedComponents) {
+      const theme = {}
+      selectedComponents.map((componentName) => {
+        theme[componentName] = defaultTheme[componentName]
       })
+      this.theme = theme
     }
   },
   methods: {

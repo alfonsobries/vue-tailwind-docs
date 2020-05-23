@@ -11,7 +11,7 @@
           :for="`classes-${localVariant.id}`"
           class="block text-sm leading-5 font-medium text-gray-700"
         >Variant name</label>
-        <t-input v-model="localVariant.name" />
+        <t-input v-model="currentName" @blur="localVariant.name = currentName" />
       </div>
     </div>
 
@@ -59,7 +59,8 @@ export default Vue.extend({
   data () {
     return {
       localVariant: { ...this.value },
-      inputValue: 'Hello there!'
+      inputValue: 'Hello there!',
+      currentName: this.value.name
     }
   },
   watch: {
@@ -67,7 +68,7 @@ export default Vue.extend({
       handler (localVariant) {
         this.$emit('input', localVariant)
       },
-      immediate: true
+      deep: true
     }
   }
 })

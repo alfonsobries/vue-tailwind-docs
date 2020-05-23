@@ -1,9 +1,9 @@
 <template>
   <fieldset>
+    <!-- 'border-t': index > 0, -->
     <div
       class="text-base leading-6 font-medium text-gray-900 p-4 flex items-center"
       :class="{
-        'border-t': index > 0,
         'border-b': selected,
         'border border-green-200 cursor-pointer': ready
       }"
@@ -34,12 +34,12 @@
             <h3>
               Default Classes
             </h3>
-            <classes-autocomplete v-model="classes" />
+            <classes-autocomplete v-model="currentComponentTheme.classes" />
           </div>
         </div>
         <div class="flex flex-col items-center justify-center bg-gray-100 p-4 relative mt-2 shadow-inner">
           <span class="absolute left-0 top-0 m-2 pointer-events-none text-gray-500 uppercase text-sm">Preview</span>
-          <t-input v-model="inputValue" class="relative" :classes="classes ? classes : ''" />
+          <t-input v-model="inputValue" class="relative" :classes="currentComponentTheme.classes ? currentComponentTheme.classes : ''" />
         </div>
       </div>
 
@@ -49,11 +49,11 @@
         </h3>
 
         <theme-builder-step-build-theme-component-variant
-          v-for="(variant, vIndex) in variants"
+          v-for="(variant, vIndex) in currentComponentTheme.theme"
           :key="variant.id"
-          v-model="variants[vIndex]"
+          v-model="currentComponentTheme.theme[vIndex]"
           :index="vIndex"
-          @delete="variants.splice(index, 1)"
+          @delete="currentComponentTheme.theme.splice(vIndex, 1)"
         />
 
         <p class="p-4 border-t">
@@ -74,6 +74,7 @@
 <script>
 import Vue from 'vue'
 import uniqid from 'uniqid'
+import isEqual from 'lodash/isEqual'
 import ThemeBuilderStepBuildThemeComponentVariant from './ThemeBuilderStepBuildThemeComponentVariant'
 import Icon from '@/components/Icon'
 import ClassesAutocomplete from '@/components/ClassesAutocomplete.vue'
@@ -84,12 +85,12 @@ export default Vue.extend({
     ThemeBuilderStepBuildThemeComponentVariant
   },
   props: {
-    selected: {
-      type: Boolean,
+    value: {
+      type: Object,
       required: true
     },
-    index: {
-      type: Number,
+    selected: {
+      type: Boolean,
       required: true
     },
     componentName: {
@@ -99,10 +100,9 @@ export default Vue.extend({
   },
   data () {
     return {
+      currentComponentTheme: {},
       ready: false,
-      classes: 'form-input',
-      inputValue: 'Hello there!',
-      variants: this.getDefaultVariants()
+      inputValue: 'Hello there!'
     }
   },
 
@@ -114,6 +114,47 @@ export default Vue.extend({
       }
 
       return ''
+    }
+  },
+
+  watch: {
+    currentComponentTheme: {
+      handler (currentComponentTheme) {
+        const themeAsExpectedInSettings = {}
+        currentComponentTheme.theme.forEach((variant) => {
+          themeAsExpectedInSettings[variant.name] = variant.classes
+        })
+        const newTheme = {
+          classes: currentComponentTheme.classes,
+          theme: themeAsExpectedInSettings
+        }
+
+        if (!isEqual(newTheme, this.value)) {
+          this.$emit('input', newTheme)
+        }
+      },
+      deep: true
+    },
+    value: {
+      handler (value) {
+        const variants = Object.keys(value.theme).map((variantName) => {
+          const currentVariant = this.currentComponentTheme.theme
+            ? this.currentComponentTheme.theme.find(v => v.name === variantName)
+            : null
+
+          return {
+            id: currentVariant ? currentVariant.id : uniqid(),
+            name: variantName,
+            classes: value.theme[variantName]
+          }
+        })
+
+        this.currentComponentTheme = {
+          classes: value.classes,
+          theme: variants
+        }
+      },
+      immediate: true
     }
   },
 
@@ -142,10 +183,10 @@ export default Vue.extend({
       return []
     },
     addVariant () {
-      this.variants.push({
+      this.currentComponentTheme.theme.push({
         id: uniqid(),
-        name: `variant${this.variants.length + 1}`,
-        classes: this.defaultClasses
+        name: `variant${this.currentComponentTheme.theme.length + 1}`,
+        classes: this.currentComponentTheme.classes
       })
     }
   }

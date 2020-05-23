@@ -1,13 +1,13 @@
 <template>
   <div class="border rounded">
     <theme-builder-step-build-theme-component
-      v-for="(componentName, index) in components"
+      v-for="(componentTheme, componentName) in currentTheme"
       :key="componentName"
-      :index="index"
+      v-model="currentTheme[componentName]"
       :component-name="componentName"
-      :selected="index === selected"
-      @select="selected = index"
-      @next="selected = index+1"
+      :selected="componentName === selected"
+      @select="selected = componentName"
+      @next="selectNextComponent"
     />
   </div>
 </template>
@@ -20,16 +20,24 @@ export default Vue.extend({
     ThemeBuilderStepBuildThemeComponent
   },
   props: {
-    components: {
-      type: Array,
+    value: {
+      type: Object,
       required: true
     }
   },
   data () {
     return {
-      selected: 0
+      currentTheme: this.value,
+      selected: Object.keys(this.value)[0]
+    }
+  },
+  methods: {
+    selectNextComponent () {
+      const components = Object.keys(this.value)
+      const currentIndex = components.findIndex(c => c === this.selected)
+      const nextComponent = components[currentIndex + 1]
+      this.selected = nextComponent
     }
   }
-
 })
 </script>
