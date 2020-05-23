@@ -137,6 +137,9 @@ export default Vue.extend({
     }
   },
   computed: {
+    isReady () {
+      return this.selected.length > 0
+    },
     formPluginClass () {
       const pluginClasses = ['form-input', 'form-select', 'form-textarea', 'form-radio', 'form-chexkbox']
       return pluginClasses.find((className) => {
@@ -146,6 +149,9 @@ export default Vue.extend({
   },
 
   watch: {
+    isReady (isReady) {
+      this.$emit(isReady ? 'ready' : 'noready')
+    },
     currentComponentTheme: {
       handler (currentComponentTheme) {
         const themeAsExpectedInSettings = {}

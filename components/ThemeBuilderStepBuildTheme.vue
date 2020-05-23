@@ -38,6 +38,19 @@ export default Vue.extend({
       selected: Object.keys(this.value)[0]
     }
   },
+  computed: {
+    isReady () {
+      return this.selected === undefined
+    }
+  },
+  watch: {
+    isReady (isReady) {
+      if (isReady) {
+        this.$emit('ready')
+      }
+      // No need for notready
+    }
+  },
   methods: {
     selectNextComponent () {
       const components = Object.keys(this.value)

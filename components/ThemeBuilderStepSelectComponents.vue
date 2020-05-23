@@ -156,7 +156,15 @@ export default Vue.extend({
       selected: this.value
     }
   },
+  computed: {
+    isReady () {
+      return this.selected.length > 0
+    }
+  },
   watch: {
+    isReady (isReady) {
+      this.$emit(isReady ? 'ready' : 'notready')
+    },
     selected (selected) {
       this.$emit('input', selected)
     },

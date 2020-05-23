@@ -11,11 +11,14 @@
           <theme-builder-step-select-components
             v-show="step === 0"
             v-model="selectedComponents"
+            @ready="stepReady = 0"
+            @notready="stepReady = null"
           />
 
           <theme-builder-step-build-theme
             v-show="step === 1"
             v-model="theme"
+            @ready="stepReady = 1"
           />
 
           <div class="flex justify-between mt-8 pt-4 border-t">
@@ -30,7 +33,14 @@
             >
               Prev step
             </t-button>
-            <t-button type="button" @click="nextStep">
+            <t-button
+              type="button"
+              :disabled="nextStepDisabled"
+              :variant="{
+                'disabled': nextStepDisabled
+              }"
+              @click="nextStep"
+            >
               Next step
             </t-button>
           </div>
@@ -92,10 +102,16 @@ export default Vue.extend({
   },
   data () {
     return {
-      step: 1,
+      step: 0,
+      stepReady: 0,
       lastActiveStep: 0,
       selectedComponents: Object.keys(defaultTheme),
       theme: clone(defaultTheme)
+    }
+  },
+  computed: {
+    nextStepDisabled () {
+      return this.stepReady === null || this.stepReady < this.step
     }
   },
   watch: {
