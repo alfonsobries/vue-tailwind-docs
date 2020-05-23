@@ -6,6 +6,7 @@ Vue.use(VueTailwind, {
   TButton: {
     classes: 'bg-orange-500 hover:bg-orange-700 text-white uppercase text-sm py-2 px-4 rounded',
     theme: {
+      secondary: 'bg-orange-300 text-orange-500 hover:text-orange-700 uppercase text-sm py-2 px-4 rounded',
       link: 'text-orange-500 hover:text-orange-700 underline uppercase text-sm py-2 px-4',
       disabledLink: 'text-orange-300 cursor-not-allowed underline uppercase text-sm py-2 px-4'
     }

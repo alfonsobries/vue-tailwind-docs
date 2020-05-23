@@ -1,5 +1,10 @@
 <template>
-  <div class="mb-4 border-t pt-4">
+  <div
+    class="p-4"
+    :class="{
+      'bg-gray-200': index % 2 === 1
+    }"
+  >
     <div class="sm:items-start">
       <div class="mb-3">
         <label
@@ -19,8 +24,8 @@
         <classes-autocomplete v-model="localVariant.classes" />
       </div>
     </div>
-    <div class="flex flex-col items-center justify-center bg-gray-100 p-4 relative mt-2 shadow-inner">
-      <span class="absolute left-0 top-0 m-2 pointer-events-none text-gray-500 uppercase text-sm">Preview</span>
+    <div class="flex flex-col items-center justify-center bg-white p-4 relative mt-2 shadow-sm rounded">
+      <span class="absolute left-0 top-0 m-2 pointer-events-none text-gray-400 uppercase text-sm">Preview</span>
       <t-input
         :id="`classes-${localVariant.id}`"
         v-model="inputValue"
@@ -44,6 +49,10 @@ export default Vue.extend({
   props: {
     value: {
       type: Object,
+      required: true
+    },
+    index: {
+      type: Number,
       required: true
     }
   },

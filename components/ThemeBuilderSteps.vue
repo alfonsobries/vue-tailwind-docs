@@ -56,16 +56,16 @@ export default Vue.extend({
           description: 'Select the component you want to personalize'
         },
         {
-          label: 'Choose the components',
-          description: 'Select the component you want to personalize'
+          label: 'Personalize them',
+          description: 'Create yout own theme for every single element'
         },
         {
-          label: 'Choose the components',
-          description: 'Select the component you want to personalize'
+          label: 'Save and download',
+          description: 'Grab the code for your own personal theme'
         },
         {
-          label: 'Choose the components',
-          description: 'Select the component you want to personalize'
+          label: 'Share it',
+          description: 'Optionally share your theme with the community'
         }
       ]
     }

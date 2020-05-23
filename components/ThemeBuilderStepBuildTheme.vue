@@ -7,6 +7,7 @@
       :component-name="componentName"
       :selected="index === selected"
       @select="selected = index"
+      @next="selected = index+1"
     />
   </div>
 </template>
