@@ -18,7 +18,7 @@
           <theme-builder-step-build-theme
             v-show="step === 1"
             v-model="theme"
-            @ready="stepReady = 1"
+            @ready="step === 1 ? stepReady = 1 : undefined"
           />
 
           <div class="flex justify-between mt-8 pt-4 border-t">

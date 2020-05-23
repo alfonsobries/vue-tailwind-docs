@@ -20,8 +20,8 @@
 </template>
 <script>
 import Vue from 'vue'
+import difference from 'lodash/difference'
 import ThemeBuilderStepBuildThemeComponent from './ThemeBuilderStepBuildThemeComponent.vue'
-
 export default Vue.extend({
   components: {
     ThemeBuilderStepBuildThemeComponent
@@ -49,6 +49,19 @@ export default Vue.extend({
         this.$emit('ready')
       }
       // No need for notready
+    },
+    value (value) {
+      const activeComponents = Object.keys(value)
+      const currentActiveComponents = Object.keys(this.currentTheme)
+      const removed = difference(currentActiveComponents, activeComponents)
+      const added = difference(activeComponents, currentActiveComponents)
+      removed.forEach((componentName) => {
+        Vue.delete(this.currentTheme, componentName)
+      })
+      added.forEach((componentName) => {
+        this.$set(this.currentTheme, componentName, this.value[componentName])
+      })
+      this.selected = Object.keys(this.currentTheme).length ? Object.keys(this.currentTheme)[0] : undefined
     }
   },
   methods: {
