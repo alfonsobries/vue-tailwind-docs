@@ -1,6 +1,24 @@
 <template>
-  <div class="container">
-    <theme-builder />
+  <div>
+    <header class="bg-white shadow-sm">
+      <div class="container mx-auto">
+        <h1 class="text-lg leading-6 font-semibold text-gray-900 py-4 mb-4">
+          Explore the community contributions
+        </h1>
+      </div>
+    </header>
+
+    <header class="bg-white shadow-sm">
+      <div class="container mx-auto">
+        <h1 class="text-lg leading-6 font-semibold text-gray-900 py-4 mb-4">
+          Build your own theme
+        </h1>
+      </div>
+    </header>
+
+    <div class="container mx-auto">
+      <theme-builder />
+    </div>
   </div>
 </template>
 
