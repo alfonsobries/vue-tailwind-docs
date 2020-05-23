@@ -34,7 +34,7 @@ code[class*="language-"]::selection {
 
 pre[class*="language-"] {
 	overflow: auto;
-  @apply bg-gray-900 rounded shadow-inner p-4;
+  @apply bg-gray-800 rounded shadow-inner p-4;
 }
 
 :not(pre) > code[class*="language-"] {

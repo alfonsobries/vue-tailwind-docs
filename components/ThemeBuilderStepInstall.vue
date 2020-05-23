@@ -1,9 +1,10 @@
 <template>
   <div>
     <h2 class="text-2xl font-medium text-gray-900">
-      Choose the component you need
+      Grab your code and build something awesome!
     </h2>
-    <p>Select the components that you want to personalize</p>
+    <p>Copy or download the following code and install it in your project</p>
+
     <hr class="border-t my-4">
 
     <alert v-if="copied === true" type="success" @close="copied = undefined">
@@ -31,6 +32,12 @@
       </div>
 
       <vue-code-highlight>{{ code }}</vue-code-highlight>
+
+      <p class="my-4">
+        *Dont forget to install the <span class="text-orange-500">vue-tailwind</span> package
+      </p>
+
+      <vue-code-highlight>{{ installCode }}</vue-code-highlight>
     </div>
   </div>
 </template>
@@ -55,7 +62,9 @@ export default Vue.extend({
   },
   data () {
     return {
-      copied: undefined
+      copied: undefined,
+      installCode: `npm install --save vue-tailwind@next
+// Or yarn add vue-tailwind@next`
     }
   },
   computed: {
