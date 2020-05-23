@@ -1,6 +1,10 @@
 <template>
   <div class="flex -mx-6 px-6">
-    <theme-builder-steps :current-step="step" />
+    <theme-builder-steps
+      :current-step="step"
+      :last-active-step="lastActiveStep"
+      @select="(index) => step = index"
+    />
     <div class="px-6 bg-white rounded w-full border rounded-r rounded-br px-4 py-5 bg-white sm:p-6">
       <form action="#" method="POST">
         <div class="w-full pl-4">
@@ -89,11 +93,17 @@ export default Vue.extend({
   data () {
     return {
       step: 1,
+      lastActiveStep: 0,
       selectedComponents: Object.keys(defaultTheme),
       theme: clone(defaultTheme)
     }
   },
   watch: {
+    step (step) {
+      if (step > this.lastActiveStep) {
+        this.lastActiveStep = step
+      }
+    },
     selectedComponents (selectedComponents) {
       const theme = {}
       selectedComponents.map((componentName) => {
