@@ -98,7 +98,7 @@
     </main>
 
     <div class="bg-gray-800 mt-5 text-gray-400">
-      <div class="container mx-auto flex justify-between py-8">
+      <div class="container mx-auto md:flex justify-between py-8 text-center">
         <div class="flex justify-center md:order-2">
           <a href="https://twitter.com/alfonsobries" target="_blank" class="ml-6 text-gray-400 hover:text-gray-500">
             <span class="sr-only">Twitter</span>

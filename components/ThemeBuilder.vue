@@ -7,7 +7,7 @@
     />
     <div class="px-6 bg-white rounded w-full border rounded-r rounded-br px-4 py-5 bg-white sm:p-6">
       <form action="#" method="POST">
-        <div class="w-full pl-4">
+        <div class="w-full md:pl-4">
           <theme-builder-step-select-components
             v-show="step === 0"
             v-model="selectedComponents"
