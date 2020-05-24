@@ -71,12 +71,12 @@
             leave-to-class="opacity-0"
           >
             <theme-builder-step-build-theme-component-variant
-              v-for="(variant, vIndex) in currentComponentTheme.theme"
+              v-for="(variant, vIndex) in currentComponentTheme.variants"
               :key="variant.id"
-              v-model="currentComponentTheme.theme[vIndex]"
+              v-model="currentComponentTheme.variants[vIndex]"
               :component-name="componentName"
               :index="vIndex"
-              @delete="currentComponentTheme.theme.splice(vIndex, 1)"
+              @delete="currentComponentTheme.variants.splice(vIndex, 1)"
             />
           </transition-group>
 
@@ -155,12 +155,12 @@ export default Vue.extend({
     currentComponentTheme: {
       handler (currentComponentTheme) {
         const themeAsExpectedInSettings = {}
-        currentComponentTheme.theme.forEach((variant) => {
+        currentComponentTheme.variants.forEach((variant) => {
           themeAsExpectedInSettings[variant.name] = variant.classes
         })
         const newTheme = {
           classes: currentComponentTheme.classes,
-          theme: themeAsExpectedInSettings
+          variants: themeAsExpectedInSettings
         }
 
         if (!isEqual(newTheme, this.value)) {
@@ -171,21 +171,21 @@ export default Vue.extend({
     },
     value: {
       handler (value) {
-        const variants = Object.keys(value.theme).map((variantName) => {
-          const currentVariant = this.currentComponentTheme.theme
-            ? this.currentComponentTheme.theme.find(v => v.name === variantName)
+        const variants = Object.keys(value.variants).map((variantName) => {
+          const currentVariant = this.currentComponentTheme.variants
+            ? this.currentComponentTheme.variants.find(v => v.name === variantName)
             : null
 
           return {
             id: currentVariant ? currentVariant.id : uniqid(),
             name: variantName,
-            classes: value.theme[variantName]
+            classes: value.variants[variantName]
           }
         })
 
         this.currentComponentTheme = {
           classes: value.classes,
-          theme: variants
+          variants
         }
       },
       immediate: true
@@ -217,9 +217,9 @@ export default Vue.extend({
       return []
     },
     addVariant () {
-      this.currentComponentTheme.theme.push({
+      this.currentComponentTheme.variants.push({
         id: uniqid(),
-        name: `variant${this.currentComponentTheme.theme.length + 1}`,
+        name: `variant${this.currentComponentTheme.variants.length + 1}`,
         classes: this.currentComponentTheme.classes
       })
     }

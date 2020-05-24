@@ -10293,10 +10293,10 @@ vue-style-loader@^4.1.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-tailwind@^1.0.0-5:
-  version "1.0.0-5"
-  resolved "https://registry.yarnpkg.com/vue-tailwind/-/vue-tailwind-1.0.0-5.tgz#c5c491bac8103f3106e6955d6a182106effae928"
-  integrity sha512-aW5xdtPLz9fxt/SVlPLYcd4rLprv3LFZT7qghp87/i4LAppXuusampbeC1AceOmX83BaR2buzWZmlHb9qdcPBg==
+vue-tailwind@^1.0.0-6:
+  version "1.0.0-6"
+  resolved "https://registry.yarnpkg.com/vue-tailwind/-/vue-tailwind-1.0.0-6.tgz#72f64e36587ead6e16bcaf536c786762aba877fb"
+  integrity sha512-TU0wMA7JDEwpgBpm3KxdzaIysjgcd6U0qBjsGvgn7wFiPBlWUXsW7UyeA1uty0zFCxDAV8XhpWHXcrv1GTUE3w==
   dependencies:
     lodash "^4.17.15"
     vue "^2.6.11"

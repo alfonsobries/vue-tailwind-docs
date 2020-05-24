@@ -65,35 +65,35 @@ import ThemeBuilderStepInstall from './ThemeBuilderStepInstall.vue'
 const defaultTheme = {
   TInput: {
     classes: 'form-input',
-    theme: {
+    variants: {
       danger: 'form-input border-red-300 bg-red-100',
       success: 'form-input border-green-300 bg-green-100'
     }
   },
   TTextarea: {
     classes: 'form-textarea',
-    theme: {
+    variants: {
       danger: 'form-textarea border-red-300 bg-red-100',
       success: 'form-textarea border-green-300 bg-green-100'
     }
   },
   TSelect: {
     classes: 'form-select',
-    theme: {
+    variants: {
       danger: 'form-select border-red-300 bg-red-100',
       success: 'form-select border-green-300 bg-green-100'
     }
   },
   TRadio: {
     classes: 'form-radio',
-    theme: {
+    variants: {
       danger: 'form-radio border-red-300 bg-red-100 text-red-500',
       success: 'form-radio border-green-300 bg-green-100 text-green-500'
     }
   },
   TCheckbox: {
     classes: 'form-checkbox',
-    theme: {
+    variants: {
       danger: 'form-checkbox border-red-300 bg-red-100 text-red-500',
       success: 'form-checkbox border-green-300 bg-green-100 text-green-500'
     }
