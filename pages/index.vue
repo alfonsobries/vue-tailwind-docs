@@ -1,18 +1,10 @@
 <template>
-  <div>
-    <header class="bg-white shadow-sm">
-      <div class="container mx-auto px-6 md:px-0">
-        <h1 class="text-lg leading-6 font-semibold text-gray-900 py-4 mb-4">
-          Explore the community contributions
-        </h1>
-      </div>
-    </header>
-
-    <header class="bg-white shadow-sm">
-      <div class="container mx-auto px-6 md:px-0">
-        <h1 class="text-lg leading-6 font-semibold text-gray-900 py-4 mb-4">
+  <div class="bg-gray-100 py-6">
+    <header>
+      <div class="container mx-auto md:px-0">
+        <h2 class="text-3xl text-center font-semibold text-gray-900 mb-4">
           Build your own theme
-        </h1>
+        </h2>
       </div>
     </header>
 

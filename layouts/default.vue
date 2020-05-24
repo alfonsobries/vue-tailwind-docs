@@ -1,103 +1,54 @@
 <template>
   <div>
-    <nav class="bg-gray-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-          <div class="flex items-center">
-            <div class="flex-shrink-0">
-              <img class="h-8 w-8" src="@/assets/img/workflow-mark-on-white.svg" alt="Workflow logo">
-            </div>
-            <div class="hidden md:block">
-              <div class="ml-10 flex items-baseline">
-                <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700">Home</a>
-                <a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Newest</a>
-                <a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Popular</a>
-                <a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Updated</a>
+    <div class="relative bg-white overflow-hidden">
+      <div class="relative pt-6 pb-12 sm:pb-16 md:pb-20 lg:pb-28 xl:pb-32">
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6">
+          <nav class="relative flex items-center justify-between sm:h-10 md:justify-center">
+            <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
+              <div class="flex items-center justify-between w-full md:w-auto">
+                <a class="flex items-center text-gray-800 text-xl" href="#">
+                  <img class="h-8 w-auto sm:h-10 mr-3" src="@/assets/img/workflow-mark-on-white.svg" alt="">
+                  VueTailwind
+                </a>
               </div>
             </div>
-          </div>
-          <div class="hidden md:block">
-            <div class="ml-4 flex items-center md:ml-6">
-              <button class="p-1 border-2 border-transparent text-gray-400 rounded-full hover:text-white focus:outline-none focus:text-white focus:bg-gray-700" aria-label="Notifications">
-                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                </svg>
-              </button>
-
-              <!-- <div class="ml-3 relative">
-                <div>
-                  <button id="user-menu" class="max-w-xs flex items-center text-sm rounded-full text-white focus:outline-none focus:shadow-solid" aria-label="User menu" aria-haspopup="true">
-                    <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                  </button>
-                </div>
-
-                <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg">
-                  <div class="py-1 rounded-md bg-white shadow-xs">
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Your Profile</a>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
-                  </div>
-                </div>
-              </div> -->
+            <div class="block ml-auto">
+              <a target="_blank" href="https://v1.vue-tailwind.com/" class="font-medium text-gray-800 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Docs</a>
+              <a target="_blank" href="https://github.com/alfonsobries/vue-tailwind/tree/feature/ab-v1-tailwind-job-apply" class="ml-10 font-medium text-gray-800 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Github</a>
             </div>
-          </div>
-          <div class="-mr-2 flex md:hidden">
-            <!-- Mobile menu button -->
-            <button class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white">
-              <!-- Menu open: "hidden", Menu closed: "block" -->
-              <svg class="block h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-              <!-- Menu open: "block", Menu closed: "hidden" -->
-              <svg class="hidden h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
+          </nav>
+        </div>
+
+        <div class="mt-10 mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 xl:mt-28">
+          <div class="text-center">
+            <h2 class="text-4xl tracking-tight leading-10 font-extrabold text-gray-800 sm:text-5xl sm:leading-none md:text-6xl">
+              Vue<span class="text-orange-500 font-bold">Tailwind</span>
+            </h2>
+            <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+              Set of Lightview and fully customizable Vue Components optimized for TailwindCss
+            </p>
+            <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
+              <div class="rounded-md shadow">
+                <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-orange-500 hover:bg-orange-500 focus:outline-none focus:shadow-outline-orange transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+                  GitHub
+                </a>
+              </div>
+              <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+                <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-orange-500 bg-white hover:text-orange-500 focus:outline-none focus:shadow-outline-blue transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+                  Docs
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      <!--
-      Mobile menu, toggle classes based on menu state.
-
-      Open: "block", closed: "hidden"
-    -->
-      <div class="hidden md:hidden">
-        <div class="px-2 pt-2 pb-3 sm:px-3">
-          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700">Dashboard</a>
-          <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Team</a>
-          <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Projects</a>
-          <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Calendar</a>
-          <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Reports</a>
-        </div>
-        <div class="pt-4 pb-3 border-t border-gray-700">
-          <div class="flex items-center px-5">
-            <div class="flex-shrink-0">
-              <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-            </div>
-            <div class="ml-3">
-              <div class="text-base font-medium leading-none text-white">
-                Tom Cook
-              </div>
-              <div class="mt-1 text-sm font-medium leading-none text-gray-400">
-                tom@example.com
-              </div>
-            </div>
-          </div>
-          <div class="mt-3 px-2" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700" role="menuitem">Your Profile</a>
-            <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700" role="menuitem">Settings</a>
-            <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700" role="menuitem">Sign out</a>
-          </div>
-        </div>
-      </div>
-    </nav>
+    </div>
 
     <main>
       <nuxt />
     </main>
 
-    <div class="mt-5 border-t">
+    <div class="">
       <div class="container mx-auto md:flex justify-between py-8 text-center">
         <div class="flex justify-center md:order-2">
           <a href="https://twitter.com/alfonsobries" target="_blank" class="ml-6 text-gray-600 hover:text-gray-700">
