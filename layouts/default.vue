@@ -7,7 +7,7 @@
             <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
               <div class="flex items-center justify-between w-full md:w-auto">
                 <a class="flex items-center text-gray-800 text-xl" href="#">
-                  <img class="h-8 w-auto sm:h-10 mr-3" src="@/assets/img/workflow-mark-on-white.svg" alt="">
+                  <img class="h-8 w-auto sm:h-10 mr-3" src="@/assets/img/logo.svg" alt="">
                   VueTailwind
                 </a>
               </div>
