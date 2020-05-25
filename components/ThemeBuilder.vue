@@ -1,5 +1,5 @@
 <template>
-  <div class="flex shadow">
+  <div id="theme-builder" class="flex shadow">
     <theme-builder-steps
       :current-step="step"
       :last-active-step="lastActiveStep"
@@ -122,10 +122,13 @@ export default Vue.extend({
     }
   },
   watch: {
-    step (step) {
+    async step (step) {
       if (step > this.lastActiveStep) {
         this.lastActiveStep = step
       }
+
+      await this.$nextTick()
+      this.$el.scrollIntoView({ behavior: 'smooth' })
     },
     selectedComponents (selectedComponents) {
       const theme = {}

@@ -27,73 +27,64 @@
       </icon>
     </div>
 
-    <transition
-      enter-active-class="transition ease-out duration-100"
-      leave-active-class="transition ease-in duration-100"
-      enter-class="opacity-0"
-      enter-to-class="opacity-100"
-      leave-class="opacity-100"
-      leave-to-class="opacity-0"
-    >
-      <div v-show="selected" class="p-4">
-        <div class="mb-4">
-          <div class="sm:items-start">
-            <div class="space-y-1">
-              <h3>
-                Default Classes
-              </h3>
+    <div v-show="selected" class="p-4">
+      <div class="mb-4">
+        <div class="sm:items-start">
+          <div class="space-y-1">
+            <h3>
+              Default Classes
+            </h3>
 
-              <classes-form-t-input v-model="currentComponentTheme.classes" />
-            </div>
+            <classes-form-t-input v-model="currentComponentTheme.classes" />
           </div>
-
-          <component-preview
-            :classes="currentComponentTheme.classes"
-            :component-name="componentName"
-          />
-
-          <p v-if="formPluginClass" class="text-gray-500 mr-3 text-xs">
-            To use the class <strong>`{{ formPluginClass }}`</strong> you will need to install the <a class="underline" target="_blank" href="https://github.com/tailwindcss/custom-forms">custom-forms</a> plugin.
-          </p>
         </div>
 
-        <div class="border-2 bg-gray-100 rounded mb-4">
-          <h3 class="p-4 border-b">
-            Variants:
-          </h3>
+        <component-preview
+          :classes="currentComponentTheme.classes"
+          :component-name="componentName"
+        />
 
-          <transition-group
-            enter-active-class="transition ease-out duration-100"
-            leave-active-class="transition ease-in duration-100"
-            enter-class="opacity-0"
-            enter-to-class="opacity-100"
-            leave-class="opacity-100"
-            leave-to-class="opacity-0"
-          >
-            <theme-builder-step-build-theme-component-variant
-              v-for="(variant, vIndex) in currentComponentTheme.variants"
-              :key="variant.id"
-              v-model="currentComponentTheme.variants[vIndex]"
-              :component-name="componentName"
-              :index="vIndex"
-              @delete="currentComponentTheme.variants.splice(vIndex, 1)"
-            />
-          </transition-group>
-
-          <p class="p-4 border-t">
-            <t-button type="button" variant="secondary" @click="addVariant">
-              Add variant
-            </t-button>
-          </p>
-        </div>
-
-        <div class="flex justify-between">
-          <t-button type="button" variant="link" @click="nextComponent">
-            Next component →
-          </t-button>
-        </div>
+        <p v-if="formPluginClass" class="text-gray-500 mr-3 text-xs">
+          To use the class <strong>`{{ formPluginClass }}`</strong> you will need to install the <a class="underline" target="_blank" href="https://github.com/tailwindcss/custom-forms">custom-forms</a> plugin.
+        </p>
       </div>
-    </transition>
+
+      <div class="border-2 bg-gray-100 rounded mb-4">
+        <h3 class="p-4 border-b">
+          Variants:
+        </h3>
+
+        <transition-group
+          enter-active-class="transition ease-out duration-100"
+          leave-active-class="transition ease-in duration-100"
+          enter-class="opacity-0"
+          enter-to-class="opacity-100"
+          leave-class="opacity-100"
+          leave-to-class="opacity-0"
+        >
+          <theme-builder-step-build-theme-component-variant
+            v-for="(variant, vIndex) in currentComponentTheme.variants"
+            :key="variant.id"
+            v-model="currentComponentTheme.variants[vIndex]"
+            :component-name="componentName"
+            :index="vIndex"
+            @delete="currentComponentTheme.variants.splice(vIndex, 1)"
+          />
+        </transition-group>
+
+        <p class="p-4 border-t">
+          <t-button type="button" variant="secondary" @click="addVariant">
+            Add variant
+          </t-button>
+        </p>
+      </div>
+
+      <div class="flex justify-between">
+        <t-button type="button" variant="link" @click="nextComponent">
+          Next component →
+        </t-button>
+      </div>
+    </div>
   </fieldset>
 </template>
 <script>
@@ -149,6 +140,12 @@ export default Vue.extend({
   },
 
   watch: {
+    async selected (selected) {
+      if (selected) {
+        await this.$nextTick()
+        this.$el.scrollIntoView({ behavior: 'smooth' })
+      }
+    },
     isReady (isReady) {
       this.$emit(isReady ? 'ready' : 'noready')
     },
