@@ -72,74 +72,92 @@
       </div>
     </fieldset>
 
-    <fieldset class="mt-10 opacity-50">
+    <fieldset class="mt-10">
       <legend class="text-base leading-6 font-medium text-gray-900">
-        UI Components (coming soon...)
+        UI Components
       </legend>
       <div class="mt-4">
         <div class="flex items-start mt-4">
+          <div class="flex items-center h-5 mr-3">
+            <t-checkbox id="t-radio" v-model="selected" value="TInputGroup" />
+          </div>
+          <div class="pl-7 text-sm leading-5">
+            <label for="t-radio" class="font-medium text-gray-700">TInputGroup</label>
+            <p class="mt-1 flex items-center" :class="{ 'opacity-50': ! selected.includes('TInputGroup') }">
+              <t-input-group
+                label="Your password"
+                class="pointer-events-none"
+                feedback="Your password doesnt match!"
+              >
+                <t-input type="password" />
+              </t-input-group>
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start mt-4  opacity-50">
           <div class="flex items-center h-5 mr-3">
             <t-checkbox id="t-radio" v-model="selected" disabled />
           </div>
           <div class="pl-7 text-sm leading-5">
             <label for="t-radio" class="font-medium text-gray-700">Alert</label>
             <p class="mt-1 flex items-center">
-              <t-radio class="pointer-events-none" /> <span class="ml-2">...</span>
+              <t-radio class="pointer-events-none" /> <span class="ml-2"> (coming soon...)</span>
             </p>
           </div>
         </div>
-        <div class="flex items-start mt-4">
+        <div class="flex items-start mt-4  opacity-50">
           <div class="flex items-center h-5 mr-3">
             <t-checkbox id="t-radio" v-model="selected" disabled />
           </div>
           <div class="pl-7 text-sm leading-5">
             <label for="t-radio" class="font-medium text-gray-700">Table</label>
             <p class="mt-1 flex items-center">
-              <t-radio class="pointer-events-none" /> <span class="ml-2">...</span>
+              <t-radio class="pointer-events-none" /> <span class="ml-2"> (coming soon...)</span>
             </p>
           </div>
         </div>
-        <div class="flex items-start mt-4">
+        <div class="flex items-start mt-4  opacity-50">
           <div class="flex items-center h-5 mr-3">
             <t-checkbox id="t-radio" v-model="selected" disabled />
           </div>
           <div class="pl-7 text-sm leading-5">
             <label for="t-radio" class="font-medium text-gray-700">Modal</label>
             <p class="mt-1 flex items-center">
-              <t-radio class="pointer-events-none" /> <span class="ml-2">...</span>
+              <t-radio class="pointer-events-none" /> <span class="ml-2"> (coming soon...)</span>
             </p>
           </div>
         </div>
-        <div class="flex items-start mt-4">
+        <div class="flex items-start mt-4  opacity-50">
           <div class="flex items-center h-5 mr-3">
             <t-checkbox id="t-radio" v-model="selected" disabled />
           </div>
           <div class="pl-7 text-sm leading-5">
             <label for="t-radio" class="font-medium text-gray-700">Pagination</label>
             <p class="mt-1 flex items-center">
-              <t-radio class="pointer-events-none" /> <span class="ml-2">...</span>
+              <t-radio class="pointer-events-none" /> <span class="ml-2"> (coming soon...)</span>
             </p>
           </div>
         </div>
-        <div class="flex items-start mt-4">
+        <div class="flex items-start mt-4  opacity-50">
           <div class="flex items-center h-5 mr-3">
             <t-checkbox id="t-radio" v-model="selected" disabled />
           </div>
           <div class="pl-7 text-sm leading-5">
             <label for="t-radio" class="font-medium text-gray-700">Card</label>
             <p class="mt-1 flex items-center">
-              <t-radio class="pointer-events-none" /> <span class="ml-2">...</span>
+              <t-radio class="pointer-events-none" /> <span class="ml-2"> (coming soon...)</span>
             </p>
           </div>
         </div>
-        <div class="flex items-start mt-4">
+        <div class="flex items-start mt-4  opacity-50">
           <div class="flex items-center h-5 mr-3">
             <t-checkbox id="t-radio" v-model="selected" disabled />
           </div>
           <div class="pl-7 text-sm leading-5">
             <label for="t-radio" class="font-medium text-gray-700">Dropdown</label>
             <p class="mt-1 flex items-center">
-              <t-radio class="pointer-events-none" /> <span class="ml-2">...</span>
+              <t-radio class="pointer-events-none" /> <span class="ml-2"> (coming soon...)</span>
             </p>
           </div>
         </div>

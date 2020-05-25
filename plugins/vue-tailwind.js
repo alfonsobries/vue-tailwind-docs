@@ -26,5 +26,14 @@ Vue.use(VueTailwind, {
   },
   TSelect: {
     classes: 'form-select border-2 bg-orange-100 text-gray-700'
+  },
+  TInputGroup: {
+    classes: {
+      wrapper: 'mb-4',
+      label: 'block uppercase tracking-wide text-xs font-bold text-gray-700',
+      body: '',
+      feedback: 'text-sm text-gray-700',
+      description: 'text-sm text-gray-700'
+    }
   }
 })

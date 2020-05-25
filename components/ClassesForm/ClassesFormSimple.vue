@@ -12,7 +12,7 @@ export default {
   },
   props: {
     value: {
-      type: [Object, String],
+      type: String,
       required: true
     }
   },

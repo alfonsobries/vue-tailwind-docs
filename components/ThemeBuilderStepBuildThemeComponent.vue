@@ -35,7 +35,8 @@
               Default Classes
             </h3>
 
-            <classes-form-t-input v-model="currentComponentTheme.classes" />
+            <classes-form-input-group v-if="componentName === 'TInputGroup'" v-model="currentComponentTheme.classes" />
+            <classes-form-simple v-else v-model="currentComponentTheme.classes" />
           </div>
         </div>
 
@@ -94,14 +95,16 @@ import isEqual from 'lodash/isEqual'
 import ThemeBuilderStepBuildThemeComponentVariant from './ThemeBuilderStepBuildThemeComponentVariant'
 import ComponentPreview from './ThemeBuilderStepBuildThemeComponentPreview.vue'
 import Icon from '@/components/Icon'
-import ClassesFormTInput from '@/components/ClassesForm/ClassesFormTInput.vue'
+import ClassesFormSimple from '@/components/ClassesForm/ClassesFormSimple.vue'
+import ClassesFormInputGroup from '@/components/ClassesForm/ClassesFormInputGroup.vue'
 
 export default Vue.extend({
   components: {
     Icon,
     ThemeBuilderStepBuildThemeComponentVariant,
-    ClassesFormTInput,
-    ComponentPreview
+    ComponentPreview,
+    ClassesFormSimple,
+    ClassesFormInputGroup
   },
   props: {
     value: {
@@ -134,7 +137,8 @@ export default Vue.extend({
     formPluginClass () {
       const pluginClasses = ['form-input', 'form-select', 'form-textarea', 'form-radio', 'form-chexkbox']
       return pluginClasses.find((className) => {
-        return this.currentComponentTheme.classes.includes(className)
+        return typeof this.currentComponentTheme.classes === 'string' &&
+         this.currentComponentTheme.classes.includes(className)
       })
     }
   },

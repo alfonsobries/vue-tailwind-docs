@@ -29,7 +29,8 @@
               :for="`classes-${localVariant.id}`"
               class="block text-sm leading-5 font-medium text-gray-700"
             >Variant classes</label>
-            <classes-form-t-input v-model="localVariant.classes" />
+            <classes-form-input-group v-if="componentName === 'TInputGroup'" v-model="localVariant.classes" />
+            <classes-form-simple v-else v-model="localVariant.classes" />
           </div>
         </div>
 
@@ -51,12 +52,15 @@
 import Vue from 'vue'
 import ComponentPreview from './ThemeBuilderStepBuildThemeComponentPreview.vue'
 import Icon from '@/components/Icon'
-import ClassesFormTInput from '@/components/ClassesForm/ClassesFormTInput.vue'
+import ClassesFormSimple from '@/components/ClassesForm/ClassesFormSimple.vue'
+import ClassesFormInputGroup from '@/components/ClassesForm/ClassesFormInputGroup.vue'
+
 export default Vue.extend({
   components: {
     Icon,
-    ClassesFormTInput,
-    ComponentPreview
+    ComponentPreview,
+    ClassesFormSimple,
+    ClassesFormInputGroup
   },
   props: {
     componentName: {
@@ -82,7 +86,8 @@ export default Vue.extend({
     formPluginClass () {
       const pluginClasses = ['form-input', 'form-select', 'form-textarea', 'form-radio', 'form-chexkbox']
       return pluginClasses.find((className) => {
-        return this.localVariant.classes.includes(className)
+        return typeof this.localVariant.classes === 'string' &&
+          this.localVariant.classes.includes(className)
       })
     }
   },

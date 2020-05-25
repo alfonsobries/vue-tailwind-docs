@@ -8,6 +8,15 @@
       }"
       :for="`${componentName}-${_uid}`"
     >
+      <t-input-group
+        v-if="componentName === 'TInputGroup'"
+        :classes="classes ? classes : null"
+        label="Your password"
+        description="Use characters and numbers"
+        feedback="Your password doesnt match!"
+      >
+        <t-input />
+      </t-input-group>
       <component
         :is="componentName"
         :id="`${componentName}-${_uid}`"

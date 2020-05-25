@@ -97,6 +97,24 @@ const defaultTheme = {
       danger: 'form-checkbox border-red-300 bg-red-100 text-red-500',
       success: 'form-checkbox border-green-300 bg-green-100 text-green-500'
     }
+  },
+  TInputGroup: {
+    classes: {
+      wrapper: 'mb-4',
+      label: 'block uppercase tracking-wide text-xs font-bold mb-1',
+      body: '',
+      feedback: 'text-sm text-gray-500',
+      description: 'text-sm text-gray-500'
+    },
+    variants: {
+      danger: {
+        wrapper: 'mb-4',
+        label: 'block uppercase tracking-wide text-xs font-bold mb-1 text-red-500',
+        feedback: 'text-sm text-red-500',
+        body: 'text-sm text-gray-500',
+        description: 'text-sm'
+      }
+    }
   }
 }
 
