@@ -8,6 +8,13 @@
       }"
       :for="`${componentName}-${_uid}`"
     >
+      <t-alert
+        v-if="componentName === 'TAlert'"
+        show
+        :classes="classes ? classes : null"
+      >
+        So you selected VueJs & Tailwind Combo, Good decision!
+      </t-alert>
       <t-input-group
         v-if="componentName === 'TInputGroup'"
         :classes="classes ? classes : null"

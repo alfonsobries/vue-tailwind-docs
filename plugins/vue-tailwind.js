@@ -27,6 +27,14 @@ Vue.use(VueTailwind, {
   TSelect: {
     classes: 'form-select border-2 bg-orange-100 text-gray-700'
   },
+  TAlert: {
+    classes: {
+      wrapper: 'rounded bg-blue-100 p-4 flex text-sm w-full border-l-4 border-blue-700',
+      body: 'flex-grow text-blue-700',
+      close: 'text-blue-700 hover:text-blue-600',
+      closeIcon: 'h-5 w-5 fill-current'
+    }
+  },
   TInputGroup: {
     classes: {
       wrapper: 'mb-4',

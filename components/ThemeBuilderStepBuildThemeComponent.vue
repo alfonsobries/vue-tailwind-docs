@@ -35,7 +35,8 @@
               Default Classes
             </h3>
 
-            <classes-form-input-group v-if="componentName === 'TInputGroup'" v-model="currentComponentTheme.classes" />
+            <classes-form-alert v-if="componentName === 'TAlert'" v-model="currentComponentTheme.classes" />
+            <classes-form-input-group v-else-if="componentName === 'TInputGroup'" v-model="currentComponentTheme.classes" />
             <classes-form-simple v-else v-model="currentComponentTheme.classes" />
           </div>
         </div>
@@ -96,6 +97,7 @@ import ThemeBuilderStepBuildThemeComponentVariant from './ThemeBuilderStepBuildT
 import ComponentPreview from './ThemeBuilderStepBuildThemeComponentPreview.vue'
 import Icon from '@/components/Icon'
 import ClassesFormSimple from '@/components/ClassesForm/ClassesFormSimple.vue'
+import ClassesFormAlert from '@/components/ClassesForm/ClassesFormAlert.vue'
 import ClassesFormInputGroup from '@/components/ClassesForm/ClassesFormInputGroup.vue'
 
 export default Vue.extend({
@@ -104,6 +106,7 @@ export default Vue.extend({
     ThemeBuilderStepBuildThemeComponentVariant,
     ComponentPreview,
     ClassesFormSimple,
+    ClassesFormAlert,
     ClassesFormInputGroup
   },
   props: {

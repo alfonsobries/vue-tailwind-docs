@@ -23,7 +23,7 @@
     "uniqid": "^5.2.0",
     "vform": "^1.0.1",
     "vue-code-highlight": "^0.7.4",
-    "vue-tailwind": "^1.0.0-9"
+    "vue-tailwind": "^1.0.0-11"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^1.0.0",

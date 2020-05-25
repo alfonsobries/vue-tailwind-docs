@@ -98,6 +98,28 @@ const defaultTheme = {
       success: 'form-checkbox border-green-300 bg-green-100 text-green-500'
     }
   },
+  TAlert: {
+    classes: {
+      wrapper: 'rounded bg-blue-100 p-4 flex text-sm border-l-4 border-blue-500',
+      body: 'flex-grow text-blue-700',
+      close: 'text-blue-700 hover:text-blue-500 hover:bg-blue-200 ml-4 rounded',
+      closeIcon: 'h-5 w-5 fill-current'
+    },
+    variants: {
+      danger: {
+        wrapper: 'rounded bg-red-100 p-4 flex text-sm border-l-4 border-red-500',
+        body: 'flex-grow text-red-700',
+        close: 'text-red-700 hover:text-red-500 hover:bg-red-200 ml-4 rounded',
+        closeIcon: 'h-5 w-5 fill-current'
+      },
+      success: {
+        wrapper: 'rounded bg-green-100 p-4 flex text-sm border-l-4 border-green-500',
+        body: 'flex-grow text-green-700',
+        close: 'text-green-700  hover:text-green-500 hover:bg-green-200 ml-4 rounded',
+        closeIcon: 'h-5 w-5 fill-current'
+      }
+    }
+  },
   TInputGroup: {
     classes: {
       wrapper: 'mb-4',
