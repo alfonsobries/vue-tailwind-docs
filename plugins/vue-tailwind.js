@@ -46,7 +46,7 @@ Vue.use(VueTailwind, {
   },
   TCard: {
     classes: {
-      wrapper: 'rounded border shadow',
+      wrapper: 'rounded shadow',
       body: 'p-4',
       header: 'p-4 border-b text-sm font-semibold uppercase text-gray-700',
       footer: 'p-2 border-t'
