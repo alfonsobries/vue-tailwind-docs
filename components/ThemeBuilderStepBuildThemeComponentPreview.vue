@@ -15,8 +15,17 @@
       >
         So you selected VueJs & Tailwind Combo, Good decision!
       </t-alert>
+      <t-card
+        v-else-if="componentName === 'TCard'"
+        show
+        :classes="classes ? classes : null"
+        header="User profile"
+        footer="Copyright wharever 2020"
+      >
+        Im a full-stack software from Mexico City that likes Vue & TailwindCSS.
+      </t-card>
       <t-input-group
-        v-if="componentName === 'TInputGroup'"
+        v-else-if="componentName === 'TInputGroup'"
         :classes="classes ? classes : null"
         label="Your password"
         description="Use characters and numbers"
@@ -26,6 +35,7 @@
       </t-input-group>
       <component
         :is="componentName"
+        v-else
         :id="`${componentName}-${_uid}`"
         v-model="componentValue"
         :value="hasLabel ? componentValue: undefined"

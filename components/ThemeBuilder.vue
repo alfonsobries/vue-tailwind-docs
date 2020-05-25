@@ -120,6 +120,22 @@ const defaultTheme = {
       }
     }
   },
+  TCard: {
+    classes: {
+      wrapper: 'rounded border max-w-lg mx-auto bg-white shadow',
+      body: 'p-4',
+      header: 'p-4 border-b',
+      footer: 'p-4 border-t'
+    },
+    variants: {
+      danger: {
+        wrapper: 'rounded border max-w-lg mx-auto border-red-500 bg-red-100 text-red-700 shadow',
+        body: 'p-4',
+        header: 'p-4 border-b border-red-500 text-red-700',
+        footer: 'p-4 border-t bg-red-500 text-white text-sm'
+      }
+    }
+  },
   TInputGroup: {
     classes: {
       wrapper: 'mb-4',

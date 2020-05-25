@@ -82,7 +82,7 @@
             <t-checkbox id="t-radio" v-model="selected" value="TInputGroup" />
           </div>
           <div class="pl-7 flex-grow text-sm leading-5">
-            <label for="t-radio" class="font-medium text-gray-700">TInputGroup</label>
+            <label for="t-radio" class="font-medium text-gray-700">Input Group</label>
             <div class="mt-1 flex items-center" :class="{ 'opacity-50': ! selected.includes('TInputGroup') }">
               <t-input-group
                 label="Your password"
@@ -100,11 +100,25 @@
             <t-checkbox id="t-radio" v-model="selected" value="TAlert" />
           </div>
           <div class="pl-7 flex-grow text-sm leading-5">
-            <label for="t-radio" class="font-medium text-gray-700">TAlert</label>
+            <label for="t-radio" class="font-medium text-gray-700">Alert</label>
             <div class="mt-1 flex items-center" :class="{ 'opacity-50': ! selected.includes('TAlert') }">
               <t-alert class="pointer-events-none" show>
                 So you selected VueJs & Tailwind Combo, Good decision!
               </t-alert>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-start mt-4">
+          <div class="flex items-center h-5 mr-3">
+            <t-checkbox id="t-radio" v-model="selected" value="TCard" />
+          </div>
+          <div class="pl-7 flex-grow text-sm leading-5">
+            <label for="t-radio" class="font-medium text-gray-700">Card</label>
+            <div class="mt-1 flex items-center" :class="{ 'opacity-50': ! selected.includes('TCard') }">
+              <t-card class="pointer-events-none" header="User profile">
+                Im a full-stack software from Mexico City that likes Vue & TailwindCSS.
+              </t-card>
             </div>
           </div>
         </div>
@@ -142,17 +156,7 @@
             </div>
           </div>
         </div>
-        <div class="flex items-start mt-4  opacity-50">
-          <div class="flex items-center h-5 mr-3">
-            <t-checkbox id="t-radio" v-model="selected" disabled />
-          </div>
-          <div class="pl-7 flex-grow text-sm leading-5">
-            <label for="t-radio" class="font-medium text-gray-700">Card</label>
-            <div class="mt-1 flex items-center">
-              <span class="ml-2"> (coming soon...)</span>
-            </div>
-          </div>
-        </div>
+
         <div class="flex items-start mt-4  opacity-50">
           <div class="flex items-center h-5 mr-3">
             <t-checkbox id="t-radio" v-model="selected" disabled />

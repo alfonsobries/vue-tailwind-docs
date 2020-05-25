@@ -38,10 +38,18 @@ Vue.use(VueTailwind, {
   TInputGroup: {
     classes: {
       wrapper: 'mb-4',
-      label: 'block uppercase tracking-wide text-xs font-bold text-gray-700',
+      label: 'block uppercase tracking-wide text-xs font-semibold text-gray-700',
       body: '',
       feedback: 'text-sm text-gray-700',
       description: 'text-sm text-gray-700'
+    }
+  },
+  TCard: {
+    classes: {
+      wrapper: 'rounded border shadow',
+      body: 'p-4',
+      header: 'p-4 border-b text-sm font-semibold uppercase text-gray-700',
+      footer: 'p-2 border-t'
     }
   }
 })

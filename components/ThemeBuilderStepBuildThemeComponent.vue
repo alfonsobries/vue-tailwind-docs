@@ -36,6 +36,7 @@
             </h3>
 
             <classes-form-alert v-if="componentName === 'TAlert'" v-model="currentComponentTheme.classes" />
+            <classes-form-card v-if="componentName === 'TCard'" v-model="currentComponentTheme.classes" />
             <classes-form-input-group v-else-if="componentName === 'TInputGroup'" v-model="currentComponentTheme.classes" />
             <classes-form-simple v-else v-model="currentComponentTheme.classes" />
           </div>
@@ -98,6 +99,7 @@ import ComponentPreview from './ThemeBuilderStepBuildThemeComponentPreview.vue'
 import Icon from '@/components/Icon'
 import ClassesFormSimple from '@/components/ClassesForm/ClassesFormSimple.vue'
 import ClassesFormAlert from '@/components/ClassesForm/ClassesFormAlert.vue'
+import ClassesFormCard from '@/components/ClassesForm/ClassesFormCard.vue'
 import ClassesFormInputGroup from '@/components/ClassesForm/ClassesFormInputGroup.vue'
 
 export default Vue.extend({
@@ -107,6 +109,7 @@ export default Vue.extend({
     ComponentPreview,
     ClassesFormSimple,
     ClassesFormAlert,
+    ClassesFormCard,
     ClassesFormInputGroup
   },
   props: {
