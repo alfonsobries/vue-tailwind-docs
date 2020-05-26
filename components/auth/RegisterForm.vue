@@ -92,7 +92,7 @@
           ...
         </template>
         <template v-else>
-          Register
+          Sign up
         </template>
       </t-button>
     </t-input-group>
@@ -119,9 +119,9 @@ export default {
         await this.form.post('/register')
 
         // Update the user.
-        await this.$store.dispatch('auth/fetchUser')
+        await this.$auth.fetchUser()
 
-        this.$router.push('/home')
+        this.$router.push('/')
       } catch (e) {
         this.$handleException(e)
       }

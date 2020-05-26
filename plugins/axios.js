@@ -1,6 +1,10 @@
+import Form from 'vform'
+
 export default ({
   $axios, store, redirect
 }) => {
+  Form.axios = $axios
+
   // Response interceptor
   $axios.onError((error) => {
     const { status } = error.response || {}
