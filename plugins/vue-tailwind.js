@@ -19,7 +19,10 @@ Vue.use(VueTailwind, {
     classes: 'form-radio h-4 w-4 text-orange-500 transition duration-150 ease-in-out'
   },
   TInput: {
-    classes: 'form-input border-2 bg-orange-100 text-gray-700'
+    classes: 'form-input border-2 bg-orange-100 text-gray-700',
+    variants: {
+      error: 'form-input border-2 bg-orange-100 border-red-500 text-red-500'
+    }
   },
   TTextarea: {
     classes: 'form-textarea border-2 bg-orange-100 text-gray-700'
@@ -42,14 +45,27 @@ Vue.use(VueTailwind, {
       body: '',
       feedback: 'text-sm text-gray-700',
       description: 'text-sm text-gray-700'
+    },
+    variants: {
+      error: {
+        label: 'block uppercase tracking-wide text-xs font-semibold text-red-500',
+        feedback: 'text-sm text-red-500'
+      }
     }
   },
   TCard: {
     classes: {
-      wrapper: 'rounded shadow',
-      body: 'p-4',
-      header: 'p-4 border-b text-sm font-semibold uppercase text-gray-700',
-      footer: 'p-2 border-t'
+      wrapper: 'rounded shadow bg-white',
+      body: 'p-10',
+      header: 'p-10 border-b text-sm font-semibold uppercase text-gray-700'
+    },
+    variants: {
+      demo: {
+        wrapper: 'rounded shadow bg-white',
+        body: 'p-4',
+        header: 'p-4 border-b text-sm font-semibold uppercase text-gray-700',
+        footer: 'p-2 border-t'
+      }
     }
   }
 })

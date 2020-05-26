@@ -18,7 +18,7 @@ export default {
   },
 
   env: {
-    apiUrl: process.env.API_URL || 'http://vue-tailwind-themes-api.test'
+    apiUrl: process.env.API_URL || 'https://vue-tailwind-themes-api.test'
   },
 
   /*

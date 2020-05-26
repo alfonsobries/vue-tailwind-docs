@@ -116,7 +116,7 @@
           <div class="pl-7 flex-grow text-sm leading-5">
             <label for="t-radio" class="font-medium text-gray-700">Card</label>
             <div class="mt-1 flex items-center" :class="{ 'opacity-50': ! selected.includes('TCard') }">
-              <t-card class="pointer-events-none" header="User profile">
+              <t-card variant="demo" class="pointer-events-none" header="User profile">
                 Im a full-stack software from Mexico City that likes Vue & TailwindCSS.
               </t-card>
             </div>
