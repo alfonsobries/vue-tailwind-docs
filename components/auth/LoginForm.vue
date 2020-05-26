@@ -86,8 +86,6 @@
 <script>
 import Vue from 'vue'
 import Form from 'vform'
-import { mapGetters } from 'vuex'
-
 export default Vue.extend({
   props: {
     returnTo: {
@@ -95,7 +93,6 @@ export default Vue.extend({
       default: '/'
     }
   },
-
   data: () => ({
     form: new Form({
       email: '',
@@ -103,16 +100,10 @@ export default Vue.extend({
       remember: false
     })
   }),
-
-  computed: mapGetters({
-    user: 'auth/user'
-  }),
-
   methods: {
     async login () {
       try {
-        const response = await this.$auth.loginWith('local', { data: this.form.data() })
-        console.log(response)
+        await this.$auth.loginWith('local', { data: this.form.data() })
       } catch (error) {
         if (error.response) {
           this.form.errors.set(this.form.extractErrors(error.response))
@@ -120,25 +111,6 @@ export default Vue.extend({
         this.$handleException(error)
       }
     }
-
-    //   async handleLogin () {
-    //     try {
-    //       let response = await this.$auth.loginWith('local', { data: this.login })
-    //       console.log(response)
-    //     } catch (err) {
-    //       console.log(err)
-    //     }
-    //   }
-    // }
-    //     // Keep busy status
-    //     this.form.busy = true
-
-    //     const user = await this.$store.dispatch('auth/fetchUser')
-
-    //     // this.$success(this.$t('auth.notifications.login_success', { name: user.just_name }))
-
-  //     this.$router.push(this.returnTo)
-  //   }
   }
 })
 </script>
