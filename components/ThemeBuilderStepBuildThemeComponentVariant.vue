@@ -30,7 +30,7 @@
               class="block text-sm leading-5 font-medium text-gray-700"
             >Variant classes</label>
             <classes-form-alert v-if="componentName === 'TAlert'" v-model="localVariant.classes" />
-            <classes-form-card v-if="componentName === 'TCard'" v-model="localVariant.classes" />
+            <classes-form-card v-else-if="componentName === 'TCard'" v-model="localVariant.classes" />
             <classes-form-input-group v-else-if="componentName === 'TInputGroup'" v-model="localVariant.classes" />
             <classes-form-simple v-else v-model="localVariant.classes" />
           </div>

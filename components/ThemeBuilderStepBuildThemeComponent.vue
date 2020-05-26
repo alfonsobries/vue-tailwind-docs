@@ -36,7 +36,7 @@
             </h3>
 
             <classes-form-alert v-if="componentName === 'TAlert'" v-model="currentComponentTheme.classes" />
-            <classes-form-card v-if="componentName === 'TCard'" v-model="currentComponentTheme.classes" />
+            <classes-form-card v-else-if="componentName === 'TCard'" v-model="currentComponentTheme.classes" />
             <classes-form-input-group v-else-if="componentName === 'TInputGroup'" v-model="currentComponentTheme.classes" />
             <classes-form-simple v-else v-model="currentComponentTheme.classes" />
           </div>
