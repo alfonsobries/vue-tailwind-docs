@@ -35,7 +35,8 @@ export default {
   */
   plugins: [
     '@plugins/axios.js',
-    '@plugins/vue-tailwind.js'
+    '@plugins/vue-tailwind.js',
+    '@plugins/exception-handler.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -50,13 +51,32 @@ export default {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/auth'
   ],
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/login', method: 'post' },
+          logout: { url: '/logout', method: 'post' },
+          user: { url: '/user', method: 'get', propertyName: '' }
+        },
+        tokenRequired: false,
+        tokenType: false
+      }
+    }
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    baseURL: process.env.API_URL || 'https://vue-tailwind-themes-api.test',
+    credentials: true,
+    common: {
+      Accept: 'application/json'
+    }
   },
   /*
   ** Build configuration

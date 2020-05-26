@@ -65,7 +65,6 @@
     </div>
 
     <t-input-group
-      v-if="showSubmitButon"
       class="text-center mt-5"
     >
       <t-button
@@ -91,14 +90,6 @@ import { mapGetters } from 'vuex'
 
 export default Vue.extend({
   props: {
-    showSubmitButon: {
-      type: Boolean,
-      default: true
-    },
-    redirect: {
-      type: Boolean,
-      default: true
-    },
     returnTo: {
       type: String,
       default: '/'
@@ -118,23 +109,36 @@ export default Vue.extend({
   }),
 
   methods: {
-    login () {
-      this.form.post('/login')
-        .then(this.handleLogin)
-        .catch(this.$handleException)
-        .then(() => this.$emit('end'))
-    },
-
-    async handleLogin () {
-      // Keep busy status
-      this.form.busy = true
-
-      const user = await this.$store.dispatch('auth/fetchUser')
-
-      // this.$success(this.$t('auth.notifications.login_success', { name: user.just_name }))
-
-      this.$router.push(this.returnTo)
+    async login () {
+      try {
+        const response = await this.$auth.loginWith('local', { data: this.form.data() })
+        console.log(response)
+      } catch (error) {
+        if (error.response) {
+          this.form.errors.set(this.form.extractErrors(error.response))
+        }
+        this.$handleException(error)
+      }
     }
+
+    //   async handleLogin () {
+    //     try {
+    //       let response = await this.$auth.loginWith('local', { data: this.login })
+    //       console.log(response)
+    //     } catch (err) {
+    //       console.log(err)
+    //     }
+    //   }
+    // }
+    //     // Keep busy status
+    //     this.form.busy = true
+
+    //     const user = await this.$store.dispatch('auth/fetchUser')
+
+    //     // this.$success(this.$t('auth.notifications.login_success', { name: user.just_name }))
+
+  //     this.$router.push(this.returnTo)
+  //   }
   }
 })
 </script>

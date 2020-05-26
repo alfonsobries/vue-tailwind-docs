@@ -1,40 +1,14 @@
-import axiosCancel from 'axios-cancel'
-import axios from 'axios'
-
-axiosCancel(axios)
-
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
-
 export default ({
-  store, redirect, req
+  $axios, store, redirect
 }) => {
-  if (process.server) {
-    axios.defaults.headers.common.Referer = req.headers.referer
-  }
-
-  axios.defaults.baseURL = store.getters['app/apiUrl']
-  axios.defaults.withCredentials = true
-
-  if (process.server) {
-    return
-  }
-
-  // Request interceptor
-  axios.interceptors.request.use((request) => {
-    request.baseURL = store.getters['app/apiUrl']
-    axios.defaults.withCredentials = true
-
-    return request
-  })
-
   // Response interceptor
-  axios.interceptors.response.use(response => response, (error) => {
+  $axios.onError((error) => {
     const { status } = error.response || {}
 
     // If csrf token mismatch, refresh the token and retry
     if (status === 419) {
-      return axios.get('/sanctum/csrf-cookie')
-        .then(() => axios.request(error.config))
+      return $axios.get('/sanctum/csrf-cookie')
+        .then(() => $axios.request(error.config))
     }
 
     if (status >= 500) {

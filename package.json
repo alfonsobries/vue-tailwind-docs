@@ -13,7 +13,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/auth": "^4.9.1",
+    "@nuxtjs/axios": "^5.10.3",
     "axios": "^0.19.2",
     "axios-cancel": "^0.2.2",
     "clipboard-copy": "^3.1.0",
