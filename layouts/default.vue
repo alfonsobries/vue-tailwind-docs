@@ -10,7 +10,7 @@
             </nuxt-link>
           </div>
         </div>
-        <div v-if="!$auth.loggedIn" type="button" class="block ml-auto">
+        <div v-if="!$auth.loggedIn" class="block ml-auto">
           <t-button to="/register">
             Sign up
           </t-button>
