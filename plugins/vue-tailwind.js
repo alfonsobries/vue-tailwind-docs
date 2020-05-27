@@ -39,6 +39,20 @@ Vue.use(VueTailwind, {
       body: 'flex-grow text-blue-700',
       close: 'text-blue-700 hover:text-blue-600',
       closeIcon: 'h-5 w-5 fill-current'
+    },
+    variants: {
+      error: {
+        wrapper: 'rounded bg-red-100 p-4 flex text-sm border-l-4 border-red-500',
+        body: 'flex-grow text-red-700',
+        close: 'text-red-700 hover:text-red-500 hover:bg-red-200 ml-4 rounded',
+        closeIcon: 'h-5 w-5 fill-current'
+      },
+      success: {
+        wrapper: 'rounded bg-green-100 p-4 flex text-sm border-l-4 border-green-500',
+        body: 'flex-grow text-green-700',
+        close: 'text-green-700  hover:text-green-500 hover:bg-green-200 ml-4 rounded',
+        closeIcon: 'h-5 w-5 fill-current'
+      }
     }
   },
   TInputGroup: {

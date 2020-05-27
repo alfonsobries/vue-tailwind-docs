@@ -7,12 +7,12 @@
 
     <hr class="border-t my-4">
 
-    <alert v-if="copied === true" type="success" @close="copied = undefined">
+    <t-alert v-if="copied === true" variant="success" @hidden="copied = undefined">
       The code was copied correctly!
-    </alert>
-    <alert v-if="copied === false" type="error" @close="copied = undefined">
+    </t-alert>
+    <t-alert v-if="copied === false" variant="error" @hidden="copied = undefined">
       Something went wrong! We could not copy the code try to copy it manually.
-    </alert>
+    </t-alert>
 
     <div class="relative">
       <div class="absolute right-0 top-0 m-4 flex items-center">
@@ -45,13 +45,11 @@
 import Vue from 'vue'
 import { component as VueCodeHighlight } from 'vue-code-highlight'
 import copy from 'clipboard-copy'
-import Alert from '@/components/Alert'
 import Icon from '@/components/Icon'
 
 export default Vue.extend({
   components: {
     VueCodeHighlight,
-    Alert,
     Icon
   },
   props: {
