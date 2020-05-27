@@ -66,7 +66,7 @@
 
         <ol class="px-4 list-disc">
           <li class="mt-4">
-            I am an expert in VueJS and Laravel together with his ecosystem(is my default stack). However, I know different technologies needed for this team like React and Next.js; my experience in both is not as extensive as VueJs. Still, I'm ready to create any project with both techs or different ones. (You can learn more about my knowledge in <a class="border-b-4 border-orange-300 hover:text-orange-600 text-orange-500" target="_blank" href="https://alfonsobribiesca.com/">my resume</a>)
+            I am an expert in VueJS and Laravel together with his ecosystem(is my default stack), also I know different technologies needed for this team like React and Next.js; my experience in those last two are not as extensive as VueJs for example but still, I'm ready to create any project with both techs or different ones. (You can learn more about my knowledge in <a class="border-b-4 border-orange-300 hover:text-orange-600 text-orange-500" target="_blank" href="https://alfonsobribiesca.com/">my resume</a> also you can check my <a class="border-b-4 border-orange-300 hover:text-orange-600 text-orange-500" target="_blank" href="https://github.com/alfonsobries">GitHub profile</a>)
           </li>
           <li class="mt-4">
             I have been independently making web applications for 12 years on behalf of my company called <a href="https://www.vexilo.com/en" target="_blank" class="border-b-4 border-orange-300 hover:text-orange-600 text-orange-500">Vexilo</a>. (Quick note: even though it sells as a "Company" is a one-person company (me) that means all the portfolio is mine).
