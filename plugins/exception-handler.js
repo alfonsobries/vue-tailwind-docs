@@ -1,9 +1,8 @@
 import get from 'lodash/get'
-import axios from 'axios'
 
-export default ({ $sentry }, inject) => {
+export default ({ $axios, $sentry }, inject) => {
   inject('handleException', (error, nuxtError = null) => {
-    if (axios.isCancel(error)) {
+    if ($axios.isCancel(error)) {
       // Dont report is ok
       return
     }

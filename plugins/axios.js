@@ -1,9 +1,11 @@
 import Form from 'vform'
-
+import axiosCancel from 'axios-cancel'
 export default ({
   $axios, store, redirect
 }) => {
   Form.axios = $axios
+
+  axiosCancel($axios)
 
   // Response interceptor
   $axios.onError((error) => {

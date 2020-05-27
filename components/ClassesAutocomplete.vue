@@ -60,7 +60,6 @@
 </template>
 <script>
 import Vue from 'vue'
-import axios from 'axios'
 
 export default Vue.extend({
   props: {
@@ -162,12 +161,12 @@ export default Vue.extend({
         return
       }
       const requestId = 'options'
-      return axios.get(`css-autocomplete?q=${this.query}`, { requestId })
+      return this.$axios.get(`css-autocomplete?q=${this.query}`, { requestId })
         .then(({ data }) => {
           this.options = data
         })
         .catch((error) => {
-          if (axios.isCancel(error)) {
+          if (this.$axios.isCancel(error)) {
             // Its ok
             return
           }
