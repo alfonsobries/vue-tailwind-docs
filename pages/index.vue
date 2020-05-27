@@ -36,7 +36,7 @@
         </p>
 
         <p class="mt-4">
-          To be considered and as the job description asks for, I developed this project that I hope can serve as a useful reference for my work. I build this project in 2 parts:
+          To be considered and as the job description asks for, I developed this project that I hope can serve as a useful reference for my work. I build this project in 3 parts:
         </p>
 
         <ol class="px-4 list-decimal">
@@ -47,6 +47,9 @@
           <li class="mt-4">
             For that new package, I create a new Theme builder that allows the users to create and preview his theme using an autocomplete input that gets TailwindCSS classes fetched from a Laravel API. You can <a href="#theme-builder" class="border-b-4 border-dotted border-orange-300 hover:text-orange-600 text-orange-500" @click.prevent="smoothScrolToThemeBuilder">test it below ↓↓</a>.
           </li>
+          <li class="mt-4">
+            Finally, as a part of the vision as what it can be an excellent addition for a great library of components, I added to this page a small feature to allow the user to store, preview, and share his custom themes. It is a super simple feature by now, but imagine a library of community themes voted by more popular, featured themes, etc.
+          </li>
         </ol>
 
         <p class="mt-4 font-semibold">
@@ -54,7 +57,7 @@
         </p>
 
         <p class="mt-4">
-          I will like to create tools that help developers to create beautiful, fast, and customized applications with TailwindCSS-related libraries. I can easily picture TailwindCSS as the most import CSS framework in the near future, and I want to be part of it.
+          I will like to create tools that help developers to create beautiful, fast, and customized applications with TailwindCSS-related libraries. I can easily picture TailwindCSS as the most important CSS framework soon, and I really want to be part of it.
         </p>
 
         <p class="mt-4 font-semibold">
