@@ -42,10 +42,14 @@ export default Vue.extend({
     }
   },
   created () {
+    // @ts-ignore
     this.$axios.get(`/themes/${this.$route.params.slug}`)
+    // @ts-ignore
       .then(({ data }) => {
         this.theme = data
+      // @ts-ignore
       }).catch((error) => {
+        // @ts-ignore
         this.$handleException(error)
       })
   }

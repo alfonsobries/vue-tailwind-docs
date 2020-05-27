@@ -140,6 +140,7 @@ export default Vue.extend({
     }
   },
   created () {
+    // @ts-ignore
     this.$axios.get('/themes')
       // @ts-ignore
       .then(({ data }) => {
