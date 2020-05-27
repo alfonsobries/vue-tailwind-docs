@@ -1,7 +1,6 @@
 <template>
   <form
-    class="max-w-lg w-full mx-auto"
-    @submit.prevent="register"
+    @submit.prevent="submitForm"
     @keydown="form.onKeydown($event)"
   >
     <t-input-group
@@ -81,6 +80,7 @@
     </t-input-group>
 
     <t-input-group
+      v-if="!hideSubmitButton"
       class="text-center"
     >
       <t-button
@@ -103,7 +103,17 @@
 import Form from 'vform'
 
 export default {
-
+  props: {
+    hideSubmitButton: {
+      type: Boolean,
+      default: false
+    },
+    redirectTo: {
+      type: String,
+      default: '/',
+      required: false
+    }
+  },
   data: () => ({
     form: new Form({
       name: '',
@@ -113,7 +123,7 @@ export default {
     })
   }),
   methods: {
-    async register () {
+    async submitForm () {
       try {
         // Register the user.
         await this.form.post('/register')
@@ -121,8 +131,12 @@ export default {
         // Update the user.
         await this.$auth.fetchUser()
 
-        this.$router.push('/')
+        if (this.redirectTo) {
+          this.$router.push(this.redirectTo)
+        }
+        this.$emit('success')
       } catch (e) {
+        this.$emit('error')
         this.$handleException(e)
       }
     }

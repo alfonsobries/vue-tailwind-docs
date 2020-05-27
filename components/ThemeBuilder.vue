@@ -26,6 +26,11 @@
             :theme="theme"
           />
 
+          <theme-builder-step-share
+            v-show="step === 3"
+            :theme="theme"
+          />
+
           <div class="flex justify-between mt-8 pt-4 border-t">
             <t-button
               type="button"
@@ -39,6 +44,7 @@
               Prev step
             </t-button>
             <t-button
+              v-if="step < 3"
               type="button"
               :disabled="nextStepDisabled"
               :variant="{
@@ -61,6 +67,7 @@ import ThemeBuilderSteps from './ThemeBuilderSteps.vue'
 import ThemeBuilderStepSelectComponents from './ThemeBuilderStepSelectComponents.vue'
 import ThemeBuilderStepBuildTheme from './ThemeBuilderStepBuildTheme.vue'
 import ThemeBuilderStepInstall from './ThemeBuilderStepInstall.vue'
+import ThemeBuilderStepShare from './ThemeBuilderStepShare.vue'
 
 const defaultTheme = {
   TInput: {
@@ -161,11 +168,12 @@ export default Vue.extend({
     ThemeBuilderSteps,
     ThemeBuilderStepSelectComponents,
     ThemeBuilderStepBuildTheme,
-    ThemeBuilderStepInstall
+    ThemeBuilderStepInstall,
+    ThemeBuilderStepShare
   },
   data () {
     return {
-      step: 0,
+      step: 3,
       stepReady: 0,
       lastActiveStep: 0,
       selectedComponents: Object.keys(defaultTheme),

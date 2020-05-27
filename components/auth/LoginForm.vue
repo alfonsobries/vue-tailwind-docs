@@ -1,6 +1,6 @@
 <template>
   <form
-    @submit.prevent="login"
+    @submit.prevent="submitForm"
     @keydown="form.onKeydown($event)"
   >
     <t-input-group
@@ -65,6 +65,7 @@
     </div>
 
     <t-input-group
+      v-if="!hideSubmitButton"
       class="text-center mt-5"
     >
       <t-button
@@ -88,9 +89,14 @@ import Vue from 'vue'
 import Form from 'vform'
 export default Vue.extend({
   props: {
-    returnTo: {
-      type: String,
-      default: '/'
+    hideSubmitButton: {
+      type: Boolean,
+      default: false
+    },
+    redirectTo: {
+      type: [String, Boolean],
+      default: '/',
+      required: false
     }
   },
   data: () => ({
@@ -101,10 +107,15 @@ export default Vue.extend({
     })
   }),
   methods: {
-    async login () {
+    async submitForm () {
       try {
         await this.$auth.loginWith('local', { data: this.form.data() })
+        if (this.redirectTo) {
+          this.$router.push(this.redirectTo)
+        }
+        this.$emit('success')
       } catch (error) {
+        this.$emit('error')
         if (error.response) {
           this.form.errors.set(this.form.extractErrors(error.response))
         }

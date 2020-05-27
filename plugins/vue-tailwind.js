@@ -25,7 +25,10 @@ Vue.use(VueTailwind, {
     }
   },
   TTextarea: {
-    classes: 'form-textarea border-2 bg-orange-100 text-gray-700'
+    classes: 'form-textarea border-2 bg-orange-100 text-gray-700',
+    variants: {
+      error: 'form-textarea border-2 bg-orange-100 border-red-500 text-red-500'
+    }
   },
   TSelect: {
     classes: 'form-select border-2 bg-orange-100 text-gray-700'
@@ -60,10 +63,21 @@ Vue.use(VueTailwind, {
       header: 'p-10 border-b text-sm font-semibold uppercase text-gray-700'
     },
     variants: {
+      preview: {
+        wrapper: '',
+        body: '',
+        header: 'py-2 border-b font-semibold uppercase text-gray-700'
+      },
       demo: {
         wrapper: 'rounded shadow bg-white',
         body: 'p-4',
         header: 'p-4 border-b text-sm font-semibold uppercase text-gray-700',
+        footer: 'p-2 border-t'
+      },
+      theme: {
+        wrapper: 'rounded shadow bg-white',
+        body: 'p-4 text-sm leading-snug',
+        header: 'p-2 flex border-b text-sm font-semibold uppercase text-gray-800 justify-between items-center',
         footer: 'p-2 border-t'
       }
     }
