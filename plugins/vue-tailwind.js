@@ -95,5 +95,39 @@ Vue.use(VueTailwind, {
         footer: 'p-2 border-t'
       }
     }
+  },
+  TModal: {
+    classes: {
+      overlay: 'z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed bg-black bg-opacity-50',
+      wrapper: 'z-50 relative mx-auto my-0 max-w-lg',
+      modal: 'bg-white shadow border overflow-hidden relative',
+      body: '',
+      header: '',
+      footer: '',
+      close: 'absolute right-0 top-0',
+      closeIcon: 'h-5 w-5 fill-current'
+    },
+    variants: {
+      demo: {
+        overlay: 'bg-black bg-opacity-50 w-full p-4 rounded',
+        wrapper: 'relative mx-auto my-0 max-w-lg',
+        modal: 'rounded shadow bg-white relative',
+        body: 'p-4',
+        header: 'p-4 border-b text-sm font-semibold uppercase text-gray-700',
+        footer: 'p-2 border-t',
+        close: 'absolute right-0 top-0 m-3 text-gray-700 hover:text-gray-600',
+        closeIcon: 'h-5 w-5 fill-current'
+      },
+      danger: {
+        overlay: 'z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed bg-black bg-opacity-50',
+        wrapper: 'z-50 relative mx-auto my-0 max-w-lg',
+        modal: 'bg-white shadow border overflow-hidden relative',
+        body: '',
+        header: '',
+        footer: '',
+        close: 'absolute right-0 top-0',
+        closeIcon: 'h-5 w-5 fill-current'
+      }
+    }
   }
 })

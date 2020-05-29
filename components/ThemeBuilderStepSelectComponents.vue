@@ -123,6 +123,29 @@
           </div>
         </div>
 
+        <div class="flex items-start mt-4">
+          <div class="flex items-center h-5 mr-3">
+            <t-checkbox id="t-radio" v-model="selected" value="TModal" />
+          </div>
+          <div class="pl-7 flex-grow text-sm leading-5">
+            <label for="t-radio" class="font-medium text-gray-700">Modal</label>
+            <div class="mt-1 flex items-center" :class="{ 'opacity-50': ! selected.includes('TModal') }">
+              <t-modal
+                variant="demo"
+                :value="true"
+                :focus-on-open="false"
+                :disable-body-scroll="false"
+                :esc-to-close="false"
+                :click-to-close="false"
+                class="pointer-events-none"
+                header="User profile"
+              >
+                Im a full-stack software from Mexico City that likes Vue & TailwindCSS.
+              </t-modal>
+            </div>
+          </div>
+        </div>
+
         <div class="flex items-start mt-4  opacity-50">
           <div class="flex items-center h-5 mr-3">
             <t-checkbox id="t-radio" v-model="selected" disabled />
@@ -134,17 +157,7 @@
             </div>
           </div>
         </div>
-        <div class="flex items-start mt-4  opacity-50">
-          <div class="flex items-center h-5 mr-3">
-            <t-checkbox id="t-radio" v-model="selected" disabled />
-          </div>
-          <div class="pl-7 flex-grow text-sm leading-5">
-            <label for="t-radio" class="font-medium text-gray-700">Modal</label>
-            <div class="mt-1 flex items-center">
-              <span class="ml-2"> (coming soon...)</span>
-            </div>
-          </div>
-        </div>
+
         <div class="flex items-start mt-4  opacity-50">
           <div class="flex items-center h-5 mr-3">
             <t-checkbox id="t-radio" v-model="selected" disabled />

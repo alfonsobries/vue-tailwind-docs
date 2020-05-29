@@ -105,6 +105,24 @@ const defaultTheme = {
       success: 'form-checkbox border-green-300 bg-green-100 text-green-500'
     }
   },
+  TInputGroup: {
+    classes: {
+      wrapper: 'mb-4',
+      label: 'block uppercase tracking-wide text-xs font-bold mb-1',
+      body: '',
+      feedback: 'text-sm text-gray-500',
+      description: 'text-sm text-gray-500'
+    },
+    variants: {
+      danger: {
+        wrapper: 'mb-4',
+        label: 'block uppercase tracking-wide text-xs font-bold mb-1 text-red-500',
+        feedback: 'text-sm text-red-500',
+        body: 'text-sm text-gray-500',
+        description: 'text-sm'
+      }
+    }
+  },
   TAlert: {
     classes: {
       wrapper: 'rounded bg-blue-100 p-4 flex text-sm border-l-4 border-blue-500',
@@ -143,24 +161,31 @@ const defaultTheme = {
       }
     }
   },
-  TInputGroup: {
+  TModal: {
     classes: {
-      wrapper: 'mb-4',
-      label: 'block uppercase tracking-wide text-xs font-bold mb-1',
-      body: '',
-      feedback: 'text-sm text-gray-500',
-      description: 'text-sm text-gray-500'
+      overlay: 'z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed bg-black bg-opacity-50',
+      wrapper: 'z-50 relative mx-auto my-0 max-w-lg mt-12',
+      modal: 'bg-white shadow overflow-hidden relative',
+      body: 'p-4',
+      header: 'p-4 border-b text-sm font-semibold uppercase text-gray-700',
+      footer: 'p-2 border-t',
+      close: 'absolute right-0 top-0 m-3 text-gray-700 hover:text-gray-600',
+      closeIcon: 'h-5 w-5 fill-current'
     },
     variants: {
       danger: {
-        wrapper: 'mb-4',
-        label: 'block uppercase tracking-wide text-xs font-bold mb-1 text-red-500',
-        feedback: 'text-sm text-red-500',
-        body: 'text-sm text-gray-500',
-        description: 'text-sm'
+        overlay: 'z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed bg-red-500 bg-opacity-50',
+        wrapper: 'z-50 relative mx-auto my-0 max-w-lg mt-12',
+        modal: 'bg-white shadow overflow-hidden relative',
+        body: 'p-4',
+        header: 'p-4 border-b border-red-100 text-sm font-semibold uppercase text-red-700',
+        footer: 'p-2 border-t border-red-100 bg-red-100',
+        close: 'absolute right-0 top-0 m-3 text-red-700 hover:text-red-600',
+        closeIcon: 'h-5 w-5 fill-current'
       }
     }
   }
+
 }
 
 export default Vue.extend({

@@ -31,7 +31,9 @@
         </button>
       </div>
 
-      <vue-code-highlight>{{ code }}</vue-code-highlight>
+      <div class="max-w-2xl overflow-auto">
+        <vue-code-highlight>{{ code }}</vue-code-highlight>
+      </div>
 
       <p class="my-4">
         *Dont forget to install the <span class="text-orange-500">vue-tailwind</span> package

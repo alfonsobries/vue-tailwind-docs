@@ -2555,6 +2555,11 @@ body-parser@1.19.0, body-parser@^1.19.0:
     raw-body "2.4.0"
     type-is "~1.6.17"
 
+body-scroll-lock@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/body-scroll-lock/-/body-scroll-lock-3.0.2.tgz#97df9bb3b17a0140c4a09b3568d146ae9af6b981"
+  integrity sha512-PtItUun94iIupKry8J/h6SfRCLWZnly77KbPsTSKALmxfR282L8R0Ujkv7bydSZvLxAJS4sBJ3y/E6X8gYkGrQ==
+
 boolbase@^1.0.0, boolbase@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
@@ -10371,11 +10376,12 @@ vue-style-loader@^4.1.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-tailwind@^1.0.0-12:
-  version "1.0.0-12"
-  resolved "https://registry.yarnpkg.com/vue-tailwind/-/vue-tailwind-1.0.0-12.tgz#a06c70c9849564e4acf11bc3a8c3deacb01ffac0"
-  integrity sha512-I2q5h5z0FU4XNB1azBy3ic84CrH6XaajMX3RV338O2kxTseEVH+ieAqP0IWjL0BpkKt3388Qlk+HzysSnNm10Q==
+vue-tailwind@^1.0.0-14:
+  version "1.0.0-14"
+  resolved "https://registry.yarnpkg.com/vue-tailwind/-/vue-tailwind-1.0.0-14.tgz#3c034757341bf52f53867e072ad397648b4e1ad8"
+  integrity sha512-XVzSTjgObgEMkcLuxtCeaBK1Ves4jfV4Jahv9Bsr17WSgCZoQGDBvcY+6V9TvaDCLs/NLBUA94K4uef0BIDJIw==
   dependencies:
+    body-scroll-lock "^3.0.2"
     lodash "^4.17.15"
     vue "^2.6.11"
 
