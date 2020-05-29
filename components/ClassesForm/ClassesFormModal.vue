@@ -15,7 +15,7 @@
     <t-input-group label="Modal header class">
       <classes-autocomplete v-model="localvalue.header" />
     </t-input-group>
-    <t-input-group label="Modal hooter class">
+    <t-input-group label="Modal footer class">
       <classes-autocomplete v-model="localvalue.footer" />
     </t-input-group>
     <t-input-group label="Close button class">
