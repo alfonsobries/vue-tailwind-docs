@@ -12,18 +12,18 @@
         <t-modal
           ref="modal"
           v-model="showModal"
-          :focus-on-open="false"
-          :disable-body-scroll="false"
-          :esc-to-close="false"
-          :click-to-close="false"
+          :focus-on-open="showModalFull ? true : false"
+          :disable-body-scroll="showModalFull ? true : false"
+          :esc-to-close="showModalFull ? true : false"
+          :click-to-close="showModalFull ? true : false"
           :classes="modalClasses"
           header="title of the modal"
         >
           So you selected VueJs & Tailwind Combo, Good decision!
           <template v-slot:footer>
             <div class="flex justify-between">
-              <t-button type="button">Cancel</t-button>
-              <t-button type="button">Ok</t-button>
+              <t-button type="button" @click="showModalFull ? $refs.modal.hide() : undefined">Cancel</t-button>
+              <t-button type="button" @click="showModalFull ? $refs.modal.hide() : undefined">Ok</t-button>
             </div>
           </template>
         </t-modal>
@@ -97,7 +97,7 @@ export default Vue.extend({
     modalClasses () {
       if (this.classes) {
         if (!this.showModalFull) {
-          const marginPaddingRegex = /([mp][tlrbyx]?-[0-9]*)/gm
+          const marginPaddingRegex = /([mpz][tlrbyx]?-[0-9]*)/gm
           return {
             ...this.classes,
             ...{
