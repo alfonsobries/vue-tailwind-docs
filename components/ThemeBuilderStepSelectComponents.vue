@@ -48,10 +48,10 @@
 
         <div class="flex items-start mt-4">
           <div class="flex items-center h-5 mr-3">
-            <t-checkbox id="t-chexkbox" v-model="selected" value="TCheckbox" />
+            <t-checkbox id="t-checkbox" v-model="selected" value="TCheckbox" />
           </div>
           <div class="pl-7 flex-grow text-sm leading-5">
-            <label for="t-chexkbox" class="font-medium text-gray-700">Checkbox</label>
+            <label for="t-checkbox" class="font-medium text-gray-700">Checkbox</label>
             <div class="mt-1 flex items-center" :class="{ 'opacity-50': ! selected.includes('TCheckbox') }">
               <t-checkbox class="pointer-events-none" /> <span class="ml-2">...</span>
             </div>
@@ -79,10 +79,10 @@
       <div class="mt-4">
         <div class="flex items-start mt-4">
           <div class="flex items-center h-5 mr-3">
-            <t-checkbox id="t-radio" v-model="selected" value="TInputGroup" />
+            <t-checkbox id="t-input-group" v-model="selected" value="TInputGroup" />
           </div>
           <div class="pl-7 flex-grow text-sm leading-5">
-            <label for="t-radio" class="font-medium text-gray-700">Input Group</label>
+            <label for="t-input-group" class="font-medium text-gray-700">Input Group</label>
             <div class="mt-1 flex items-center" :class="{ 'opacity-50': ! selected.includes('TInputGroup') }">
               <t-input-group
                 label="Your password"
@@ -97,10 +97,10 @@
 
         <div class="flex items-start mt-4">
           <div class="flex items-center h-5 mr-3">
-            <t-checkbox id="t-radio" v-model="selected" value="TAlert" />
+            <t-checkbox id="t-alert" v-model="selected" value="TAlert" />
           </div>
           <div class="pl-7 flex-grow text-sm leading-5">
-            <label for="t-radio" class="font-medium text-gray-700">Alert</label>
+            <label for="t-alert" class="font-medium text-gray-700">Alert</label>
             <div class="mt-1 flex items-center" :class="{ 'opacity-50': ! selected.includes('TAlert') }">
               <t-alert class="pointer-events-none" show>
                 So you selected VueJs & Tailwind Combo, Good decision!
@@ -111,10 +111,10 @@
 
         <div class="flex items-start mt-4">
           <div class="flex items-center h-5 mr-3">
-            <t-checkbox id="t-radio" v-model="selected" value="TCard" />
+            <t-checkbox id="t-card" v-model="selected" value="TCard" />
           </div>
           <div class="pl-7 flex-grow text-sm leading-5">
-            <label for="t-radio" class="font-medium text-gray-700">Card</label>
+            <label for="t-card" class="font-medium text-gray-700">Card</label>
             <div class="mt-1 flex items-center" :class="{ 'opacity-50': ! selected.includes('TCard') }">
               <t-card variant="demo" class="pointer-events-none" header="User profile">
                 Im a full-stack software from Mexico City that likes Vue & TailwindCSS.
@@ -125,10 +125,10 @@
 
         <div class="flex items-start mt-4">
           <div class="flex items-center h-5 mr-3">
-            <t-checkbox id="t-radio" v-model="selected" value="TModal" />
+            <t-checkbox id="t-modal" v-model="selected" value="TModal" />
           </div>
           <div class="pl-7 flex-grow text-sm leading-5">
-            <label for="t-radio" class="font-medium text-gray-700">Modal</label>
+            <label for="t-modal" class="font-medium text-gray-700">Modal</label>
             <div class="mt-1 flex items-center" :class="{ 'opacity-50': ! selected.includes('TModal') }">
               <t-modal
                 variant="demo"
@@ -148,10 +148,10 @@
 
         <div class="flex items-start mt-4  opacity-50">
           <div class="flex items-center h-5 mr-3">
-            <t-checkbox id="t-radio" v-model="selected" disabled />
+            <t-checkbox id="to-do-1" v-model="selected" disabled />
           </div>
           <div class="pl-7 flex-grow text-sm leading-5">
-            <label for="t-radio" class="font-medium text-gray-700">Table</label>
+            <label for="to-do-1" class="font-medium text-gray-700">Table</label>
             <div class="mt-1 flex items-center">
               <span class="ml-2"> (coming soon...)</span>
             </div>
@@ -160,10 +160,10 @@
 
         <div class="flex items-start mt-4  opacity-50">
           <div class="flex items-center h-5 mr-3">
-            <t-checkbox id="t-radio" v-model="selected" disabled />
+            <t-checkbox id="to-do-2" v-model="selected" disabled />
           </div>
           <div class="pl-7 flex-grow text-sm leading-5">
-            <label for="t-radio" class="font-medium text-gray-700">Pagination</label>
+            <label for="to-do-2" class="font-medium text-gray-700">Pagination</label>
             <div class="mt-1 flex items-center">
               <span class="ml-2"> (coming soon...)</span>
             </div>
@@ -172,10 +172,10 @@
 
         <div class="flex items-start mt-4  opacity-50">
           <div class="flex items-center h-5 mr-3">
-            <t-checkbox id="t-radio" v-model="selected" disabled />
+            <t-checkbox id="to-do-3" v-model="selected" disabled />
           </div>
           <div class="pl-7 flex-grow text-sm leading-5">
-            <label for="t-radio" class="font-medium text-gray-700">Dropdown</label>
+            <label for="to-do-3" class="font-medium text-gray-700">Dropdown</label>
             <div class="mt-1 flex items-center">
               <span class="ml-2"> (coming soon...)</span>
             </div>
