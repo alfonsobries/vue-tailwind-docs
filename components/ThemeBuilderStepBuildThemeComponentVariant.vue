@@ -39,9 +39,10 @@
         </div>
 
         <component-preview
-          :classes="localVariant.classes"
+          :classes="baseClasses"
           :component-name="componentName"
           :variant="localVariant.name"
+          :variants="variants"
         />
       </div>
       <p class="flex justify-between text-sm items-end">
@@ -100,6 +101,11 @@ export default Vue.extend({
     }
   },
   computed: {
+    variants () {
+      const variants = {}
+      variants[this.localVariant.name] = this.localVariant.classes
+      return variants
+    },
     formPluginClass () {
       const pluginClasses = ['form-input', 'form-select', 'form-textarea', 'form-radio', 'form-chexkbox']
       return pluginClasses.find((className) => {
@@ -109,6 +115,7 @@ export default Vue.extend({
     }
   },
   watch: {
+
     localVariant: {
       handler (localVariant) {
         if (typeof localVariant.classes === 'object') {

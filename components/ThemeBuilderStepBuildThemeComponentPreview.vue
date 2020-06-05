@@ -17,7 +17,8 @@
           :disable-body-scroll="showModalFull ? true : false"
           :esc-to-close="showModalFull ? true : false"
           :click-to-close="showModalFull ? true : false"
-          :classes="!variant ? modalClasses : undefined"
+          :variants="modalVariants"
+          :classes="modalClasses"
           :variant="variant"
           header="title of the modal"
         >
@@ -38,7 +39,7 @@
         <t-rich-select
           :variant="variant"
           :variants="variants"
-          :classes="!variant ? classes ? classes : null : undefined"
+          :classes="classes"
           :options="[
             { value: 'optgroup', text: 'With optgroup' },
             { value: 'option-2', text: 'Option 2' },
@@ -67,7 +68,7 @@
         show
         :variant="variant"
         :variants="variants"
-        :classes="!variant ? classes ? classes : null : undefined"
+        :classes="classes"
       >
         So you selected VueJs & Tailwind Combo, Good decision!
       </t-alert>
@@ -75,7 +76,7 @@
         v-else-if="componentName === 'TCard'"
         :variant="variant"
         :variants="variants"
-        :classes="!variant ? classes ? classes : null : undefined"
+        :classes="classes"
         header="User profile"
         footer="Copyright wharever 2020"
       >
@@ -85,7 +86,7 @@
         v-else-if="componentName === 'TInputGroup'"
         :variant="variant"
         :variants="variants"
-        :classes="!variant ? classes ? classes : null : undefined"
+        :classes="classes"
         label="Your password"
         description="Use characters and numbers"
         feedback="Your password doesnt match!"
@@ -99,7 +100,7 @@
         v-model="componentValue"
         :variant="variant"
         :variants="variants"
-        :classes="!variant ? classes ? classes : null : undefined"
+        :classes="classes"
         :value="hasLabel ? componentValue: undefined"
         :checked="true"
         v-bind="componentAttribs"
@@ -118,6 +119,10 @@ export default Vue.extend({
       type: [String, Object],
       default: null
     },
+    variants: {
+      type: [String, Object],
+      default: undefined
+    },
     variant: {
       type: String,
       default: undefined
@@ -135,18 +140,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    variants () {
-      if (!this.variant) {
-        return undefined
-      }
-      const variants = {}
-      if (this.componentName === 'TModal') {
-        variants[this.variant] = this.modalClasses
-      } else {
-        variants[this.variant] = this.classes
-      }
-      return variants
-    },
     modalClasses () {
       if (this.classes) {
         if (!this.showModalFull) {
@@ -155,8 +148,8 @@ export default Vue.extend({
             ...this.classes,
             ...{
               // Remove margins and padding for better demo inline
-              overlay: this.classes.overlay.replace('absolute', '').replace('fixed', '').replace(marginPaddingRegex, ' ') + ' w-full p-4 rounded',
-              wrapper: this.classes.wrapper.replace('absolute', '').replace('fixed', '').replace(marginPaddingRegex, ' ')
+              overlay: (this.classes.overlay || '').replace('absolute', '').replace('fixed', '').replace(marginPaddingRegex, ' ') + ' w-full p-4 rounded',
+              wrapper: (this.classes.wrapper || '').replace('absolute', '').replace('fixed', '').replace(marginPaddingRegex, ' ')
             }
           }
         }
@@ -165,6 +158,21 @@ export default Vue.extend({
       }
 
       return null
+    },
+    modalVariants () {
+      if (this.variants) {
+        if (!this.showModalFull) {
+          const marginPaddingRegex = /([mpz][tlrbyx]?-[0-9]*)/gm
+          const newVariants = { ...this.variants }
+          newVariants[this.variant].overlay = (newVariants.overlay || '').replace('absolute', '').replace('fixed', '').replace(marginPaddingRegex, ' ') + ' w-full p-4 rounded'
+          newVariants[this.variant].wrapper = (newVariants.wrapper || '').replace('absolute', '').replace('fixed', '').replace(marginPaddingRegex, ' ') + ' w-full p-4 rounded'
+          return newVariants
+        }
+
+        return this.variants
+      }
+
+      return undefined
     },
     hasLabel () {
       return ['TRadio', 'TCheckbox'].includes(this.componentName)
