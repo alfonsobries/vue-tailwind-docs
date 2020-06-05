@@ -1,6 +1,6 @@
 <template>
   <div>
-    <classes-autocomplete v-model="localvalue" />
+    <classes-autocomplete v-model="localvalue" :placeholder="baseClasses" />
   </div>
 </template>
 
@@ -12,6 +12,10 @@ export default {
   },
   props: {
     value: {
+      type: String,
+      required: true
+    },
+    baseClasses: {
       type: String,
       required: true
     }

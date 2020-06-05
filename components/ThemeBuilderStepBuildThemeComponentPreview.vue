@@ -2,9 +2,10 @@
   <div class="flex flex-col items-center justify-center bg-white p-4 relative mt-2 shadow-sm rounded border-dashed border">
     <span class="absolute left-0 top-0 m-2 pointer-events-none text-gray-500 uppercase text-sm">Preview</span>
     <label
-      class="relative"
+      class="relative "
       :class="{
-        'flex items-center': hasLabel
+        'flex items-center': hasLabel,
+        'w-full max-w-xs': componentName === 'TRichSelect',
       }"
       :for="`${componentName}-${_uid}`"
     >
@@ -16,7 +17,8 @@
           :disable-body-scroll="showModalFull ? true : false"
           :esc-to-close="showModalFull ? true : false"
           :click-to-close="showModalFull ? true : false"
-          :classes="modalClasses"
+          :classes="!variant ? modalClasses : undefined"
+          :variant="variant"
           header="title of the modal"
         >
           So you selected VueJs & Tailwind Combo, Good decision!
@@ -32,17 +34,48 @@
           <t-button v-else-if="showModal === true && showModalFull === false" type="button" variant="link" @click="showModalFull=true">Open real modal</t-button>
         </p>
       </div>
+      <div v-else-if="componentName === 'TRichSelect'" class="max-w-md w-full">
+        <t-rich-select
+          :variant="variant"
+          :variants="variants"
+          :classes="!variant ? classes ? classes : null : undefined"
+          :options="[
+            { value: 'optgroup', text: 'With optgroup' },
+            { value: 'option-2', text: 'Option 2' },
+            {
+              text: 'Numbers',
+              children: [
+                { value: 1, text: 1 },
+                { value: 2, text: 2 },
+              ],
+            },
+            {
+              text: 'Letters',
+              children: [
+                { value: 'A', text: 'A' },
+                { value: 'B', text: 'B' },
+                { value: 'C', text: 'C' },
+              ],
+            },
+          ]"
+          clearable
+          placeholder="Select an option"
+        />
+      </div>
       <t-alert
         v-else-if="componentName === 'TAlert'"
         show
-        :classes="classes ? classes : null"
+        :variant="variant"
+        :variants="variants"
+        :classes="!variant ? classes ? classes : null : undefined"
       >
         So you selected VueJs & Tailwind Combo, Good decision!
       </t-alert>
       <t-card
         v-else-if="componentName === 'TCard'"
-        show
-        :classes="classes ? classes : null"
+        :variant="variant"
+        :variants="variants"
+        :classes="!variant ? classes ? classes : null : undefined"
         header="User profile"
         footer="Copyright wharever 2020"
       >
@@ -50,7 +83,9 @@
       </t-card>
       <t-input-group
         v-else-if="componentName === 'TInputGroup'"
-        :classes="classes ? classes : null"
+        :variant="variant"
+        :variants="variants"
+        :classes="!variant ? classes ? classes : null : undefined"
         label="Your password"
         description="Use characters and numbers"
         feedback="Your password doesnt match!"
@@ -62,9 +97,11 @@
         v-else
         :id="`${componentName}-${_uid}`"
         v-model="componentValue"
+        :variant="variant"
+        :variants="variants"
+        :classes="!variant ? classes ? classes : null : undefined"
         :value="hasLabel ? componentValue: undefined"
         :checked="true"
-        :classes="classes ? classes : null"
         v-bind="componentAttribs"
       />
 
@@ -81,6 +118,10 @@ export default Vue.extend({
       type: [String, Object],
       default: null
     },
+    variant: {
+      type: String,
+      default: undefined
+    },
     componentName: {
       type: String,
       required: true
@@ -94,6 +135,18 @@ export default Vue.extend({
     }
   },
   computed: {
+    variants () {
+      if (!this.variant) {
+        return undefined
+      }
+      const variants = {}
+      if (this.componentName === 'TModal') {
+        variants[this.variant] = this.modalClasses
+      } else {
+        variants[this.variant] = this.classes
+      }
+      return variants
+    },
     modalClasses () {
       if (this.classes) {
         if (!this.showModalFull) {

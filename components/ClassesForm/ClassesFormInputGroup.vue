@@ -1,19 +1,19 @@
 <template>
   <div>
     <t-input-group label="Wrapper class">
-      <classes-autocomplete v-model="localvalue.wrapper" />
+      <classes-autocomplete v-model="localvalue.wrapper" :placeholder="baseClasses.wrapper" />
     </t-input-group>
     <t-input-group label="Label class">
-      <classes-autocomplete v-model="localvalue.label" />
+      <classes-autocomplete v-model="localvalue.label" :placeholder="baseClasses.label" />
     </t-input-group>
     <t-input-group label="Feedback class">
-      <classes-autocomplete v-model="localvalue.feedback" />
+      <classes-autocomplete v-model="localvalue.feedback" :placeholder="baseClasses.feedback" />
     </t-input-group>
     <t-input-group label="Description class">
-      <classes-autocomplete v-model="localvalue.description" />
+      <classes-autocomplete v-model="localvalue.description" :placeholder="baseClasses.description" />
     </t-input-group>
     <t-input-group label="Body class">
-      <classes-autocomplete v-model="localvalue.body" />
+      <classes-autocomplete v-model="localvalue.body" :placeholder="baseClasses.body" />
     </t-input-group>
   </div>
 </template>
@@ -25,6 +25,10 @@ export default {
     ClassesAutocomplete
   },
   props: {
+    baseClasses: {
+      type: Object,
+      required: true
+    },
     value: {
       type: Object,
       required: true

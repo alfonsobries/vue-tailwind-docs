@@ -35,11 +35,12 @@
               Default Classes
             </h3>
 
-            <classes-form-modal v-if="componentName === 'TModal'" v-model="currentComponentTheme.classes" />
-            <classes-form-alert v-else-if="componentName === 'TAlert'" v-model="currentComponentTheme.classes" />
-            <classes-form-card v-else-if="componentName === 'TCard'" v-model="currentComponentTheme.classes" />
-            <classes-form-input-group v-else-if="componentName === 'TInputGroup'" v-model="currentComponentTheme.classes" />
-            <classes-form-simple v-else v-model="currentComponentTheme.classes" />
+            <classes-form-rich-select v-if="componentName === 'TRichSelect'" v-model="currentComponentTheme.classes" :base-classes="currentComponentTheme.classes" />
+            <classes-form-modal v-else-if="componentName === 'TModal'" v-model="currentComponentTheme.classes" :base-classes="currentComponentTheme.classes" />
+            <classes-form-alert v-else-if="componentName === 'TAlert'" v-model="currentComponentTheme.classes" :base-classes="currentComponentTheme.classes" />
+            <classes-form-card v-else-if="componentName === 'TCard'" v-model="currentComponentTheme.classes" :base-classes="currentComponentTheme.classes" />
+            <classes-form-input-group v-else-if="componentName === 'TInputGroup'" v-model="currentComponentTheme.classes" :base-classes="currentComponentTheme.classes" />
+            <classes-form-simple v-else v-model="currentComponentTheme.classes" :base-classes="currentComponentTheme.classes" />
           </div>
         </div>
 
@@ -70,6 +71,7 @@
             v-for="(variant, vIndex) in currentComponentTheme.variants"
             :key="variant.id"
             v-model="currentComponentTheme.variants[vIndex]"
+            :base-classes="currentComponentTheme.classes"
             :component-name="componentName"
             :index="vIndex"
             @delete="currentComponentTheme.variants.splice(vIndex, 1)"
@@ -101,6 +103,7 @@ import Icon from '@/components/Icon'
 import ClassesFormSimple from '@/components/ClassesForm/ClassesFormSimple.vue'
 import ClassesFormAlert from '@/components/ClassesForm/ClassesFormAlert.vue'
 import ClassesFormModal from '@/components/ClassesForm/ClassesFormModal.vue'
+import ClassesFormRichSelect from '@/components/ClassesForm/ClassesFormRichSelect.vue'
 import ClassesFormCard from '@/components/ClassesForm/ClassesFormCard.vue'
 import ClassesFormInputGroup from '@/components/ClassesForm/ClassesFormInputGroup.vue'
 
@@ -112,6 +115,7 @@ export default Vue.extend({
     ClassesFormSimple,
     ClassesFormAlert,
     ClassesFormModal,
+    ClassesFormRichSelect,
     ClassesFormCard,
     ClassesFormInputGroup
   },

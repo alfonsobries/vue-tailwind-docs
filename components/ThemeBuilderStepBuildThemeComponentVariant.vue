@@ -29,17 +29,19 @@
               :for="`classes-${localVariant.id}`"
               class="block text-sm leading-5 font-medium text-gray-700"
             >Variant classes</label>
-            <classes-form-modal v-if="componentName === 'TModal'" v-model="localVariant.classes" />
-            <classes-form-alert v-else-if="componentName === 'TAlert'" v-model="localVariant.classes" />
-            <classes-form-card v-else-if="componentName === 'TCard'" v-model="localVariant.classes" />
-            <classes-form-input-group v-else-if="componentName === 'TInputGroup'" v-model="localVariant.classes" />
-            <classes-form-simple v-else v-model="localVariant.classes" />
+            <classes-form-rich-select v-if="componentName === 'TRichSelect'" v-model="localVariant.classes" :base-classes="baseClasses" />
+            <classes-form-modal v-else-if="componentName === 'TModal'" v-model="localVariant.classes" :base-classes="baseClasses" />
+            <classes-form-alert v-else-if="componentName === 'TAlert'" v-model="localVariant.classes" :base-classes="baseClasses" />
+            <classes-form-card v-else-if="componentName === 'TCard'" v-model="localVariant.classes" :base-classes="baseClasses" />
+            <classes-form-input-group v-else-if="componentName === 'TInputGroup'" v-model="localVariant.classes" :base-classes="baseClasses" />
+            <classes-form-simple v-else v-model="localVariant.classes" :base-classes="baseClasses" />
           </div>
         </div>
 
         <component-preview
           :classes="localVariant.classes"
           :component-name="componentName"
+          :variant="localVariant.name"
         />
       </div>
       <p class="flex justify-between text-sm items-end">
@@ -57,6 +59,7 @@ import ComponentPreview from './ThemeBuilderStepBuildThemeComponentPreview.vue'
 import Icon from '@/components/Icon'
 import ClassesFormSimple from '@/components/ClassesForm/ClassesFormSimple.vue'
 import ClassesFormModal from '@/components/ClassesForm/ClassesFormModal.vue'
+import ClassesFormRichSelect from '@/components/ClassesForm/ClassesFormRichSelect.vue'
 import ClassesFormAlert from '@/components/ClassesForm/ClassesFormAlert.vue'
 import ClassesFormCard from '@/components/ClassesForm/ClassesFormCard.vue'
 import ClassesFormInputGroup from '@/components/ClassesForm/ClassesFormInputGroup.vue'
@@ -66,6 +69,7 @@ export default Vue.extend({
     Icon,
     ComponentPreview,
     ClassesFormSimple,
+    ClassesFormRichSelect,
     ClassesFormModal,
     ClassesFormAlert,
     ClassesFormCard,
@@ -82,6 +86,10 @@ export default Vue.extend({
     },
     index: {
       type: Number,
+      required: true
+    },
+    baseClasses: {
+      type: [String, Object],
       required: true
     }
   },
@@ -103,6 +111,13 @@ export default Vue.extend({
   watch: {
     localVariant: {
       handler (localVariant) {
+        if (typeof localVariant.classes === 'object') {
+          Object.keys(localVariant.classes).forEach((className) => {
+            if (localVariant.classes[className] === '') {
+              delete localVariant.classes[className]
+            }
+          })
+        }
         this.$emit('input', localVariant)
       },
       deep: true

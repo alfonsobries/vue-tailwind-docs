@@ -47,6 +47,14 @@
           </t-input-group>
         </component-checkbox>
 
+        <component-checkbox v-model="selected" value="TRichSelect" label="TRichSelect">
+          <t-rich-select
+            placeholder="Select an option"
+            :options="['Option A', 'Option B', 'Option C', 'Option D']"
+            class="max-w-xs"
+          />
+        </component-checkbox>
+
         <component-checkbox v-model="selected" value="TAlert" label="Alert">
           <t-alert class="pointer-events-none" show>
             So you selected VueJs & Tailwind Combo, Good decision!

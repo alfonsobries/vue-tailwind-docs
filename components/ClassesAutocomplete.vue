@@ -5,6 +5,7 @@
         ref="input"
         v-model="localValue"
         class="w-full"
+        :placeholder="placeholder"
         aria-haspopup="listbox"
         :aria-expanded="open"
         @focus="focusHandler"
@@ -66,10 +67,15 @@ export default Vue.extend({
     value: {
       type: String,
       default: ''
+    },
+    placeholder: {
+      type: String,
+      default: undefined
     }
   },
   data () {
     return {
+      initialPlaceholder: this.placeholder,
       optionSelected: false,
       cursorPosition: null,
       hasFocus: false,

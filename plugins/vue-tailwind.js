@@ -73,8 +73,8 @@ Vue.use(VueTailwind, {
   TCard: {
     classes: {
       wrapper: 'rounded shadow bg-white',
-      body: 'p-10',
-      header: 'p-10 border-b text-sm font-semibold uppercase text-gray-700'
+      body: '',
+      header: 'border-b text-sm font-semibold uppercase text-gray-700'
     },
     variants: {
       preview: {
@@ -94,6 +94,31 @@ Vue.use(VueTailwind, {
         header: 'p-2 flex border-b text-sm font-semibold uppercase text-gray-800 justify-between items-center',
         footer: 'p-2 border-t'
       }
+    }
+  },
+  TRichSelect: {
+    classes: {
+      wrapper: 'relative',
+      buttonWrapper: 'inline-block w-full',
+      selectButton: 'w-full border-2 bg-white flex text-left justify-between items-center rounded p-2',
+      selectButtonLabel: 'block truncate',
+      selectButtonPlaceholder: 'block truncate text-gray-500 text-sm',
+      selectButtonIcon: 'fill-current flex-shrink-0 ml-1 h-4 w-4',
+      selectButtonClearIconWrapper: 'hover:bg-gray-200 rounded flex h-5 w-5 flex-shrink-0 items-center justify-center ml-1 ',
+      selectButtonClearIcon: 'fill-current h-3 w-3 text-gray-500',
+      dropdown: 'absolute w-full rounded-md bg-white shadow-lg z-10',
+      dropdownFeedback: 'p-2 text-base leading-6 focus:outline-none sm:text-sm sm:leading-5',
+      optionsList: 'py-1 text-base leading-6 overflow-auto focus:outline-none sm:text-sm sm:leading-5',
+      searchWrapper: 'inline-block w-full bg-white p-2',
+      searchBox: 'inline-block w-full p-2 bg-gray-200 focus:outline-none text-sm rounded',
+      optgroup: 'text-gray-500 uppercase text-xs py-1 px-2 font-semibold',
+      option: 'cursor-default select-none relative p-2 text-gray-900',
+      highlightedOption: 'cursor-default select-none relative p-2 text-gray-900 bg-orange-400',
+      selectedOption: 'cursor-default select-none relative p-2 text-gray-900 font-semibold bg-orange-100',
+      selectedHighlightedOption: 'cursor-default select-none relative p-2 text-gray-900 bg-orange-400 font-semibold',
+      optionContent: 'flex justify-between items-center',
+      optionLabel: 'truncate block',
+      selectedIcon: 'fill-current h-4 w-4'
     }
   },
   TModal: {

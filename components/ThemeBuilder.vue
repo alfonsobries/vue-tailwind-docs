@@ -71,6 +71,7 @@ import ThemeBuilderStepInstall from './ThemeBuilderStepInstall.vue'
 import ThemeBuilderStepShare from './ThemeBuilderStepShare.vue'
 
 const defaultTheme = {
+
   TInput: {
     classes: 'form-input',
     variants: {
@@ -116,11 +117,40 @@ const defaultTheme = {
     },
     variants: {
       danger: {
-        wrapper: 'mb-4',
         label: 'block uppercase tracking-wide text-xs font-bold mb-1 text-red-500',
-        feedback: 'text-sm text-red-500',
-        body: 'text-sm text-gray-500',
-        description: 'text-sm'
+        feedback: 'text-sm text-red-500'
+      }
+    }
+  },
+  TRichSelect: {
+    classes: {
+      wrapper: 'relative',
+      buttonWrapper: 'inline-block w-full',
+      selectButton: 'w-full border bg-white flex text-left justify-between items-center rounded p-2',
+      selectButtonLabel: 'block truncate',
+      selectButtonPlaceholder: 'block truncate text-gray-500 text-sm',
+      selectButtonIcon: 'fill-current flex-shrink-0 ml-1 h-4 w-4',
+      selectButtonClearIconWrapper: 'hover:bg-gray-200 rounded flex h-5 w-5 flex-shrink-0 items-center justify-center ml-1 ',
+      selectButtonClearIcon: 'fill-current h-3 w-3 text-gray-500',
+      dropdown: 'absolute w-full rounded-md bg-white shadow-lg z-10',
+      dropdownFeedback: 'p-2 text-base leading-6 focus:outline-none sm:text-sm sm:leading-5',
+      optionsList: 'py-1 text-base leading-6 overflow-auto focus:outline-none sm:text-sm sm:leading-5',
+      searchWrapper: 'inline-block w-full bg-white p-2',
+      searchBox: 'inline-block w-full p-2 bg-gray-200 focus:outline-none text-sm rounded',
+      optgroup: 'text-gray-500 uppercase text-xs py-1 px-2 font-semibold',
+      option: 'cursor-default select-none relative p-2 text-gray-900',
+      highlightedOption: 'cursor-default select-none relative p-2 text-gray-900 bg-gray-300',
+      selectedOption: 'cursor-default select-none relative p-2 text-gray-900 font-semibold bg-gray-100',
+      selectedHighlightedOption: 'cursor-default select-none relative p-2 text-gray-900 bg-gray-300 font-semibold',
+      optionContent: 'flex justify-between items-center',
+      optionLabel: 'truncate block',
+      selectedIcon: 'fill-current h-4 w-4'
+    },
+    variants: {
+      danger: {
+        selectButton: 'w-full border border-red-500 bg-red-100 bg-white flex text-left justify-between items-center rounded p-2',
+        selectButtonPlaceholder: 'block truncate text-red-400 text-sm',
+        selectButtonIcon: 'fill-current flex-shrink-0 ml-1 h-4 w-4 text-red-500'
       }
     }
   },
@@ -135,14 +165,12 @@ const defaultTheme = {
       danger: {
         wrapper: 'rounded bg-red-100 p-4 flex text-sm border-l-4 border-red-500',
         body: 'flex-grow text-red-700',
-        close: 'text-red-700 hover:text-red-500 hover:bg-red-200 ml-4 rounded',
-        closeIcon: 'h-5 w-5 fill-current'
+        close: 'text-red-700 hover:text-red-500 hover:bg-red-200 ml-4 rounded'
       },
       success: {
         wrapper: 'rounded bg-green-100 p-4 flex text-sm border-l-4 border-green-500',
         body: 'flex-grow text-green-700',
-        close: 'text-green-700  hover:text-green-500 hover:bg-green-200 ml-4 rounded',
-        closeIcon: 'h-5 w-5 fill-current'
+        close: 'text-green-700  hover:text-green-500 hover:bg-green-200 ml-4 rounded'
       }
     }
   },
@@ -156,7 +184,6 @@ const defaultTheme = {
     variants: {
       danger: {
         wrapper: 'rounded max-w-lg mx-auto bg-red-100 text-red-700 shadow',
-        body: 'p-4',
         header: 'p-4 border-b border-red-200 text-red-700',
         footer: 'p-4 border-t border-red-200 bg-red-100 text-red-700 text-sm'
       }
@@ -176,17 +203,12 @@ const defaultTheme = {
     variants: {
       danger: {
         overlay: 'z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed bg-red-500 bg-opacity-50',
-        wrapper: 'z-50 relative mx-auto my-0 max-w-lg mt-12',
-        modal: 'bg-white shadow overflow-hidden relative',
-        body: 'p-4',
         header: 'p-4 border-b border-red-100 text-sm font-semibold uppercase text-red-700',
         footer: 'p-2 border-t border-red-100 bg-red-100',
-        close: 'absolute right-0 top-0 m-3 text-red-700 hover:text-red-600',
-        closeIcon: 'h-5 w-5 fill-current'
+        close: 'absolute right-0 top-0 m-3 text-red-700 hover:text-red-600'
       }
     }
   }
-
 }
 
 export default Vue.extend({
