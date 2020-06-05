@@ -7,7 +7,7 @@
     <hr class="border-t my-4">
     <div class="border rounded">
       <theme-builder-step-build-theme-component
-        v-for="(componentTheme, componentName) in currentTheme"
+        v-for="componentName in selectedComponents"
         :key="componentName"
         v-model="currentTheme[componentName]"
         :index="Object.keys(currentTheme).indexOf(componentName)"
@@ -28,6 +28,10 @@ export default Vue.extend({
     ThemeBuilderStepBuildThemeComponent
   },
   props: {
+    selectedComponents: {
+      type: Array,
+      required: true
+    },
     value: {
       type: Object,
       required: true
@@ -36,7 +40,7 @@ export default Vue.extend({
   data () {
     return {
       currentTheme: this.value,
-      selected: Object.keys(this.value)[0]
+      selected: this.selectedComponents[0]
     }
   },
   computed: {
@@ -62,7 +66,7 @@ export default Vue.extend({
       added.forEach((componentName) => {
         this.$set(this.currentTheme, componentName, this.value[componentName])
       })
-      this.selected = Object.keys(this.currentTheme).length ? Object.keys(this.currentTheme)[0] : undefined
+      this.selected = this.selectedComponents.length ? this.selectedComponents[0] : undefined
     }
   },
   methods: {

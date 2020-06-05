@@ -10,65 +10,25 @@
         HTML Inputs
       </legend>
       <div class="mt-4">
-        <div class="flex items-start mt-4">
-          <div class="flex items-center h-5 mr-3">
-            <t-checkbox id="t-input" v-model="selected" value="TInput" />
-          </div>
-          <div class="pl-7 flex-grow text-sm leading-5">
-            <label for="t-input" class="font-medium text-gray-700 ">Text Input</label>
-            <div class="mt-1" :class="{ 'opacity-50': ! selected.includes('TInput') }">
-              <t-input class="pointer-events-none w-64" placeholder="..." />
-            </div>
-          </div>
-        </div>
+        <component-checkbox v-model="selected" value="TInput" label="Text Input">
+          <t-input class="pointer-events-none w-64" placeholder="..." />
+        </component-checkbox>
 
-        <div class="flex items-start mt-4">
-          <div class="flex items-center h-5 mr-3">
-            <t-checkbox id="t-textarea" v-model="selected" value="TTextarea" />
-          </div>
-          <div class="pl-7 flex-grow text-sm leading-5">
-            <label for="t-textarea" class="font-medium text-gray-700">Textarea</label>
-            <div class="mt-1" :class="{ 'opacity-50': ! selected.includes('TTextarea') }">
-              <t-textarea class="pointer-events-none w-64" placeholder="..." />
-            </div>
-          </div>
-        </div>
+        <component-checkbox v-model="selected" value="TTextarea" label="Textarea">
+          <t-textarea class="pointer-events-none w-64" placeholder="..." />
+        </component-checkbox>
 
-        <div class="flex items-start mt-4">
-          <div class="flex items-center h-5 mr-3">
-            <t-checkbox id="t-select" v-model="selected" value="TSelect" />
-          </div>
-          <div class="pl-7 flex-grow text-sm leading-5">
-            <label for="t-select" class="font-medium text-gray-700">Select</label>
-            <div class="mt-1" :class="{ 'opacity-50': ! selected.includes('TSelect') }">
-              <t-select class="pointer-events-none w-64" placeholder="..." />
-            </div>
-          </div>
-        </div>
+        <component-checkbox v-model="selected" value="TSelect" label="Select">
+          <t-select class="pointer-events-none w-64" placeholder="..." />
+        </component-checkbox>
 
-        <div class="flex items-start mt-4">
-          <div class="flex items-center h-5 mr-3">
-            <t-checkbox id="t-checkbox" v-model="selected" value="TCheckbox" />
-          </div>
-          <div class="pl-7 flex-grow text-sm leading-5">
-            <label for="t-checkbox" class="font-medium text-gray-700">Checkbox</label>
-            <div class="mt-1 flex items-center" :class="{ 'opacity-50': ! selected.includes('TCheckbox') }">
-              <t-checkbox class="pointer-events-none" /> <span class="ml-2">...</span>
-            </div>
-          </div>
-        </div>
+        <component-checkbox v-model="selected" value="TCheckbox" label="Checkbox">
+          <t-checkbox class="pointer-events-none" /> <span class="ml-2">...</span>
+        </component-checkbox>
 
-        <div class="flex items-start mt-4">
-          <div class="flex items-center h-5 mr-3">
-            <t-checkbox id="t-radio" v-model="selected" value="TRadio" />
-          </div>
-          <div class="pl-7 flex-grow text-sm leading-5">
-            <label for="t-radio" class="font-medium text-gray-700">Radio</label>
-            <div class="mt-1 flex items-center" :class="{ 'opacity-50': ! selected.includes('TRadio') }">
-              <t-radio class="pointer-events-none" /> <span class="ml-2">...</span>
-            </div>
-          </div>
-        </div>
+        <component-checkbox v-model="selected" value="TRadio" label="Radio">
+          <t-radio class="pointer-events-none" /> <span class="ml-2">...</span>
+        </component-checkbox>
       </div>
     </fieldset>
 
@@ -77,117 +37,62 @@
         UI Components
       </legend>
       <div class="mt-4">
-        <div class="flex items-start mt-4">
-          <div class="flex items-center h-5 mr-3">
-            <t-checkbox id="t-input-group" v-model="selected" value="TInputGroup" />
-          </div>
-          <div class="pl-7 flex-grow text-sm leading-5">
-            <label for="t-input-group" class="font-medium text-gray-700">Input Group</label>
-            <div class="mt-1 flex items-center" :class="{ 'opacity-50': ! selected.includes('TInputGroup') }">
-              <t-input-group
-                label="Your password"
-                classes="pointer-events-none mb-0"
-                feedback="Your password doesnt match!"
-              >
-                <t-input type="password" />
-              </t-input-group>
-            </div>
-          </div>
-        </div>
+        <component-checkbox v-model="selected" value="TInputGroup" label="Input Group">
+          <t-input-group
+            label="Your password"
+            classes="pointer-events-none mb-0"
+            feedback="Your password doesnt match!"
+          >
+            <t-input type="password" />
+          </t-input-group>
+        </component-checkbox>
 
-        <div class="flex items-start mt-4">
-          <div class="flex items-center h-5 mr-3">
-            <t-checkbox id="t-alert" v-model="selected" value="TAlert" />
-          </div>
-          <div class="pl-7 flex-grow text-sm leading-5">
-            <label for="t-alert" class="font-medium text-gray-700">Alert</label>
-            <div class="mt-1 flex items-center" :class="{ 'opacity-50': ! selected.includes('TAlert') }">
-              <t-alert class="pointer-events-none" show>
-                So you selected VueJs & Tailwind Combo, Good decision!
-              </t-alert>
-            </div>
-          </div>
-        </div>
+        <component-checkbox v-model="selected" value="TAlert" label="Alert">
+          <t-alert class="pointer-events-none" show>
+            So you selected VueJs & Tailwind Combo, Good decision!
+          </t-alert>
+        </component-checkbox>
 
-        <div class="flex items-start mt-4">
-          <div class="flex items-center h-5 mr-3">
-            <t-checkbox id="t-card" v-model="selected" value="TCard" />
-          </div>
-          <div class="pl-7 flex-grow text-sm leading-5">
-            <label for="t-card" class="font-medium text-gray-700">Card</label>
-            <div class="mt-1 flex items-center" :class="{ 'opacity-50': ! selected.includes('TCard') }">
-              <t-card variant="demo" class="pointer-events-none" header="User profile">
-                Im a full-stack software from Mexico City that likes Vue & TailwindCSS.
-              </t-card>
-            </div>
-          </div>
-        </div>
+        <component-checkbox v-model="selected" value="TCard" label="Card">
+          <t-card variant="demo" class="pointer-events-none" header="User profile">
+            Im a full-stack software from Mexico City that likes Vue & TailwindCSS.
+          </t-card>
+        </component-checkbox>
 
-        <div class="flex items-start mt-4">
-          <div class="flex items-center h-5 mr-3">
-            <t-checkbox id="t-modal" v-model="selected" value="TModal" />
-          </div>
-          <div class="pl-7 flex-grow text-sm leading-5">
-            <label for="t-modal" class="font-medium text-gray-700">Modal</label>
-            <div class="mt-1 flex items-center" :class="{ 'opacity-50': ! selected.includes('TModal') }">
-              <t-modal
-                variant="demo"
-                :value="true"
-                :focus-on-open="false"
-                :disable-body-scroll="false"
-                :esc-to-close="false"
-                :click-to-close="false"
-                class="pointer-events-none"
-                header="User profile"
-              >
-                Im a full-stack software from Mexico City that likes Vue & TailwindCSS.
-              </t-modal>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex items-start mt-4  opacity-50">
-          <div class="flex items-center h-5 mr-3">
-            <t-checkbox id="to-do-1" v-model="selected" disabled />
-          </div>
-          <div class="pl-7 flex-grow text-sm leading-5">
-            <label for="to-do-1" class="font-medium text-gray-700">Table</label>
-            <div class="mt-1 flex items-center">
-              <span class="ml-2"> (coming soon...)</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex items-start mt-4  opacity-50">
-          <div class="flex items-center h-5 mr-3">
-            <t-checkbox id="to-do-2" v-model="selected" disabled />
-          </div>
-          <div class="pl-7 flex-grow text-sm leading-5">
-            <label for="to-do-2" class="font-medium text-gray-700">Pagination</label>
-            <div class="mt-1 flex items-center">
-              <span class="ml-2"> (coming soon...)</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex items-start mt-4  opacity-50">
-          <div class="flex items-center h-5 mr-3">
-            <t-checkbox id="to-do-3" v-model="selected" disabled />
-          </div>
-          <div class="pl-7 flex-grow text-sm leading-5">
-            <label for="to-do-3" class="font-medium text-gray-700">Dropdown</label>
-            <div class="mt-1 flex items-center">
-              <span class="ml-2"> (coming soon...)</span>
-            </div>
-          </div>
-        </div>
+        <component-checkbox v-model="selected" value="TModal" label="Modal">
+          <t-modal
+            variant="demo"
+            :value="true"
+            :focus-on-open="false"
+            :disable-body-scroll="false"
+            :esc-to-close="false"
+            :click-to-close="false"
+            class="pointer-events-none"
+            header="User profile"
+          >
+            Im a full-stack software from Mexico City that likes Vue & TailwindCSS.
+          </t-modal>
+        </component-checkbox>
+        <component-checkbox value="TTable" label="Table">
+          <span class="ml-2"> (coming soon...)</span>
+        </component-checkbox>
+        <component-checkbox value="TPagination" label="Pagination">
+          <span class="ml-2"> (coming soon...)</span>
+        </component-checkbox>
+        <component-checkbox value="TDropdown" label="Dropdown">
+          <span class="ml-2"> (coming soon...)</span>
+        </component-checkbox>
       </div>
     </fieldset>
   </div>
 </template>
 <script>
 import Vue from 'vue'
+import ComponentCheckbox from './ThemeBuilderStepSelectComponentsSelector'
 export default Vue.extend({
+  components: {
+    ComponentCheckbox
+  },
   props: {
     value: {
       type: Array,

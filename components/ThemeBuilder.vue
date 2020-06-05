@@ -18,6 +18,7 @@
           <theme-builder-step-build-theme
             v-show="step === 1"
             v-model="theme"
+            :selected-components="sortedSelectedComponents"
             @ready="step === 1 ? stepReady = 2 : undefined"
           />
 
@@ -202,12 +203,18 @@ export default Vue.extend({
       stepReady: 0,
       lastActiveStep: 0,
       selectedComponents: Object.keys(defaultTheme),
+      sortedComponents: Object.keys(defaultTheme),
       theme: clone(defaultTheme)
     }
   },
   computed: {
     nextStepDisabled () {
       return this.stepReady === null || this.stepReady < this.step
+    },
+    sortedSelectedComponents () {
+      return this.sortedComponents.filter((componentName) => {
+        return this.selectedComponents.includes(componentName)
+      })
     }
   },
   watch: {
@@ -219,9 +226,9 @@ export default Vue.extend({
       await this.$nextTick()
       this.$el.scrollIntoView({ behavior: 'smooth' })
     },
-    selectedComponents (selectedComponents) {
+    sortedSelectedComponents (selectedComponents) {
       const theme = {}
-      selectedComponents.map((componentName) => {
+      selectedComponents.forEach((componentName) => {
         theme[componentName] = defaultTheme[componentName]
       })
       this.theme = theme
