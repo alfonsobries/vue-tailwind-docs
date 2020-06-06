@@ -20,7 +20,9 @@
             </p>
             <theme-builder-step-build-theme-component-preview
               :component-name="componentName"
-              :classes="variant"
+              :classes="classes"
+              :variant="variantName"
+              :variants="buildVariants(variant, variantName)"
             />
           </div>
         </div>
@@ -52,6 +54,14 @@ export default Vue.extend({
         // @ts-ignore
         this.$handleException(error)
       })
+  },
+  methods: {
+    buildVariants (variant: any, variantName: any) {
+      const variants = {}
+      // @ts-ignore
+      variants[variantName] = variant
+      return variants
+    }
   }
 })
 </script>

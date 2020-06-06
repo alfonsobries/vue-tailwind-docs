@@ -112,7 +112,6 @@
 </template>
 <script>
 import Vue from 'vue'
-
 export default Vue.extend({
   props: {
     classes: {
@@ -163,9 +162,9 @@ export default Vue.extend({
       if (this.variants) {
         if (!this.showModalFull) {
           const marginPaddingRegex = /([mpz][tlrbyx]?-[0-9]*)/gm
-          const newVariants = { ...this.variants }
-          newVariants[this.variant].overlay = (newVariants.overlay || '').replace('absolute', '').replace('fixed', '').replace(marginPaddingRegex, ' ') + ' w-full p-4 rounded'
-          newVariants[this.variant].wrapper = (newVariants.wrapper || '').replace('absolute', '').replace('fixed', '').replace(marginPaddingRegex, ' ') + ' w-full p-4 rounded'
+          const newVariants = JSON.parse(JSON.stringify(this.variants))
+          newVariants[this.variant].overlay = (newVariants.overlay || this.classes.overlay || '').replace('absolute', '').replace('fixed', '').replace(marginPaddingRegex, ' ') + ' w-full p-4 rounded'
+          newVariants[this.variant].wrapper = (newVariants.wrapper || this.classes.wrapper || '').replace('absolute', '').replace('fixed', '').replace(marginPaddingRegex, ' ')
           return newVariants
         }
 
