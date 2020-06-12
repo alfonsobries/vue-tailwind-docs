@@ -72,9 +72,10 @@ Vue.use(VueTailwind, {
   },
   TCard: {
     classes: {
-      wrapper: 'rounded shadow bg-white',
-      body: '',
-      header: 'border-b text-sm font-semibold uppercase text-gray-700'
+      wrapper: 'rounded max-w-lg mx-auto bg-white shadow',
+      body: 'p-8',
+      header: 'p-8 border-b',
+      footer: 'p-8 border-t'
     },
     variants: {
       preview: {

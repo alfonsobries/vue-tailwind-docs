@@ -52,7 +52,7 @@
     </div>
 
     <div v-else class="max-w-sm mx-auto">
-      <!-- <form action="" method="post" @submit.prevent="storeTheme">
+      <form action="" method="post" @submit.prevent="storeTheme">
         <t-input-group
           label="Theme name"
           :status="form.errors.has('name') ? false : null"
@@ -91,7 +91,7 @@
             class="w-full"
           />
         </t-input-group>
-      </form> -->
+      </form>
       <template v-if="!$auth.loggedIn">
         <div v-if="signIn">
           <h3 class="text-lg leading-6 font-medium text-gray-900">
