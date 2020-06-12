@@ -6,58 +6,56 @@
       @select="(index) => step = index"
     />
     <div class="px-6 bg-white rounded w-full rounded-r rounded-br px-4 py-5 bg-white sm:p-6">
-      <form action="#" method="POST">
-        <div class="w-full md:pl-4">
-          <theme-builder-step-select-components
-            v-show="step === 0"
-            v-model="selectedComponents"
-            @ready="stepReady = 0"
-            @notready="stepReady = null"
-          />
+      <div class="w-full md:pl-4">
+        <theme-builder-step-select-components
+          v-show="step === 0"
+          v-model="selectedComponents"
+          @ready="stepReady = 0"
+          @notready="stepReady = null"
+        />
 
-          <theme-builder-step-build-theme
-            v-show="step === 1"
-            v-model="theme"
-            :selected-components="sortedSelectedComponents"
-            @ready="step === 1 ? stepReady = 2 : undefined"
-          />
+        <theme-builder-step-build-theme
+          v-show="step === 1"
+          v-model="theme"
+          :selected-components="sortedSelectedComponents"
+          @ready="step === 1 ? stepReady = 2 : undefined"
+        />
 
-          <theme-builder-step-install
-            v-show="step === 2"
-            :theme="theme"
-          />
+        <theme-builder-step-install
+          v-show="step === 2"
+          :theme="theme"
+        />
 
-          <theme-builder-step-share
-            v-show="step === 3"
-            :theme="theme"
-          />
+        <theme-builder-step-share
+          v-show="step === 3"
+          :theme="theme"
+        />
 
-          <div class="flex justify-between mt-8 pt-4 border-t">
-            <t-button
-              type="button"
-              :variant="{
-                'disabledLink': step <= 0,
-                'link' : step > 0
-              }"
-              :disabled="step <= 0"
-              @click="prevStep"
-            >
-              Prev step
-            </t-button>
-            <t-button
-              v-if="step < 3"
-              type="button"
-              :disabled="nextStepDisabled"
-              :variant="{
-                'disabled': nextStepDisabled
-              }"
-              @click="nextStep"
-            >
-              Next step
-            </t-button>
-          </div>
+        <div class="flex justify-between mt-8 pt-4 border-t">
+          <t-button
+            type="button"
+            :variant="{
+              'disabledLink': step <= 0,
+              'link' : step > 0
+            }"
+            :disabled="step <= 0"
+            @click="prevStep"
+          >
+            Prev step
+          </t-button>
+          <t-button
+            v-if="step < 3"
+            type="button"
+            :disabled="nextStepDisabled"
+            :variant="{
+              'disabled': nextStepDisabled
+            }"
+            @click="nextStep"
+          >
+            Next step
+          </t-button>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </template>

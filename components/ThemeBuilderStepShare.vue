@@ -3,6 +3,7 @@
     <h2 class="text-2xl font-medium text-gray-900">
       Do you want to share your theme?
     </h2>
+
     <p>Give it a name a good description and we will generate a permanent link for you.</p>
 
     <hr class="border-t my-4">
@@ -51,7 +52,7 @@
     </div>
 
     <div v-else class="max-w-sm mx-auto">
-      <form action="" method="post" @submit.prevent="storeTheme">
+      <!-- <form action="" method="post" @submit.prevent="storeTheme">
         <t-input-group
           label="Theme name"
           :status="form.errors.has('name') ? false : null"
@@ -90,14 +91,15 @@
             class="w-full"
           />
         </t-input-group>
-      </form>
+      </form> -->
       <template v-if="!$auth.loggedIn">
         <div v-if="signIn">
           <h3 class="text-lg leading-6 font-medium text-gray-900">
             Sign in
           </h3>
           <p class="text-sm text-gray-600">
-            Do not have an account? <a class="text-orange-500 hover:underline" href="#" @click.prevent="signIn = false">Sign up</a>
+            Do not have an account?
+            <a class="text-orange-500 hover:underline" href="#" @click.prevent="signIn = false">Sign up</a>
           </p>
           <hr class="border-t my-4">
           <login-form ref="authForm" hide-submit-button @error="authNotReady" />

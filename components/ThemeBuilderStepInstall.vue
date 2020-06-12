@@ -32,14 +32,18 @@
       </div>
 
       <div class="max-w-2xl overflow-auto">
-        <vue-code-highlight>{{ code }}</vue-code-highlight>
+        <no-ssr>
+          <vue-code-highlight>{{ code }}</vue-code-highlight>
+        </no-ssr>
       </div>
 
       <p class="my-4">
         *Dont forget to install the <span class="text-orange-500">vue-tailwind</span> package
       </p>
 
-      <vue-code-highlight>{{ installCode }}</vue-code-highlight>
+      <no-ssr>
+        <vue-code-highlight>{{ installCode }}</vue-code-highlight>
+      </no-ssr>
     </div>
   </div>
 </template>

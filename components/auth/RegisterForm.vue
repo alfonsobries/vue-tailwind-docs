@@ -1,5 +1,6 @@
 <template>
   <form
+    action=""
     @submit.prevent="submitForm"
     @keydown="form.onKeydown($event)"
   >
