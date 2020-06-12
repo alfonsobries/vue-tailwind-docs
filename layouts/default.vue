@@ -10,15 +10,15 @@
             </nuxt-link>
           </div>
         </div>
-        <div v-if="!$auth.loggedIn" class="block ml-auto">
+        <div v-if="!$auth.loggedIn" key="logout" class="block ml-auto">
           <t-button to="/register">
             Sign up
           </t-button>
-          <t-button type="button" variant="link" to="/login">
+          <t-button variant="link" to="/login">
             Sign in
           </t-button>
         </div>
-        <div v-else class="block ml-auto relative flex-shrink-0">
+        <div v-else key="login" class="block ml-auto relative flex-shrink-0">
           <t-button
             id="user-menu"
             type="button"

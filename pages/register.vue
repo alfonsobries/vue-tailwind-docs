@@ -15,6 +15,8 @@ import Vue from 'vue'
 import RegisterForm from '@/components/auth/RegisterForm.vue'
 
 export default Vue.extend({
+  // @ts-ignore
+  middleware: 'auth',
   components: {
     RegisterForm
   }
