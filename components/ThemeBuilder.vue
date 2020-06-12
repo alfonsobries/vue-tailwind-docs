@@ -125,32 +125,33 @@ const defaultTheme = {
   TRichSelect: {
     classes: {
       wrapper: 'relative',
-      buttonWrapper: 'inline-block w-full',
-      selectButton: 'w-full border bg-white flex text-left justify-between items-center rounded p-2',
+      buttonWrapper: 'inline-block w-full relative',
+      selectButton: 'w-full border bg-white flex text-left justify-between items-center rounded p-2 focus:outline-none focus:shadow-outline',
       selectButtonLabel: 'block truncate',
-      selectButtonPlaceholder: 'block truncate text-gray-500 text-sm',
+      selectButtonPlaceholder: 'block truncate text-gray-500',
       selectButtonIcon: 'fill-current flex-shrink-0 ml-1 h-4 w-4',
-      selectButtonClearIconWrapper: 'hover:bg-gray-200 rounded flex h-5 w-5 flex-shrink-0 items-center justify-center ml-1 ',
-      selectButtonClearIcon: 'fill-current h-3 w-3 text-gray-500',
-      dropdown: 'absolute w-full rounded-md bg-white shadow-lg z-10',
-      dropdownFeedback: 'p-2 text-base leading-6 focus:outline-none sm:text-sm sm:leading-5',
-      optionsList: 'py-1 text-base leading-6 overflow-auto focus:outline-none sm:text-sm sm:leading-5',
+      selectButtonClearButton: 'hover:bg-gray-200 text-gray-500 rounded flex flex-shrink-0 items-center justify-center absolute right-0 top-0 m-2 h-6 w-6',
+      selectButtonClearIcon: 'fill-current h-3 w-3',
+      dropdown: 'absolute w-full rounded bg-white shadow z-10',
+      dropdownFeedback: 'p-2 text-sm text-gray-500',
+      loadingMoreResults: 'p-2 text-sm text-gray-500',
+      optionsList: 'overflow-auto',
       searchWrapper: 'inline-block w-full bg-white p-2',
-      searchBox: 'inline-block w-full p-2 bg-gray-200 focus:outline-none text-sm rounded',
+      searchBox: 'inline-block w-full p-2 bg-gray-200 text-sm rounded border focus:outline-none focus:shadow-outline',
       optgroup: 'text-gray-500 uppercase text-xs py-1 px-2 font-semibold',
-      option: 'cursor-default select-none relative p-2 text-gray-900',
-      highlightedOption: 'cursor-default select-none relative p-2 text-gray-900 bg-gray-300',
-      selectedOption: 'cursor-default select-none relative p-2 text-gray-900 font-semibold bg-gray-100',
-      selectedHighlightedOption: 'cursor-default select-none relative p-2 text-gray-900 bg-gray-300 font-semibold',
-      optionContent: 'flex justify-between items-center',
+      option: '',
+      highlightedOption: 'bg-gray-300',
+      selectedOption: 'font-semibold bg-gray-100',
+      selectedHighlightedOption: 'bg-gray-300 font-semibold',
+      optionContent: 'flex justify-between p-2 items-center',
       optionLabel: 'truncate block',
       selectedIcon: 'fill-current h-4 w-4'
     },
     variants: {
       danger: {
-        selectButton: 'w-full border border-red-500 bg-red-100 bg-white flex text-left justify-between items-center rounded p-2',
-        selectButtonPlaceholder: 'block truncate text-red-400 text-sm',
-        selectButtonIcon: 'fill-current flex-shrink-0 ml-1 h-4 w-4 text-red-500'
+        selectButton: 'w-full border border-red-500 text-red-500 bg-red-100 flex text-left justify-between items-center rounded p-2 focus:outline-none focus:shadow-outline',
+        selectButtonPlaceholder: 'block truncate text-red-400',
+        selectButtonClearButton: 'hover:bg-red-200 text-red-500 rounded flex flex-shrink-0 items-center justify-center absolute right-0 top-0 m-2 h-6 w-6'
       }
     }
   },
