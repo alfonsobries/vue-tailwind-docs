@@ -123,6 +123,14 @@ Vue.use(VueTailwind, {
       selectedIcon: 'fill-current h-4 w-4'
     }
   },
+  TDropdown: {
+    classes: {
+      button: 'p-3',
+      wrapper: 'inline-flex flex-col',
+      dropdownWrapper: 'relative',
+      dropdown: 'origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white z-10'
+    }
+  },
   TModal: {
     classes: {
       overlay: 'z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed bg-black bg-opacity-50',

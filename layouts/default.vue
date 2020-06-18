@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div class="p-4">
+    <the-navigation />
+    <!-- <div class="p-4">
       <nav class="mx-auto  max-w-screen-xl relative flex items-center justify-between sm:h-10 md:justify-center">
         <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
           <div class="flex items-center justify-between w-full md:w-auto">
@@ -60,7 +61,7 @@
           </transition>
         </div>
       </nav>
-    </div>
+    </div> -->
 
     <main>
       <nuxt />
@@ -98,6 +99,7 @@
 
 <script>
 import vClickOutside from 'v-click-outside'
+import TheNavigation from '@/components/TheNavigation'
 import Icon from '@/components/Icon'
 
 export default {
@@ -105,6 +107,7 @@ export default {
     clickOutside: vClickOutside.directive
   },
   components: {
+    TheNavigation,
     Icon
   },
   data () {
