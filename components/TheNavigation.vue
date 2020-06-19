@@ -4,6 +4,8 @@
       variant="menu"
       :classes="undefined"
       class="relative"
+      toggle-on-click
+      toggle-on-focus
     >
       <template slot="trigger" slot-scope="{ mousedownHandler, focusHandler, blurHandler, keydownHandler }">
         <div class="max-w-screen-xl mx-auto px-4 sm:px-6">
