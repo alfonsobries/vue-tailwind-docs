@@ -120,7 +120,13 @@ Vue.use(VueTailwind, {
       selectedHighlightedOption: 'bg-gray-300 font-semibold',
       optionContent: 'flex justify-between p-2 items-center',
       optionLabel: 'truncate block',
-      selectedIcon: 'fill-current h-4 w-4'
+      selectedIcon: 'fill-current h-4 w-4',
+      enterClass: '',
+      enterActiveClass: 'opacity-0 transition ease-out duration-100',
+      enterToClass: 'opacity-100',
+      leaveClass: 'transition ease-in opacity-100',
+      leaveActiveClass: '',
+      leaveToClass: 'opacity-0 duration-75'
     }
   },
   TDropdown: {
@@ -128,7 +134,27 @@ Vue.use(VueTailwind, {
       button: 'p-3',
       wrapper: 'inline-flex flex-col',
       dropdownWrapper: 'relative',
-      dropdown: 'origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white z-10'
+      dropdown: 'origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white z-10',
+      enterClass: '',
+      enterActiveClass: 'transition ease-out duration-100 transform opacity-0 scale-95',
+      enterToClass: 'transform opacity-100 scale-100',
+      leaveClass: 'transition ease-in transform opacity-100 scale-100',
+      leaveActiveClass: '',
+      leaveToClass: 'transform opacity-0 scale-95 duration-75'
+    },
+    variants: {
+      menu: {
+        button: '',
+        wrapper: '',
+        dropdownWrapper: 'absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden z-10',
+        dropdown: '',
+        enterClass: '',
+        enterActiveClass: 'transition ease-out duration-100 transform opacity-0 scale-95',
+        enterToClass: 'transform opacity-100 scale-100',
+        leaveClass: 'transition ease-in transform opacity-100 scale-100',
+        leaveActiveClass: '',
+        leaveToClass: 'transform opacity-0 scale-95 duration-75'
+      }
     }
   },
   TModal: {
@@ -140,7 +166,19 @@ Vue.use(VueTailwind, {
       header: '',
       footer: '',
       close: 'absolute right-0 top-0',
-      closeIcon: 'h-5 w-5 fill-current'
+      closeIcon: 'h-5 w-5 fill-current',
+      overlayEnterClass: '',
+      overlayEnterActiveClass: 'opacity-0 transition ease-out duration-100',
+      overlayEnterToClass: 'opacity-100',
+      overlayLeaveClass: 'transition ease-in opacity-100',
+      overlayLeaveActiveClass: '',
+      overlayLeaveToClass: 'opacity-0 duration-75',
+      enterClass: '',
+      enterActiveClass: '',
+      enterToClass: '',
+      leaveClass: '',
+      leaveActiveClass: '',
+      leaveToClass: ''
     },
     variants: {
       demo: {

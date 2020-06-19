@@ -1,67 +1,6 @@
 <template>
-  <div>
+  <div class="bg-gray-200">
     <the-navigation />
-    <!-- <div class="p-4">
-      <nav class="mx-auto  max-w-screen-xl relative flex items-center justify-between sm:h-10 md:justify-center">
-        <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
-          <div class="flex items-center justify-between w-full md:w-auto">
-            <nuxt-link to="/" class="flex items-center text-gray-800 text-xl">
-              <img class="h-8 w-auto sm:h-10 mr-3" src="@/assets/img/logo.svg" alt="">
-              VueTailwind
-            </nuxt-link>
-          </div>
-        </div>
-        <div v-if="!$auth.loggedIn" key="logout" class="block ml-auto">
-          <t-button to="/register">
-            Sign up
-          </t-button>
-          <t-button variant="link" to="/login">
-            Sign in
-          </t-button>
-        </div>
-        <div v-else key="login" class="block ml-auto relative flex-shrink-0">
-          <t-button
-            id="user-menu"
-            type="button"
-            classes="flex items-center w-10 h-10 border-orange-200 bg-orange-300 border-2 flex mr-2 rounded-full items-center justify-center text-lg text-orange-800"
-            aria-label="User menu"
-            aria-haspopup="true"
-            @click="toggleMenu"
-          >
-            {{ $auth.user.initials }}
-          </t-button>
-          <transition
-            enter-active-class="transition ease-out duration-100"
-            leave-active-class="transition ease-in duration-100"
-            enter-class="opacity-0"
-            enter-to-class="opacity-100"
-            leave-class="opacity-100"
-            leave-to-class="opacity-0"
-          >
-            <div
-              v-if="showMenu"
-              v-click-outside="hideMenu"
-              class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg z-20"
-            >
-              <div class="py-1 rounded-md bg-white shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-                <t-button
-                  type="button"
-                  classes="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-orange-100 focus:outline-none focus:bg-orange-100 transition duration-150 ease-in-out"
-                  @click="logout"
-                >
-                  <template v-if="loggingOut">
-                    ...
-                  </template>
-                  <template v-else>
-                    Sign out
-                  </template>
-                </t-button>
-              </div>
-            </div>
-          </transition>
-        </div>
-      </nav>
-    </div> -->
 
     <main>
       <nuxt />
