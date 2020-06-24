@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-gray-200">
-    <the-navigation />
+  <div>
+    <the-navigation class="bg-gray-100" />
 
     <main>
       <nuxt />

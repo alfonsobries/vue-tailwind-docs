@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-white py-3 md:py-6">
+  <nav class="py-3 md:py-6">
     <t-dropdown
       variant="menu"
       :classes="undefined"

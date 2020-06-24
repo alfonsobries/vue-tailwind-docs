@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="bg-white">
-      <div class="relative flex flex-col md:flex-row items-center bg-white mx-auto max-w-screen-xl px-4 sm:px-6">
+    <div class="bg-gray-100">
+      <div class="relative flex flex-col md:flex-row items-center mx-auto max-w-screen-xl px-4 sm:px-6">
         <div class="md:w-1/2 flex items-center py-5 md:pb-20 md:pt-10 md:pr-10">
           <div class="">
             <div class="text-left">
@@ -28,18 +28,14 @@
         </div>
 
         <div class="md:w-1/2 flex items-center py-5 md:pb-20 md:pt-10 md:pl-10">
-          <div class="bg-gray-100 border-2 border-dashed md:p-8 p-3 rounded shadow-inner w-full">
+          <div class="bg-gray-200 md:p-8 p-3 rounded shadow-inner w-full">
             <hero-demo />
           </div>
         </div>
       </div>
     </div>
 
-    <div id="docs-section" class="bg-gray-100 py-16">
-      <div class="container mx-auto">
-        osdgfdgs
-      </div>
-    </div>
+    <docs :page="page" />
 
     <div id="theme-builder-section" class="bg-gray-100 py-16">
       <header>
@@ -79,24 +75,25 @@
       </div>
     </div>
   </div>
-  </div>
 </template>
 
 <script>
 import Vue from 'vue'
 import ThemeBuilder from '~/components/ThemeBuilder.vue'
 import HeroDemo from '~/components/HeroDemo.vue'
+import Docs from '~/components/Docs.vue'
 
 export default Vue.extend({
   components: {
     ThemeBuilder,
-    HeroDemo
+    HeroDemo,
+    Docs
   },
   async asyncData ({ $content }) {
-    const docs = await $content('home').fetch()
+    const page = await $content('home').fetch()
 
     return {
-      docs
+      page
     }
   },
   data () {
