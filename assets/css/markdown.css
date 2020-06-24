@@ -22,169 +22,184 @@
   @apply tracking-tight;
 }
   
-  .nuxt-content > *:first-child {
-    @apply mt-0;
-  }
+.nuxt-content > *:first-child {
+  @apply mt-0;
+}
+
+.nuxt-content > * + * {
+  @apply mt-6;
+}
+
+.nuxt-content > ul > * + *,
+.nuxt-content > ol > * + * {
+  @apply mt-4;
+}
+
+.nuxt-content > h2::before,
+.nuxt-content > h3::before,
+.nuxt-content > .heading::before {
+  display: block;
+  height: 6rem;
+  margin-top: -6rem;
+  visibility: hidden;
+  content: '';
+}
+
+.nuxt-content > hr {
+  @apply border-t-0 border-r-0 border-l-0 border-b-2 border-gray-200 my-16;
+}
+
+.nuxt-content > a,
+.nuxt-content > p a,
+.nuxt-content > ul li a,
+.nuxt-content > ol li a {
+  @apply text-orange-500 underline font-medium;
   
-  .nuxt-content > * + * {
-    @apply mt-6;
-  }
-  
-  .nuxt-content > ul > * + *,
-  .nuxt-content > ol > * + * {
-    @apply mt-4;
-  }
-  
-  .nuxt-content > h2::before,
-  .nuxt-content > h3::before,
-  .nuxt-content > .heading::before {
-    display: block;
-    height: 6rem;
-    margin-top: -6rem;
-    visibility: hidden;
-    content: '';
-  }
-  
-  .nuxt-content > hr {
-    @apply border-t-0 border-r-0 border-l-0 border-b-2 border-gray-200 my-16;
-  }
-  
-  .nuxt-content > a,
-  .nuxt-content > p a,
-  .nuxt-content > ul li a,
-  .nuxt-content > ol li a {
-    @apply text-orange-500 underline font-medium;
-    
-  }
+}
 
-  .nuxt-content > a:hover,
-  .nuxt-content > p a:hover,
-  .nuxt-content > ul li a:hover,
-  .nuxt-content > ol li a:hover {
-      @apply text-orange-700;
-  }
-  
-   .nuxt-content > p strong,
-   .nuxt-content > ul strong {
-     @apply font-semibold;
-     @apply text-gray-800;
-   }
+.nuxt-content > a:hover,
+.nuxt-content > p a:hover,
+.nuxt-content > ul li a:hover,
+.nuxt-content > ol li a:hover {
+    @apply text-orange-700;
+}
 
-   .nuxt-content > p code,
-   .nuxt-content > ul li *:not(pre) code,
-   .nuxt-content > ul li > code,
-   .nuxt-content > ol li *:not(pre) code,
-   .nuxt-content > ol li > code{
-     @apply inline-block;
-     @apply bg-gray-100;
-     @apply rounded-sm;
-     @apply text-sm;
-     @apply px-1;
-     @apply leading-none;
-     @apply whitespace-no-wrap;
-     @apply text-purple-600;
-     @apply font-mono;
-     @apply align-baseline;
-     font-weight: 400;
-   }
+.nuxt-content > p strong,
+.nuxt-content > ul strong {
+  @apply font-semibold;
+  @apply text-gray-800;
+}
 
-   .nuxt-content > p strong code,
-   .nuxt-content > ul li strong code,
-   .nuxt-content > ol li strong code {
-     font-weight: 600;
-   }
+.nuxt-content > p code,
+.nuxt-content > ul li *:not(pre) code,
+.nuxt-content > ul li > code,
+.nuxt-content > ol li *:not(pre) code,
+.nuxt-content > ol li > code{
+  @apply inline-block;
+  @apply bg-gray-100;
+  @apply rounded-sm;
+  @apply text-sm;
+  @apply px-1;
+  @apply leading-none;
+  @apply whitespace-no-wrap;
+  @apply text-orange-600;
+  @apply font-mono;
+  @apply align-baseline;
+  font-weight: 400;
+}
 
-   .nuxt-content > pre{
-     @apply font-mono;
-     @apply rounded-lg;
-     font-weight: 400;
-     scrollbar-width: none;
-   }
+.nuxt-content > p strong code,
+.nuxt-content > ul li strong code,
+.nuxt-content > ol li strong code {
+  font-weight: 600;
+}
 
-   .nuxt-content > blockquote{
-     @apply italic;
-     @apply text-gray-900;
-     @apply text-sm;
-   }
+.nuxt-content > pre{
+  @apply font-mono;
+  @apply rounded-lg;
+  font-weight: 400;
+  scrollbar-width: none;
+}
 
-   .nuxt-content > h2 + h3 {
-     @apply mt-6;
-   }
+.nuxt-content > blockquote{
+  @apply italic;
+  @apply text-gray-900;
+  @apply text-sm;
+}
 
-   .nuxt-content > h3{
-     @apply mt-12 -mb-3;
-     @apply text-gray-900;
-     @apply leading-tight;
-     @apply font-medium;
-     @apply text-xl;
-     @apply tracking-tight;
-   }
+.nuxt-content > h2 + h3 {
+  @apply mt-6;
+}
 
-   .nuxt-content > h4{
-     @apply mt-12;
-     @apply mb-0;
-     @apply text-gray-900;
-     @apply leading-snug;
-     @apply font-medium;
-     @apply text-lg;
-   }
+.nuxt-content > h3{
+  @apply mt-12 -mb-3;
+  @apply text-gray-900;
+  @apply leading-tight;
+  @apply font-medium;
+  @apply text-xl;
+  @apply tracking-tight;
+}
 
-   .nuxt-content > h1 + p {
-     @apply mt-8;
-   }
+.nuxt-content > h4{
+  @apply mt-12;
+  @apply mb-0;
+  @apply text-gray-900;
+  @apply leading-snug;
+  @apply font-medium;
+  @apply text-lg;
+}
 
-   .nuxt-content > h1 > code,
-   .nuxt-content > h2 > code,
-   .nuxt-content > h3 > code,
-   .nuxt-content > h4 > code {
-     @apply text-purple-600;
-     @apply font-mono;
-   }
+.nuxt-content > h1 + p {
+  @apply mt-8;
+}
 
-   .nuxt-content > h3 > code {
-     @apply text-lg px-1 bg-gray-100;
-   }
+.nuxt-content > h1 > code,
+.nuxt-content > h2 > code,
+.nuxt-content > h3 > code,
+.nuxt-content > h4 > code {
+  @apply text-orange-600;
+  @apply font-mono;
+}
 
-   .nuxt-content > h4 > code {
-     @apply text-base px-1 bg-gray-100;
-   }
+.nuxt-content > h3 > code {
+  @apply text-lg px-1 bg-gray-100;
+}
 
-   .nuxt-content > p,
-   .nuxt-content > blockquote > p {
-     @apply text-base;
-     @apply mt-6;
-   }
+.nuxt-content > h4 > code {
+  @apply text-base px-1 bg-gray-100;
+}
 
-   .nuxt-content > ul:not(.list-none) {
-    @apply pl-0 list-none;
-   }
+.nuxt-content > p,
+.nuxt-content > blockquote > p {
+  @apply text-base;
+  @apply mt-6;
+}
 
-   .nuxt-content > ul:not(.list-none) li {
-      @apply relative pl-5;
-   }
+.nuxt-content > ul:not(.list-none) {
+  @apply pl-0 list-none;
+}
 
-   .nuxt-content > ul:not(.list-none) li::before {
-    @apply absolute left-0 text-gray-400 inline-block mr-3;
-    content: '\2022';
-   }
+.nuxt-content > ul:not(.list-none) li {
+  @apply relative pl-5;
+}
 
-   .nuxt-content > ol {
-      @apply list-none;
-      counter-reset: item;
-   }
+.nuxt-content > ul:not(.list-none) li::before {
+  @apply absolute left-0 text-gray-400 inline-block mr-3;
+  content: '\2022';
+}
 
-   .nuxt-content > ol > li {
-    @apply relative pl-10;
-   }
+.nuxt-content > ol {
+  @apply list-none;
+  counter-reset: item;
+}
 
-   .nuxt-content > ol > li::before {
-    @apply absolute top-0 left-0 mt-px;
-    @apply flex items-center justify-center;
-    @apply h-6 w-6 bg-gray-300 rounded-full;
-    @apply text-gray-700 text-xs font-bold;
-    content: counter(item);
-    counter-increment: item;
-   }
+.nuxt-content > ol > li {
+  @apply relative pl-10;
+}
+
+.nuxt-content > ol > li::before {
+  @apply absolute top-0 left-0 mt-px;
+  @apply flex items-center justify-center;
+  @apply h-6 w-6 bg-gray-300 rounded-full;
+  @apply text-gray-700 text-xs font-bold;
+  content: counter(item);
+  counter-increment: item;
+}
+
+.nuxt-content a > .icon {
+  @apply absolute -ml-5 text-gray-500 font-light hidden;
+}
+.nuxt-content > h1:hover > a > .icon,
+.nuxt-content > h2:hover > a > .icon,
+.nuxt-content > h3:hover > a > .icon,
+.nuxt-content > h4:hover > a > .icon,
+.nuxt-content > h5:hover > a > .icon {
+  @apply inline-block;
+}
+.nuxt-content a > .icon::before {
+  content: '#';
+}
+
 /*
    
 
@@ -229,7 +244,7 @@
      td {
        @apply p-2 border-t border-gray-200 text-sm;
        code {
-         @apply bg-gray-100 px-1 font-mono text-xs text-purple-700 align-baseline;
+         @apply bg-gray-100 px-1 font-mono text-xs text-orange-700 align-baseline;
        }
        &:first-child {
          @apply border-gray-300;

@@ -56,9 +56,9 @@ export default {
   ],
   content: {
     markdown: {
-      // prism: {
-      //   theme: false
-      // }
+      prism: {
+        theme: false
+      }
     }
   },
   auth: {
