@@ -26,6 +26,18 @@ No more Bootstrap like sites, you just need to configure your theme classes once
 
 The new settings look like this:
 
+
+```js{1,3-5}[server.js]
+const http = require('http')
+const bodyParser = require('body-parser')
+
+http.createServer((req, res) => {
+  bodyParser.parse(req, (error, body) => {
+    res.end(body)
+  })
+}).listen(3000)
+```
+
 ```js
 import Vue from 'vue'
 import VueTailwind from 'vue-tailwind'

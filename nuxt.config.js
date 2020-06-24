@@ -55,7 +55,11 @@ export default {
     '@nuxt/content'
   ],
   content: {
-    // Options
+    markdown: {
+      // prism: {
+      //   theme: false
+      // }
+    }
   },
   auth: {
     strategies: {

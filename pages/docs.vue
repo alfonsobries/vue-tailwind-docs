@@ -22,7 +22,7 @@
         </nav>
 
         <nuxt-content
-          class="markdown px-5"
+          class="px-5"
           :document="page"
         />
       </div>

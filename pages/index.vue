@@ -82,7 +82,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 import ThemeBuilder from '~/components/ThemeBuilder.vue'
 import HeroDemo from '~/components/HeroDemo.vue'
