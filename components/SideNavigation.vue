@@ -1,6 +1,6 @@
 <template>
-  <nav class="flex-shrink-0 w-56 px-5">
-    <div class="sticky top-0 py-5 max-h-screen overflow-y-auto scrolling-touch">
+  <nav class="flex-shrink-0 w-56 px-5 pt-10">
+    <div class="sticky top-20 max-h-screen overflow-y-auto scrolling-touch">
       <nuxt-link
         to="/docs"
         class="px-3 py-1 mb-2 transition duration-200 ease-in-out relative hover:text-gray-900 text-gray-600 rounded flex items-center text-sm"

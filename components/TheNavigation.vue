@@ -1,113 +1,138 @@
 <template>
-  <nav class="py-3 md:py-6">
-    <t-dropdown
-      variant="menu"
-      :classes="undefined"
-      class="relative"
-      toggle-on-click
-      toggle-on-focus
-    >
-      <template slot="trigger" slot-scope="{ mousedownHandler, focusHandler, blurHandler, keydownHandler }">
-        <div class="max-w-screen-xl mx-auto px-4 sm:px-6">
-          <nav class="relative flex items-center justify-between sm:h-10 md:justify-center">
-            <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
-              <div class="flex items-center justify-between w-full md:w-auto">
-                <nuxt-link to="/" aria-label="Home" class="flex items-center">
-                  <img class="h-8 w-auto sm:h-10 mr-2" src="@/assets/img/logo.svg" alt="Vue Tailwind">
-                  VueTailwind
+  <t-dropdown
+    variant="menu"
+    class="fixed top-0 left-0 w-full z-30"
+    toggle-on-click
+    toggle-on-focus
+    tag-name="nav"
+  >
+    <template slot="trigger" slot-scope="{ mousedownHandler, focusHandler, blurHandler, keydownHandler, isShown }">
+      <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+        <div class="relative flex items-center justify-between h-16">
+          <div class="flex items-center px-2 lg:px-0">
+            <nuxt-link to="/" aria-label="Home" class="flex-shrink-0 flex items-center">
+              <img class="h-8 w-auto sm:h-10 mr-2" src="@/assets/img/logo.svg" alt="Vue Tailwind">
+              VueTailwind
+            </nuxt-link>
+            <div class="hidden lg:block lg:ml-6">
+              <div class="flex">
+                <nuxt-link
+                  v-for="(item, index) in menu"
+                  :key="index"
+                  :to="item.to"
+                  class="ml-4 px-3 py-1 rounded-md text-sm leading-5 font-medium text-gray-600 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 transition duration-150 ease-in-out"
+                  active-class="bg-gray-100 text-gray-900"
+                >
+                  {{ item.text }}
                 </nuxt-link>
-                <div class="-mr-2 flex items-center md:hidden">
+              </div>
+            </div>
+          </div>
+          <div class="flex-1 flex justify-center px-2 lg:ml-6 lg:justify-end">
+            <div class="max-w-lg w-full lg:max-w-xs">
+              <label for="search" class="sr-only">Search</label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <svg class="h-5 w-5 text-gray-700" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <input id="search" class="block w-full pl-10 pr-3 py-2 border border-transparent rounded-md leading-5 bg-white text-gray-700 placeholder-gray-600 focus:outline-none focus:bg-gray-400 focus:text-gray-900 sm:text-sm transition duration-150 ease-in-out" placeholder="Search the docs (Press &quot;/&quot; to focus)" type="search">
+              </div>
+            </div>
+          </div>
+          <div class="flex lg:hidden">
+            <button
+              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out"
+              :class="{
+                'bg-gray-2  00': isShown
+              }"
+              aria-label="Main menu"
+              :aria-expanded="isShown ? 'true': 'false'"
+              @mousedown="mousedownHandler"
+              @focus="focusHandler"
+              @blur="blurHandler"
+              @keydown="keydownHandler"
+            >
+              <svg v-if="!isShown" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+              <svg v-else class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div class="hidden lg:block lg:ml-4">
+            <div class="flex items-center">
+              <t-dropdown class="ml-2 relative flex-shrink-0">
+                <div slot="trigger" slot-scope="{ mousedownHandler, focusHandler, blurHandler, keydownHandler, isShown }">
                   <button
-                    id="main-menu"
-                    type="button"
-                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
-                    aria-label="Main menu"
+                    id="user-menu"
+                    class="flex text-sm rounded-full text-white focus:outline-none focus:shadow-solid transition duration-150 ease-in-out border-2 border-gray-200"
+                    :class="{ 'border-gray-300': isShown }"
+                    aria-label="User menu"
                     aria-haspopup="true"
                     @mousedown="mousedownHandler"
                     @focus="focusHandler"
                     @blur="blurHandler"
                     @keydown="keydownHandler"
                   >
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
+                    <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
                   </button>
                 </div>
-              </div>
-            </div>
-            <div class="hidden md:block">
-              <nuxt-link
-                v-for="(item, index) in menu"
-                :key="index"
-                :to="item.to"
-                class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
-                :class="{
-                  'ml-10': index !== 0
-                }"
-              >
-                {{ item.text }}
-              </nuxt-link>
-            </div>
-            <div class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
-              <span class="inline-flex rounded-md shadow">
-                <nuxt-link
-                  to="/login"
-                  class="inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-orange-500 bg-white hover:text-orange-600 focus:outline-none focus:border-orange-300 focus:shadow-outline-orange active:bg-gray-50 active:text-orange-700 transition duration-150 ease-in-out"
-                >
-                  Log in
-                </nuxt-link>
-              </span>
-            </div>
-          </nav>
-        </div>
-      </template>
-
-      <template slot-scope="{ hide }">
-        <div class="rounded-lg shadow-md">
-          <div class="rounded-lg bg-white shadow-xs overflow-hidden" role="menu" aria-orientation="vertical" aria-labelledby="main-menu">
-            <div class="px-5 pt-4 flex items-center justify-between">
-              <div class="flex items-center">
-                <img class="h-8 w-auto mr-2" src="@/assets/img/logo.svg" alt="Vue Tailwind">
-                VueTailwind
-              </div>
-              <div class="-mr-2">
-                <button
-                  type="button"
-                  class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
-                  aria-label="Close menu"
-                  @click="hide"
-                >
-                  <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <div class="px-2 pt-2 pb-3">
-              <nuxt-link
-                v-for="(item, index) in menu"
-                :key="index"
-                :to="item.to"
-                class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
-                role="menuitem"
-              >
-                {{ item.text }}
-              </nuxt-link>
-            </div>
-            <div>
-              <nuxt-link
-                to="/login"
-                class="block w-full px-5 py-3 text-center font-medium text-orange-600 bg-gray-50 hover:bg-gray-100 hover:text-orange-700 focus:outline-none focus:bg-gray-100 focus:text-orange-700 transition duration-150 ease-in-out"
-                role="menuitem"
-              >
-                Log in
-              </nuxt-link>
+                <template>
+                  <div class="py-1 rounded-md bg-white shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+                    <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" role="menuitem">Your Profile
+                    </a>
+                    <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" role="menuitem">Settings
+                    </a>
+                    <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" role="menuitem">Sign out
+                    </a>
+                  </div>
+                </template>
+              </t-dropdown>
             </div>
           </div>
         </div>
-      </template>
-    </t-dropdown>
-  </nav>
+      </div>
+    </template>
+
+    <template>
+      <div class="px-2 pt-2 pb-3">
+        <nuxt-link
+          v-for="(item, index) in menu"
+          :key="index"
+          :to="item.to"
+          class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-900 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out"
+        >
+          {{ item.text }}
+        </nuxt-link>
+      </div>
+      <div class="pt-4 pb-3 border-t border-gray-300">
+        <div class="flex items-center px-5">
+          <div class="flex-shrink-0">
+            <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+          </div>
+          <div class="ml-3">
+            <div class="text-base font-medium leading-6 text-gray-900">
+              Tom Cook
+            </div>
+            <div class="text-sm font-medium leading-5 text-gray-700">
+              tom@example.com
+            </div>
+          </div>
+        </div>
+        <div class="mt-3 px-2">
+          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">Your Profile
+          </a>
+          <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">Settings
+          </a>
+          <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">Sign out
+          </a>
+        </div>
+      </div>
+    </template>
+  </t-dropdown>
 </template>
 
 <script>
@@ -121,15 +146,15 @@ export default Vue.extend({
           text: 'Docs'
         },
         {
-          to: '/',
+          to: '/theem',
           text: 'Theme Builder'
         },
         {
-          to: '/',
+          to: '/comm',
           text: 'Community Themes'
         },
         {
-          to: '/',
+          to: '/asdgadsg',
           text: 'Contribute'
         }
       ]

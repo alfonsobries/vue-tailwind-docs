@@ -4,12 +4,6 @@ description: Learn how to use @nuxt/content.
 lang: en-US
 ---
 
-# Vue-Tailwind 
-
-[![Build Status](https://travis-ci.org/alfonsobries/vue-tailwind.svg?branch=master)](https://travis-ci.org/alfonsobries/vue-tailwind) [![Netlify Status](https://api.netlify.com/api/v1/badges/40acc43a-7f44-4030-b18a-62c08e0b03d2/deploy-status)](https://app.netlify.com/sites/vue-tailwind/deploys)
-
-For more info check the official site: [https://vue-tailwind.com/](https://vue-tailwind.com/)
-
 **VueTailwind** is a set of Vue components created to be customized to adapt to the unique design of your application.
 
 All classes are configurable and that give you total control of how the components will look like and its perfect for work with utility-first frameworks like [TailwindCss](https://tailwindcss.com). 

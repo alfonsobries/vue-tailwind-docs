@@ -146,14 +146,14 @@ Vue.use(VueTailwind, {
       menu: {
         button: '',
         wrapper: '',
-        dropdownWrapper: 'absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden z-10',
+        dropdownWrapper: 'lg:hidden',
         dropdown: '',
         enterClass: '',
-        enterActiveClass: 'transition ease-out duration-100 transform opacity-0 scale-95',
-        enterToClass: 'transform opacity-100 scale-100',
-        leaveClass: 'transition ease-in transform opacity-100 scale-100',
+        enterActiveClass: 'transition ease-out duration-100 transform opacity-0',
+        enterToClass: 'transform opacity-100',
+        leaveClass: 'transition ease-in transform opacity-100',
         leaveActiveClass: '',
-        leaveToClass: 'transform opacity-0 scale-95 duration-75'
+        leaveToClass: 'transform opacity-0 duration-75'
       }
     }
   },

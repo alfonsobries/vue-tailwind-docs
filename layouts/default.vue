@@ -1,6 +1,12 @@
 <template>
-  <div>
-    <the-navigation class="bg-gray-100" />
+  <div class="pt-16">
+    <the-navigation
+      class="transition ease-in duration-200 "
+      :class="{
+        'bg-gray-100': isHome,
+        'shadow-sm bg-white': !isHome
+      }"
+    />
 
     <main>
       <nuxt />
@@ -53,6 +59,11 @@ export default {
     return {
       loggingOut: false,
       showMenu: false
+    }
+  },
+  computed: {
+    isHome () {
+      return this.$route.name === 'index'
     }
   },
   methods: {
