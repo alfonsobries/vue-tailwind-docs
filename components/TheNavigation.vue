@@ -36,17 +36,17 @@
               </div>
             </div>
             <div class="hidden md:block">
-              <a
+              <nuxt-link
                 v-for="(item, index) in menu"
                 :key="index"
-                href="#"
+                :to="item.to"
                 class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out"
                 :class="{
                   'ml-10': index !== 0
                 }"
               >
                 {{ item.text }}
-              </a>
+              </nuxt-link>
             </div>
             <div class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
               <span class="inline-flex rounded-md shadow">
@@ -84,15 +84,15 @@
               </div>
             </div>
             <div class="px-2 pt-2 pb-3">
-              <a
+              <nuxt-link
                 v-for="(item, index) in menu"
                 :key="index"
-                href="#"
+                :to="item.to"
                 class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
                 role="menuitem"
               >
                 {{ item.text }}
-              </a>
+              </nuxt-link>
             </div>
             <div>
               <nuxt-link
@@ -117,15 +117,19 @@ export default Vue.extend({
     return {
       menu: [
         {
-          text: 'Documentation'
+          to: '/docs',
+          text: 'Docs'
         },
         {
+          to: '/',
           text: 'Theme Builder'
         },
         {
+          to: '/',
           text: 'Community Themes'
         },
         {
+          to: '/',
           text: 'Contribute'
         }
       ]

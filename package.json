@@ -5,14 +5,16 @@
   "author": "Alfonso Bribiesca",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
+    "dev": "nuxt-ts",
+    "build": "nuxt-ts build",
+    "generate": "nuxt-ts generate",
+    "start": "nuxt-ts start",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "test": "jest"
   },
   "dependencies": {
+    "@nuxt/content": "^1.3.2",
+    "@nuxt/typescript-runtime": "^0.4.10",
     "@nuxtjs/auth": "^4.9.1",
     "@nuxtjs/axios": "^5.11.0",
     "axios": "^0.19.2",
@@ -20,7 +22,7 @@
     "clipboard-copy": "^3.1.0",
     "dotenv": "^8.2.0",
     "lodash": "^4.17.15",
-    "nuxt": "^2.12.2",
+    "nuxt": "^2.13.0",
     "uniqid": "^5.2.0",
     "v-click-outside": "^3.0.1",
     "vform": "^1.0.1",
@@ -28,7 +30,7 @@
     "vue-tailwind": "^1.0.0-23"
   },
   "devDependencies": {
-    "@nuxt/types": "^0.7.9",
+    "@nuxt/types": "^2.13.0",
     "@nuxt/typescript-build": "^1.0.3",
     "@nuxtjs/eslint-config-typescript": "^2.0.0",
     "@nuxtjs/eslint-module": "^2.0.0",
@@ -38,7 +40,7 @@
     "@vue/test-utils": "^1.0.3",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.0.1",
-    "eslint": "^7.2.0",
+    "eslint": "^7.3.0",
     "eslint-plugin-nuxt": ">=1.0.0",
     "jest": "^26.0.1",
     "ts-jest": "^26.1.0",

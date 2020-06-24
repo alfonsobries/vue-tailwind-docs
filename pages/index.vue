@@ -35,9 +35,15 @@
       </div>
     </div>
 
+    <div id="docs-section" class="bg-gray-100 py-16">
+      <div class="container mx-auto">
+        osdgfdgs
+      </div>
+    </div>
+
     <div id="theme-builder-section" class="bg-gray-100 py-16">
       <header>
-        <div class="container mx-auto md:px-0">
+        <div class="container mx-auto">
           <h2 id="build" class="text-3xl text-center font-semibold text-gray-900 mb-4">
             Build your own theme
           </h2>
@@ -80,10 +86,18 @@
 import Vue from 'vue'
 import ThemeBuilder from '~/components/ThemeBuilder.vue'
 import HeroDemo from '~/components/HeroDemo.vue'
+
 export default Vue.extend({
   components: {
     ThemeBuilder,
     HeroDemo
+  },
+  async asyncData ({ $content }) {
+    const docs = await $content('home').fetch()
+
+    return {
+      docs
+    }
   },
   data () {
     return {
@@ -91,16 +105,17 @@ export default Vue.extend({
     }
   },
   created () {
-    // @ts-ignore
     this.$axios.get('/themes')
-      // @ts-ignore
       .then(({ data }) => {
         this.latestThemes = data.data
       })
   },
   methods: {
     smoothScrolToThemeBuilder () {
-      document.getElementById('theme-builder-section')!.scrollIntoView({ behavior: 'smooth' })
+      const themeBuider = document.getElementById('theme-builder-section')
+      if (themeBuider) {
+        themeBuider.scrollIntoView({ behavior: 'smooth' })
+      }
     }
   }
 })
