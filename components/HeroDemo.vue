@@ -3,7 +3,6 @@
     :variant="variant"
     :classes="theme.Card.classes"
     :variants="theme.Card.variants"
-    class="demo"
   >
     <template slot="header">
       <t-tag
@@ -70,6 +69,7 @@ export default Vue.extend({
     return {
       variant: '',
       variants: {
+        console: 'Console',
         bootstrap: 'Bootstrap like',
         bulma: 'Bulma like',
         stripe: 'Stripe like',
@@ -197,6 +197,30 @@ export default Vue.extend({
               optionContent: 'flex justify-between p-3 items-center',
               // optionLabel: 'truncate block',
               selectedIcon: 'hidden'
+            },
+            console: {
+              wrapper: 'relative',
+              buttonWrapper: 'inline-block w-full relative',
+              selectButton: 'w-full border-2 border-dashed flex text-left justify-between items-center p-2 focus:outline-none transition transition-all duration-200',
+              selectButtonLabel: 'block truncate',
+              selectButtonPlaceholder: 'block truncate text-white',
+              selectButtonIcon: 'fill-current flex-shrink-0 ml-1 h-4 w-4',
+              selectButtonClearButton: 'text-white flex flex-shrink-0 items-center justify-center absolute right-0 top-0 m-2 h-6 w-6 transition transition-all duration-200',
+              selectButtonClearIcon: 'fill-current h-3 w-3',
+              dropdown: 'absolute w-full rounded bg-black border-2 border-dashed border-white z-10 mt-2',
+              dropdownFeedback: 'p-2 text-sm ',
+              loadingMoreResults: 'p-2 text-sm ',
+              optionsList: 'overflow-auto',
+              searchWrapper: 'inline-block w-full bg-white p-2',
+              searchBox: 'inline-block w-full p-2 bg-gray-200 text-sm rounded border focus:outline-none focus:shadow-outline',
+              optgroup: ' uppercase text-xs py-1 px-2 font-semibold',
+              option: 'border-t-2 border-b-2 border-transparent',
+              highlightedOption: 'border-t-2 border-b-2 border-dashed border-white',
+              selectedOption: 'border-t-2 border-b-2 border-transparent',
+              selectedHighlightedOption: 'border-t-2 border-b-2 border-dashed border-white',
+              optionContent: 'flex justify-between p-2 items-center',
+              optionLabel: 'truncate block',
+              selectedIcon: 'fill-current h-4 w-4'
             }
           }
         },
@@ -224,6 +248,10 @@ export default Vue.extend({
             material: {
               wrapper: '',
               label: 'font-medium block text-gray-700 text-xs transition transition-all duration-200'
+            },
+            console: {
+              wrapper: '',
+              label: 'block mb-3 uppercase transition transition-all duration-200'
             }
           }
         },
@@ -258,6 +286,12 @@ export default Vue.extend({
               body: 'p-4',
               header: 'pt-4 px-4',
               footer: 'p-4 transition transition-all duration-200 flex justify-start'
+            },
+            console: {
+              wrapper: 'bg-black border-2 border-dashed border-white duration-200 font-mono rounded-sm shadow-lg shadow-xl text-white transform transition transition-all w-full',
+              body: 'p-4',
+              header: 'pt-4 px-4',
+              footer: 'p-4 pt-0 transition transition-all duration-200 flex justify-start'
             }
           }
         },
@@ -266,16 +300,18 @@ export default Vue.extend({
           variants: {
             bootstrap: 'py-2 px-3 text-blue-500 hover:underline transition transition-all duration-200',
             bulma: 'border-t text-teal-400 hover:text-teal-900 w-1/2 p-4 transition transition-all duration-200',
-            material: 'mr-4 font-medium bg-white hover:bg-blue-100 text-blue-500 px-4 py-2 relative rounded text-sm uppercase transition transition-all duration-200'
+            material: 'mr-4 font-medium bg-white hover:bg-blue-100 text-blue-500 px-4 py-2 relative rounded text-sm uppercase transition transition-all duration-200',
+            console: 'border-b-2 px-2 border-dashed border-transparent duration-200 hover:border-white py-1 relative transition transition-all uppercase focus:outline-none'
           }
         },
         ContinueButton: {
-          classes: 'px-5 py-2 rounded-lg  ml-3 bg-orange-500 hover:bg-orange-600 text-white transition transition-all duration-200',
+          classes: 'px-5 py-2 rounded-lg ml-3 bg-orange-500 hover:bg-orange-600 text-white transition transition-all duration-200',
           variants: {
             bootstrap: 'py-2 px-3 rounded ml-3 bg-blue-500 hover:bg-blue-600 text-white transition transition-all duration-200',
             bulma: 'border-l border-t text-teal-400 hover:text-teal-900  w-1/2 p-3 transition transition-all duration-200',
             stripe: 'ml-4 font-medium bg-indigo-500 hover:-translate-y-1 hover:opacity-75 hover:shadow-lg px-4 py-2 relative rounded rounded-md shadow-md text-sm text-white uppercase transition transition-all duration-200',
-            material: 'mr-4 font-medium bg-white hover:bg-gray-100 text-gray-900 px-4 py-2 relative rounded text-sm uppercase transition transition-all duration-200'
+            material: 'mr-4 font-medium bg-white hover:bg-gray-100 text-gray-900 px-4 py-2 relative rounded text-sm uppercase transition transition-all duration-200',
+            console: 'border-b-2 px-2 border-dashed border-transparent duration-200 hover:border-white ml-8 py-1 relative transition transition-all uppercase focus:outline-none'
           }
         },
         Title: {
@@ -284,7 +320,8 @@ export default Vue.extend({
             bootstrap: 'text-2xl leading-7 font-medium text-gray-900 mb-2',
             bulma: 'text-2xl leading-7 font-medium text-gray-900 mb-2',
             stripe: 'text-lg leading-5 font-medium text-indigo-500 mb-2 uppercase',
-            material: 'text-2xl leading-7 text-gray-900 mb-2'
+            material: 'text-2xl leading-7 text-gray-900 mb-2',
+            console: 'uppercase mb-4'
           }
         },
         TagLine: {
@@ -293,7 +330,8 @@ export default Vue.extend({
             bootstrap: 'text-gray-900 leading-6',
             bulma: 'text-gray-900 leading-6',
             stripe: 'text-gray-700 text-sm leading-5',
-            material: 'text-gray-600 text-sm leading-5'
+            material: 'text-gray-600 text-sm leading-5',
+            console: ''
           }
         }
       }
