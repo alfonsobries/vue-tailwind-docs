@@ -77,7 +77,6 @@ export default {
   mounted () {
     const self = this
     window.addEventListener('scroll', function () {
-      console.log(this.scrollY)
       self.isScrolled = this.scrollY > 0
     })
 
