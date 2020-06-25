@@ -1,7 +1,11 @@
 <template>
   <t-dropdown
     variant="menu"
-    class="fixed top-0 left-0 w-full z-30"
+    class="fixed top-0 left-0 w-full z-30 transition ease-in-out duration-500"
+    :class="{
+      'shadow-none bg-transparent': transparent,
+      'shadow-sm bg-white h-16  ': !transparent
+    }"
     toggle-on-click
     toggle-on-focus
     tag-name="nav"
@@ -37,7 +41,16 @@
                     <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
                   </svg>
                 </div>
-                <input id="search" class="block w-full pl-10 pr-3 py-2 border border-transparent rounded-md leading-5 bg-white text-gray-700 placeholder-gray-600 focus:outline-none focus:bg-gray-400 focus:text-gray-900 sm:text-sm transition duration-150 ease-in-out" placeholder="Search the docs (Press &quot;/&quot; to focus)" type="search">
+                <input
+                  id="search"
+                  class="block w-full pl-10 pr-3 py-2 border border-transparent focus:outline-none focus:bg-gray-300 focus:text-gray-900 rounded-md leading-5 sm:text-sm transition duration-150 ease-in-out"
+                  :class="{
+                    'bg-white text-gray-700 placeholder-gray-500 ': transparent,
+                    'bg-gray-200 text-gray-700 placeholder-gray-600': !transparent
+                  }"
+                  placeholder="Search the docs (Press &quot;/&quot; to focus)"
+                  type="search"
+                >
               </div>
             </div>
           </div>
@@ -138,6 +151,12 @@
 <script>
 import Vue from 'vue'
 export default Vue.extend({
+  props: {
+    transparent: {
+      type: Boolean,
+      required: true
+    }
+  },
   data () {
     return {
       menu: [
