@@ -24,7 +24,7 @@
     </div>
 
     <div class="md:w-1/2 flex items-center py-5 md:pb-20 md:pt-10 md:pl-10">
-      <div class="bg-opacity-25 bg-gray-400 md:p-8 p-3 rounded shadow-inner w-full">
+      <div class="bg-opacity-25 bg-gray-400 md:p-8 p-3 rounded shadow-inner w-full relative z-30">
         <hero-demo />
       </div>
     </div>
