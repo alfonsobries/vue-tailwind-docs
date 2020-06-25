@@ -44,12 +44,12 @@
 
 <script>
 import Vue from 'vue'
-import ThemeBuilder from '~/components/ThemeBuilder.vue'
+// import ThemeBuilder from '~/components/ThemeBuilder.vue'
 import Docs from '~/components/Docs.vue'
 
 export default Vue.extend({
   components: {
-    ThemeBuilder,
+    // ThemeBuilder,
     Docs
   },
   async asyncData ({ $content }) {

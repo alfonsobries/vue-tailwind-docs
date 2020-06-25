@@ -186,33 +186,23 @@
   counter-increment: item;
 }
 
-.nuxt-content a > .icon {
-  @apply absolute -ml-5 text-gray-500 font-light hidden;
+.nuxt-content > h1[id]:hover .icon,
+.nuxt-content > h2[id]:hover .icon,
+.nuxt-content > h3[id]:hover .icon,
+.nuxt-content > h4[id]:hover .icon,
+.nuxt-content > h5[id]:hover .icon {
+  display: inline-block;
 }
-.nuxt-content > h1:hover > a > .icon,
-.nuxt-content > h2:hover > a > .icon,
-.nuxt-content > h3:hover > a > .icon,
-.nuxt-content > h4:hover > a > .icon,
-.nuxt-content > h5:hover > a > .icon {
-  @apply inline-block;
+
+.nuxt-content .icon { 
+  @apply text-gray-500 w-5 -ml-5 hidden;
 }
-.nuxt-content a > .icon::before {
+
+.nuxt-content .icon::before {
   content: '#';
 }
 
 /*
-   
-
-   > ol {
-     
-     > li {
-       
-     }
-     > li::before {
-       
-     }
-   }
-
    > :not(pre):not(h1):not(h2):not(h3):not(h4) > code,
    > ul code,
    > ol code {
