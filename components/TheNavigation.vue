@@ -1,17 +1,19 @@
 <template>
   <t-dropdown
     variant="menu"
-    class="fixed top-0 left-0 w-full z-30 transition ease-in-out duration-500"
+    class="fixed top-0 left-0 w-full z-50 transition ease-in-out duration-500 bg-white shadow-sm"
     :class="{
-      'shadow-none bg-transparent': transparent,
-      'shadow-sm bg-white h-16  ': !transparent
+      'lg:shadow-none lg:bg-transparent': transparent,
+      'h-16': !transparent
     }"
     toggle-on-click
     toggle-on-focus
     tag-name="nav"
   >
     <template slot="trigger" slot-scope="{ mousedownHandler, focusHandler, blurHandler, keydownHandler, isShown }">
-      <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+      <div
+        class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8"
+      >
         <div class="relative flex items-center justify-between h-16">
           <div class="flex items-center px-2 lg:px-0">
             <nuxt-link to="/" aria-label="Home" class="flex-shrink-0 flex items-center">
@@ -43,10 +45,9 @@
                 </div>
                 <input
                   id="search"
-                  class="block w-full pl-10 pr-3 py-2 border border-transparent focus:outline-none focus:bg-gray-300 focus:text-gray-900 rounded-md leading-5 sm:text-sm transition duration-150 ease-in-out"
+                  class="block w-full pl-10 pr-3 py-2 border border-transparent focus:outline-none focus:bg-gray-300 focus:text-gray-900 rounded-md leading-5 sm:text-sm transition duration-150 ease-in-out bg-gray-200 text-gray-700 placeholder-gray-600"
                   :class="{
-                    'bg-white text-gray-700 placeholder-gray-500 ': transparent,
-                    'bg-gray-200 text-gray-700 placeholder-gray-600': !transparent
+                    'lg:bg-white lg:placeholder-gray-500 ': transparent
                   }"
                   placeholder="Search the docs (Press &quot;/&quot; to focus)"
                   type="search"
@@ -111,7 +112,7 @@
     </template>
 
     <template>
-      <div class="px-2 pt-2 pb-3">
+      <div class="px-2 pt-2 pb-3 bg-white">
         <nuxt-link
           v-for="(item, index) in menu"
           :key="index"

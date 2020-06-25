@@ -146,7 +146,7 @@ Vue.use(VueTailwind, {
       menu: {
         button: '',
         wrapper: '',
-        dropdownWrapper: 'lg:hidden',
+        dropdownWrapper: 'lg:hidden bg-white shadow-sm -mt-1',
         dropdown: '',
         enterClass: '',
         enterActiveClass: 'transition ease-out duration-100 transform opacity-0',
