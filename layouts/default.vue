@@ -3,7 +3,7 @@
     <div
       class="pt-16"
       :class="{
-        'bg-gray-100 pattern pt-16': isHome
+        'bg-gray-100 pattern': isHome
       }"
     >
       <the-navigation

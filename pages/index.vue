@@ -2,7 +2,7 @@
   <div>
     <docs :page="page" />
 
-    <div id="theme-builder-section" class="bg-gray-100 py-16">
+    <!-- <div id="theme-builder-section" class="bg-gray-100 py-16">
       <header>
         <div class="container mx-auto">
           <h2 id="build" class="text-3xl text-center font-semibold text-gray-900 mb-4">
@@ -38,7 +38,7 @@
           </t-card>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
-  <nav class="flex-shrink-0 w-56 px-5 pt-10">
-    <div class="sticky top-20 max-h-screen overflow-y-auto scrolling-touch">
+  <nav class="lg:flex-shrink-0 lg:w-56 lg:px-5 lg:pt-10">
+    <div class="lg:sticky top-20 lg:max-h-screen lg:overflow-y-auto lg:scrolling-touch">
       <nuxt-link
         to="/docs"
         class="px-3 py-1 mb-2 transition duration-200 ease-in-out relative hover:text-gray-900 text-gray-600 rounded flex items-center text-sm"
@@ -42,7 +42,7 @@
         <span class="ml-2">Contribute</span>
       </nuxt-link>
 
-      <div v-for="(group, groupIndex) in navigation" :key="group.id" class="my-5">
+      <div v-for="(group, groupIndex) in docsMenu" :key="group.id" class="my-5">
         <h5 class="mb-3 text-gray-500 uppercase tracking-wide font-bold text-xs px-3">
           {{ group.text }}
         </h5>
@@ -64,124 +64,14 @@
 
 <script>
 import Vue from 'vue'
+import { mapGetters } from 'vuex'
 import Icon from '@/components/Icon'
 export default Vue.extend({
   components: {
     Icon
   },
-  data () {
-    return {
-      sections: [
-        {
-          to: '/docs',
-          text: 'Docs'
-        },
-        {
-          to: '/',
-          text: 'Theme Builder'
-        },
-        {
-          to: '/',
-          text: 'Community Themes'
-        },
-        {
-          to: '/',
-          text: 'Contribute'
-        }
-      ],
-      navigation: [
-        {
-          id: 'form-elements',
-          text: 'Form elements',
-          items: [
-            {
-              to: '/',
-              text: 'Text Input'
-            },
-            {
-              to: '/',
-              text: 'Textarea'
-            },
-            {
-              to: '/',
-              text: 'Select'
-            },
-            {
-              to: '/',
-              text: 'Radio'
-            },
-            {
-              to: '/',
-              text: 'Button'
-            },
-            {
-              to: '/',
-              text: 'Checkbox'
-            }
-          ]
-        },
-        {
-          id: 'form-components',
-          text: 'Form Components',
-          items: [
-            {
-              to: '/',
-              text: 'Rich Select'
-            },
-            {
-              to: '/',
-              text: 'Datepicker'
-            },
-            {
-              to: '/',
-              text: 'Checkbox group'
-            },
-            {
-              to: '/',
-              text: 'Radio group'
-            },
-            {
-              to: '/',
-              text: 'Input group'
-            }
-          ]
-        },
-        {
-          id: 'components',
-          text: 'Components',
-          items: [
-            {
-              to: '/',
-              text: 'Tag'
-            },
-            {
-              to: '/',
-              text: 'Alert'
-            },
-            {
-              to: '/',
-              text: 'Table'
-            },
-            {
-              to: '/',
-              text: 'Modal'
-            },
-            {
-              to: '/',
-              text: 'Pagination'
-            },
-            {
-              to: '/',
-              text: 'Card'
-            },
-            {
-              to: '/',
-              text: 'Dropdown'
-            }
-          ]
-        }
-      ]
-    }
-  }
+  computed: mapGetters({
+    docsMenu: 'nav/docs'
+  })
 })
 </script>

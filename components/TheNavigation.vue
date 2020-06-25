@@ -1,10 +1,9 @@
 <template>
   <t-dropdown
     variant="menu"
-    class="fixed top-0 left-0 w-full z-50 transition ease-in-out duration-500 bg-white shadow-sm"
+    class="fixed top-0 left-0 w-full z-50 transition ease-in-out duration-500 bg-white shadow-sm h-16"
     :class="{
       'lg:shadow-none lg:bg-transparent': transparent,
-      'h-16': !transparent
     }"
     toggle-on-click
     toggle-on-focus
@@ -12,9 +11,9 @@
   >
     <template slot="trigger" slot-scope="{ mousedownHandler, focusHandler, blurHandler, keydownHandler, isShown }">
       <div
-        class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8"
+        class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 z-50 relative bg-white shadow-sm lg:shadow-none lg:bg-transparent"
       >
-        <div class="relative flex items-center justify-between h-16">
+        <div class="relative flex items-center justify-between h-16 z-50">
           <div class="flex items-center px-2 lg:px-0">
             <nuxt-link to="/" aria-label="Home" class="flex-shrink-0 flex items-center">
               <img class="h-8 w-auto sm:h-10 mr-2" src="@/assets/img/logo.svg" alt="Vue Tailwind">
@@ -23,7 +22,7 @@
             <div class="hidden lg:block lg:ml-6">
               <div class="flex">
                 <nuxt-link
-                  v-for="(item, index) in menu"
+                  v-for="(item, index) in mainMenu"
                   :key="index"
                   :to="item.to"
                   class="ml-4 px-3 py-1 rounded-md text-sm leading-5 font-medium text-gray-600 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 transition duration-150 ease-in-out"
@@ -112,73 +111,53 @@
     </template>
 
     <template>
-      <div class="px-2 pt-2 pb-3 bg-white">
-        <nuxt-link
-          v-for="(item, index) in menu"
-          :key="index"
-          :to="item.to"
-          class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-900 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out"
-        >
-          {{ item.text }}
-        </nuxt-link>
-      </div>
-      <div class="pt-4 pb-3 border-t border-gray-300">
-        <div class="flex items-center px-5">
-          <div class="flex-shrink-0">
-            <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-          </div>
-          <div class="ml-3">
-            <div class="text-base font-medium leading-6 text-gray-900">
-              Tom Cook
+      <div class="">
+        <side-navigation />
+        <div class="pt-4 pb-3 border-t border-gray-300">
+          <div class="flex items-center px-5">
+            <div class="flex-shrink-0">
+              <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
             </div>
-            <div class="text-sm font-medium leading-5 text-gray-700">
-              tom@example.com
+            <div class="ml-3">
+              <div class="text-base font-medium leading-6 text-gray-900">
+                Tom Cook
+              </div>
+              <div class="text-sm font-medium leading-5 text-gray-700">
+                tom@example.com
+              </div>
             </div>
           </div>
-        </div>
-        <div class="mt-3 px-2">
-          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">Your Profile
-          </a>
-          <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">Settings
-          </a>
-          <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">Sign out
-          </a>
+          <div class="mt-3 px-2">
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">Your Profile
+            </a>
+            <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">Settings
+            </a>
+            <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">Sign out
+            </a>
+          </div>
         </div>
       </div>
     </template>
+    </div>
   </t-dropdown>
 </template>
 
 <script>
 import Vue from 'vue'
+import { mapGetters } from 'vuex'
+import SideNavigation from '@/components/SideNavigation'
 export default Vue.extend({
+  components: {
+    SideNavigation
+  },
   props: {
     transparent: {
       type: Boolean,
       required: true
     }
   },
-  data () {
-    return {
-      menu: [
-        {
-          to: '/docs',
-          text: 'Docs'
-        },
-        {
-          to: '/theem',
-          text: 'Theme Builder'
-        },
-        {
-          to: '/comm',
-          text: 'Community Themes'
-        },
-        {
-          to: '/asdgadsg',
-          text: 'Contribute'
-        }
-      ]
-    }
-  }
+  computed: mapGetters({
+    mainMenu: 'nav/main'
+  })
 })
 </script>
