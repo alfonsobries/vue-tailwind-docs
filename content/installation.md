@@ -9,7 +9,7 @@ Learn how to install and configure vue-tailwind.
 
 <hr>
 
-### 1. Install the dependencies 
+## 1. Install the dependencies 
 
 ```console
 npm install vue-tailwind@next --save
@@ -26,7 +26,7 @@ Dont forget to <a class="underline" href="https://tailwindcss.com/docs/installat
 </tip>
 
 
-### 2. Configure your project to use `vue-tailwind` 
+## 2. Configure your project to use `vue-tailwind` 
 
 
 ```js
@@ -103,7 +103,7 @@ Vue.use(VueTailwind, {
 })
 ```
 
-### 3. (Optional) configure `purgecss`
+## 3. (Optional) configure `purgecss`
 
 Using `purgecss` postcss plugin? Add your theme file to the postcss config:
 

@@ -1,14 +1,16 @@
+<template>
+  <docs :page="page" />
+</template>
+
+<script>
 import Vue from 'vue'
 import Docs from '@/components/Docs.vue'
 
-const DocsPage = Vue.extend({
+export default Vue.extend({
   components: { Docs },
   async asyncData ({ route, $content }) {
-    const pageName = route.name.split('-').pop()
-    const page = await $content(pageName).fetch()
-
     return {
-      page
+      page: await $content(route.params.name).fetch()
     }
   },
 
@@ -21,5 +23,4 @@ const DocsPage = Vue.extend({
     }
   }
 })
-
-export default DocsPage
+</script>

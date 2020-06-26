@@ -134,7 +134,7 @@
 } */
 
 .nuxt-content > h1 + p + hr {
-  @apply my-8;
+  @apply mt-8;
 }
 
 .nuxt-content > h1 > code,

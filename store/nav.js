@@ -27,14 +27,17 @@ export const state = () => ({
           text: 'Installation'
         },
         {
-          to: '/docs/use',
-          text: 'General use'
+          to: '/docs/theming',
+          text: 'Theming'
         },
         {
           to: '/docs/purgecss',
           text: 'Purge CSS'
+        },
+        {
+          to: '/docs/workflow',
+          text: 'Workflow'
         }
-
       ]
     },
     {
