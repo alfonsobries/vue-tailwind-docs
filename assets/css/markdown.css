@@ -129,9 +129,9 @@
   @apply text-lg;
 }
 
-.nuxt-content > h1 + p {
+/* .nuxt-content > h1 + p {
   @apply mt-1 text-gray-600;
-}
+} */
 
 .nuxt-content > h1 + p + hr {
   @apply my-8;
@@ -205,6 +205,10 @@
 
 .nuxt-content .icon::before {
   content: '#';
+}
+
+.nuxt-content .filename {
+  @apply bg-gray-800 border-b border-gray-800 font-mono inline-block ml-2 pt-1 px-2 rounded-t shadow-inner text-gray-500 text-xs;
 }
 
 /*

@@ -1,4 +1,4 @@
-# Use your own theme
+# Built to be customized
 
 When you work on a real-world application, you usually need different variants for every component your app uses; you may need (besides of default style of your text input) a specific style for a search input inside a navbar and another one for the contact form, and we are not talking yet about the different states that your input could have.
 
