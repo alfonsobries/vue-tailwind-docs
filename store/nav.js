@@ -31,12 +31,12 @@ export const state = () => ({
           text: 'Theming'
         },
         {
-          to: '/docs/purgecss',
-          text: 'Purge CSS'
-        },
-        {
           to: '/docs/workflow',
           text: 'Workflow'
+        },
+        {
+          to: '/docs/purgecss',
+          text: 'Purge CSS'
         }
       ]
     },

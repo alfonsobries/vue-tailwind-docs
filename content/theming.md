@@ -17,7 +17,6 @@ The `classes` key attribute expects a single valid CSS class value (in any of th
 
 Take a look as this example:
 
-
 ```js
 const theme = {
   // Single tag elements
@@ -60,7 +59,7 @@ Vue.use(VueTailwind, theme)
 The variants are the heart of the theming system you can create as many variants as you need, the variants expect the same format as the single `classes` attribute but grouped according to your custom variant name:
 
 
-### Single tag elements
+#### Single tag elements
 
 ```js
 const theme = {
@@ -84,7 +83,7 @@ When you use a variant, the variant classes will override the default classes; t
 </tip>
 
 
-### Multiple tag elements
+#### Multiple tag elements
 
 ```js
 const theme = {
@@ -119,3 +118,53 @@ Vue.use(VueTailwind, theme)
 As you may notice in the example above, when you work with multiple tags classes, you don't need to write all the classes again, only the ones you want to override.
 </tip>
 
+
+## Use component props
+
+In some cases, you will need yo define the theme of a specific component directly, maybe the theme is determined by the user, is dynamic for some reason, is more practical, or is just a personal preference.
+
+All the components comes with the `variants` and `classes` props that expects the value in the same format as the theme.
+
+Take a look at the following examples:
+
+#### Single tag element
+
+```html
+<t-input
+  classes="border-2 block w-full rounded text-gray-800 p-3"
+  :variants="{
+    error: 'border-2 block w-full rounded text-red-500 border-red-500 p-3'
+    inmenu: 'border-transparent bg-gray-500 text-gray-900 p-2'
+    funny: '...', 
+  }"
+  variant="funny"
+/>
+```
+
+#### Multiple tag element
+
+```html
+<t-alert
+  :classes="{
+    wrapper: 'rounded bg-blue-100 p-4 flex text-sm border-l-4 border-blue-500',
+    body: 'flex-grow text-blue-700',
+    close: 'text-blue-700 hover:text-blue-500 hover:bg-blue-200 ml-4 rounded',
+    closeIcon: 'h-5 w-5 fill-current'
+  }"
+  :variants="{
+    error: {
+      wrapper: 'rounded bg-red-100 p-4 flex text-sm border-l-4 border-red-500',
+      body: 'flex-grow text-red-700',
+      close: 'text-red-700 hover:text-red-500 hover:bg-red-200 ml-4 rounded',
+    },
+    big: {
+      body: 'text-2xl font-bold flex-grow text-blue-700',
+    }
+  }"
+  variant="error"
+/>
+```
+
+<tip>
+We will talk more about the `variant` prop in the <strong>Workflow</strong> section.
+</tip>
