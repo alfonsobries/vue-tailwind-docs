@@ -130,7 +130,11 @@
 }
 
 .nuxt-content > h1 + p {
-  @apply mt-8;
+  @apply mt-1 text-gray-600;
+}
+
+.nuxt-content > h1 + p + hr {
+  @apply my-8;
 }
 
 .nuxt-content > h1 > code,
@@ -190,12 +194,13 @@
 .nuxt-content > h2[id]:hover .icon,
 .nuxt-content > h3[id]:hover .icon,
 .nuxt-content > h4[id]:hover .icon,
-.nuxt-content > h5[id]:hover .icon {
-  display: inline-block;
+.nuxt-content > h5[id]:hover .icon,
+.nuxt-content .icon {
+  @apply opacity-100;
 }
 
 .nuxt-content .icon { 
-  @apply text-gray-500 w-5 -ml-5 hidden;
+  @apply text-gray-500 w-5 -ml-5 opacity-0 inline-block transition-opacity duration-100;
 }
 
 .nuxt-content .icon::before {

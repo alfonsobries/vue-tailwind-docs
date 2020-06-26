@@ -2,7 +2,7 @@
   <nav class="lg:flex-shrink-0 lg:w-56 lg:px-5 lg:pt-10">
     <div class="lg:sticky top-20 lg:max-h-screen lg:overflow-y-auto lg:scrolling-touch">
       <nuxt-link
-        to="/docs"
+        to="/docs/installation"
         class="px-3 py-1 mb-2 transition duration-200 ease-in-out relative hover:text-gray-900 text-gray-600 rounded flex items-center text-sm"
         active-class="text-gray-900"
       >
@@ -51,7 +51,7 @@
             <nuxt-link
               :to="item.to"
               class="px-3 py-1 transition duration-200 ease-in-out relative hover:text-gray-900 text-gray-600 rounded flex items-center text-sm"
-              :class="{ 'bg-orange-100 text-orange-500': index===1 && groupIndex === 0 }"
+              active-class="bg-orange-100 text-orange-500"
             >
               {{ item.text }}
             </nuxt-link>

@@ -1,49 +1,68 @@
 export const state = () => ({
   main: [
     {
-      to: '/docs',
+      to: '/docs/installation',
       text: 'Docs'
     },
     {
-      to: '/to-do',
+      to: '/theme-builder',
       text: 'Theme Builder'
     },
     {
-      to: '/to-do-2',
+      to: '/community-themes',
       text: 'Community Themes'
     },
     {
-      to: '/to-do-3',
+      to: '/Contribute',
       text: 'Contribute'
     }
   ],
   docs: [
     {
+      id: 'getting-started',
+      text: 'Getting started',
+      items: [
+        {
+          to: '/docs/installation',
+          text: 'Installation'
+        },
+        {
+          to: '/docs/use',
+          text: 'General use'
+        },
+        {
+          to: '/docs/purgecss',
+          text: 'Purge CSS'
+        }
+
+      ]
+    },
+    {
       id: 'form-elements',
       text: 'Form elements',
       items: [
         {
-          to: '/',
+          to: '/docs/text-input',
           text: 'Text Input'
         },
         {
-          to: '/',
+          to: '/docs/textarea',
           text: 'Textarea'
         },
         {
-          to: '/',
+          to: '/docs/select',
           text: 'Select'
         },
         {
-          to: '/',
+          to: '/docs/radio',
           text: 'Radio'
         },
         {
-          to: '/',
+          to: '/docs/button',
           text: 'Button'
         },
         {
-          to: '/',
+          to: '/docs/checbox',
           text: 'Checkbox'
         }
       ]
@@ -53,23 +72,23 @@ export const state = () => ({
       text: 'Form Components',
       items: [
         {
-          to: '/',
+          to: '/docs/rich-select',
           text: 'Rich Select'
         },
         {
-          to: '/',
+          to: '/docs/datepicker',
           text: 'Datepicker'
         },
         {
-          to: '/',
+          to: '/docs/checbox-group',
           text: 'Checkbox group'
         },
         {
-          to: '/',
+          to: '/docs/radio-group',
           text: 'Radio group'
         },
         {
-          to: '/',
+          to: '/docs/input-group',
           text: 'Input group'
         }
       ]
@@ -79,31 +98,31 @@ export const state = () => ({
       text: 'Components',
       items: [
         {
-          to: '/',
+          to: '/docs/tag',
           text: 'Tag'
         },
         {
-          to: '/',
+          to: '/docs/alert',
           text: 'Alert'
         },
         {
-          to: '/',
+          to: '/docs/table',
           text: 'Table'
         },
         {
-          to: '/',
+          to: '/docs/modal',
           text: 'Modal'
         },
         {
-          to: '/',
+          to: '/docs/pagination',
           text: 'Pagination'
         },
         {
-          to: '/',
+          to: '/docs/card',
           text: 'Card'
         },
         {
-          to: '/',
+          to: '/docs/dropdown',
           text: 'Dropdown'
         }
       ]
