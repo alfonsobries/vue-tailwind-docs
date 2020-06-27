@@ -19,7 +19,7 @@
         :variants="theme.TagLine.variants"
         tag-name="p"
       >
-        With VueTailwind you can configure how your components with look like from the beggining with as many variants as you need.
+        With VueTailwind you can configure how your components with look like from the beggining and define as many variants as you need.
       </t-tag>
     </template>
 

@@ -103,7 +103,7 @@ Vue.use(VueTailwind, {
 })
 ```
 
-## 3. (Optional) configure `purgecss`
+## 3. Configure `purgecss` (optional)
 
 Using `purgecss` postcss plugin? Add your theme file to the postcss config:
 

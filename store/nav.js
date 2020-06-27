@@ -33,10 +33,6 @@ export const state = () => ({
         {
           to: '/docs/workflow',
           text: 'Workflow'
-        },
-        {
-          to: '/docs/purgecss',
-          text: 'Purge CSS'
         }
       ]
     },
