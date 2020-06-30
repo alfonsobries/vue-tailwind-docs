@@ -1,23 +1,9 @@
 <template>
-  <t-card variant="playground">
-    <template slot="header">
-      <h3 class="text-2xl font-medium text-red-400 sm:text-red-700">
-        Playground
-      </h3>
-      <div class="hidden sm:flex items-center text-sm md:text-base">
-        <button type="button" class="bg-orange-100 text-orange-700 inline-block rounded-lg font-medium leading-none py-2 px-3 focus:outline-none bg-orange-50 text-orange-700">
-          Customize
-        </button>
-        <button type="button" class=" text-gray-500 hover:text-orange-600 focus:text-orange-600 ml-2 inline-block rounded-lg font-medium leading-none py-2 px-3 focus:outline-none text-gray-500 hover:text-orange-600 focus:text-orange-600">
-          Classes
-        </button>
-      </div>
-    </template>
-
-    <template slot="footer">
+  <div>
+    <!-- <template slot="footer">
       <span class="text-sm leading-tight mr-2 py-1">Current value:</span>
       <code class="text-orange-600 font-mono text-sm bg-gray-100 px-4 py-1 rounded overflow-auto max-w-full whitespace-pre">{{ currentValue }}</code>
-    </template>
+    </template> -->
 
     <div class="flex -mx-3">
       <div class="w-3/5 px-3">
@@ -31,6 +17,11 @@
           <div class="mt-2 flex flex-col items-center justify-center bg-white p-4 relative rounded shadow-md border">
             <t-input v-model="currentValue" />
           </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row w-full">
+          <div style="height: 200px" class="bg-red-500 sm:w-1/2" />
+          <div style="height: 200px" class="bg-blue-600 sm:w-1/2" />
         </div>
       </div>
       <div class="px-3">
@@ -74,7 +65,7 @@
         </fieldset>
       </div>
     </div>
-  </t-card>
+  </div>
 </template>
 
 <script>

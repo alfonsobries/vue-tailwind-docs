@@ -4,10 +4,9 @@
       <div class="flex -mx-5 relative">
         <side-navigation class="hidden lg:block" />
 
-        <nuxt-content
-          class="px-6 xl:px-12 w-full max-w-3xl mx-auto lg:ml-0 lg:mr-auto xl:mx-0 xl:w-3/4 pt-10"
-          :document="page"
-        />
+        <div class="px-6 xl:px-12 w-full max-w-3xl mx-auto lg:ml-0 lg:mr-auto xl:mx-0 xl:w-3/4 pt-10">
+          <nuxt-content :document="page" />
+        </div>
 
         <content-navigation :toc="page.toc" />
       </div>
