@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="p-4">
     <!-- <template slot="footer">
       <span class="text-sm leading-tight mr-2 py-1">Current value:</span>
       <code class="text-orange-600 font-mono text-sm bg-gray-100 px-4 py-1 rounded overflow-auto max-w-full whitespace-pre">{{ currentValue }}</code>
