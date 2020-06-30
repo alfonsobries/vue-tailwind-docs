@@ -79,14 +79,16 @@ Vue.use(VueTailwind, {
     },
     variants: {
       playground: {
-        wrapper: 'bg-white border rounded shadow',
+        wrapper: 'bg-white border rounded shadow flex flex-col overflow-hidden',
         body: '',
-        header: 'px-4 py-2 border-b flex items-center justify-between bg-gray-100'
+        header: 'px-4 py-2 border-b flex items-center justify-between bg-gray-100',
+        footer: 'px-4 py-2 bg-gray-100 border-t'
       },
       fullscreen: {
         wrapper: 'bg-white fixed left-0 right-0 top-0 bottom-0 z-50 flex flex-col',
-        body: 'flex flex-grow',
-        header: 'px-4 py-2 border-b flex items-center justify-between bg-gray-100'
+        body: 'flex flex-grow order-3',
+        header: 'px-4 py-1 border-b flex items-center justify-between bg-gray-100 order-1',
+        footer: 'px-4 py-2 bg-gray-100 border-b order-2'
       },
       preview: {
         wrapper: '',
