@@ -79,7 +79,7 @@ Vue.use(VueTailwind, {
     },
     variants: {
       playground: {
-        wrapper: 'rounded bg-white border',
+        wrapper: 'bg-white',
         body: 'p-8',
         header: 'px-8 py-4 border-b flex items-center justify-between bg-gray-100',
         footer: 'px-8 py-4 border-t flex '

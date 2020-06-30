@@ -1,7 +1,7 @@
 import Vue from 'vue'
 
 import Tip from '@/components/Tip'
-import TInputPlayground from '@/components/playgrounds/TInputPlayground'
+import Playground from '@/components/Playground'
 
 Vue.component('tip', Tip)
-Vue.component('t-input-playground', TInputPlayground)
+Vue.component('playground', Playground)

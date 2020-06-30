@@ -1,7 +1,7 @@
 <template>
   <t-card variant="playground">
     <template slot="header">
-      <h3 class="text-2xl font-medium text-gray-900">
+      <h3 class="text-2xl font-medium text-red-400 sm:text-red-700">
         Playground
       </h3>
       <div class="hidden sm:flex items-center text-sm md:text-base">
