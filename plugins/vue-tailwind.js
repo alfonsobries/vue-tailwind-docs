@@ -9,7 +9,9 @@ Vue.use(VueTailwind, {
       disabled: 'bg-orange-500 text-white uppercase text-sm py-2 px-4 rounded opacity-50 cursor-not-allowed',
       secondary: 'bg-orange-300 text-orange-500 hover:text-orange-700 uppercase text-sm py-2 px-4 rounded',
       link: 'text-orange-500 hover:text-orange-700 underline uppercase text-sm py-2 px-4',
-      disabledLink: 'text-orange-500 underline uppercase text-sm py-2 px-4 opacity-50 cursor-not-allowed'
+      disabledLink: 'text-orange-500 underline uppercase text-sm py-2 px-4 opacity-50 cursor-not-allowed',
+      playgroundMenu: 'ml-2 hover:bg-gray-200 inline-block leading-none px-3 py-2 rounded-lg text-xs transform ease-in-out duration-100',
+      playgroundMenuActive: 'bg-gray-200 font-medium hover:bg-gray-300 inline-block leading-none px-3 py-2 rounded-lg shadow-inner text-xs transform ease-in-out duration-100'
     }
   },
   TCheckbox: {

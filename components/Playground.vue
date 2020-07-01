@@ -15,15 +15,21 @@
           </h3>
         </div>
         <div class="hidden sm:flex items-center text-sm md:text-base">
-          <button type="button" class="bg-gray-200 font-medium hover:bg-gray-300 inline-block leading-none px-3 py-2 rounded-lg shadow-inner text-xs transform ease-in-out duration-100">
-            Customize
-          </button>
-          <button type="button" class="ml-2 hover:bg-gray-200 inline-block leading-none px-3 py-2 rounded-lg text-xs transform ease-in-out duration-100">
+          <t-button
+            variant="playgroundMenuActive"
+          >
+            Demo
+          </t-button>
+          <t-button
+            variant="playgroundMenu"
+          >
             Classes
-          </button>
-          <button type="button" class="ml-2 hover:bg-gray-200 inline-block leading-none px-3 py-2 rounded-lg text-xs transform ease-in-out duration-100">
+          </t-button>
+          <t-button
+            variant="playgroundMenu"
+          >
             Customize
-          </button>
+          </t-button>
           <span class="border-gray-400 border-l h-4 inline-block ml-1 mr-2" />
           <button
             type="button"
