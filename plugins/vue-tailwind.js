@@ -1,17 +1,17 @@
 import Vue from 'vue'
-// @ts-ignore
 import VueTailwind from 'vue-tailwind'
 
 Vue.use(VueTailwind, {
   TButton: {
+    fixedClasses: 'transform ease-in-out duration-100',
     classes: 'bg-orange-500 hover:bg-orange-700 text-white uppercase text-sm py-2 px-4 rounded',
     variants: {
       disabled: 'bg-orange-500 text-white uppercase text-sm py-2 px-4 rounded opacity-50 cursor-not-allowed',
       secondary: 'bg-orange-300 text-orange-500 hover:text-orange-700 uppercase text-sm py-2 px-4 rounded',
       link: 'text-orange-500 hover:text-orange-700 underline uppercase text-sm py-2 px-4',
       disabledLink: 'text-orange-500 underline uppercase text-sm py-2 px-4 opacity-50 cursor-not-allowed',
-      playgroundMenu: 'ml-2 hover:bg-gray-200 inline-block leading-none px-3 py-2 rounded-lg text-xs transform ease-in-out duration-100',
-      playgroundMenuActive: 'bg-gray-200 font-medium hover:bg-gray-300 inline-block leading-none px-3 py-2 rounded-lg shadow-inner text-xs transform ease-in-out duration-100'
+      playgroundMenu: 'ml-2 hover:bg-gray-200 inline-block leading-none px-3 py-2 rounded-lg text-xs',
+      playgroundMenuActive: 'bg-gray-200 font-medium hover:bg-gray-300 inline-block leading-none px-3 py-2 rounded-lg shadow-inner text-xs'
     }
   },
   TCheckbox: {
