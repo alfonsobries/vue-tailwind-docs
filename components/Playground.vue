@@ -66,13 +66,13 @@
 
       <playground-classes
         v-show="view === 'classes'"
-        :component-settings="settings"
+        :settings="currentSettings"
         :component-name="componentName"
       />
 
       <playground-customize
         v-show="view === 'customize'"
-        :component-settings="settings"
+        :settings.sync="currentSettings"
         :component-name="componentName"
       />
 
@@ -112,6 +112,7 @@
 
 <script>
 import Vue from 'vue'
+import isEqual from 'lodash/isEqual'
 import PlaygroundClasses from './PlaygroundClasses'
 import PlaygroundCustomize from './PlaygroundCustomize'
 import Icon from '@/components/Icon'
@@ -150,6 +151,7 @@ export default Vue.extend({
   },
   data () {
     return {
+      currentSettings: this.settings,
       view: 'demo',
       initialSrc: `${this.src}?${this.params ? new URLSearchParams(this.getSerializableParams()).toString() : ''}`,
       fullscreen: false,
@@ -165,6 +167,14 @@ export default Vue.extend({
     }
   },
   watch: {
+    currentSettings (currentSettings) {
+      this.$emit('update:settings', currentSettings)
+    },
+    settings (settings) {
+      if (!isEqual(settings, this.currentSettings)) {
+        this.currentSettings = settings
+      }
+    },
     params (params) {
       const iframe = this.$refs.iframe
       iframe.contentWindow.$nuxt.$router.replace({ query: params }, async () => {

@@ -51,7 +51,7 @@ export default Vue.extend({
       type: String,
       required: true
     },
-    componentSettings: {
+    settings: {
       type: Object,
       default: null
     }
@@ -65,7 +65,7 @@ export default Vue.extend({
     code () {
       const code = {}
 
-      code[this.componentName] = this.componentSettings
+      code[this.componentName] = this.settings
 
       const theme = JSON.stringify(code, null, 2)
         .replace(/"([^"]+)":/g, '$1:')

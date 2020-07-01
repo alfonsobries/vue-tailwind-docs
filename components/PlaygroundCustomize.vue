@@ -1,11 +1,9 @@
 <template>
-  <div class="p-4 max-w-full overflow-auto">
-    <theme-configurator
-      v-model="currentTheme"
-      :component-name="componentName"
-      class="p-4"
-    />
-  </div>
+  <theme-configurator
+    v-model="currentTheme"
+    :component-name="componentName"
+    class="p-4"
+  />
 </template>
 
 <script>
@@ -23,7 +21,7 @@ export default Vue.extend({
       type: String,
       required: true
     },
-    componentSettings: {
+    settings: {
       type: Object,
       default: null
     }
@@ -45,13 +43,13 @@ export default Vue.extend({
           variants: themeAsExpectedInSettings
         }
 
-        if (!isEqual(newTheme, this.value)) {
-          this.$emit('input', newTheme)
+        if (!isEqual(newTheme, this.settings)) {
+          this.$emit('update:settings', newTheme)
         }
       },
       deep: true
     },
-    componentSettings: {
+    settings: {
       handler (value) {
         const variants = Object.keys(value.variants).map((variantName) => {
           const currentVariant = this.currentTheme.variants

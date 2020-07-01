@@ -2,7 +2,7 @@
   <playground
     component-name="TInput"
     src="/playgrounds/t-input"
-    :settings="settings"
+    :settings.sync="settings"
     :variant="variant"
   >
     <template slot="controls">
