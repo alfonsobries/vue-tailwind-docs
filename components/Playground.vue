@@ -26,15 +26,6 @@
           </t-button>
           <t-button
             :variant="{
-              'playgroundMenuActive': view === 'classes',
-              'playgroundMenu': view !== 'classes'
-            }"
-            @click.prevent="view = 'classes'"
-          >
-            Classes
-          </t-button>
-          <t-button
-            :variant="{
               'playgroundMenuActive': view === 'customize',
               'playgroundMenu': view !== 'customize'
             }"
@@ -42,7 +33,16 @@
           >
             Customize
           </t-button>
-          <span class="border-gray-400 border-l h-4 inline-block ml-1 mr-2" />
+          <t-button
+            :variant="{
+              'playgroundMenuActive': view === 'classes',
+              'playgroundMenu': view !== 'classes'
+            }"
+            @click.prevent="view = 'classes'"
+          >
+            Classes
+          </t-button>
+          <span class="border-gray-400 border-l h-4 inline-block mr-2" />
           <button
             type="button"
             class="p-2 rounded-full focus:outline-none"
@@ -60,13 +60,21 @@
         </div>
       </template>
 
-      <template slot="footer">
+      <template v-if="view === 'demo'" slot="footer">
         <slot name="controls" />
       </template>
 
-      <playground-classes v-show="view === 'classes'" :params="params" :component-name="componentName" />
+      <playground-classes
+        v-show="view === 'classes'"
+        :component-settings="componentSettings"
+        :component-name="componentName"
+      />
 
-      <playground-customize v-show="view === 'customize'" :params="params" :component-name="componentName" />
+      <playground-customize
+        v-show="view === 'customize'"
+        :component-settings="componentSettings"
+        :component-name="componentName"
+      />
 
       <div v-show="view === 'demo'" ref="wrapper" class="w-full bg-gray-700 relative max-w-full shadow-inner pattern2">
         <div
@@ -107,6 +115,7 @@ import Vue from 'vue'
 import PlaygroundClasses from './PlaygroundClasses'
 import PlaygroundCustomize from './PlaygroundCustomize'
 import Icon from '@/components/Icon'
+import parseJsonClasses from '@/utils/parseJsonClasses'
 
 export default Vue.extend({
   components: {
@@ -145,6 +154,11 @@ export default Vue.extend({
       startX: null,
       startWidth: null,
       loadingIFrame: true
+    }
+  },
+  computed: {
+    componentSettings () {
+      return parseJsonClasses(this.params)
     }
   },
   watch: {

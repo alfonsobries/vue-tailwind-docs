@@ -40,7 +40,6 @@ import Vue from 'vue'
 import { component as VueCodeHighlight } from 'vue-code-highlight'
 import copy from 'clipboard-copy'
 import Icon from '@/components/Icon'
-import parseJsonClasses from '@/utils/parseJsonClasses'
 
 export default Vue.extend({
   components: {
@@ -52,7 +51,7 @@ export default Vue.extend({
       type: String,
       required: true
     },
-    params: {
+    componentSettings: {
       type: Object,
       default: null
     }
@@ -66,7 +65,7 @@ export default Vue.extend({
     code () {
       const code = {}
 
-      code[this.componentName] = parseJsonClasses(this.params)
+      code[this.componentName] = this.componentSettings
 
       const theme = JSON.stringify(code, null, 2)
         .replace(/"([^"]+)":/g, '$1:')

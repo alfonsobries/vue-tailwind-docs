@@ -32,7 +32,6 @@
       v-model="currentComponentTheme"
       :component-name="componentName"
       class="p-4 pb-0"
-      save-button-label="Next component →"
     />
 
     <div v-if="selected" class="p-4 pt-0 flex justify-between">
