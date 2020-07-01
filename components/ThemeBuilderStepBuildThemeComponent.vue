@@ -27,69 +27,18 @@
       </icon>
     </div>
 
-    <div v-show="selected" class="p-4">
-      <div class="mb-4">
-        <div class="sm:items-start">
-          <div class="space-y-1">
-            <h3>
-              Default Classes
-            </h3>
+    <theme-configurator
+      v-show="selected"
+      v-model="currentComponentTheme"
+      :component-name="componentName"
+      class="p-4 pb-0"
+      save-button-label="Next component →"
+    />
 
-            <classes-form-rich-select v-if="componentName === 'TRichSelect'" v-model="currentComponentTheme.classes" :base-classes="currentComponentTheme.classes" />
-            <classes-form-modal v-else-if="componentName === 'TModal'" v-model="currentComponentTheme.classes" :base-classes="currentComponentTheme.classes" />
-            <classes-form-alert v-else-if="componentName === 'TAlert'" v-model="currentComponentTheme.classes" :base-classes="currentComponentTheme.classes" />
-            <classes-form-card v-else-if="componentName === 'TCard'" v-model="currentComponentTheme.classes" :base-classes="currentComponentTheme.classes" />
-            <classes-form-input-group v-else-if="componentName === 'TInputGroup'" v-model="currentComponentTheme.classes" :base-classes="currentComponentTheme.classes" />
-            <classes-form-simple v-else v-model="currentComponentTheme.classes" :base-classes="currentComponentTheme.classes" />
-          </div>
-        </div>
-
-        <component-preview
-          :classes="currentComponentTheme.classes"
-          :component-name="componentName"
-        />
-
-        <p v-if="formPluginClass" class="text-gray-500 mr-3 text-xs">
-          To use the class <strong>`{{ formPluginClass }}`</strong> you will need to install the <a class="underline" target="_blank" href="https://github.com/tailwindcss/custom-forms">custom-forms</a> plugin.
-        </p>
-      </div>
-
-      <div class="border-2 bg-gray-100 rounded mb-4">
-        <h3 class="p-4 border-b">
-          Variants:
-        </h3>
-
-        <transition-group
-          enter-active-class="transition ease-out duration-100"
-          leave-active-class="transition ease-in duration-100"
-          enter-class="opacity-0"
-          enter-to-class="opacity-100"
-          leave-class="opacity-100"
-          leave-to-class="opacity-0"
-        >
-          <theme-builder-step-build-theme-component-variant
-            v-for="(variant, vIndex) in currentComponentTheme.variants"
-            :key="variant.id"
-            v-model="currentComponentTheme.variants[vIndex]"
-            :base-classes="currentComponentTheme.classes"
-            :component-name="componentName"
-            :index="vIndex"
-            @delete="currentComponentTheme.variants.splice(vIndex, 1)"
-          />
-        </transition-group>
-
-        <p class="p-4 border-t">
-          <t-button type="button" variant="secondary" @click="addVariant">
-            Add variant
-          </t-button>
-        </p>
-      </div>
-
-      <div class="flex justify-between">
-        <t-button type="button" variant="link" @click="nextComponent">
-          Next component →
-        </t-button>
-      </div>
+    <div v-if="selected" class="p-4 pt-0 flex justify-between">
+      <t-button type="button" @click="nextComponent">
+        Next component →
+      </t-button>
     </div>
   </fieldset>
 </template>
@@ -97,27 +46,13 @@
 import Vue from 'vue'
 import uniqid from 'uniqid'
 import isEqual from 'lodash/isEqual'
-import ThemeBuilderStepBuildThemeComponentVariant from './ThemeBuilderStepBuildThemeComponentVariant'
-import ComponentPreview from './ThemeBuilderStepBuildThemeComponentPreview.vue'
 import Icon from '@/components/Icon'
-import ClassesFormSimple from '@/components/ClassesForm/ClassesFormSimple.vue'
-import ClassesFormAlert from '@/components/ClassesForm/ClassesFormAlert.vue'
-import ClassesFormModal from '@/components/ClassesForm/ClassesFormModal.vue'
-import ClassesFormRichSelect from '@/components/ClassesForm/ClassesFormRichSelect.vue'
-import ClassesFormCard from '@/components/ClassesForm/ClassesFormCard.vue'
-import ClassesFormInputGroup from '@/components/ClassesForm/ClassesFormInputGroup.vue'
+import ThemeConfigurator from '@/components/ThemeConfigurator.vue'
 
 export default Vue.extend({
   components: {
     Icon,
-    ThemeBuilderStepBuildThemeComponentVariant,
-    ComponentPreview,
-    ClassesFormSimple,
-    ClassesFormAlert,
-    ClassesFormModal,
-    ClassesFormRichSelect,
-    ClassesFormCard,
-    ClassesFormInputGroup
+    ThemeConfigurator
   },
   props: {
     value: {
@@ -146,13 +81,6 @@ export default Vue.extend({
   computed: {
     isReady () {
       return this.selected.length > 0
-    },
-    formPluginClass () {
-      const pluginClasses = ['form-input', 'form-select', 'form-textarea', 'form-radio', 'form-chexkbox']
-      return pluginClasses.find((className) => {
-        return typeof this.currentComponentTheme.classes === 'string' &&
-         this.currentComponentTheme.classes.includes(className)
-      })
     }
   },
 
@@ -210,32 +138,6 @@ export default Vue.extend({
     nextComponent () {
       this.ready = true
       this.$emit('next')
-    },
-    getDefaultVariants () {
-      switch (this.componentName) {
-        case 'TInput':
-          return [
-            {
-              id: uniqid(),
-              name: 'danger',
-              classes: 'form-input border-red-300 bg-red-100'
-            },
-            {
-              id: uniqid(),
-              name: 'success',
-              classes: 'form-input border-green-300 bg-green-100'
-            }
-          ]
-      }
-
-      return []
-    },
-    addVariant () {
-      this.currentComponentTheme.variants.push({
-        id: uniqid(),
-        name: `variant${this.currentComponentTheme.variants.length + 1}`,
-        classes: this.currentComponentTheme.classes
-      })
     }
   }
 })

@@ -11,14 +11,14 @@
         :header="componentName"
         class="mt-4"
       >
-        <theme-builder-step-build-theme-component-preview :component-name="componentName" :classes="classes" />
+        <theme-configurator-preview :component-name="componentName" :classes="classes" />
 
         <div v-if="variants">
           <div v-for="(variant, variantName) in variants" :key="variantName" class="border bg-gray-200 p-3">
             <p class="uppercase text-xs font-bold text-gray-700">
               Variant: {{ variantName }}
             </p>
-            <theme-builder-step-build-theme-component-preview
+            <theme-configurator-preview
               :component-name="componentName"
               :classes="classes"
               :variant="variantName"
@@ -33,10 +33,10 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import ThemeBuilderStepBuildThemeComponentPreview from '@/components/ThemeBuilderStepBuildThemeComponentPreview.vue'
+import ThemeConfiguratorPreview from '@/components/ThemeConfiguratorPreview.vue'
 export default Vue.extend({
   components: {
-    ThemeBuilderStepBuildThemeComponentPreview
+    ThemeConfiguratorPreview
   },
   data () {
     return {

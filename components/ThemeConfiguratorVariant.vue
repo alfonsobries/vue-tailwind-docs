@@ -56,7 +56,7 @@
 </template>
 <script>
 import Vue from 'vue'
-import ComponentPreview from './ThemeBuilderStepBuildThemeComponentPreview.vue'
+import ComponentPreview from './ThemeConfiguratorPreview.vue'
 import Icon from '@/components/Icon'
 import ClassesFormSimple from '@/components/ClassesForm/ClassesFormSimple.vue'
 import ClassesFormModal from '@/components/ClassesForm/ClassesFormModal.vue'

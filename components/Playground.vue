@@ -66,6 +66,8 @@
 
       <playground-classes v-show="view === 'classes'" :params="params" :component-name="componentName" />
 
+      <playground-customize v-show="view === 'customize'" :params="params" :component-name="componentName" />
+
       <div v-show="view === 'demo'" ref="wrapper" class="w-full bg-gray-700 relative max-w-full shadow-inner pattern2">
         <div
           ref="resizable"
@@ -103,11 +105,13 @@
 <script>
 import Vue from 'vue'
 import PlaygroundClasses from './PlaygroundClasses'
+import PlaygroundCustomize from './PlaygroundCustomize'
 import Icon from '@/components/Icon'
 
 export default Vue.extend({
   components: {
     PlaygroundClasses,
+    PlaygroundCustomize,
     Icon
   },
   props: {

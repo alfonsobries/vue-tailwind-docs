@@ -9,6 +9,7 @@
         <legend class="text-base font-medium text-gray-900">
           Example variants
         </legend>
+
         <p class="text-xs leading-5 text-gray-500">
           Variants crafted by us as an example
         </p>

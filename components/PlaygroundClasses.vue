@@ -7,7 +7,7 @@
       Something went wrong! We could not copy the code try to copy it manually.
     </t-alert>
 
-    <p class="mb-2">
+    <p class="mb-2 text-sm text-gray-600">
       <strong>{{ componentName }}</strong> settings for this demo, use them as reference an adapt to your needs:
     </p>
 
@@ -40,6 +40,7 @@ import Vue from 'vue'
 import { component as VueCodeHighlight } from 'vue-code-highlight'
 import copy from 'clipboard-copy'
 import Icon from '@/components/Icon'
+import parseJsonClasses from '@/utils/parseJsonClasses'
 
 export default Vue.extend({
   components: {
@@ -65,16 +66,7 @@ export default Vue.extend({
     code () {
       const code = {}
 
-      code[this.componentName] = {}
-
-      Object.keys(this.params).forEach((key) => {
-        try {
-          const parsed = JSON.parse(this.params[key])
-          code[this.componentName][key] = parsed
-        } catch (e) {
-          code[this.componentName][key] = this.params[key]
-        }
-      })
+      code[this.componentName] = parseJsonClasses(this.params)
 
       const theme = JSON.stringify(code, null, 2)
         .replace(/"([^"]+)":/g, '$1:')
