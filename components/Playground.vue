@@ -66,13 +66,13 @@
 
       <playground-classes
         v-show="view === 'classes'"
-        :component-settings="componentSettings"
+        :component-settings="settings"
         :component-name="componentName"
       />
 
       <playground-customize
         v-show="view === 'customize'"
-        :component-settings="componentSettings"
+        :component-settings="settings"
         :component-name="componentName"
       />
 
@@ -115,7 +115,6 @@ import Vue from 'vue'
 import PlaygroundClasses from './PlaygroundClasses'
 import PlaygroundCustomize from './PlaygroundCustomize'
 import Icon from '@/components/Icon'
-import parseJsonClasses from '@/utils/parseJsonClasses'
 
 export default Vue.extend({
   components: {
@@ -128,8 +127,12 @@ export default Vue.extend({
       type: String,
       required: true
     },
-    params: {
+    settings: {
       type: Object,
+      default: null
+    },
+    variant: {
+      type: String,
       default: null
     },
     componentName: {
@@ -148,7 +151,7 @@ export default Vue.extend({
   data () {
     return {
       view: 'demo',
-      initialSrc: `${this.src}?${this.params ? new URLSearchParams(this.params).toString() : ''}`,
+      initialSrc: `${this.src}?${this.params ? new URLSearchParams(this.getSerializableParams()).toString() : ''}`,
       fullscreen: false,
       dragging: false,
       startX: null,
@@ -157,8 +160,8 @@ export default Vue.extend({
     }
   },
   computed: {
-    componentSettings () {
-      return parseJsonClasses(this.params)
+    params () {
+      return this.getSerializableParams()
     }
   },
   watch: {
@@ -178,6 +181,13 @@ export default Vue.extend({
     this.initIframe()
   },
   methods: {
+    getSerializableParams () {
+      return {
+        classes: this.settings.classes,
+        variant: this.variant,
+        variants: JSON.stringify(this.settings.variants)
+      }
+    },
     initIframe () {
       this.loadingIFrame = true
       const iframe = this.$refs.iframe

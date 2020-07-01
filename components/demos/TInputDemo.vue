@@ -2,9 +2,9 @@
   <div class="p-4">
     <t-input
       v-model="currentValue"
-      :classes="params.classes"
-      :variant="params.variant"
-      :variants="variants"
+      :classes="settings.classes"
+      :variant="settings.variant ? settings.variant : undefined"
+      :variants="settings.variants"
     />
 
     <p class="mt-4">
@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import parseJsonClasses from '@/utils/parseJsonClasses'
+
 export default {
   props: {
     params: {
@@ -28,15 +30,9 @@ export default {
     }
   },
   computed: {
-    variants () {
-      if (this.params.variants) {
-        return JSON.parse(this.params.variants)
-      }
-
-      return undefined
+    settings () {
+      return parseJsonClasses(this.params)
     }
-
   }
-
 }
 </script>
