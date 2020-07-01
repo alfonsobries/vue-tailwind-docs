@@ -1,5 +1,5 @@
 <template>
-  <span class="absolute w-full h-full bg-white bg-opacity-25 flex items-center justify-center pointer-events-none">
+  <div class="absolute w-full h-full bg-black bg-opacity-25 flex items-center justify-center z-40">
     <svg class="spinner stroke-current text-black inline-block h-10 w-10 opacity-50" viewBox="0 0 50 50">
       <circle
         class="path"
@@ -10,7 +10,7 @@
         stroke-width="5"
       />
     </svg>
-  </span>
+  </div>
 </template>
 
 <script>

@@ -1,119 +1,83 @@
 <template>
-  <t-card
-    :variant="{
-      playground: !fullscreen,
-      fullscreen: fullscreen
-    }"
-    :style="fullscreen ? 'margin:0' : undefined"
-  >
-    <template slot="header">
-      <div>
-        <h3 class="text-base font-medium text-gray-900">
-          Playground:
-        </h3>
-      </div>
-      <div class="hidden sm:flex items-center text-sm md:text-base">
-        <button type="button" class="bg-gray-200 font-medium hover:bg-gray-300 inline-block leading-none px-3 py-2 rounded-lg shadow-inner text-xs transform ease-in-out duration-100">
-          Customize
-        </button>
-        <button type="button" class="ml-2 hover:bg-gray-200 inline-block leading-none px-3 py-2 rounded-lg text-xs transform ease-in-out duration-100">
-          Classes
-        </button>
-        <button type="button" class="ml-2 hover:bg-gray-200 inline-block leading-none px-3 py-2 rounded-lg text-xs transform ease-in-out duration-100">
-          Customize
-        </button>
-        <span class="border-gray-400 border-l h-4 inline-block ml-1 mr-2" />
-        <button
-          type="button"
-          class="p-2 rounded-full focus:outline-none"
-          :class="{
-            'border-orange-300 bg-orange-100 border-2 shadow-inner text-orange-800 hover:bg-orange-200': fullscreen,
-            'hover:bg-gray-300 text-gray-700': !fullscreen,
-          }"
-          @click="toggleFullscreen"
-        >
-          <icon class="h-4 w-4 pointer-events-none">
-            <path v-if="!fullscreen" id="Combined-Shape" d="M4.20710678,17.2071068 L7,20 L0,20 L0,13 L2.79289322,15.7928932 L7.12132034,11.4644661 L8.53553391,12.8786797 L4.20710678,17.2071068 Z M15.7928932,2.79289322 L13,0 L20,0 L20,7 L17.2071068,4.20710678 L12.8786797,8.53553391 L11.4644661,7.12132034 L15.7928932,2.79289322 Z M15.7928932,17.2071068 L13,20 L20,20 L20,13 L17.2071068,15.7928932 L12.8786797,11.4644661 L11.4644661,12.8786797 L15.7928932,17.2071068 Z M4.20710678,2.79289322 L7,0 L0,0 L0,7 L2.79289322,4.20710678 L7.12132034,8.53553391 L8.53553391,7.12132034 L4.20710678,2.79289322 Z" />
-            <polygon v-else id="Combined-Shape" points="10 8.58578644 2.92893219 1.51471863 1.51471863 2.92893219 8.58578644 10 1.51471863 17.0710678 2.92893219 18.4852814 10 11.4142136 17.0710678 18.4852814 18.4852814 17.0710678 11.4142136 10 18.4852814 2.92893219 17.0710678 1.51471863 10 8.58578644" />
-          </icon>
-        </button>
-      </div>
-    </template>
-
-    <template slot="footer">
-      <fieldset>
-        <legend class="text-base font-medium text-gray-900">
-          Example variants
-        </legend>
-        <p class="text-xs leading-5 text-gray-500">
-          Variants crafted by us as an example
-        </p>
-
-        <div class="flex -mx-3 mt-2">
-          <div class="px-3 flex items-center">
-            <input id="push_default" name="form-input push_notifications" type="radio" class="form-radio h-4 w-4 text-orange-600 transition duration-150 ease-in-out">
-            <label for="push_default" class="ml-3">
-              <span class="block text-sm leading-5 font-medium text-gray-700"> Default
-              </span>
-            </label>
-          </div>
-          <div class="px-3 flex items-center">
-            <input id="push_everything" name="form-input push_notifications" type="radio" class="form-radio h-4 w-4 text-orange-600 transition duration-150 ease-in-out">
-            <label for="push_everything" class="ml-3">
-              <span class="block text-sm leading-5 font-medium text-gray-700"> Danger
-              </span>
-            </label>
-          </div>
-          <div class="px-3 flex items-center">
-            <input id="push_email" name="form-input push_notifications" type="radio" class="form-radio h-4 w-4 text-orange-600 transition duration-150 ease-in-out">
-            <label for="push_email" class="ml-3">
-              <span class="block text-sm leading-5 font-medium text-gray-700"> Success
-              </span>
-            </label>
-          </div>
-          <div class="px-3 flex items-center">
-            <input id="push_nothing" name="form-input push_notifications" type="radio" class="form-radio h-4 w-4 text-orange-600 transition duration-150 ease-in-out">
-            <label for="push_nothing" class="ml-3">
-              <span class="block text-sm leading-5 font-medium text-gray-700"> Weird
-              </span>
-            </label>
-          </div>
+  <div class="relative rounded overflow-hidden">
+    <loading-overlay v-if="loadingIFrame" />
+    <t-card
+      :variant="{
+        playground: !fullscreen,
+        fullscreen: fullscreen
+      }"
+      :style="fullscreen ? 'margin:0' : undefined"
+    >
+      <template slot="header">
+        <div>
+          <h3 class="text-base font-medium text-gray-900">
+            Playground:
+          </h3>
         </div>
-      </fieldset>
-    </template>
+        <div class="hidden sm:flex items-center text-sm md:text-base">
+          <button type="button" class="bg-gray-200 font-medium hover:bg-gray-300 inline-block leading-none px-3 py-2 rounded-lg shadow-inner text-xs transform ease-in-out duration-100">
+            Customize
+          </button>
+          <button type="button" class="ml-2 hover:bg-gray-200 inline-block leading-none px-3 py-2 rounded-lg text-xs transform ease-in-out duration-100">
+            Classes
+          </button>
+          <button type="button" class="ml-2 hover:bg-gray-200 inline-block leading-none px-3 py-2 rounded-lg text-xs transform ease-in-out duration-100">
+            Customize
+          </button>
+          <span class="border-gray-400 border-l h-4 inline-block ml-1 mr-2" />
+          <button
+            type="button"
+            class="p-2 rounded-full focus:outline-none"
+            :class="{
+              'border-orange-300 bg-orange-100 border-2 shadow-inner text-orange-800 hover:bg-orange-200': fullscreen,
+              'hover:bg-gray-300 text-gray-700': !fullscreen,
+            }"
+            @click="toggleFullscreen"
+          >
+            <icon class="h-4 w-4 pointer-events-none">
+              <path v-if="!fullscreen" id="Combined-Shape" d="M4.20710678,17.2071068 L7,20 L0,20 L0,13 L2.79289322,15.7928932 L7.12132034,11.4644661 L8.53553391,12.8786797 L4.20710678,17.2071068 Z M15.7928932,2.79289322 L13,0 L20,0 L20,7 L17.2071068,4.20710678 L12.8786797,8.53553391 L11.4644661,7.12132034 L15.7928932,2.79289322 Z M15.7928932,17.2071068 L13,20 L20,20 L20,13 L17.2071068,15.7928932 L12.8786797,11.4644661 L11.4644661,12.8786797 L15.7928932,17.2071068 Z M4.20710678,2.79289322 L7,0 L0,0 L0,7 L2.79289322,4.20710678 L7.12132034,8.53553391 L8.53553391,7.12132034 L4.20710678,2.79289322 Z" />
+              <polygon v-else id="Combined-Shape" points="10 8.58578644 2.92893219 1.51471863 1.51471863 2.92893219 8.58578644 10 1.51471863 17.0710678 2.92893219 18.4852814 10 11.4142136 17.0710678 18.4852814 18.4852814 17.0710678 11.4142136 10 18.4852814 2.92893219 17.0710678 1.51471863 10 8.58578644" />
+            </icon>
+          </button>
+        </div>
+      </template>
 
-    <div ref="wrapper" class="w-full bg-gray-700 relative max-w-full shadow-inner pattern2">
-      <div
-        ref="resizable"
-        :style="`min-width:${minWidth}px`"
-        class="relative flex bg-white h-full"
-      >
+      <template slot="footer">
+        <slot name="controls" />
+      </template>
+
+      <div ref="wrapper" class="w-full bg-gray-700 relative max-w-full shadow-inner pattern2">
         <div
-          ref="iframeWrapper"
-          class="flex-grow relative ease-in-out transition-all origin-top duration-75"
-          :style="`height: ${initialHeight}px; min-height: 100px`"
-          :class="{'pointer-events-none': dragging}"
+          ref="resizable"
+          :style="`min-width:${minWidth}px`"
+          class="relative flex bg-white h-full"
         >
-          <loading-overlay v-if="loadingIFrame" />
-          <iframe
-            ref="iframe"
-            class="w-full h-full "
-            :src="src"
-          />
+          <div
+            ref="iframeWrapper"
+            class="flex-grow relative ease-in-out transition-all origin-top duration-75"
+            :style="`height: ${initialHeight}px; min-height: 100px`"
+            :class="{'pointer-events-none': dragging}"
+          >
+            <iframe
+              ref="iframe"
+              class="w-full h-full "
+              :src="initialSrc"
+            />
+          </div>
+          <span
+            ref="resizer"
+            draggable="true"
+            style="cursor: ew-resize"
+            class="sr-only sm:not-sr-only sm:border-l sm:bg-gray-100 sm:flex sm:items-center sm:w-4"
+          >
+            <icon class="h-4 w-4 text-gray-600 pointer-events-none">
+              <path d="M8 5h2v14H8zM14 5h2v14h-2z" />
+            </icon>
+          </span>
         </div>
-        <span
-          ref="resizer"
-          draggable="true"
-          style="cursor: ew-resize"
-          class="sr-only sm:not-sr-only sm:border-l sm:bg-gray-100 sm:flex sm:items-center sm:w-4"
-        >
-          <icon class="h-4 w-4 text-gray-600 pointer-events-none">
-            <path d="M8 5h2v14H8zM14 5h2v14h-2z" />
-          </icon>
-        </span>
       </div>
-    </div>
-  </t-card>
+    </t-card>
+  </div>
 </template>
 
 <script>
@@ -128,6 +92,10 @@ export default Vue.extend({
       type: String,
       required: true
     },
+    params: {
+      type: Object,
+      default: null
+    },
     minWidth: {
       type: Number,
       default: 200
@@ -139,11 +107,21 @@ export default Vue.extend({
   },
   data () {
     return {
+      initialSrc: `${this.src}?${this.params ? new URLSearchParams(this.params).toString() : ''}`,
       fullscreen: false,
       dragging: false,
       startX: null,
       startWidth: null,
       loadingIFrame: true
+    }
+  },
+  watch: {
+    params (params) {
+      const iframe = this.$refs.iframe
+      iframe.contentWindow.$nuxt.$router.replace({ query: params }, async () => {
+        await this.$nextTick()
+        this.syncIframeHeight()
+      })
     }
   },
   mounted () {

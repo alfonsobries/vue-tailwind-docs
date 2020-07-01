@@ -11,4 +11,5 @@ VueJs reactive `<input />` with configurable classes, variants and most common e
 
 ## Playground
 
-<playground src="/playgrounds/t-input" />>
+<t-input-playground />
+
