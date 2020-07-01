@@ -74,7 +74,7 @@ const MyOwnTheme = {
 export default MyOwnTheme
 ```
 
-Then you can import your theme and add it as parameter when you install VueTailwind:
+Then you can import your theme and add it as a parameter when you install VueTailwind:
 
 ```js {3,6}
 import Vue from 'vue'
