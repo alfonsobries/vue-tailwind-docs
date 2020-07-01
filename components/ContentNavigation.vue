@@ -1,5 +1,5 @@
 <template>
-  <nav class="hidden lg:text-sm lg:block lg:w-1/3 xl:w-1/4 lg:px-6 relative pt-10">
+  <nav>
     <div class="sticky top-20 max-h-screen overflow-y-auto scrolling-touch">
       <h5 class="text-gray-500 uppercase tracking-wide font-bold text-xs px-3">
         On this page

@@ -1,5 +1,5 @@
 .nuxt-content {
-  @apply text-gray-700 leading-relaxed max-w-full overflow-auto;
+  @apply text-gray-700 leading-relaxed overflow-auto;
 }
 
 .nuxt-content > h1 {
@@ -34,7 +34,9 @@
 .nuxt-content > ol > * + * {
   @apply mt-4;
 }
-
+.nuxt-content-highlight {
+max-width: 100%;
+}
 .nuxt-content > h2::before,
 .nuxt-content > h3::before,
 .nuxt-content > .heading::before {

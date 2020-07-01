@@ -1,14 +1,18 @@
 <template>
   <div class="bg-white">
     <div class="mx-auto max-w-screen-xl px-4 sm:px-6 pb-10">
-      <div class="flex -mx-5 relative">
-        <side-navigation class="hidden lg:block" />
+      <div class="flex lg:-mx-6 relative">
+        <side-navigation
+          class="hidden lg:block lg:flex-shrink-0 lg:px-6 lg:pt-10 lg:w-1/5 xl:w-1/6 flex-grow flex-shrink-0"
+        />
 
-        <div class="px-6 xl:px-12 w-full max-w-3xl mx-auto lg:ml-0 lg:mr-auto xl:mx-0 xl:w-3/4 pt-10">
-          <nuxt-content :document="page" />
-        </div>
+        <nuxt-content class="pt-10 max-w-full mx-auto" :document="page" />
 
-        <content-navigation :toc="page.toc" />
+        <content-navigation
+          v-if="page.toc"
+          class="hidden relative lg:text-sm lg:block lg:px-6 lg:pt-10 lg:w-1/5 xl:w-1/6 flex-grow  flex-shrink-0"
+          :toc="page.toc"
+        />
       </div>
     </div>
   </div>

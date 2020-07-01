@@ -1,5 +1,5 @@
 <template>
-  <nav class="lg:flex-shrink-0 lg:w-56 lg:px-5 lg:pt-10">
+  <nav>
     <div class="lg:sticky top-20 lg:max-h-screen lg:overflow-y-auto lg:scrolling-touch">
       <nuxt-link
         to="/docs/installation"
