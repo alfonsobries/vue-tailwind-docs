@@ -60,7 +60,7 @@ const theme = {
   }
 }
 
-// Add the theme as second parameter when you registry your component
+// Add the theme as the second parameter when you register your component
 Vue.use(VueTailwind, theme)
 ```
 
@@ -134,7 +134,7 @@ When you create a theme, especially one with many variants, you will notice that
 
 To make it easier to handle those classes, you can use the prop `fixedClasses` that all the components have, the classes defined in this attribute will always be merge to the currently active class of the component.
 
-For example, let's say that you need all your buttons to have a small transition-related class and you know all of them will have a shadow. Consider this two alternatives:
+For example, let's say that you need all your buttons to have a small transition-related class and you know all of them will have a shadow. Consider these two alternatives:
 
 <wrong-tip>
 You can repeat the same common classes over and over.
@@ -251,7 +251,7 @@ When using the `fixedClasses` prop for multiple tags elements you only need to d
 
 In some cases, you will need yo define the theme of a specific component directly, maybe the theme is determined by the user, is dynamic for some reason, is more practical, or is just a personal preference.
 
-All the components comes with the `variants`, `classes` and `fixedClasses` props that expects the value in the same format as the theme.
+All the components come with the `variants`, `classes`, and `fixedClasses` props that expect the value in the same format as the theme.
 
 Take a look at the following examples:
 

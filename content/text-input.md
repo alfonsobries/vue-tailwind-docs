@@ -5,7 +5,7 @@ description: VueJs reactive text input with customizable Tailwind or any Css Fra
 
 # Text input (TInput)
 
-VueJs reactive `<input />` with configurable classes, variants and most common events.
+VueJs reactive `<input />` with configurable classes, variants, and most common events.
 
 <hr>
 

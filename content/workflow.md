@@ -5,7 +5,7 @@ description: How do you work with the vue-tailwind components and apply differen
 
 # Workflow
 
- How do you work with the vue-tailwind components and his different variants.
+ How to work with the vue-tailwind components and his different variants.
 
 <hr>
 
@@ -36,7 +36,7 @@ With our custom theme the alerts above will look like this:
 </t-alert>
 
 
-This is how the variants of the alert above looks like:
+This is how the variants of the alert above look like:
 
 ```js
 const theme{
@@ -66,7 +66,7 @@ const theme{
 
 ### Variants as objects
 
-The `variant` prop also accepts an object where the `key` should be the variant you want to apply and the `value` shoudl be a truthy or a falsy value.
+The `variant` prop also accepts an object where the `key` should be the variant you want to apply and the `value` should be a truthy or a falsy value.
 
 #### Example:
 
@@ -101,12 +101,12 @@ To better exemplify the example above take a look at this one that has the value
 ```
 
 <t-alert :variant="{ error: false, success: true}" show>
-  This message was harcoded and should have the `success` variant since success is truthy.
+  This message was hardcoded and should have the `success` variant since success is truthy.
 </t-alert>
 
 ## Working with classes
 
-The `classes` prop have a similar behaviour as default `class` attribute, this means that it accepts the classes in the the same syntax that [Vue accepts](https://vuejs.org/v2/guide/class-and-style.html), (also when you define the classes in the global template)
+The `classes` prop have similar behavior as default `class` attribute, this means that it accepts the classes in the same syntax that [Vue accepts](https://vuejs.org/v2/guide/class-and-style.html), (also when you define the classes in the global template)
 
 ### Single tag elements
 
@@ -154,12 +154,12 @@ In case you are wondering you can use the default `class` attribute and the `cla
 </t-button>
 
 <tip>
-As you may imagine, if you use the HTML `class` attribute in a component with multiple tags the class will be only by applied to the tag that wraps the component.
+As you may imagine, if you use the HTML `class` attribute in a component with multiple tags the class will be only be applied to the tag that wraps the component.
 </tip>
 
 ### Multiple tag elements
 
-The components that depends of multiple HTML tags works the same as the single tag ones the only different is that every class should be wrapped in an object.
+The components that depend on multiple HTML tags work the same as the single tag ones the only difference is that every class should be wrapped in an object.
 
 
 ```html
@@ -181,7 +181,7 @@ The components that depends of multiple HTML tags works the same as the single t
 </t-alert>
 
 <tip>
-Notice that the `close` and `closeIcon` attribs in the example above uses array an object syntax.
+Notice that the `close` and `closeIcon` attributes in the example above uses array and object syntax.
 </tip>
 
 
