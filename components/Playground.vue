@@ -1,5 +1,5 @@
 <template>
-  <div class="relative rounded overflow-hidden">
+  <div class="relative rounded overflow-hidden max-w-full">
     <loading-overlay v-if="loadingIFrame" />
     <t-card
       :variant="{
@@ -16,17 +16,29 @@
         </div>
         <div class="hidden sm:flex items-center text-sm md:text-base">
           <t-button
-            variant="playgroundMenuActive"
+            :variant="{
+              'playgroundMenuActive': view === 'demo',
+              'playgroundMenu': view !== 'demo'
+            }"
+            @click.prevent="view = 'demo'"
           >
             Demo
           </t-button>
           <t-button
-            variant="playgroundMenu"
+            :variant="{
+              'playgroundMenuActive': view === 'classes',
+              'playgroundMenu': view !== 'classes'
+            }"
+            @click.prevent="view = 'classes'"
           >
             Classes
           </t-button>
           <t-button
-            variant="playgroundMenu"
+            :variant="{
+              'playgroundMenuActive': view === 'customize',
+              'playgroundMenu': view !== 'customize'
+            }"
+            @click.prevent="view = 'customize'"
           >
             Customize
           </t-button>
@@ -52,7 +64,9 @@
         <slot name="controls" />
       </template>
 
-      <div ref="wrapper" class="w-full bg-gray-700 relative max-w-full shadow-inner pattern2">
+      <playground-classes v-show="view === 'classes'" :params="params" :component-name="componentName" />
+
+      <div v-show="view === 'demo'" ref="wrapper" class="w-full bg-gray-700 relative max-w-full shadow-inner pattern2">
         <div
           ref="resizable"
           :style="`min-width:${minWidth}px`"
@@ -88,9 +102,12 @@
 
 <script>
 import Vue from 'vue'
+import PlaygroundClasses from './PlaygroundClasses'
 import Icon from '@/components/Icon'
+
 export default Vue.extend({
   components: {
+    PlaygroundClasses,
     Icon
   },
   props: {
@@ -101,6 +118,10 @@ export default Vue.extend({
     params: {
       type: Object,
       default: null
+    },
+    componentName: {
+      type: String,
+      required: true
     },
     minWidth: {
       type: Number,
@@ -113,6 +134,7 @@ export default Vue.extend({
   },
   data () {
     return {
+      view: 'demo',
       initialSrc: `${this.src}?${this.params ? new URLSearchParams(this.params).toString() : ''}`,
       fullscreen: false,
       dragging: false,
@@ -132,12 +154,17 @@ export default Vue.extend({
   },
   mounted () {
     const resizer = this.$refs.resizer
-    const iframe = this.$refs.iframe
 
     resizer.addEventListener('mousedown', this.initDrag, false)
-    iframe.addEventListener('load', this.iframeLoaded)
+
+    this.initIframe()
   },
   methods: {
+    initIframe () {
+      this.loadingIFrame = true
+      const iframe = this.$refs.iframe
+      iframe.addEventListener('load', this.iframeLoaded)
+    },
     iframeLoaded () {
       this.syncIframeHeight()
       this.loadingIFrame = false

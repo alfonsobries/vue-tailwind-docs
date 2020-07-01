@@ -1,5 +1,6 @@
 <template>
   <playground
+    component-name="TInput"
     src="/playgrounds/t-input"
     :params="params"
   >
@@ -47,7 +48,7 @@ export default {
       classes: 'bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal',
       variants: {
         '': undefined,
-        gray: 'block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-2 px-4 leading-normal  ocus:outline-none focus:bg-white focus:border-gray-500',
+        gray: 'block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-2 px-4 leading-normal focus:outline-none focus:bg-white focus:border-gray-500',
         error: 'text-red-600 bg-red-100 focus:outline-none focus:shadow-outline border border-red-300 rounded py-2 px-4 block w-full leading-normal ',
         success: 'text-green-600 bg-green-100 focus:outline-none focus:shadow-outline border border-green-300 rounded py-2 px-4 block w-full leading-normal',
         funny: 'bg-orange-100 block border-2 border-orange-300 focus:border-orange-500 focus:outline-none leading-normal px-4 py-3 rounded-full shadow-inner w-full '
