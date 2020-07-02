@@ -58,7 +58,7 @@
           variant="playground"
           label="Placeholder"
         >
-          <t-input v-model="params.placeholder" variant="playground" />
+          <t-input v-model="params.placeholder" variant="playground" placeholder="No placeholder" />
         </t-input-group>
       </fieldset>
     </template>
