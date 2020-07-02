@@ -1,8 +1,9 @@
 <template>
   <playground
-    component-name="TTextarea"
-    src="/playgrounds/t-textarea"
+    component-name="TSelect"
+    src="/playgrounds/t-select"
     :settings.sync="settings"
+    :params.sync="params"
     :variant="variant"
   >
     <template slot="controls">
@@ -59,15 +60,19 @@
 import ComponentPlayground from './ComponentPlayground'
 
 export default ComponentPlayground.extend({
+
   data () {
     return {
       variant: '',
+      params: {
+        placeholder: 'Select an option'
+      },
       settings: {
-        classes: 'bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal',
+        classes: 'form-select w-full leading-normal',
         variants: {
-          error: 'text-red-600 bg-red-100 focus:outline-none focus:shadow-outline border border-red-300 rounded py-2 px-4 block w-full leading-normal',
-          success: 'text-green-600 bg-green-100 focus:outline-none focus:shadow-outline border border-green-300 rounded py-2 px-4 block w-full leading-normal',
-          fun: 'bg-orange-100 block border-2 border-orange-300 focus:border-orange-500 focus:outline-none leading-normal px-4 py-3 rounded-lg shadow-inner w-full'
+          error: 'form-select text-red-600 bg-red-100 focus:outline-none focus:shadow-outline border-red-300 w-full leading-normal',
+          success: 'form-select text-green-600 bg-green-100 focus:outline-none focus:shadow-outline border-green-300 w-full leading-normal'
+          // fun: 'bg-orange-100 block border-2 border-orange-300 focus:border-orange-500 focus:outline-none leading-normal px-4 py-3 rounded-full shadow-inner w-full '
         }
       }
     }

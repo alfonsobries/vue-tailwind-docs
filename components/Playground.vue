@@ -137,6 +137,10 @@ export default Vue.extend({
       type: Object,
       default: null
     },
+    params: {
+      type: Object,
+      default: null
+    },
     variant: {
       type: String,
       default: null
@@ -155,7 +159,6 @@ export default Vue.extend({
     }
   },
   data () {
-    const initialSrc = `${this.src}?${this.settings ? new URLSearchParams(this.getSerializableParams()).toString() : ''}`
     return {
       currentSettings: this.settings,
       view: 'demo',
@@ -165,12 +168,19 @@ export default Vue.extend({
       startWidth: null,
       loadingIFrame: true,
       iframeSyncInterval: null,
-      initialSrc
+      initialSrc: this.getInitialSrc()
     }
   },
   computed: {
-    params () {
-      return this.getSerializableParams()
+    serializableParams () {
+      const params = {
+        ...{
+          variant: this.variant
+        },
+        ...this.settings,
+        ...this.params
+      }
+      return this.serializeParams(params)
     }
   },
   watch: {
@@ -196,9 +206,9 @@ export default Vue.extend({
         this.currentSettings = settings
       }
     },
-    params (params) {
+    serializableParams (serializableParams) {
       const iframe = this.$refs.iframe
-      iframe.contentWindow.$nuxt.$router.replace({ query: params }, async () => {
+      iframe.contentWindow.$nuxt.$router.replace({ query: serializableParams }, async () => {
         await this.$nextTick()
         this.syncIframeHeight()
       })
@@ -218,6 +228,23 @@ export default Vue.extend({
     this.enableBodyScroll()
   },
   methods: {
+    getInitialSrc () {
+      const params = {
+        ...{
+          variant: this.variant
+        },
+        ...this.settings,
+        ...this.params
+      }
+
+      if (!Object.keys(params).length && !Object.keys(this.params).length) {
+        return this.src
+      }
+
+      const serializableParams = this.serializeParams(params)
+      const query = new URLSearchParams(serializableParams).toString()
+      return `${this.src}?${query}`
+    },
     exitFullscreen () {
       this.fullscreen = false
     },
@@ -245,12 +272,20 @@ export default Vue.extend({
         enableBodyScroll(card)
       }
     },
-    getSerializableParams () {
-      return {
-        classes: this.settings.classes,
-        variant: this.variant,
-        variants: JSON.stringify(this.settings.variants)
-      }
+    serializeParams (params) {
+      const result = {}
+
+      Object.keys(params).forEach((key) => {
+        const value = params[key]
+        if (typeof value === 'object') {
+          const stringfied = JSON.stringify(params[key])
+          result[key] = stringfied
+        } else {
+          result[key] = value
+        }
+      })
+
+      return result
     },
     initIframe () {
       this.loadingIFrame = true

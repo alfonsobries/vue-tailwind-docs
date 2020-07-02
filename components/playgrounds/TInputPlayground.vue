@@ -56,11 +56,11 @@
 </template>
 
 <script>
-export default {
+import ComponentPlayground from './ComponentPlayground'
+
+export default ComponentPlayground.extend({
   data () {
     return {
-      themeWasChanged: false,
-      currentValue: 'I love vuejs 😎',
       variant: '',
       settings: {
         classes: 'bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal',
@@ -71,11 +71,6 @@ export default {
         }
       }
     }
-  },
-  watch: {
-    settings () {
-      this.themeWasChanged = true
-    }
   }
-}
+})
 </script>

@@ -9,6 +9,7 @@ import LoadingOverlay from '@/components/LoadingOverlay'
 
 import TInputPlayground from '@/components/playgrounds/TInputPlayground'
 import TTextareaPlayground from '@/components/playgrounds/TTextareaPlayground'
+import TSelectPlayground from '@/components/playgrounds/TSelectPlayground'
 
 Vue.component('tip', Tip)
 Vue.component('preview', Preview)
@@ -19,3 +20,4 @@ Vue.component('loading-overlay', LoadingOverlay)
 
 Vue.component('t-input-playground', TInputPlayground)
 Vue.component('t-textarea-playground', TTextareaPlayground)
+Vue.component('t-select-playground', TSelectPlayground)

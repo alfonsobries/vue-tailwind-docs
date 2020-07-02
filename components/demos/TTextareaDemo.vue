@@ -15,24 +15,13 @@
 </template>
 
 <script>
-import parseJsonClasses from '@/utils/parseJsonClasses'
+import ComponentDemo from './ComponentDemo'
 
-export default {
-  props: {
-    params: {
-      type: Object,
-      default: null
-    }
-  },
+export default ComponentDemo.extend({
   data () {
     return {
       currentValue: 'I love vuejs 😎'
     }
-  },
-  computed: {
-    settings () {
-      return parseJsonClasses(this.params)
-    }
   }
-}
+})
 </script>

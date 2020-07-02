@@ -35,7 +35,10 @@ Vue.use(VueTailwind, {
     }
   },
   TSelect: {
-    classes: 'form-select border-2 bg-orange-100 text-gray-700'
+    classes: 'form-select border-2 bg-orange-100 text-gray-700',
+    variants: {
+      demo: 'form-select w-full'
+    }
   },
   TAlert: {
     classes: {
