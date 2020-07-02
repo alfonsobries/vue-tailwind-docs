@@ -26,7 +26,7 @@
       </p>
     </div>
 
-    <div class="border-2 bg-gray-100 rounded mb-4">
+    <div class="border bg-gray-100 rounded mb-4">
       <h3 class="p-4 border-b">
         Variants:
       </h3>
