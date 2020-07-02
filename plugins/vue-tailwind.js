@@ -74,6 +74,10 @@ Vue.use(VueTailwind, {
       error: {
         label: 'block uppercase tracking-wide text-xs font-semibold text-red-500',
         feedback: 'text-sm text-red-500'
+      },
+      playground: {
+        wrapper: '',
+        label: 'text-xs font-medium uppercase text-gray-500 leading-none'
       }
     }
   },
