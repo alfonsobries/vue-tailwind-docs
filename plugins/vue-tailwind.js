@@ -24,7 +24,8 @@ Vue.use(VueTailwind, {
     classes: 'form-input border-2 bg-orange-100 text-gray-700',
     variants: {
       demo: 'bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal',
-      error: 'form-input border-2 bg-orange-100 border-red-500 text-red-500'
+      error: 'form-input border-2 bg-orange-100 border-red-500 text-red-500',
+      playground: 'form-input p-2 px-3 py-1 text-sm'
     }
   },
   TTextarea: {
@@ -93,7 +94,7 @@ Vue.use(VueTailwind, {
         wrapper: 'bg-white border rounded shadow flex flex-col overflow-hidden',
         body: '',
         header: 'px-4 py-2 border-b flex items-center justify-between bg-gray-100',
-        footer: 'px-4 py-2 bg-gray-100 border-t'
+        footer: 'px-4 pt-2 pb-4 bg-gray-100 border-t'
       },
       fullscreen: {
         wrapper: 'bg-white fixed left-0 right-0 top-0 bottom-0 z-50 flex flex-col max-h-screen',

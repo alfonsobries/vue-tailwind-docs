@@ -161,6 +161,7 @@ export default Vue.extend({
   data () {
     return {
       currentSettings: this.settings,
+      currentParams: this.params,
       view: 'demo',
       fullscreen: false,
       dragging: false,
@@ -177,8 +178,8 @@ export default Vue.extend({
         ...{
           variant: this.variant
         },
-        ...this.settings,
-        ...this.params
+        ...this.currentSettings,
+        ...this.currentParams
       }
       return this.serializeParams(params)
     }
@@ -204,6 +205,14 @@ export default Vue.extend({
     settings (settings) {
       if (!isEqual(settings, this.currentSettings)) {
         this.currentSettings = settings
+      }
+    },
+    currentParams (currentParams) {
+      this.$emit('update:params', currentParams)
+    },
+    params (params) {
+      if (!isEqual(params, this.currentParams)) {
+        this.currentParams = params
       }
     },
     serializableParams (serializableParams) {

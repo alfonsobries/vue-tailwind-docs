@@ -53,6 +53,13 @@
             </label>
           </div>
         </t-input-group>
+
+        <t-input-group
+          variant="playground"
+          label="Placeholder"
+        >
+          <t-input v-model="params.placeholder" variant="playground" />
+        </t-input-group>
       </fieldset>
     </template>
   </playground>

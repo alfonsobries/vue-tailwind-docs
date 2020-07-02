@@ -6,7 +6,7 @@
       :classes="settings.classes"
       :variant="settings.variant ? settings.variant : undefined"
       :variants="settings.variants"
-      :placeholder="settings.placeholder"
+      :placeholder="settings.placeholder ? settings.placeholder : undefined"
     />
 
     <p class="mt-4">
