@@ -1,0 +1,38 @@
+<template>
+  <div class="p-4">
+    <t-textarea
+      v-model="currentValue"
+      :classes="settings.classes"
+      :variant="settings.variant ? settings.variant : undefined"
+      :variants="settings.variants"
+    />
+
+    <p class="mt-4">
+      <span class="text-gray-500 text-sm block">Current value: </span>
+      <span class="whitespace-pre block bg-gray-200 font-mono p-2 rounded text-gray-900 text-sm">{{ currentValue }}</span>
+    </p>
+  </div>
+</template>
+
+<script>
+import parseJsonClasses from '@/utils/parseJsonClasses'
+
+export default {
+  props: {
+    params: {
+      type: Object,
+      default: null
+    }
+  },
+  data () {
+    return {
+      currentValue: 'I love vuejs 😎'
+    }
+  },
+  computed: {
+    settings () {
+      return parseJsonClasses(this.params)
+    }
+  }
+}
+</script>

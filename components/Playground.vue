@@ -163,6 +163,7 @@ export default Vue.extend({
       startX: null,
       startWidth: null,
       loadingIFrame: true,
+      iframeSyncInterval: null,
       initialSrc
     }
   },
@@ -172,6 +173,13 @@ export default Vue.extend({
     }
   },
   watch: {
+    view () {
+      if (this.view === 'demo') {
+        this.syncIframeHeight()
+      } else {
+
+      }
+    },
     fullscreen (fullscreen) {
       if (fullscreen) {
         this.disableBodyScroll()
@@ -201,11 +209,22 @@ export default Vue.extend({
     resizer.addEventListener('mousedown', this.initDrag, false)
 
     this.initIframe()
+
+    this.startIframeSyncInterval()
   },
   beforeDestroy () {
+    this.stopIframeSyncInterval()
     this.enableBodyScroll()
   },
   methods: {
+    startIframeSyncInterval () {
+      this.iframeSyncInterval = setInterval(() => {
+        this.syncIframeHeight()
+      }, 500)
+    },
+    stopIframeSyncInterval () {
+      clearInterval(this.iframeSyncInterval)
+    },
     disableBodyScroll () {
       const card = this.$refs.card.$el
       if (card) {
@@ -219,7 +238,6 @@ export default Vue.extend({
     enableBodyScroll () {
       const card = this.$refs.card.$el
       if (card) {
-        console.log('enable', card)
         enableBodyScroll(card)
       }
     },
@@ -240,13 +258,15 @@ export default Vue.extend({
       this.loadingIFrame = false
     },
     syncIframeHeight () {
-      if (this.fullscreen) {
+      if (this.fullscreen || this.view !== 'demo') {
         return
       }
       const iframe = this.$refs.iframe
       const iframeWrapper = this.$refs.iframeWrapper
       const newHeight = iframe.contentWindow.document.body.offsetHeight
-      iframeWrapper.style.height = `${newHeight}px`
+      if (newHeight && iframeWrapper.style.height !== `${newHeight}px`) {
+        iframeWrapper.style.height = `${newHeight}px`
+      }
     },
     async toggleFullscreen () {
       this.fullscreen = !this.fullscreen

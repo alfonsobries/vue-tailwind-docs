@@ -1,15 +1,17 @@
 ---
-title: TailwindCSS Text input
-description: VueJs reactive text input with customizable TailwindCSS or any CSS Framework classes.
+title: TailwindCSS Textarea
+description: VueJs reactive textarea with customizable TailwindCSS or any CSS Framework classes.
 ---
 
-# Text input (TInput)
+# Textarea (TTextarea)
 
-VueJs reactive `<input />` with configurable classes, variants, and most common events. Friendly with utility-first frameworks like TailwindCSS.
+VueJs reactive `<textarea></textarea>` with configurable classes, variants, and most common events. Friendly with utility-first frameworks like TailwindCSS..
 
-<t-input-playground></t-input-playground>
+<t-textarea-playground></t-textarea-playground>
 
 <hr>
+
+## TODO
 
 
 ## Basic example
