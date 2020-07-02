@@ -8,6 +8,7 @@
         fullscreen: fullscreen
       }"
       :style="fullscreen ? 'margin:0' : undefined"
+      @keyup.native.esc="exitFullscreen"
     >
       <template slot="header">
         <div>
@@ -217,6 +218,9 @@ export default Vue.extend({
     this.enableBodyScroll()
   },
   methods: {
+    exitFullscreen () {
+      this.fullscreen = false
+    },
     startIframeSyncInterval () {
       this.iframeSyncInterval = setInterval(() => {
         this.syncIframeHeight()
