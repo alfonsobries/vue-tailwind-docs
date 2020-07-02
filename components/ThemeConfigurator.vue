@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="w-full">
     <div class="mb-4">
       <div class="sm:items-start">
         <div class="space-y-1">

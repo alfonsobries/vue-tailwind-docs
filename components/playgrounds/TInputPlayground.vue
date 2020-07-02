@@ -7,15 +7,10 @@
   >
     <template slot="controls">
       <fieldset>
-        <legend class="text-base font-medium text-gray-900">
-          Example variants
-        </legend>
-
-        <p class="text-xs leading-5 text-gray-500">
-          Variants crafted by us as an example
-        </p>
-
-        <div class="flex flex-wrap -mx-3">
+        <label for="variant" class="text-xs font-medium uppercase text-gray-500 leading-none">
+          {{ themeWasChanged ? 'Custom' : 'Example' }} variants:
+        </label>
+        <div class="flex flex-wrap items-center -mx-3">
           <label
             key="---"
             for="variant---"
@@ -24,7 +19,7 @@
             <input
               id="variant---"
               v-model="variant"
-              value=""
+              :value="''"
               name="variant"
               type="radio"
               class="form-radio h-4 w-4 text-orange-600 transition duration-150 ease-in-out"
@@ -64,19 +59,23 @@
 export default {
   data () {
     return {
+      themeWasChanged: false,
       currentValue: 'I love vuejs 😎',
       variant: '',
       settings: {
         classes: 'bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal',
         variants: {
-          gray: 'block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-2 px-4 leading-normal focus:outline-none focus:bg-white focus:border-gray-500',
           error: 'text-red-600 bg-red-100 focus:outline-none focus:shadow-outline border border-red-300 rounded py-2 px-4 block w-full leading-normal ',
           success: 'text-green-600 bg-green-100 focus:outline-none focus:shadow-outline border border-green-300 rounded py-2 px-4 block w-full leading-normal',
-          funny: 'bg-orange-100 block border-2 border-orange-300 focus:border-orange-500 focus:outline-none leading-normal px-4 py-3 rounded-full shadow-inner w-full '
+          fun: 'bg-orange-100 block border-2 border-orange-300 focus:border-orange-500 focus:outline-none leading-normal px-4 py-3 rounded-full shadow-inner w-full '
         }
       }
     }
+  },
+  watch: {
+    settings () {
+      this.themeWasChanged = true
+    }
   }
-
 }
 </script>

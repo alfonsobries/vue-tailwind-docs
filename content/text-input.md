@@ -9,7 +9,5 @@ VueJs reactive `<input />` with configurable classes, variants, and most common 
 
 <hr>
 
-## Playground
-
 <t-input-playground />
 

@@ -35,12 +35,12 @@
           </t-button>
           <t-button
             :variant="{
-              'playgroundMenuActive': view === 'classes',
-              'playgroundMenu': view !== 'classes'
+              'playgroundMenuActive': view === 'settings',
+              'playgroundMenu': view !== 'settings'
             }"
-            @click.prevent="view = 'classes'"
+            @click.prevent="view = 'settings'"
           >
-            Classes
+            Settings
           </t-button>
           <span class="border-gray-400 border-l h-4 inline-block mr-2" />
           <button
@@ -64,16 +64,18 @@
         <slot name="controls" />
       </template>
 
-      <playground-classes
-        v-show="view === 'classes'"
+      <playground-settings
+        v-show="view === 'settings'"
         :settings="currentSettings"
         :component-name="componentName"
+        @select="(selected) => view = selected"
       />
 
       <playground-customize
         v-show="view === 'customize'"
         :settings.sync="currentSettings"
         :component-name="componentName"
+        @select="(selected) => view = selected"
       />
 
       <div v-show="view === 'demo'" ref="wrapper" class="w-full bg-gray-700 relative max-w-full shadow-inner pattern2">
@@ -113,13 +115,13 @@
 <script>
 import Vue from 'vue'
 import isEqual from 'lodash/isEqual'
-import PlaygroundClasses from './PlaygroundClasses'
+import PlaygroundSettings from './PlaygroundSettings'
 import PlaygroundCustomize from './PlaygroundCustomize'
 import Icon from '@/components/Icon'
 
 export default Vue.extend({
   components: {
-    PlaygroundClasses,
+    PlaygroundSettings,
     PlaygroundCustomize,
     Icon
   },
@@ -150,15 +152,16 @@ export default Vue.extend({
     }
   },
   data () {
+    const initialSrc = `${this.src}?${this.settings ? new URLSearchParams(this.getSerializableParams()).toString() : ''}`
     return {
       currentSettings: this.settings,
       view: 'demo',
-      initialSrc: `${this.src}?${this.params ? new URLSearchParams(this.getSerializableParams()).toString() : ''}`,
       fullscreen: false,
       dragging: false,
       startX: null,
       startWidth: null,
-      loadingIFrame: true
+      loadingIFrame: true,
+      initialSrc
     }
   },
   computed: {
