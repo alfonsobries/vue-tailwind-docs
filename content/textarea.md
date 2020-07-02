@@ -1,11 +1,11 @@
 ---
-title: TailwindCSS Textarea
-description: VueJs reactive textarea with customizable TailwindCSS or any CSS Framework classes.
+title: TailwindCSS Textarea Vue Component
+description: VueJs reactive textarea component with customizable TailwindCSS or any CSS Framework classes.
 ---
 
 # Textarea (TTextarea)
 
-VueJs reactive `<textarea></textarea>` with configurable classes, variants, and most common events. Friendly with utility-first frameworks like TailwindCSS..
+VueJs reactive `<textarea></textarea>` component with configurable classes, variants, and most common events. Friendly with utility-first frameworks like TailwindCSS..
 
 <t-textarea-playground></t-textarea-playground>
 
