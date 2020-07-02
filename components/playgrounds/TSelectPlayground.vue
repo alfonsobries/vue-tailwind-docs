@@ -71,8 +71,8 @@ export default ComponentPlayground.extend({
         classes: 'form-select w-full leading-normal',
         variants: {
           error: 'form-select text-red-600 bg-red-100 focus:outline-none focus:shadow-outline border-red-300 w-full leading-normal',
-          success: 'form-select text-green-600 bg-green-100 focus:outline-none focus:shadow-outline border-green-300 w-full leading-normal'
-          // fun: 'bg-orange-100 block border-2 border-orange-300 focus:border-orange-500 focus:outline-none leading-normal px-4 py-3 rounded-full shadow-inner w-full '
+          success: 'form-select text-green-600 bg-green-100 focus:outline-none focus:shadow-outline border-green-300 w-full leading-normal',
+          fun: 'form-select bg-orange-100 border-2 border-orange-300 focus:border-orange-500 focus:outline-none leading-normal px-4 py-3 rounded-full shadow-inner w-full'
         }
       }
     }
