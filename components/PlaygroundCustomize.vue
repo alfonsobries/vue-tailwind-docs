@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex flex-col">
     <tip class="border-b text-sm leading-5 items-stretch">
       In this tab you can modify the TailwindCSS classes of the example theme and add, edit or delete as many variants as you wish. Once you finished you can preview your theme in the <a href="#" class="underline font-medium" @click.prevent="$emit('select', 'demo')">demo</a> tab or grab the settings from the <a href="#" class="underline font-medium" @click.prevent="$emit('select', 'settings')">settings</a> tab.
     </tip>

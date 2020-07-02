@@ -7,7 +7,10 @@ description: VueJs reactive text input with customizable Tailwind or any Css Fra
 
 VueJs reactive `<input />` with configurable classes, variants, and most common events.
 
-<hr>
 
 <t-input-playground />
+
+<hr>
+
+
 

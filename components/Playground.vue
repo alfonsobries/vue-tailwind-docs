@@ -2,6 +2,7 @@
   <div class="relative rounded overflow-hidden max-w-full">
     <loading-overlay v-if="loadingIFrame" />
     <t-card
+      ref="card"
       :variant="{
         playground: !fullscreen,
         fullscreen: fullscreen
@@ -115,6 +116,7 @@
 <script>
 import Vue from 'vue'
 import isEqual from 'lodash/isEqual'
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import PlaygroundSettings from './PlaygroundSettings'
 import PlaygroundCustomize from './PlaygroundCustomize'
 import Icon from '@/components/Icon'
@@ -170,6 +172,13 @@ export default Vue.extend({
     }
   },
   watch: {
+    fullscreen (fullscreen) {
+      if (fullscreen) {
+        this.disableBodyScroll()
+      } else {
+        this.enableBodyScroll()
+      }
+    },
     currentSettings (currentSettings) {
       this.$emit('update:settings', currentSettings)
     },
@@ -193,7 +202,27 @@ export default Vue.extend({
 
     this.initIframe()
   },
+  beforeDestroy () {
+    this.enableBodyScroll()
+  },
   methods: {
+    disableBodyScroll () {
+      const card = this.$refs.card.$el
+      if (card) {
+        disableBodyScroll(card, {
+          reserveScrollBarGap: true
+        })
+
+        card.focus()
+      }
+    },
+    enableBodyScroll () {
+      const card = this.$refs.card.$el
+      if (card) {
+        console.log('enable', card)
+        enableBodyScroll(card)
+      }
+    },
     getSerializableParams () {
       return {
         classes: this.settings.classes,
