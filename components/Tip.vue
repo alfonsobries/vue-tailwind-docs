@@ -5,7 +5,6 @@
     </icon>
     <span>
       <slot />
-
     </span>
   </div>
 </template>

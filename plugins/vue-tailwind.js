@@ -23,6 +23,7 @@ Vue.use(VueTailwind, {
   TInput: {
     classes: 'form-input border-2 bg-orange-100 text-gray-700',
     variants: {
+      demo: 'bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal',
       error: 'form-input border-2 bg-orange-100 border-red-500 text-red-500'
     }
   },
