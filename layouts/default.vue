@@ -17,7 +17,7 @@
       <nuxt />
     </main>
 
-    <div class="">
+    <div>
       <div class="container mx-auto md:flex justify-between py-8 text-center">
         <div class="flex justify-center md:order-2">
           <a href="https://twitter.com/alfonsobries" target="_blank" class="ml-6 text-gray-600 hover:text-gray-700">
@@ -48,15 +48,11 @@
 </template>
 
 <script>
-import vClickOutside from 'v-click-outside'
 import TheNavigation from '@/components/TheNavigation'
 import Icon from '@/components/Icon'
 import Hero from '@/components/Hero'
 
 export default {
-  directives: {
-    clickOutside: vClickOutside.directive
-  },
   components: {
     TheNavigation,
     Icon,

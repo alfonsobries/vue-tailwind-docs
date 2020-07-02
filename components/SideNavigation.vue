@@ -42,7 +42,7 @@
         <span class="ml-2">Contribute</span>
       </nuxt-link>
 
-      <div v-for="(group, groupIndex) in docsMenu" :key="group.id" class="my-5">
+      <div v-for="group in docsMenu" :key="group.id" class="my-5">
         <h5 class="mb-3 text-gray-500 uppercase tracking-wide font-bold text-xs px-3">
           {{ group.text }}
         </h5>

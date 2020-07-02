@@ -3,14 +3,16 @@
     <div class="mx-auto max-w-screen-xl px-4 sm:px-6 pb-10">
       <div class="flex lg:-mx-6 relative">
         <side-navigation
-          class="hidden lg:block lg:flex-shrink-0 lg:px-6 lg:pt-10 lg:w-1/5 xl:w-1/6 flex-grow flex-shrink-0"
+          class="hidden lg:block lg:px-6 lg:pt-10 lg:w-1/5"
         />
 
-        <nuxt-content class="pt-10 max-w-full mx-auto" :document="page" />
+        <div class="lg:px-6 pt-10 lg:w-3/5 w-full">
+          <nuxt-content :document="page" />
+        </div>
 
         <content-navigation
           v-if="page.toc"
-          class="hidden relative lg:text-sm lg:block lg:px-6 lg:pt-10 lg:w-1/5 xl:w-1/6 flex-grow  flex-shrink-0"
+          class="hidden relative lg:text-sm lg:block lg:px-6 lg:pt-10 lg:w-1/5"
           :toc="page.toc"
         />
       </div>

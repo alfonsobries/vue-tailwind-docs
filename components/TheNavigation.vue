@@ -79,28 +79,52 @@
           <div class="hidden lg:block lg:ml-4">
             <div class="flex items-center">
               <t-dropdown class="ml-2 relative flex-shrink-0">
-                <div slot="trigger" slot-scope="{ mousedownHandler, focusHandler, blurHandler, keydownHandler, isShown }">
+                <div
+                  slot="trigger"
+                  slot-scope="{
+                    mousedownHandler: userMenuMousedownHandler,
+                    focusHandler: userMenuFocusHandler,
+                    blurHandler: userMenuBlurHandler,
+                    keydownHandler: userMenuKeydownHandler,
+                    isShown: userMenuIsShown
+                  }"
+                >
                   <button
                     id="user-menu"
                     class="flex text-sm rounded-full text-white focus:outline-none focus:shadow-solid transition duration-150 ease-in-out border-2 border-gray-200"
-                    :class="{ 'border-gray-300': isShown }"
+                    :class="{ 'border-gray-300': userMenuIsShown }"
                     aria-label="User menu"
                     aria-haspopup="true"
-                    @mousedown="mousedownHandler"
-                    @focus="focusHandler"
-                    @blur="blurHandler"
-                    @keydown="keydownHandler"
+                    @mousedown="userMenuMousedownHandler"
+                    @focus="userMenuFocusHandler"
+                    @blur="userMenuBlurHandler"
+                    @keydown="userMenuKeydownHandler"
                   >
                     <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
                   </button>
                 </div>
                 <template>
                   <div class="py-1 rounded-md bg-white shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-                    <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" role="menuitem">Your Profile
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+                      role="menuitem"
+                    >
+                      Your Profile
                     </a>
-                    <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" role="menuitem">Settings
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+                      role="menuitem"
+                    >
+                      Settings
                     </a>
-                    <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out" role="menuitem">Sign out
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+                      role="menuitem"
+                    >
+                      Sign out
                     </a>
                   </div>
                 </template>
@@ -111,8 +135,9 @@
       </div>
     </template>
 
-    <template slot-scope="{ hide }">
-      <side-navigation :on-click="hide" />
+    <template>
+      <side-navigation />
+
       <div class="pt-4 pb-3 border-t border-gray-300">
         <div class="flex items-center px-5">
           <div class="flex-shrink-0">
@@ -128,11 +153,11 @@
           </div>
         </div>
         <div class="mt-3 px-2">
-          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out" @click="hide">Your Profile
+          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">Your Profile
           </a>
-          <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out" @click="hide">Settings
+          <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">Settings
           </a>
-          <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out" @click="hide">Sign out
+          <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out">Sign out
           </a>
         </div>
       </div>
