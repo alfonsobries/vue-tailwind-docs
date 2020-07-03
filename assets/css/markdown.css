@@ -200,14 +200,13 @@ max-width: 100%;
 .nuxt-content .icon {
   @apply opacity-100;
 }
-
+.nuxt-content .icon::before {
+  content: '#' !important;
+}
 .nuxt-content .icon { 
   @apply text-gray-500 w-5 -ml-5 opacity-0 inline-block transition-opacity duration-100;
 }
 
-.nuxt-content .icon::before {
-  content: '#';
-}
 
 .nuxt-content .filename {
   @apply bg-gray-800 border-b border-gray-800 font-mono inline-block ml-2 pt-1 px-2 rounded-t shadow-inner text-gray-500 text-xs;
@@ -226,6 +225,10 @@ max-width: 100%;
 
 .nuxt-content > table td code {
   @apply bg-gray-100 px-1 font-mono text-xs text-orange-700 align-baseline;
+}
+
+.nuxt-content > table td a {
+  @apply text-orange-700 underline  ;
 }
 
 .nuxt-content > table td:first-child {

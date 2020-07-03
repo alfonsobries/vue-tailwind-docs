@@ -23,21 +23,22 @@ VueJs reactive `<textarea></textarea>` component with configurable classes, vari
 
 ## Props
 
-| Property    | Type                    | Default value     |
-| ----------- | ----------------------- | ----------------- |
-| id          | String                  | `undefined`       |
-| autofocus   | Boolean                 | `undefined`       |
-| disabled    | Boolean                 | `undefined`       |
-| name        | String                  | `undefined`       |
-| readonly    | Boolean                 | `undefined`       |
-| required    | Boolean                 | `undefined`       |
-| tabindex    | String / Number         | `undefined`       |
-| placeholder | String                  | `undefined`       |
-| rows        | String  / Number        | `undefined`       |
-| maxlength   | String / Number         | `undefined`       |
-| classes     | String / Object / Array | `'form-textarea'` |
-| variants    | Object                  | `undefined`       |
-| variant     | String / Object         | `undefined`       |
+| Property     | Type                        | Default value     |
+| ------------ | --------------------------- | ----------------- |
+| id           | `String`                    | `undefined`       |
+| autofocus    | `Boolean`                   | `undefined`       |
+| disabled     | `Boolean`                   | `undefined`       |
+| name         | `String`                    | `undefined`       |
+| readonly     | `Boolean`                   | `undefined`       |
+| required     | `Boolean`                   | `undefined`       |
+| tabindex     | `[String, Number]`          | `undefined`       |
+| placeholder  | `String`                    | `undefined`       |
+| rows         | `[String, Number]`          | `undefined`       |
+| maxlength    | `[String, Number]` / Number | `undefined`       |
+| classes      | `[String, Object, Array]`   | `'form-textarea'` |
+| fixedClasses | `[String, Object, Array]`   | `undefined`       |
+| variants     | `Object`                    | `undefined`       |
+| variant      | `[String, Object]`          | `undefined`       |
 
 ## Events
 
