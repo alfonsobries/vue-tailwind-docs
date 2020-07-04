@@ -11,9 +11,11 @@ How to create and configure your own and unique theme and the different variants
 
 ## Format
 
-The plugin expects an `object` that uses the name of the components in the `keys`. Every key should have a child `object` with the `classes` and `variants` keys (the `variants` are optional).
+The plugin expects an `object` that uses the name of the components as the `keys`. Every key should have a child `object` with the `classes`, `fixedClasses`, and `variants` keys. All the keys are optional.
 
-The `classes` key attribute expects a single valid CSS class value (in any of the [valid format accepted by vue](https://vuejs.org/v2/guide/class-and-style.html) (usually a string) when the component depends on a single tag (button, inputs, etc.) or an `object` of classes when the components depend on multiple HTML tags.
+When the component depends on a single tag (button, inputs, etc.) the **classes** attribute will expect a CSS class that could be a `string`, an `object` or  an `array` (see the [formats accepted by vue](https://vuejs.org/v2/guide/class-and-style.html)) 
+
+For more complex components that depends of multiple tags it expects an `object` of **classes** where every key is the name of the child element.
 
 Take a look as this example:
 
@@ -136,9 +138,9 @@ To make it easier to handle those classes, you can use the prop `fixedClasses` t
 
 For example, let's say that you need all your buttons to have a small transition-related class and you know all of them will have a shadow. Consider these two alternatives:
 
-<wrong-tip>
+<meh-tip>
 You can repeat the same common classes over and over.
-</wrong-tip>
+</meh-tip>
 
 ```js
 const theme = {
@@ -246,6 +248,125 @@ For the example above, with both alternatives, the results will look like this:
 When using the `fixedClasses` prop for multiple tags elements you only need to define the keys you need.
 </tip>
 
+
+## Wrap inputs
+
+Customize the `select`, `radio` and `checkbox` components may be a bit tricky, you may need to create some custom CSS properties or use something like the [tailwindcss custom forms plugin](https://github.com/tailwindcss/custom-forms) (that basically do that for you).
+
+As an alternative solution to give you more flexibility those components include a `wrapped` prop/setting that when set it wraps the HTML tags in a `div`, in the specific case of the `select` tag it also adds a custom SVG icon that can replace the default chevron.
+
+To be more illustrative see how the select is rendered with and without the `wrapped` prop:
+
+**Without `wrapped` setting (default):**
+
+```html
+<t-select />
+<!-- (or <t-select :wrapped="false" />)  -->
+<!-- Renders: -->
+<select></select>
+```
+
+**Wrapped:**
+
+```html
+<t-select wrapped />
+<!-- (or <t-select :wrapped="true" />)  -->
+<!-- Renders: -->
+<div>
+  <select></select>
+  <span>
+    <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+      <path clip-rule="evenodd" fill-rule="evenodd" d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"></path>
+    </svg>
+  </span>
+</div>
+```
+
+### Configure 
+
+You can define the component as `wrapped` when you install the plugin or by using the component prop:
+
+##### Global configuration:
+
+```js
+const theme = {
+  TSelect: {
+    wrapped: true,
+    // classes, variants, etc...
+  },
+  // ...
+}
+
+Vue.use(VueTailwind, theme)
+```
+
+##### Use the prop
+
+
+```html
+<t-select wrapped />
+```
+
+### Classes for wrapped elements
+
+When the components are wrapped the format expected for the `variants`, `classes`, and `fixedClasses` settings also change.
+
+Instead of simple class, it now expects an object of classes for every HTML tag inside the component (like the multiple tags components)
+
+Consider the example of the `t-select` component:
+
+#### Not wrapped: 
+
+```js
+const theme = {
+  TSelect: {
+    classes: 'bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal'
+    // Variants and fixed classes in the same `single` format ...
+  },
+  // ...
+}
+
+Vue.use(VueTailwind, theme)
+```
+
+#### Wrapped: 
+
+```js
+const theme = {
+  TSelect: {
+    wrapped: true,
+    classes: {
+      wrapper: 'relative',
+      input: 'appearance-none bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal',
+      arrowWrapper: 'pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700',
+      arrow: 'fill-current h-4 w-4',
+    }
+    // Variants and fixed classes in the same `object` format ...
+  },
+  // ...
+}
+
+Vue.use(VueTailwind, theme)
+```
+
+By using the settings above this is how the select will look like:
+
+<t-input-group label="Not wrapped (default)">
+  <t-select classes="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal" :options="['Option 1', 'Option 2', 'Option 3']" />
+</t-input-group>
+
+<t-input-group label="Wrapped">
+<t-select :classes="{
+  wrapper: 'relative',
+  input: 'appearance-none bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal',
+  arrowWrapper: 'pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700',
+  arrow: 'fill-current h-4 w-4',  
+}" :options="['Option 1', 'Option 2', 'Option 3']" wrapped />
+</t-input-group>
+
+<tip>
+To know more about the format of the classes for every specific component see the *Wrap* section inside the docs of the wrappable component. 
+</tip>
 
 ## Use component props
 
