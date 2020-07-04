@@ -351,21 +351,25 @@ Vue.use(VueTailwind, theme)
 
 By using the settings above this is how the select will look like:
 
-<t-input-group label="Not wrapped (default)">
-  <t-select classes="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal" :options="['Option 1', 'Option 2', 'Option 3']" />
-</t-input-group>
+<preview>
+  <t-input-group label="Not wrapped (default)" class="mb-0">
+    <t-select classes="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal" :options="['Option 1', 'Option 2', 'Option 3']" />
+  </t-input-group>
+</preview>
 
-<t-input-group label="Wrapped">
-<t-select :classes="{
-  wrapper: 'relative',
-  input: 'appearance-none bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal',
-  arrowWrapper: 'pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700',
-  arrow: 'fill-current h-4 w-4',  
-}" :options="['Option 1', 'Option 2', 'Option 3']" wrapped />
-</t-input-group>
+<preview>
+  <t-input-group label="Wrapped" class="mb-0">
+  <t-select :classes="{
+    wrapper: 'relative',
+    input: 'appearance-none bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal',
+    arrowWrapper: 'pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700',
+    arrow: 'fill-current h-4 w-4',  
+  }" :options="['Option 1', 'Option 2', 'Option 3']" wrapped />
+  </t-input-group>
+</preview>
 
 <tip>
-To know more about the format of the classes for every specific component see the *Wrap* section inside the docs of the wrappable component. 
+To know more about the format of the classes for every specific component see the <strong>Wrap</strong> section inside the docs of the wrappable component. 
 </tip>
 
 ## Use component props

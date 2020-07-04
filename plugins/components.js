@@ -12,6 +12,8 @@ import TInputPlayground from '@/components/playgrounds/TInputPlayground'
 import TTextareaPlayground from '@/components/playgrounds/TTextareaPlayground'
 import TSelectPlayground from '@/components/playgrounds/TSelectPlayground'
 
+import SelectArrowSlotExample from '@/components/examples/select/SelectArrowSlot.vue'
+
 Vue.component('tip', Tip)
 Vue.component('preview', Preview)
 Vue.component('ok-tip', OkTip)
@@ -23,3 +25,5 @@ Vue.component('loading-overlay', LoadingOverlay)
 Vue.component('t-input-playground', TInputPlayground)
 Vue.component('t-textarea-playground', TTextareaPlayground)
 Vue.component('t-select-playground', TSelectPlayground)
+
+Vue.component('select-arrow-slot-example', SelectArrowSlotExample)

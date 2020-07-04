@@ -37,7 +37,7 @@ VueJs reactive `<select></select>` component with configurable classes, variants
 | options        | `[Array, Object]`         | `undefined`     | The options of the select (see [options format](#options-format))                                                                           |
 | textAttribute  | `String`                  | `undefined`     | Optional attribute from the option to use as the text<br />(see [define the value/text attributes](#define-the-valuetext-attributes))       |
 | valueAttribute | `String`                  | `undefined`     | Optional attribute to use as the value of the `option` tag <br />(see [define the value/text attributes](#define-the-valuetext-attributes)) |
-| wrapped        | `Boolean`                 | `undefined`     | If set the input will be wrapped in a div within a svg icon (see [wrap select](#wrap-select))
+| wrapped        | `Boolean`                 | `undefined`     | If set the input will be wrapped in a div within a svg icon (see [wrap select](#wrap-select))                                               |
 | classes        | `[String, Object, Array]` | `'form-select'` | The default CSS classes                                                                                                                     |
 | fixedClasses   | `[String, Object, Array]` | `undefined`     | Fixed CSS classes that will be merged with the active set of classes                                                                        |
 | variants       | `Object`                  | `undefined`     | The different variants of classes the component have                                                                                        |
@@ -156,17 +156,35 @@ Notice that in the example above we are using dot notation to get a nested attri
 
 ## Wrap select
 
-Customize a select tag that could be tricky, you may need to create some weird custom CSS classes or use alternatives like the [tailwind custom forms plugin](https://github.com/tailwindcss/custom-forms).
+This component accepts the `wrapped` setting (or prop) that when set it will wrap the `select` tag in a `div` and will add a sibling `span` with an `svg` icon. This can give you more flexibility to customize your component.
 
-Even that those alternatives could be enough for some projects sometimes you will need even more flexibility and that means you will need to wrap the tag in an HTML tag.
 
-To solve that problem you can use the `wrapped` prop. When is set to `true` the component will be wrapped in a `div` and it will also add a `svg` icon (that you can replace by using a slot)
+Remember that the component can set as "wrapped" when installed or by using the `wrapped` prop (see [wrap inputs](/docs/theming#wrap-inputs) for more info):
 
-<t-select wrapped />
+```js
+// When installed
+const theme = {
+  TSelect: {
+    wrapped: true,
+    // classes, variants, etc...
+  },
+  // ...
+}
 
+Vue.use(VueTailwind, theme)
 ```
+
+```html
+<!-- // Using the wrapped prop -->
+<t-select wrapped />
+```
+
+
+A wrapped select will be rendered like this:
+
+```html
 <div>
-  <select></select>
+  <select><!-- --></select>
   <span>
     <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
       <path clip-rule="evenodd" fill-rule="evenodd" d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"></path>
@@ -174,6 +192,72 @@ To solve that problem you can use the `wrapped` prop. When is set to `true` the 
   </span>
 </div>
 ```
+
+### Classes for wrapped select
+
+When the select is wrapped the classes, variants, etc need to be an object with the following properties:
+
+| Property     | Description                                                                |
+| ------------ | -------------------------------------------------------------------------- |
+| wrapper      | Div that wraps the whole component                                         |
+| input        | `select` tag                                                               |
+| arrowWrapper | `span` that is a sibling of the `select` tag that is used to wrap the icon |
+| arrow        | `svg` icon                                                                 |
+
+#### Example
+
+```js
+const theme = {
+  TSelect: {
+    wrapped: true,
+    classes: {
+      wrapper: 'relative',
+      input: 'appearance-none bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal',
+      arrowWrapper: 'pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700',
+      arrow: 'fill-current h-4 w-4',
+    }
+    // Variants and fixed classes in the same `object` format ...
+  },
+  // ...
+}
+
+Vue.use(VueTailwind, theme)
+```
+
+The setings above will render the select input like this one:
+
+<preview>
+  <t-select :classes="{
+    wrapper: 'relative',
+    input: 'appearance-none bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal',
+    arrowWrapper: 'pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700',
+    arrow: 'fill-current h-4 w-4',  
+  }" :options="['Option 1', 'Option 2', 'Option 3']" wrapped />
+</preview>
+
+### Customize the select icon
+
+If you want to use your own HTML instead of the default SVG icon you can use the `arrow` or `arrowWrapper` slots, use the first one if you only want to override the SVG icon and the second one if you want to override the whole icon wrapper.
+
+Both slots yield the current variant, the original classes the element has (from the theme), and the current value of the component in case you want to use those values inside the slot.
+
+Example:
+
+Let's say that for some reason you want to use an emoji instead of the default SVG icon, an angry emoji when it has an `error` variant and just because you can show a potato emoji when the current value is `>2`, you know, the typical real-world use:
+
+```html
+<t-select wrapped :options="[1,2,3]" variant="wrappedDemo">
+  <template slot="arrow" slot-scope="{ className, variant, value }">
+    <span v-if="variant==='error'" :class="className">😡</span>
+    <span v-else-if="value>2" :class="className">🥔</span>
+    <span v-else :class="className">🤯</span>
+  </template>
+</t-select>
+```
+
+The example above will look like this:
+
+<select-arrow-slot-example />
 
 ## Events
 

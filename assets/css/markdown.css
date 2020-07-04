@@ -55,7 +55,7 @@ max-width: 100%;
 .nuxt-content > p a,
 .nuxt-content > ul li a,
 .nuxt-content > ol li a {
-  @apply text-orange-500 underline font-medium;
+  @apply text-orange-500 underline;
   
 }
 

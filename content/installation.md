@@ -102,7 +102,7 @@ Vue.use(VueTailwind, {
 // Or why not? define the settings inline:
 Vue.use(VueTailwind, {
   TInput: {
-    baseClass: 'border-2 border-blue-500 block w-full rounded',
+    classes: 'border-2 border-blue-500 block w-full rounded',
   }
 })
 ```
