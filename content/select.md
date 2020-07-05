@@ -203,7 +203,7 @@ When the select is wrapped the classes, variants, etc need to be an object with 
 
 | Property     | Description                                                                |
 | ------------ | -------------------------------------------------------------------------- |
-| wrapper      | Div that wraps the whole component                                         |
+| wrapper      | `div` that wraps the whole component                                         |
 | input        | `select` tag                                                               |
 | arrowWrapper | `span` that is a sibling of the `select` tag that is used to wrap the icon |
 | arrow        | `svg` icon                                                                 |
@@ -228,7 +228,7 @@ const theme = {
 Vue.use(VueTailwind, theme)
 ```
 
-The setings above will render the select input like this one:
+If you use the settings above the component will be rendered like this:
 
 <preview>
   <t-select :classes="{
@@ -245,7 +245,7 @@ If you want to use your own HTML instead of the default SVG icon you can use the
 
 Both slots yield in the slot scope the current variant, the original classes the element has (from the theme), and the current value of the component in case you want to use those values inside the slot.
 
-Example:
+##### Example:
 
 Let's say that for some reason you want to use an ascii down arrow instead of the default SVG icon, an angry emoji when it has an `error` variant and just because you can show a potato emoji when the current value is `>=2`, you know, a typical real-world use:
 

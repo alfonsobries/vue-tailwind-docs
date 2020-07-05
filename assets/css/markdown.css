@@ -130,6 +130,9 @@ max-width: 100%;
   @apply font-medium;
   @apply text-lg;
 }
+.nuxt-content > h5{
+  @apply font-medium;
+}
 
 /* .nuxt-content > h1 + p {
   @apply mt-1 text-gray-600;
