@@ -169,6 +169,9 @@ export default Vue.extend({
       startWidth: null,
       loadingIFrame: true,
       iframeSyncInterval: null,
+
+      waitforIframeLoadedInterval: null,
+      waitforIframeLoadedIntervalTries: 0,
       initialSrc: this.getInitialSrc()
     }
   },
@@ -181,6 +184,7 @@ export default Vue.extend({
         ...this.currentSettings,
         ...this.currentParams
       }
+
       return this.serializeParams(params)
     }
   },
@@ -215,7 +219,8 @@ export default Vue.extend({
         this.currentParams = params
       }
     },
-    serializableParams (serializableParams) {
+    async serializableParams (serializableParams) {
+      await this.waitforIframeLoaded()
       const iframe = this.$refs.iframe
       iframe.contentWindow.$nuxt.$router.replace({ query: serializableParams }, async () => {
         await this.$nextTick()
@@ -295,6 +300,25 @@ export default Vue.extend({
       })
 
       return result
+    },
+    waitforIframeLoaded () {
+      return new Promise((resolve, reject) => {
+        this.waitforIframeLoadedInterval = setInterval(() => {
+          this.waitforIframeLoadedIntervalTries++
+          const iframe = this.$refs.iframe
+          const nuxtLoaded = iframe && !!iframe.contentWindow.$nuxt
+
+          if (nuxtLoaded) {
+            clearInterval(this.waitforIframeLoadedInterval)
+            this.waitforIframeLoadedInterval = null
+            resolve()
+          }
+
+          if (this.thiswaitforIframeLoadedIntervalTries > 20) {
+            reject(new Error('Never loaded'))
+          }
+        }, 500)
+      })
     },
     initIframe () {
       this.loadingIFrame = true
