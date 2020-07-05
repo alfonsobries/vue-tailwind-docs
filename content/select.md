@@ -14,7 +14,11 @@ VueJs reactive `<select></select>` component with configurable classes, variants
 ## Basic example
 
 ```html
-<t-select placeholder="Select an option" :options="['Option A', 'Option B', 'Option C']" variant="demo" />
+<t-select
+  placeholder="Select an option"
+  :options="['Option A', 'Option B', 'Option C']"
+  variant="demo"
+/>
 ```
 
 <preview>
@@ -32,9 +36,9 @@ VueJs reactive `<select></select>` component with configurable classes, variants
 | readonly       | `Boolean`                 | `undefined`     | HTML attribute                                                                                                                              |
 | required       | `Boolean`                 | `undefined`     | HTML attribute                                                                                                                              |
 | tabindex       | `[String, Number]`        | `undefined`     | HTML attribute                                                                                                                              |
-| placeholder    | `String`                  | `undefined`     | HTML attribute                                                                                                                              |
 | multiple       | `Boolean`                 | `undefined`     | HTML attribute                                                                                                                              |
 | options        | `[Array, Object]`         | `undefined`     | The options of the select (see [options format](#options-format))                                                                           |
+| placeholder    | `String`                  | `undefined`     | When set it prepend an empty `option` tag with the value as text and the option value of `null` |
 | textAttribute  | `String`                  | `undefined`     | Optional attribute from the option to use as the text<br />(see [define the value/text attributes](#define-the-valuetext-attributes))       |
 | valueAttribute | `String`                  | `undefined`     | Optional attribute to use as the value of the `option` tag <br />(see [define the value/text attributes](#define-the-valuetext-attributes)) |
 | wrapped        | `Boolean`                 | `undefined`     | If set the input will be wrapped in a div within a svg icon (see [wrap select](#wrap-select))                                               |
