@@ -239,18 +239,21 @@ The setings above will render the select input like this one:
 
 If you want to use your own HTML instead of the default SVG icon you can use the `arrow` or `arrowWrapper` slots, use the first one if you only want to override the SVG icon and the second one if you want to override the whole icon wrapper.
 
-Both slots yield the current variant, the original classes the element has (from the theme), and the current value of the component in case you want to use those values inside the slot.
+Both slots yield in the slot scope the current variant, the original classes the element has (from the theme), and the current value of the component in case you want to use those values inside the slot.
 
 Example:
 
-Let's say that for some reason you want to use an emoji instead of the default SVG icon, an angry emoji when it has an `error` variant and just because you can show a potato emoji when the current value is `>2`, you know, the typical real-world use:
+Let's say that for some reason you want to use an ascii down arrow instead of the default SVG icon, an angry emoji when it has an `error` variant and just because you can show a potato emoji when the current value is `>=2`, you know, a typical real-world use:
 
 ```html
 <t-select wrapped :options="[1,2,3]" variant="wrappedDemo">
   <template slot="arrow" slot-scope="{ className, variant, value }">
-    <span v-if="variant==='error'" :class="className">😡</span>
-    <span v-else-if="value>2" :class="className">🥔</span>
-    <span v-else :class="className">🤯</span>
+    <span v-if="variant==='error'" class="pr-2">😡</span>
+    <span v-else-if="value>=2" class="pr-2">🥔</span>
+    <span
+      v-else
+      :class="className"
+    >▼</span>
   </template>
 </t-select>
 ```

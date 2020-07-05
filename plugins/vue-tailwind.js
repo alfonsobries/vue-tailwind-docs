@@ -43,7 +43,7 @@ Vue.use(VueTailwind, {
         wrapper: 'relative',
         input: 'appearance-none bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal',
         arrowWrapper: 'pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700',
-        arrow: 'fill-current h-4 w-4'
+        arrow: 'fill-current h-4 w-4 leading-none'
       }
     }
   },
