@@ -71,25 +71,28 @@ import ThemeBuilderStepShare from './ThemeBuilderStepShare.vue'
 const defaultTheme = {
 
   TInput: {
-    classes: 'form-input',
+    fixedClasses: 'form-input',
+    classes: '',
     variants: {
-      danger: 'form-input border-red-300 bg-red-100',
-      success: 'form-input border-green-300 bg-green-100'
+      danger: 'border-red-300 bg-red-100',
+      success: 'border-green-300 bg-green-100'
     }
   },
   TTextarea: {
-    classes: 'form-textarea',
+    fixedClasses: 'form-textarea',
+    classes: '',
     variants: {
-      danger: 'form-textarea border-red-300 bg-red-100',
-      success: 'form-textarea border-green-300 bg-green-100'
+      danger: 'border-red-300 bg-red-100',
+      success: 'border-green-300 bg-green-100'
     }
   },
 
   TRadio: {
-    classes: 'form-radio',
+    fixedClasses: 'form-radio',
+    classes: '',
     variants: {
-      danger: 'form-radio border-red-300 bg-red-100 text-red-500',
-      success: 'form-radio border-green-300 bg-green-100 text-green-500'
+      danger: 'border-red-300 bg-red-100 text-red-500',
+      success: 'border-green-300 bg-green-100 text-green-500'
     }
   },
   TCheckbox: {
@@ -130,30 +133,37 @@ const defaultTheme = {
   // },
 
   TInputGroup: {
-    classes: {
+    fixedClasses: {
       wrapper: 'mb-4',
       label: 'block uppercase tracking-wide text-xs font-bold mb-1',
       body: '',
-      feedback: 'text-sm text-gray-500',
-      description: 'text-sm text-gray-500'
+      feedback: 'text-sm',
+      description: 'text-sm'
+    },
+    classes: {
+      wrapper: '',
+      label: '',
+      body: '',
+      feedback: 'text-gray-500',
+      description: 'text-gray-500'
     },
     variants: {
       danger: {
-        label: 'block uppercase tracking-wide text-xs font-bold mb-1 text-red-500',
-        feedback: 'text-sm text-red-500'
+        label: 'text-red-500',
+        feedback: 'text-red-500'
       }
     }
   },
 
   TRichSelect: {
-    classes: {
+    fixedClasses: {
       wrapper: 'relative',
       buttonWrapper: 'inline-block w-full relative',
-      selectButton: 'w-full border bg-white flex text-left justify-between items-center rounded p-2 focus:outline-none focus:shadow-outline',
+      selectButton: 'w-full border flex text-left justify-between items-center rounded p-2 focus:outline-none focus:shadow-outline',
       selectButtonLabel: 'block truncate',
-      selectButtonPlaceholder: 'block truncate text-gray-500',
+      selectButtonPlaceholder: 'block truncate',
       selectButtonIcon: 'fill-current flex-shrink-0 ml-1 h-4 w-4',
-      selectButtonClearButton: 'hover:bg-gray-200 text-gray-500 rounded flex flex-shrink-0 items-center justify-center absolute right-0 top-0 m-2 h-6 w-6',
+      selectButtonClearButton: ' rounded flex flex-shrink-0 items-center justify-center absolute right-0 top-0 m-2 h-6 w-6',
       selectButtonClearIcon: 'fill-current h-3 w-3',
       dropdown: 'absolute w-full rounded bg-white shadow z-10',
       dropdownFeedback: 'p-2 text-sm text-gray-500',
@@ -170,52 +180,88 @@ const defaultTheme = {
       optionLabel: 'truncate block',
       selectedIcon: 'fill-current h-4 w-4'
     },
+    classes: {
+      wrapper: '',
+      buttonWrapper: '',
+      selectButton: 'bg-white',
+      selectButtonLabel: '',
+      selectButtonPlaceholder: 'text-gray-500',
+      selectButtonIcon: '',
+      selectButtonClearButton: 'hover:bg-gray-200 text-gray-500',
+      selectButtonClearIcon: '',
+      dropdown: '',
+      dropdownFeedback: '',
+      loadingMoreResults: '',
+      optionsList: '',
+      searchWrapper: '',
+      searchBox: '',
+      optgroup: '',
+      option: '',
+      highlightedOption: '',
+      selectedOption: '',
+      selectedHighlightedOption: '',
+      optionContent: '',
+      optionLabel: '',
+      selectedIcon: ''
+    },
     variants: {
       danger: {
-        selectButton: 'w-full border border-red-500 text-red-500 bg-red-100 flex text-left justify-between items-center rounded p-2 focus:outline-none focus:shadow-outline',
-        selectButtonPlaceholder: 'block truncate text-red-400',
-        selectButtonClearButton: 'hover:bg-red-200 text-red-500 rounded flex flex-shrink-0 items-center justify-center absolute right-0 top-0 m-2 h-6 w-6'
+        selectButton: 'border-red-500 text-red-500 bg-red-100',
+        selectButtonPlaceholder: 'text-red-400',
+        selectButtonClearButton: 'hover:bg-red-200 text-red-500'
       }
     }
   },
   TAlert: {
+    fixedClasses: {
+      wrapper: 'rounded p-4 flex text-sm border-l-4',
+      body: 'flex-grow',
+      close: 'ml-4 rounded',
+      closeIcon: 'h-5 w-5 fill-current'
+    },
     classes: {
-      wrapper: 'rounded bg-blue-100 p-4 flex text-sm border-l-4 border-blue-500',
-      body: 'flex-grow text-blue-700',
-      close: 'text-blue-700 hover:text-blue-500 hover:bg-blue-200 ml-4 rounded',
+      wrapper: 'bg-blue-100 border-blue-500',
+      body: 'text-blue-700',
+      close: 'text-blue-700 hover:text-blue-500 hover:bg-blue-200',
       closeIcon: 'h-5 w-5 fill-current'
     },
     variants: {
       danger: {
-        wrapper: 'rounded bg-red-100 p-4 flex text-sm border-l-4 border-red-500',
-        body: 'flex-grow text-red-700',
-        close: 'text-red-700 hover:text-red-500 hover:bg-red-200 ml-4 rounded'
+        wrapper: 'bg-red-100 border-red-500',
+        body: 'text-red-700',
+        close: 'text-red-700 hover:text-red-500 hover:bg-red-200'
       },
       success: {
-        wrapper: 'rounded bg-green-100 p-4 flex text-sm border-l-4 border-green-500',
-        body: 'flex-grow text-green-700',
-        close: 'text-green-700  hover:text-green-500 hover:bg-green-200 ml-4 rounded'
+        wrapper: 'bg-green-100 border-green-500',
+        body: 'text-green-700',
+        close: 'text-green-700  hover:text-green-500 hover:bg-green-200'
       }
     }
   },
   TCard: {
-    classes: {
-      wrapper: 'rounded max-w-lg mx-auto bg-white shadow',
+    fixedClasses: {
+      wrapper: 'rounded max-w-lg mx-auto shadow',
       body: 'p-4',
       header: 'p-4 border-b',
       footer: 'p-4 border-t'
     },
+    classes: {
+      wrapper: 'bg-white',
+      body: '',
+      header: '',
+      footer: ''
+    },
     variants: {
       danger: {
-        wrapper: 'rounded max-w-lg mx-auto bg-red-100 text-red-700 shadow',
-        header: 'p-4 border-b border-red-200 text-red-700',
-        footer: 'p-4 border-t border-red-200 bg-red-100 text-red-700 text-sm'
+        wrapper: 'bg-red-100 text-red-700',
+        header: 'border-red-200 text-red-700',
+        footer: 'border-red-200 bg-red-100 text-red-700'
       }
     }
   },
   TModal: {
-    classes: {
-      overlay: 'z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed bg-black bg-opacity-50',
+    fixedClasses: {
+      overlay: 'z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed bg-opacity-50',
       wrapper: 'z-50 relative mx-auto my-0 max-w-lg mt-12',
       modal: 'bg-white shadow overflow-hidden relative',
       body: 'p-4',
@@ -224,12 +270,22 @@ const defaultTheme = {
       close: 'absolute right-0 top-0 m-3 text-gray-700 hover:text-gray-600',
       closeIcon: 'h-5 w-5 fill-current'
     },
+    classes: {
+      overlay: 'bg-black ',
+      wrapper: '',
+      modal: '',
+      body: 'p-4',
+      header: 'text-gray-700',
+      footer: '',
+      close: 'text-gray-700 hover:text-gray-600',
+      closeIcon: ''
+    },
     variants: {
       danger: {
-        overlay: 'z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed bg-red-500 bg-opacity-50',
-        header: 'p-4 border-b border-red-100 text-sm font-semibold uppercase text-red-700',
-        footer: 'p-2 border-t border-red-100 bg-red-100',
-        close: 'absolute right-0 top-0 m-3 text-red-700 hover:text-red-600'
+        overlay: 'bg-red-500',
+        header: 'border-red-100 text-red-700',
+        footer: 'border-red-100 bg-red-100',
+        close: 'text-red-700 hover:text-red-600'
       }
     }
   }

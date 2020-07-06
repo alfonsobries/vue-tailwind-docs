@@ -12,6 +12,7 @@
         <theme-configurator-classes
           v-model="currentTheme.classes"
           :component-name="componentName"
+          :fixed-classes="currentTheme.fixedClasses"
           label="Base classes"
           description="Classes used by default (when no variant is applied)"
         />
