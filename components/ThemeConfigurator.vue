@@ -88,7 +88,23 @@ export default Vue.extend({
   watch: {
     currentTheme: {
       handler (currentTheme) {
-        this.$emit('input', currentTheme)
+        let fixedClasses = {}
+        if (typeof currentTheme.fixedClasses === 'object') {
+          Object.keys(currentTheme.fixedClasses).forEach((elementName) => {
+            if (currentTheme.fixedClasses[elementName]) {
+              fixedClasses[elementName] = currentTheme.fixedClasses[elementName]
+            }
+          })
+          if (!Object.keys(fixedClasses).length) {
+            fixedClasses = undefined
+          }
+        } else {
+          fixedClasses = currentTheme.fixedClasses ? currentTheme.fixedClasses : undefined
+        }
+        this.$emit('input', {
+          ...currentTheme,
+          ...{ fixedClasses }
+        })
       },
       deep: true
     },

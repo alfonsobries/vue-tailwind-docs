@@ -5,7 +5,7 @@
       :last-active-step="lastActiveStep"
       @select="(index) => step = index"
     />
-    <div class="px-6 bg-white rounded w-full rounded-r rounded-br py-5 sm:p-6">
+    <div class="px-6 bg-white rounded rounded-r rounded-br py-5 sm:p-6 w-full md:w-3/4">
       <div class="w-full md:pl-4">
         <theme-builder-step-select-components
           v-show="step === 0"

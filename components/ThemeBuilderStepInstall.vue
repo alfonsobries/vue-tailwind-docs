@@ -31,7 +31,7 @@
         </button>
       </div>
 
-      <div class="max-w-2xl overflow-auto">
+      <div class="overflow-auto">
         <no-ssr>
           <vue-code-highlight>{{ code }}</vue-code-highlight>
         </no-ssr>
