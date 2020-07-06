@@ -12,42 +12,36 @@
     <div class="flex-grow">
       <div class="sm:items-start">
         <div class="mb-3">
-          <label
-            :for="`classes-${localVariant.id}`"
-            class="block text-sm leading-5 font-medium text-gray-700"
-          >
-            Variant name
-          </label>
-          <t-input v-model="currentName" @blur="localVariant.name = currentName" />
+          <t-input-group label="Variant name">
+            <t-input v-model="currentName" @blur="localVariant.name = currentName" />
+          </t-input-group>
         </div>
       </div>
 
       <div>
         <div class="sm:items-start">
-          <div class="mb-3">
-            <label
-              :for="`classes-${localVariant.id}`"
-              class="block text-sm leading-5 font-medium text-gray-700"
-            >Variant classes</label>
-            <classes-form-rich-select v-if="componentName === 'TRichSelect'" v-model="localVariant.classes" :base-classes="baseClasses" />
-            <classes-form-modal v-else-if="componentName === 'TModal'" v-model="localVariant.classes" :base-classes="baseClasses" />
-            <classes-form-alert v-else-if="componentName === 'TAlert'" v-model="localVariant.classes" :base-classes="baseClasses" />
-            <classes-form-card v-else-if="componentName === 'TCard'" v-model="localVariant.classes" :base-classes="baseClasses" />
-            <classes-form-input-group v-else-if="componentName === 'TInputGroup'" v-model="localVariant.classes" :base-classes="baseClasses" />
-            <classes-form-simple v-else v-model="localVariant.classes" :base-classes="baseClasses" />
-          </div>
+          <theme-configurator-classes
+            v-model="localVariant.classes"
+            label="Variant classes"
+            :base-classes="theme.classes"
+            :component-name="componentName"
+          />
         </div>
 
         <component-preview
-          :classes="baseClasses"
+          :theme="theme"
           :component-name="componentName"
           :variant="localVariant.name"
-          :variants="variants"
         />
       </div>
       <p class="flex justify-between text-sm items-end">
-        <span v-if="formPluginClass" class="text-gray-500 mr-3 text-xs">
-          To use the class <strong>`{{ formPluginClass }}`</strong> you will need to install the <a class="underline" target="_blank" href="https://github.com/tailwindcss/custom-forms">custom-forms</a> plugin.
+        <span v-if="formPluginClass" class="text-orange-400 text-xs flex items-center mt-1 mr-3">
+          <icon class="w-4 h-4 text-orange-300 mr-1 inline-block flex-shrink-0">
+            <path id="Combined-Shape" d="M2.92893219,17.0710678 C6.83417511,20.9763107 13.1658249,20.9763107 17.0710678,17.0710678 C20.9763107,13.1658249 20.9763107,6.83417511 17.0710678,2.92893219 C13.1658249,-0.976310729 6.83417511,-0.976310729 2.92893219,2.92893219 C-0.976310729,6.83417511 -0.976310729,13.1658249 2.92893219,17.0710678 L2.92893219,17.0710678 Z M15.6568542,15.6568542 C18.7810486,12.5326599 18.7810486,7.46734008 15.6568542,4.34314575 C12.5326599,1.21895142 7.46734008,1.21895142 4.34314575,4.34314575 C1.21895142,7.46734008 1.21895142,12.5326599 4.34314575,15.6568542 C7.46734008,18.7810486 12.5326599,18.7810486 15.6568542,15.6568542 Z M9,11 L9,10.5 L9,9 L11,9 L11,15 L9,15 L9,11 Z M9,5 L11,5 L11,7 L9,7 L9,5 Z" />
+          </icon>
+          <span>
+            To use the class <strong>`{{ formPluginClass }}`</strong> you need to install the <a class="underline" target="_blank" href="https://github.com/tailwindcss/custom-forms">custom-forms</a> plugin.
+          </span>
         </span>
         <a class="text-red-500 underline ml-auto" href="#" @click.prevent="$emit('delete')">Remove variant</a>
       </p>
@@ -57,24 +51,14 @@
 <script>
 import Vue from 'vue'
 import ComponentPreview from './ThemeConfiguratorPreview.vue'
+import ThemeConfiguratorClasses from './ThemeConfiguratorClasses.vue'
 import Icon from '@/components/Icon'
-import ClassesFormSimple from '@/components/ClassesForm/ClassesFormSimple.vue'
-import ClassesFormModal from '@/components/ClassesForm/ClassesFormModal.vue'
-import ClassesFormRichSelect from '@/components/ClassesForm/ClassesFormRichSelect.vue'
-import ClassesFormAlert from '@/components/ClassesForm/ClassesFormAlert.vue'
-import ClassesFormCard from '@/components/ClassesForm/ClassesFormCard.vue'
-import ClassesFormInputGroup from '@/components/ClassesForm/ClassesFormInputGroup.vue'
 
 export default Vue.extend({
   components: {
     Icon,
     ComponentPreview,
-    ClassesFormSimple,
-    ClassesFormRichSelect,
-    ClassesFormModal,
-    ClassesFormAlert,
-    ClassesFormCard,
-    ClassesFormInputGroup
+    ThemeConfiguratorClasses
   },
   props: {
     componentName: {
@@ -89,8 +73,8 @@ export default Vue.extend({
       type: Number,
       required: true
     },
-    baseClasses: {
-      type: [String, Object],
+    theme: {
+      type: Object,
       required: true
     }
   },
@@ -101,11 +85,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    variants () {
-      const variants = {}
-      variants[this.localVariant.name] = this.localVariant.classes
-      return variants
-    },
     formPluginClass () {
       const pluginClasses = ['form-input', 'form-select', 'form-textarea', 'form-radio', 'form-chexkbox']
       return pluginClasses.find((className) => {

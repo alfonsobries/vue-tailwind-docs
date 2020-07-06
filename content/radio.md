@@ -3,7 +3,7 @@ title: TailwindCSS Radio button Vue Component
 description: VueJs reactive radio button component with customizable TailwindCSS or any CSS Framework classes.
 ---
 
-# Select (TSelect)
+# Radio input (TRadio)
 
 VueJs reactive `<input type="radio" />` component with configurable classes, variants, and most common events. Friendly with utility-first frameworks like TailwindCSS..
 
@@ -38,7 +38,7 @@ VueJs reactive `<input type="radio" />` component with configurable classes, var
 | tabindex       | `[String, Number]`        | `undefined`     | HTML attribute                                                                                                                              |
 | multiple       | `Boolean`                 | `undefined`     | HTML attribute                                                                                                                              |
 | options        | `[Array, Object]`         | `undefined`     | The options of the select (see [options format](#options-format))                                                                           |
-| placeholder    | `String`                  | `undefined`     | When set it prepend an empty `option` tag with the value as text and the option value of `null` |
+| placeholder    | `String`                  | `undefined`     | When set it prepend an empty `option` tag with the value as text and the option value of `null`                                             |
 | textAttribute  | `String`                  | `undefined`     | Optional attribute from the option to use as the text<br />(see [define the value/text attributes](#define-the-valuetext-attributes))       |
 | valueAttribute | `String`                  | `undefined`     | Optional attribute to use as the value of the `option` tag <br />(see [define the value/text attributes](#define-the-valuetext-attributes)) |
 | wrapped        | `Boolean`                 | `undefined`     | If set the input will be wrapped in a div within a svg icon (see [wrap select](#wrap-select))                                               |
@@ -203,7 +203,7 @@ When the select is wrapped the classes, variants, etc need to be an object with 
 
 | Property     | Description                                                                |
 | ------------ | -------------------------------------------------------------------------- |
-| wrapper      | `div` that wraps the whole component                                         |
+| wrapper      | `div` that wraps the whole component                                       |
 | input        | `select` tag                                                               |
 | arrowWrapper | `span` that is a sibling of the `select` tag that is used to wrap the icon |
 | arrow        | `svg` icon                                                                 |

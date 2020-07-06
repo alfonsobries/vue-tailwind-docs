@@ -1,28 +1,28 @@
 <template>
   <div>
     <t-input-group label="Overlay class">
-      <classes-autocomplete v-model="localvalue.overlay" :placeholder="baseClasses.overlay" />
+      <classes-autocomplete v-model="localvalue.overlay" :placeholder="baseClasses ? baseClasses.overlay : undefined" />
     </t-input-group>
     <t-input-group label="Wrapper class">
-      <classes-autocomplete v-model="localvalue.wrapper" :placeholder="baseClasses.wrapper" />
+      <classes-autocomplete v-model="localvalue.wrapper" :placeholder="baseClasses ? baseClasses.wrapper : undefined" />
     </t-input-group>
     <t-input-group label="Modal wrapper class">
-      <classes-autocomplete v-model="localvalue.modal" :placeholder="baseClasses.modal" />
+      <classes-autocomplete v-model="localvalue.modal" :placeholder="baseClasses ? baseClasses.modal : undefined" />
     </t-input-group>
     <t-input-group label="Modal body class">
-      <classes-autocomplete v-model="localvalue.body" :placeholder="baseClasses.body" />
+      <classes-autocomplete v-model="localvalue.body" :placeholder="baseClasses ? baseClasses.body : undefined" />
     </t-input-group>
     <t-input-group label="Modal header class">
-      <classes-autocomplete v-model="localvalue.header" :placeholder="baseClasses.header" />
+      <classes-autocomplete v-model="localvalue.header" :placeholder="baseClasses ? baseClasses.header : undefined" />
     </t-input-group>
     <t-input-group label="Modal footer class">
-      <classes-autocomplete v-model="localvalue.footer" :placeholder="baseClasses.footer" />
+      <classes-autocomplete v-model="localvalue.footer" :placeholder="baseClasses ? baseClasses.footer : undefined" />
     </t-input-group>
     <t-input-group label="Close button class">
-      <classes-autocomplete v-model="localvalue.close" :placeholder="baseClasses.close" />
+      <classes-autocomplete v-model="localvalue.close" :placeholder="baseClasses ? baseClasses.close : undefined" />
     </t-input-group>
     <t-input-group label="Close icon class">
-      <classes-autocomplete v-model="localvalue.closeIcon" :placeholder="baseClasses.closeIcon" />
+      <classes-autocomplete v-model="localvalue.closeIcon" :placeholder="baseClasses ? baseClasses.closeIcon : undefined" />
     </t-input-group>
   </div>
 </template>
@@ -36,11 +36,29 @@ export default {
   props: {
     baseClasses: {
       type: Object,
-      required: true
+      default: () => ({
+        overlay: '',
+        wrapper: '',
+        modal: '',
+        body: '',
+        header: '',
+        footer: '',
+        close: '',
+        closeIcon: ''
+      })
     },
     value: {
       type: Object,
-      required: true
+      default: () => ({
+        overlay: '',
+        wrapper: '',
+        modal: '',
+        body: '',
+        header: '',
+        footer: '',
+        close: '',
+        closeIcon: ''
+      })
     }
   },
   data () {

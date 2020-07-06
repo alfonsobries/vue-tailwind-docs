@@ -19,6 +19,7 @@
           :click-to-close="showModalFull ? true : false"
           :variants="modalVariants"
           :classes="modalClasses"
+          :fixed-classes="modalFixedClasses"
           :variant="variant"
           header="title of the modal"
         >
@@ -40,6 +41,7 @@
           :variant="variant"
           :variants="variants"
           :classes="classes"
+          :fixed-classes="fixedClasses"
           :options="[
             { value: 'optgroup', text: 'With optgroup' },
             { value: 'option-2', text: 'Option 2' },
@@ -69,6 +71,7 @@
         :variant="variant"
         :variants="variants"
         :classes="classes"
+        :fixed-classes="fixedClasses"
       >
         So you selected VueJs & Tailwind Combo, Good decision!
       </t-alert>
@@ -77,6 +80,7 @@
         :variant="variant"
         :variants="variants"
         :classes="classes"
+        :fixed-classes="fixedClasses"
         header="User profile"
         footer="Copyright wharever 2020"
       >
@@ -87,6 +91,7 @@
         :variant="variant"
         :variants="variants"
         :classes="classes"
+        :fixed-classes="fixedClasses"
         label="Your password"
         description="Use characters and numbers"
         feedback="Your password doesnt match!"
@@ -101,6 +106,7 @@
         :variant="variant"
         :variants="variants"
         :classes="classes"
+        :fixed-classes="fixedClasses"
         :value="hasLabel ? componentValue: undefined"
         :checked="true"
         v-bind="componentAttribs"
@@ -114,13 +120,9 @@
 import Vue from 'vue'
 export default Vue.extend({
   props: {
-    classes: {
-      type: [String, Object],
-      default: null
-    },
-    variants: {
-      type: [String, Object],
-      default: undefined
+    theme: {
+      type: Object,
+      required: true
     },
     variant: {
       type: String,
@@ -139,36 +141,34 @@ export default Vue.extend({
     }
   },
   computed: {
-    modalClasses () {
-      if (this.classes) {
-        if (!this.showModalFull) {
-          const marginPaddingRegex = /([mpz][tlrbyx]?-[0-9]*)/gm
-          return {
-            ...this.classes,
-            ...{
-              // Remove margins and padding for better demo inline
-              overlay: (this.classes.overlay || '').replace('absolute', '').replace('fixed', '').replace(marginPaddingRegex, ' ') + ' w-full p-4 rounded',
-              wrapper: (this.classes.wrapper || '').replace('absolute', '').replace('fixed', '').replace(marginPaddingRegex, ' ')
-            }
-          }
-        }
-
-        return this.classes
+    classes () {
+      return this.theme.classes
+    },
+    fixedClasses () {
+      return this.theme.fixedClasses
+    },
+    variants () {
+      if (!this.theme.variants) {
+        return []
       }
 
-      return null
+      const variants = {}
+
+      this.theme.variants.forEach((variant) => {
+        variants[variant.name] = variant.classes
+      })
+
+      return variants
+    },
+    modalClasses () {
+      return this.getDemoableModalClasses(this.classes)
+    },
+    modalFixedClasses () {
+      return this.getDemoableModalClasses(this.fixedClasses)
     },
     modalVariants () {
-      if (this.variants) {
-        if (!this.showModalFull) {
-          const marginPaddingRegex = /([mpz][tlrbyx]?-[0-9]*)/gm
-          const newVariants = JSON.parse(JSON.stringify(this.variants))
-          newVariants[this.variant].overlay = (newVariants.overlay || this.classes.overlay || '').replace('absolute', '').replace('fixed', '').replace(marginPaddingRegex, ' ') + ' w-full p-4 rounded'
-          newVariants[this.variant].wrapper = (newVariants.wrapper || this.classes.wrapper || '').replace('absolute', '').replace('fixed', '').replace(marginPaddingRegex, ' ')
-          return newVariants
-        }
-
-        return this.variants
+      if (this.variants && this.variant && this.variant[this.variant]) {
+        return this.getDemoableModalClasses(this.variant[this.variant].classes)
       }
 
       return undefined
@@ -176,7 +176,6 @@ export default Vue.extend({
     hasLabel () {
       return ['TRadio', 'TCheckbox'].includes(this.componentName)
     },
-
     componentAttribs () {
       if (this.componentName === 'TSelect') {
         return {
@@ -185,9 +184,27 @@ export default Vue.extend({
       }
       return {}
     }
-
   },
   methods: {
+    getDemoableModalClasses (classes) {
+      if (classes) {
+        if (!this.showModalFull) {
+          const marginPaddingRegex = /([mpz][tlrbyx]?-[0-9]*)/gm
+          return {
+            ...classes,
+            ...{
+              // Remove margins and padding for better demo inline
+              overlay: (classes.overlay || '').replace('absolute', '').replace('fixed', '').replace(marginPaddingRegex, ' ') + ' w-full p-4 rounded',
+              wrapper: (classes.wrapper || '').replace('absolute', '').replace('fixed', '').replace(marginPaddingRegex, ' ')
+            }
+          }
+        }
+
+        return classes
+      }
+
+      return null
+    },
     resetModal () {
       this.showModal = true
       this.showModalFull = false

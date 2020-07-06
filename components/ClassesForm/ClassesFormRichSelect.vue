@@ -78,11 +78,69 @@ export default {
   props: {
     value: {
       type: Object,
-      required: true
+      default: () => ({
+        wrapper: '',
+        buttonWrapper: '',
+        selectButton: '',
+        selectButtonLabel: '',
+        selectButtonPlaceholder: '',
+        selectButtonIcon: '',
+        selectButtonClearButton: '',
+        selectButtonClearIcon: '',
+        dropdown: '',
+        dropdownFeedback: '',
+        loadingMoreResults: '',
+        optionsList: '',
+        searchWrapper: '',
+        searchBox: '',
+        optgroup: '',
+        option: '',
+        highlightedOption: '',
+        selectedOption: '',
+        selectedHighlightedOption: '',
+        optionContent: '',
+        optionLabel: '',
+        selectedIcon: '',
+        enterClass: '',
+        enterActiveClass: '',
+        enterToClass: '',
+        leaveClass: '',
+        leaveActiveClass: '',
+        leaveToClass: ''
+      })
     },
     baseClasses: {
       type: Object,
-      required: true
+      default: () => ({
+        wrapper: '',
+        buttonWrapper: '',
+        selectButton: '',
+        selectButtonLabel: '',
+        selectButtonPlaceholder: '',
+        selectButtonIcon: '',
+        selectButtonClearButton: '',
+        selectButtonClearIcon: '',
+        dropdown: '',
+        dropdownFeedback: '',
+        loadingMoreResults: '',
+        optionsList: '',
+        searchWrapper: '',
+        searchBox: '',
+        optgroup: '',
+        option: '',
+        highlightedOption: '',
+        selectedOption: '',
+        selectedHighlightedOption: '',
+        optionContent: '',
+        optionLabel: '',
+        selectedIcon: '',
+        enterClass: '',
+        enterActiveClass: '',
+        enterToClass: '',
+        leaveClass: '',
+        leaveActiveClass: '',
+        leaveToClass: ''
+      })
     }
   },
   data () {

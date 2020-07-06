@@ -13,11 +13,11 @@ export default {
   props: {
     value: {
       type: String,
-      required: true
+      default: ''
     },
     baseClasses: {
       type: String,
-      required: true
+      default: ''
     }
   },
   data () {

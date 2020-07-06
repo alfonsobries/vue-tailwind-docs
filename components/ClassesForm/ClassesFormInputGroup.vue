@@ -27,11 +27,23 @@ export default {
   props: {
     baseClasses: {
       type: Object,
-      required: true
+      default: () => ({
+        wrapper: '',
+        label: '',
+        feedback: '',
+        description: '',
+        body: ''
+      })
     },
     value: {
       type: Object,
-      required: true
+      default: () => ({
+        wrapper: '',
+        label: '',
+        feedback: '',
+        description: '',
+        body: ''
+      })
     }
   },
   data () {

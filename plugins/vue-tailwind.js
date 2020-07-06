@@ -74,8 +74,8 @@ Vue.use(VueTailwind, {
       wrapper: 'mb-4',
       label: 'block uppercase tracking-wide text-xs font-semibold text-gray-700',
       body: '',
-      feedback: 'text-sm text-gray-700',
-      description: 'text-sm text-gray-700'
+      feedback: 'text-sm text-gray-500',
+      description: 'text-sm text-gray-500'
     },
     variants: {
       error: {

@@ -99,9 +99,18 @@ export default Vue.extend({
         currentComponentTheme.variants.forEach((variant) => {
           themeAsExpectedInSettings[variant.name] = variant.classes
         })
+
         const newTheme = {
           classes: currentComponentTheme.classes,
           variants: themeAsExpectedInSettings
+        }
+
+        if (currentComponentTheme.fixedClasses) {
+          newTheme.fixedClasses = currentComponentTheme.fixedClasses
+        }
+
+        if (currentComponentTheme.wrapped !== undefined) {
+          newTheme.wrapped = currentComponentTheme.wrapped
         }
 
         if (!isEqual(newTheme, this.value)) {
@@ -124,10 +133,20 @@ export default Vue.extend({
           }
         })
 
-        this.currentComponentTheme = {
+        const currentComponentTheme = {
           classes: value.classes,
           variants
         }
+
+        if (value.fixedClasses !== undefined) {
+          currentComponentTheme.fixedClasses = value.fixedClasses
+        }
+
+        if (value.wrapped !== undefined) {
+          currentComponentTheme.wrapped = value.wrapped
+        }
+
+        this.currentComponentTheme = currentComponentTheme
       },
       immediate: true
     }

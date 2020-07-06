@@ -24,11 +24,21 @@ export default {
   props: {
     baseClasses: {
       type: Object,
-      required: true
+      default: () => ({
+        wrapper: '',
+        body: '',
+        header: '',
+        footer: ''
+      })
     },
     value: {
       type: Object,
-      required: true
+      default: () => ({
+        wrapper: '',
+        body: '',
+        header: '',
+        footer: ''
+      })
     }
   },
   data () {

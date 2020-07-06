@@ -1,8 +1,6 @@
 <template>
   <div>
-    <docs :page="page" />
-
-    <!-- <div id="theme-builder-section" class="bg-gray-100 py-16">
+    <div id="theme-builder-section" class="bg-gray-100 py-16">
       <header>
         <div class="container mx-auto">
           <h2 id="build" class="text-3xl text-center font-semibold text-gray-900 mb-4">
@@ -38,18 +36,19 @@
           </t-card>
         </div>
       </div>
-    </div> -->
+    </div>
+    <docs :page="page" />
   </div>
 </template>
 
 <script>
 import Vue from 'vue'
-// import ThemeBuilder from '~/components/ThemeBuilder.vue'
+import ThemeBuilder from '~/components/ThemeBuilder.vue'
 import Docs from '~/components/Docs.vue'
 
 export default Vue.extend({
   components: {
-    // ThemeBuilder,
+    ThemeBuilder,
     Docs
   },
   async asyncData ({ $content }) {
