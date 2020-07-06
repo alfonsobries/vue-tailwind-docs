@@ -1,19 +1,19 @@
 <template>
   <div>
     <t-input-group label="Wrapper class">
-      <classes-autocomplete v-model="localvalue.wrapper" :placeholder="baseClasses.wrapper" />
+      <classes-autocomplete v-model="localValue.wrapper" :placeholder="baseClasses.wrapper" />
     </t-input-group>
     <t-input-group label="Label class">
-      <classes-autocomplete v-model="localvalue.label" :placeholder="baseClasses.label" />
+      <classes-autocomplete v-model="localValue.label" :placeholder="baseClasses.label" />
     </t-input-group>
     <t-input-group label="Feedback class">
-      <classes-autocomplete v-model="localvalue.feedback" :placeholder="baseClasses.feedback" />
+      <classes-autocomplete v-model="localValue.feedback" :placeholder="baseClasses.feedback" />
     </t-input-group>
     <t-input-group label="Description class">
-      <classes-autocomplete v-model="localvalue.description" :placeholder="baseClasses.description" />
+      <classes-autocomplete v-model="localValue.description" :placeholder="baseClasses.description" />
     </t-input-group>
     <t-input-group label="Body class">
-      <classes-autocomplete v-model="localvalue.body" :placeholder="baseClasses.body" />
+      <classes-autocomplete v-model="localValue.body" :placeholder="baseClasses.body" />
     </t-input-group>
   </div>
 </template>
@@ -48,15 +48,18 @@ export default {
   },
   data () {
     return {
-      localvalue: this.value
+      localValue: this.value
     }
   },
   watch: {
-    localvalue (localvalue) {
-      this.$emit('input', localvalue)
+    localValue: {
+      handler (localValue) {
+        this.$emit('input', localValue)
+      },
+      deep: true
     },
     value (value) {
-      this.localvalue = value
+      this.localValue = value
     }
   }
 }

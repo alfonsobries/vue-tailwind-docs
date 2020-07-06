@@ -1,6 +1,6 @@
 <template>
   <div>
-    <classes-autocomplete v-model="localvalue" :placeholder="baseClasses" />
+    <classes-autocomplete v-model="localValue" :placeholder="baseClasses" />
   </div>
 </template>
 
@@ -22,15 +22,15 @@ export default {
   },
   data () {
     return {
-      localvalue: this.value
+      localValue: this.value
     }
   },
   watch: {
-    localvalue (localvalue) {
-      this.$emit('input', localvalue)
+    localValue (localValue) {
+      this.$emit('input', localValue)
     },
     value (value) {
-      this.localvalue = value
+      this.localValue = value
     }
   }
 }

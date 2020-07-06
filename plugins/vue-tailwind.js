@@ -75,12 +75,19 @@ Vue.use(VueTailwind, {
       label: 'block uppercase tracking-wide text-xs font-semibold text-gray-700',
       body: '',
       feedback: 'text-sm text-gray-500',
-      description: 'text-sm text-gray-500'
+      description: 'text-sm text-gray-500`'
     },
     variants: {
       error: {
         label: 'block uppercase tracking-wide text-xs font-semibold text-red-500',
         feedback: 'text-sm text-red-500'
+      },
+      classes: {
+        wrapper: 'mb-4 px-3 pt-1 border rounded bg-white',
+        label: 'text-base font-medium text-gray-900 block mt-3',
+        body: 'py-3 border-t mt-3',
+        feedback: 'text-sm text-gray-500',
+        description: 'text-sm text-gray-500 leading-tight'
       },
       playground: {
         wrapper: '',

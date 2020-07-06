@@ -1,70 +1,70 @@
 <template>
   <div>
     <t-input-group label="Select Wrapper">
-      <classes-autocomplete v-model="localvalue.wrapper" :placeholder="baseClasses.wrapper" />
+      <classes-autocomplete v-model="localValue.wrapper" :placeholder="baseClasses.wrapper" />
     </t-input-group>
     <t-input-group label="Select button wrapper">
-      <classes-autocomplete v-model="localvalue.buttonWrapper" :placeholder="baseClasses.buttonWrapper" />
+      <classes-autocomplete v-model="localValue.buttonWrapper" :placeholder="baseClasses.buttonWrapper" />
     </t-input-group>
     <t-input-group label="Select button">
-      <classes-autocomplete v-model="localvalue.selectButton" :placeholder="baseClasses.selectButton" />
+      <classes-autocomplete v-model="localValue.selectButton" :placeholder="baseClasses.selectButton" />
     </t-input-group>
     <t-input-group label="Select button label">
-      <classes-autocomplete v-model="localvalue.selectButtonLabel" :placeholder="baseClasses.selectButtonLabel" />
+      <classes-autocomplete v-model="localValue.selectButtonLabel" :placeholder="baseClasses.selectButtonLabel" />
     </t-input-group>
     <t-input-group label="Select button placeholder">
-      <classes-autocomplete v-model="localvalue.selectButtonPlaceholder" :placeholder="baseClasses.selectButtonPlaceholder" />
+      <classes-autocomplete v-model="localValue.selectButtonPlaceholder" :placeholder="baseClasses.selectButtonPlaceholder" />
     </t-input-group>
     <t-input-group label="Select button icon">
-      <classes-autocomplete v-model="localvalue.selectButtonIcon" :placeholder="baseClasses.selectButtonIcon" />
+      <classes-autocomplete v-model="localValue.selectButtonIcon" :placeholder="baseClasses.selectButtonIcon" />
     </t-input-group>
     <t-input-group label="Select button clear icon wrapper">
-      <classes-autocomplete v-model="localvalue.selectButtonClearIconWrapper" :placeholder="baseClasses.selectButtonClearIconWrapper" />
+      <classes-autocomplete v-model="localValue.selectButtonClearIconWrapper" :placeholder="baseClasses.selectButtonClearIconWrapper" />
     </t-input-group>
     <t-input-group label="Select button clear icon">
-      <classes-autocomplete v-model="localvalue.selectButtonClearIcon" :placeholder="baseClasses.selectButtonClearIcon" />
+      <classes-autocomplete v-model="localValue.selectButtonClearIcon" :placeholder="baseClasses.selectButtonClearIcon" />
     </t-input-group>
     <t-input-group label="Dropdown">
-      <classes-autocomplete v-model="localvalue.dropdown" :placeholder="baseClasses.dropdown" />
+      <classes-autocomplete v-model="localValue.dropdown" :placeholder="baseClasses.dropdown" />
     </t-input-group>
     <t-input-group label="Dropdown">
-      <classes-autocomplete v-model="localvalue.dropdown" :placeholder="baseClasses.dropdown" />
+      <classes-autocomplete v-model="localValue.dropdown" :placeholder="baseClasses.dropdown" />
     </t-input-group>
     <t-input-group label="Dropdown Feedback">
-      <classes-autocomplete v-model="localvalue.dropdownFeedback" :placeholder="baseClasses.dropdownFeedback" />
+      <classes-autocomplete v-model="localValue.dropdownFeedback" :placeholder="baseClasses.dropdownFeedback" />
     </t-input-group>
     <t-input-group label="Search box wrapper">
-      <classes-autocomplete v-model="localvalue.searchWrapper" :placeholder="baseClasses.searchWrapper" />
+      <classes-autocomplete v-model="localValue.searchWrapper" :placeholder="baseClasses.searchWrapper" />
     </t-input-group>
     <t-input-group label="Search box">
-      <classes-autocomplete v-model="localvalue.searchBox" :placeholder="baseClasses.searchBox" />
+      <classes-autocomplete v-model="localValue.searchBox" :placeholder="baseClasses.searchBox" />
     </t-input-group>
     <t-input-group label="Options list">
-      <classes-autocomplete v-model="localvalue.optionsList" :placeholder="baseClasses.optionsList" />
+      <classes-autocomplete v-model="localValue.optionsList" :placeholder="baseClasses.optionsList" />
     </t-input-group>
     <t-input-group label="Optgroup">
-      <classes-autocomplete v-model="localvalue.optionsList" :placeholder="baseClasses.optionsList" />
+      <classes-autocomplete v-model="localValue.optionsList" :placeholder="baseClasses.optionsList" />
     </t-input-group>
     <t-input-group label="Option">
-      <classes-autocomplete v-model="localvalue.option" :placeholder="baseClasses.option" />
+      <classes-autocomplete v-model="localValue.option" :placeholder="baseClasses.option" />
     </t-input-group>
     <t-input-group label="Highlighted option">
-      <classes-autocomplete v-model="localvalue.highlightedOption" :placeholder="baseClasses.highlightedOption" />
+      <classes-autocomplete v-model="localValue.highlightedOption" :placeholder="baseClasses.highlightedOption" />
     </t-input-group>
     <t-input-group label="Selected option">
-      <classes-autocomplete v-model="localvalue.selectedOption" :placeholder="baseClasses.selectedOption" />
+      <classes-autocomplete v-model="localValue.selectedOption" :placeholder="baseClasses.selectedOption" />
     </t-input-group>
     <t-input-group label="Selected and highlighted option">
-      <classes-autocomplete v-model="localvalue.selectedHighlightedOption" :placeholder="baseClasses.selectedHighlightedOption" />
+      <classes-autocomplete v-model="localValue.selectedHighlightedOption" :placeholder="baseClasses.selectedHighlightedOption" />
     </t-input-group>
     <t-input-group label="Option content">
-      <classes-autocomplete v-model="localvalue.optionContent" :placeholder="baseClasses.optionContent" />
+      <classes-autocomplete v-model="localValue.optionContent" :placeholder="baseClasses.optionContent" />
     </t-input-group>
     <t-input-group label="Option label">
-      <classes-autocomplete v-model="localvalue.optionLabel" :placeholder="baseClasses.optionLabel" />
+      <classes-autocomplete v-model="localValue.optionLabel" :placeholder="baseClasses.optionLabel" />
     </t-input-group>
     <t-input-group label="selectedIcon">
-      <classes-autocomplete v-model="localvalue.selectedIcon" :placeholder="baseClasses.selectedIcon" />
+      <classes-autocomplete v-model="localValue.selectedIcon" :placeholder="baseClasses.selectedIcon" />
     </t-input-group>
   </div>
 </template>
@@ -145,15 +145,18 @@ export default {
   },
   data () {
     return {
-      localvalue: this.value
+      localValue: this.value
     }
   },
   watch: {
-    localvalue (localvalue) {
-      this.$emit('input', localvalue)
+    localValue: {
+      handler (localValue) {
+        this.$emit('input', localValue)
+      },
+      deep: true
     },
     value (value) {
-      this.localvalue = value
+      this.localValue = value
     }
   }
 }

@@ -1,16 +1,16 @@
 <template>
   <div>
     <t-input-group label="Card wrapper class">
-      <classes-autocomplete v-model="localvalue.wrapper" :placeholder="baseClasses.wrapper" />
+      <classes-autocomplete v-model="localValue.wrapper" :placeholder="baseClasses.wrapper" />
     </t-input-group>
     <t-input-group label="Card body class">
-      <classes-autocomplete v-model="localvalue.body" :placeholder="baseClasses.body" />
+      <classes-autocomplete v-model="localValue.body" :placeholder="baseClasses.body" />
     </t-input-group>
     <t-input-group label="Header class">
-      <classes-autocomplete v-model="localvalue.header" :placeholder="baseClasses.header" />
+      <classes-autocomplete v-model="localValue.header" :placeholder="baseClasses.header" />
     </t-input-group>
     <t-input-group label="Footer class">
-      <classes-autocomplete v-model="localvalue.footer" :placeholder="baseClasses.footer" />
+      <classes-autocomplete v-model="localValue.footer" :placeholder="baseClasses.footer" />
     </t-input-group>
   </div>
 </template>
@@ -43,15 +43,18 @@ export default {
   },
   data () {
     return {
-      localvalue: this.value
+      localValue: this.value
     }
   },
   watch: {
-    localvalue (localvalue) {
-      this.$emit('input', localvalue)
+    localValue: {
+      handler (localValue) {
+        this.$emit('input', localValue)
+      },
+      deep: true
     },
     value (value) {
-      this.localvalue = value
+      this.localValue = value
     }
   }
 }
