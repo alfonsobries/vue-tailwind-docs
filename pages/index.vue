@@ -1,20 +1,8 @@
 <template>
   <div>
-    <div id="theme-builder-section" class="bg-gray-100 py-16">
-      <header>
-        <div class="container mx-auto">
-          <h2 id="build" class="text-3xl text-center font-semibold text-gray-900 mb-4">
-            Build your own theme
-          </h2>
-        </div>
-      </header>
+    <docs :page="page" />
 
-      <div class="container mx-auto">
-        <theme-builder />
-      </div>
-    </div>
-
-    <div v-if="latestThemes.length > 0" class="bg-orange-100 py-16">
+    <!-- <div v-if="latestThemes.length > 0" class="bg-orange-100 py-16">
       <div class="container mx-auto">
         <h2 id="build" class="text-3xl text-center font-semibold text-gray-900 mb-4">
           Latest community Themes
@@ -36,19 +24,16 @@
           </t-card>
         </div>
       </div>
-    </div>
-    <docs :page="page" />
+    </div> -->
   </div>
 </template>
 
 <script>
 import Vue from 'vue'
-import ThemeBuilder from '~/components/ThemeBuilder.vue'
 import Docs from '~/components/Docs.vue'
 
 export default Vue.extend({
   components: {
-    ThemeBuilder,
     Docs
   },
   async asyncData ({ $content }) {
@@ -68,14 +53,6 @@ export default Vue.extend({
       .then(({ data }) => {
         this.latestThemes = data.data
       })
-  },
-  methods: {
-    smoothScrolToThemeBuilder () {
-      const themeBuider = document.getElementById('theme-builder-section')
-      if (themeBuider) {
-        themeBuider.scrollIntoView({ behavior: 'smooth' })
-      }
-    }
   }
 })
 </script>

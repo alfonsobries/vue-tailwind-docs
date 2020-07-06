@@ -1,5 +1,5 @@
 <template>
-  <div class="hidden md:flex w-sm bg-gray-800 text-white w-2/5 px-6 py-3 relative flex-col rounded px-6">
+  <div class="hidden md:flex w-sm bg-gray-800 text-white w-1/4 p-3 relative flex-col rounded">
     <theme-builder-steps-step
       v-for="(step, index) in steps"
       :key="index"
