@@ -3,17 +3,17 @@
     <div class="mb-4">
       <div class="sm:items-start">
         <theme-configurator-classes
-          v-model="currentTheme.classes"
-          :component-name="componentName"
-          label="Base classes"
-          description="Classes used by default (when no variant is applied)"
-        />
-
-        <theme-configurator-classes
           v-model="currentTheme.fixedClasses"
           :component-name="componentName"
           label="Fixed classes"
           description="Fixed classes shared by all the variants"
+        />
+
+        <theme-configurator-classes
+          v-model="currentTheme.classes"
+          :component-name="componentName"
+          label="Base classes"
+          description="Classes used by default (when no variant is applied)"
         />
       </div>
 
