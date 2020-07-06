@@ -167,8 +167,14 @@ export default Vue.extend({
       return this.getDemoableModalClasses(this.fixedClasses)
     },
     modalVariants () {
-      if (this.variants && this.variant && this.variant[this.variant]) {
-        return this.getDemoableModalClasses(this.variant[this.variant].classes)
+      if (this.variants) {
+        const demoableVariants = {}
+
+        Object.keys(this.variants).forEach((variantName) => {
+          demoableVariants[variantName] = this.getDemoableModalClasses(this.variants[variantName].classes)
+        })
+
+        return demoableVariants
       }
 
       return undefined
@@ -186,6 +192,9 @@ export default Vue.extend({
     }
   },
   methods: {
+    /**
+     * Removes position related classes so we can show the preview inline
+     */
     getDemoableModalClasses (classes) {
       if (classes) {
         if (!this.showModalFull) {

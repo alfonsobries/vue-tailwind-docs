@@ -25,6 +25,7 @@
             label="Variant classes"
             :description="`Classes used when the ${currentName} variant is applied`"
             :base-classes="theme.classes"
+            :fixed-classes="theme.fixedClasses"
             :component-name="componentName"
           />
         </div>

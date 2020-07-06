@@ -69,21 +69,7 @@ import ThemeBuilderStepInstall from './ThemeBuilderStepInstall.vue'
 import ThemeBuilderStepShare from './ThemeBuilderStepShare.vue'
 
 const defaultTheme = {
-  TInputGroup: {
-    classes: {
-      wrapper: 'mb-4',
-      label: 'block uppercase tracking-wide text-xs font-bold mb-1',
-      body: '',
-      feedback: 'text-sm text-gray-500',
-      description: 'text-sm text-gray-500'
-    },
-    variants: {
-      danger: {
-        label: 'block uppercase tracking-wide text-xs font-bold mb-1 text-red-500',
-        feedback: 'text-sm text-red-500'
-      }
-    }
-  },
+
   TInput: {
     classes: 'form-input',
     variants: {
@@ -142,6 +128,22 @@ const defaultTheme = {
   //     }
   //   }
   // },
+
+  TInputGroup: {
+    classes: {
+      wrapper: 'mb-4',
+      label: 'block uppercase tracking-wide text-xs font-bold mb-1',
+      body: '',
+      feedback: 'text-sm text-gray-500',
+      description: 'text-sm text-gray-500'
+    },
+    variants: {
+      danger: {
+        label: 'block uppercase tracking-wide text-xs font-bold mb-1 text-red-500',
+        feedback: 'text-sm text-red-500'
+      }
+    }
+  },
 
   TRichSelect: {
     classes: {

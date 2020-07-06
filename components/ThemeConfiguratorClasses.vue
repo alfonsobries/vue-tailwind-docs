@@ -5,35 +5,11 @@
     variant="classes"
     :sorted-elements="['label', 'description', 'default', 'feedback']"
   >
-    <classes-form-rich-select
-      v-if="componentName === 'TRichSelect'"
+    <classes-form
       v-model="localValue"
       :base-classes="baseClasses"
-    />
-    <classes-form-modal
-      v-else-if="componentName === 'TModal'"
-      v-model="localValue"
-      :base-classes="baseClasses"
-    />
-    <classes-form-alert
-      v-else-if="componentName === 'TAlert'"
-      v-model="localValue"
-      :base-classes="baseClasses"
-    />
-    <classes-form-card
-      v-else-if="componentName === 'TCard'"
-      v-model="localValue"
-      :base-classes="baseClasses"
-    />
-    <classes-form-input-group
-      v-else-if="componentName === 'TInputGroup'"
-      v-model="localValue"
-      :base-classes="baseClasses"
-    />
-    <classes-form-simple
-      v-else
-      v-model="localValue"
-      :base-classes="baseClasses"
+      :fixed-classes="fixedClasses"
+      :elements="elements"
     />
 
     <slot v-if="needsFormsPlugin" name="feedback">
@@ -50,23 +26,12 @@
 </template>
 <script>
 import Vue from 'vue'
-import ClassesFormSimple from '@/components/ClassesForm/ClassesFormSimple.vue'
-import ClassesFormAlert from '@/components/ClassesForm/ClassesFormAlert.vue'
-import ClassesFormModal from '@/components/ClassesForm/ClassesFormModal.vue'
-import ClassesFormRichSelect from '@/components/ClassesForm/ClassesFormRichSelect.vue'
-import ClassesFormCard from '@/components/ClassesForm/ClassesFormCard.vue'
-import ClassesFormInputGroup from '@/components/ClassesForm/ClassesFormInputGroup.vue'
 import Icon from '@/components/Icon'
-
+import ClassesForm from '@/components/ClassesForm.vue'
 export default Vue.extend({
   components: {
-    Icon,
-    ClassesFormSimple,
-    ClassesFormAlert,
-    ClassesFormModal,
-    ClassesFormRichSelect,
-    ClassesFormCard,
-    ClassesFormInputGroup
+    ClassesForm,
+    Icon
   },
   props: {
     label: {
@@ -85,6 +50,10 @@ export default Vue.extend({
       type: [String, Object],
       default: undefined
     },
+    fixedClasses: {
+      type: [String, Object],
+      default: undefined
+    },
     componentName: {
       type: String,
       required: true
@@ -96,6 +65,79 @@ export default Vue.extend({
     }
   },
   computed: {
+    elements () {
+      switch (this.componentName) {
+        case 'TAlert':
+          return {
+            wrapper: 'Wrapper',
+            body: 'Body',
+            close: 'Close',
+            closeIcon: 'Close icon'
+          }
+
+        case 'TCard':
+          return {
+            wrapper: 'Wrapper',
+            body: 'Body',
+            header: 'Header',
+            footer: 'Footer'
+          }
+
+        case 'TInputGroup':
+          return {
+            wrapper: 'Wrapper',
+            label: 'Label',
+            feedback: 'Feedback',
+            description: 'Description',
+            body: 'Body'
+          }
+
+        case 'TModal':
+          return {
+            overlay: 'Overlay',
+            wrapper: 'Wrapper',
+            modal: 'Modal',
+            body: 'Body',
+            header: 'Header',
+            footer: 'Footer',
+            close: 'Close',
+            closeIcon: 'Close icon'
+          }
+        case 'TRichSelect':
+          return {
+            wrapper: '',
+            buttonWrapper: '',
+            selectButton: '',
+            selectButtonLabel: '',
+            selectButtonPlaceholder: '',
+            selectButtonIcon: '',
+            selectButtonClearButton: '',
+            selectButtonClearIcon: '',
+            dropdown: '',
+            dropdownFeedback: '',
+            loadingMoreResults: '',
+            optionsList: '',
+            searchWrapper: '',
+            searchBox: '',
+            optgroup: '',
+            option: '',
+            highlightedOption: '',
+            selectedOption: '',
+            selectedHighlightedOption: '',
+            optionContent: '',
+            optionLabel: '',
+            selectedIcon: '',
+            enterClass: '',
+            enterActiveClass: '',
+            enterToClass: '',
+            leaveClass: '',
+            leaveActiveClass: '',
+            leaveToClass: ''
+          }
+      }
+
+      return {}
+    },
     formsPluginClass () {
       const pluginClasses = ['form-input', 'form-select', 'form-textarea', 'form-radio', 'form-chexkbox']
 
