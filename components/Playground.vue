@@ -308,6 +308,12 @@ export default Vue.extend({
     },
     waitforIframeLoaded () {
       return new Promise((resolve, reject) => {
+        const iframe = this.$refs.iframe
+        const nuxtLoaded = iframe && !!iframe.contentWindow.$nuxt
+        if (nuxtLoaded) {
+          resolve()
+        }
+
         this.waitforIframeLoadedInterval = setInterval(() => {
           this.waitforIframeLoadedIntervalTries++
           const iframe = this.$refs.iframe
