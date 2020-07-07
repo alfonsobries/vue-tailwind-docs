@@ -17,7 +17,7 @@
         {{ label }}
       </h4>
 
-      <label v-if="localWrapped !== undefined" class="flex items-center text-sm">
+      <label v-if="wrappable" class="flex items-center text-sm">
         <t-checkbox
           v-model="localWrapped"
           class="mr-2 text-gray-600 uppercase"
@@ -40,6 +40,7 @@
 
 <script>
 import Vue from 'vue'
+import isEqual from 'lodash/isEqual'
 import Icon from '@/components/Icon'
 import ClassesForm from '@/components/ClassesForm.vue'
 export default Vue.extend({
@@ -84,6 +85,9 @@ export default Vue.extend({
     }
   },
   computed: {
+    wrappable () {
+      return ['TSelect'].includes(this.componentName)
+    },
     elements () {
       if (this.localWrapped) {
         switch (this.componentName) {
@@ -195,14 +199,21 @@ export default Vue.extend({
     needsFormsPlugin () {
       return !!this.formsPluginClass
     }
+
   },
   watch: {
-    localValue (localValue) {
-      this.$emit('input', localValue)
+    localValue: {
+      handler (localValue) {
+        this.$emit('input', localValue)
+      },
+      deep: true
     },
     value: {
       handler (value) {
-        this.localValue = typeof value === 'object' ? { ...value } : value
+        const localValue = typeof value === 'object' ? { ...value } : value
+        if (!isEqual(localValue, this.localValue)) {
+          this.localValue = localValue
+        }
       },
       deep: true
     },
@@ -213,5 +224,6 @@ export default Vue.extend({
       this.localWrapped = wrapped
     }
   }
+
 })
 </script>

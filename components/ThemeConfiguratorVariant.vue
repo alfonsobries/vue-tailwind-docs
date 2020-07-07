@@ -21,17 +21,19 @@
       <div>
         <div class="sm:items-start">
           <theme-configurator-classes
+            :key="`variant-configurator-${localWrapped}`"
             v-model="localVariant"
             label="Variant classes"
             :description="`Classes used when the ${currentVariantName} variant is applied`"
             :base-classes="theme.classes"
-            :wrapped.sync="wrapped"
+            :wrapped.sync="localWrapped"
             :fixed-classes="theme.fixedClasses"
             :component-name="componentName"
           />
         </div>
 
         <component-preview
+          :wrapped="localWrapped"
           :theme="theme"
           :component-name="componentName"
           :variant="currentVariantName"
@@ -46,7 +48,7 @@
 </template>
 <script>
 import Vue from 'vue'
-import clone from 'lodash/clone'
+import cloneDeep from 'lodash/cloneDeep'
 import get from 'lodash/get'
 import ComponentPreview from './ThemeConfiguratorPreview.vue'
 import ThemeConfiguratorClasses from './ThemeConfiguratorClasses.vue'
@@ -65,7 +67,7 @@ export default Vue.extend({
     },
     value: {
       type: [String, Object],
-      required: true
+      default: undefined
     },
     variantName: {
       type: String,
@@ -78,6 +80,10 @@ export default Vue.extend({
     theme: {
       type: Object,
       required: true
+    },
+    wrapped: {
+      type: Boolean,
+      default: undefined
     },
     wrappedTheme: {
       type: Object,
@@ -92,17 +98,17 @@ export default Vue.extend({
     return {
       localVariant: this.value,
       currentVariantName: this.variantName,
-      wrapped: this.theme.wrapped
+      localWrapped: this.wrapped
     }
   },
   watch: {
-    'wrapped' (wrapped) {
+    'localWrapped' (localWrapped) {
       let localVariant
 
-      if (wrapped) {
-        localVariant = clone(get(this.wrappedTheme, `${this.componentName}.variants.${this.variantName}`))
+      if (localWrapped) {
+        localVariant = cloneDeep(get(this.wrappedTheme, `variants.${this.variantName}`))
       } else {
-        localVariant = clone(get(this.notWrappedTheme, `${this.componentName}.variants.${this.variantName}`))
+        localVariant = cloneDeep(get(this.notWrappedTheme, `variants.${this.variantName}`))
       }
 
       this.localVariant = localVariant

@@ -63,7 +63,7 @@
 </template>
 <script>
 import Vue from 'vue'
-import clone from 'lodash/clone'
+import cloneDeep from 'lodash/cloneDeep'
 import ThemeBuilderSteps from './ThemeBuilderSteps.vue'
 import ThemeBuilderStepSelectComponents from './ThemeBuilderStepSelectComponents.vue'
 import ThemeBuilderStepBuildTheme from './ThemeBuilderStepBuildTheme.vue'
@@ -106,7 +106,7 @@ const wrappedTheme = {
 }
 
 const defaultTheme = {
-  TSelect: wrappedTheme.TSelect,
+  TSelect: cloneDeep(wrappedTheme.TSelect),
 
   TInput: {
     fixedClasses: 'form-input',
@@ -313,7 +313,7 @@ export default Vue.extend({
       lastActiveStep: 0,
       selectedComponents: Object.keys(defaultTheme),
       sortedComponents: Object.keys(defaultTheme),
-      theme: clone(defaultTheme),
+      theme: cloneDeep(defaultTheme),
       notWrappedTheme,
       wrappedTheme
     }

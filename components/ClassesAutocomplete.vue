@@ -95,7 +95,7 @@ export default Vue.extend({
         return ''
       }
 
-      return this.localValue.substr(0, this.cursorPosition).split(' ')
+      return String(this.localValue).substr(0, this.cursorPosition).split(' ')
     },
     query () {
       if (!this.hasFocus || this.optionSelected) {

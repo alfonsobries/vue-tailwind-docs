@@ -132,6 +132,10 @@ export default Vue.extend({
     componentName: {
       type: String,
       required: true
+    },
+    wrapped: {
+      type: Boolean,
+      default: undefined
     }
   },
   data () {
@@ -142,9 +146,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    wrapped () {
-      return this.theme.wrapped
-    },
     classes () {
       return this.theme.classes
     },
@@ -153,17 +154,6 @@ export default Vue.extend({
     },
     variants () {
       return this.theme.variants
-      // if (!this.theme.variants) {
-      //   return []
-      // }
-
-      // const variants = {}
-
-      // this.theme.variants.forEach((variant) => {
-      //   variants[variant.name] = variant.classes
-      // })
-
-      // return variants
     },
     modalClasses () {
       return this.getDemoableModalClasses(this.classes)

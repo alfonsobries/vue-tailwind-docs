@@ -24,6 +24,7 @@
 
       <component-preview
         :theme="currentTheme"
+        :wrapped="wrapped"
         :component-name="componentName"
       />
     </div>
@@ -49,6 +50,7 @@
           :theme="currentTheme"
           :component-name="componentName"
           :index="vIndex"
+          :wrapped="wrapped"
           :wrapped-theme="wrappedTheme"
           :not-wrapped-theme="notWrappedTheme"
           @delete="removeVariant(variantName)"
@@ -68,8 +70,7 @@
 <script>
 import Vue from 'vue'
 import isEqual from 'lodash/isEqual'
-import get from 'lodash/get'
-import clone from 'lodash/clone'
+import cloneDeep from 'lodash/cloneDeep'
 import ThemeConfiguratorVariant from './ThemeConfiguratorVariant'
 import ThemeConfiguratorClasses from './ThemeConfiguratorClasses.vue'
 import ComponentPreview from './ThemeConfiguratorPreview.vue'
@@ -105,13 +106,13 @@ export default Vue.extend({
     }
   },
   watch: {
-    'wrapped' (wrapped) {
+    wrapped (wrapped) {
       let newTheme
 
       if (wrapped) {
-        newTheme = clone(get(this.wrappedTheme, this.componentName))
+        newTheme = cloneDeep(this.wrappedTheme)
       } else {
-        newTheme = clone(get(this.notWrappedTheme, this.componentName))
+        newTheme = cloneDeep(this.notWrappedTheme)
       }
 
       newTheme.wrapped = wrapped
@@ -162,7 +163,7 @@ export default Vue.extend({
       this.$set(
         this.currentTheme.variants,
         `variant${index}`,
-        clone(this.currentTheme.classes)
+        cloneDeep(this.currentTheme.classes)
       )
     }
   }

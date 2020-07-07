@@ -31,8 +31,8 @@
       v-show="selected"
       v-model="currentComponentTheme"
       :component-name="componentName"
-      :wrapped-theme="wrappedTheme"
-      :not-wrapped-theme="notWrappedTheme"
+      :wrapped-theme="componentWrappedTheme"
+      :not-wrapped-theme="componentNotWrappedTheme"
       class="p-4 pb-0"
     />
 
@@ -46,6 +46,8 @@
 <script>
 import Vue from 'vue'
 import isEqual from 'lodash/isEqual'
+import get from 'lodash/get'
+import cloneDeep from 'lodash/cloneDeep'
 import Icon from '@/components/Icon'
 import ThemeConfigurator from '@/components/ThemeConfigurator.vue'
 
@@ -87,6 +89,12 @@ export default Vue.extend({
     }
   },
   computed: {
+    componentWrappedTheme () {
+      return cloneDeep(get(this.wrappedTheme, this.componentName))
+    },
+    componentNotWrappedTheme () {
+      return cloneDeep(get(this.notWrappedTheme, this.componentName))
+    },
     isReady () {
       return this.selected.length > 0
     }
