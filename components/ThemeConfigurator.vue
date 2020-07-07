@@ -4,6 +4,7 @@
       <div class="sm:items-start">
         <theme-configurator-classes
           v-model="currentTheme.fixedClasses"
+          :wrapped.sync="wrapped"
           :component-name="componentName"
           label="Fixed classes"
           description="Fixed classes shared by all the variants"
@@ -12,6 +13,7 @@
         <theme-configurator-classes
           v-model="currentTheme.classes"
           :component-name="componentName"
+          :wrapped.sync="wrapped"
           :fixed-classes="currentTheme.fixedClasses"
           label="Base classes"
           description="Classes used by default (when no variant is applied)"
@@ -38,13 +40,15 @@
         leave-to-class="opacity-0"
       >
         <theme-configurator-variant
-          v-for="(variant, vIndex) in currentTheme.variants"
-          :key="variant.id"
-          v-model="currentTheme.variants[vIndex]"
+          v-for="(variantName, vIndex) in Object.keys(currentTheme.variants)"
+          :key="`${variantName}-${vIndex}`"
+          v-model="currentTheme.variants[variantName]"
+          :variant-name="variantName"
           :theme="currentTheme"
           :component-name="componentName"
           :index="vIndex"
-          @delete="currentTheme.variants.splice(vIndex, 1)"
+          @delete="delete currentTheme.variants[variantName]"
+          @update-name="(newVariantName) => updateVariantName(variantName, newVariantName)"
         />
       </transition-group>
 
@@ -60,7 +64,8 @@
 <script>
 import Vue from 'vue'
 import isEqual from 'lodash/isEqual'
-import uniqid from 'uniqid'
+import get from 'lodash/get'
+import clone from 'lodash/clone'
 import ThemeConfiguratorVariant from './ThemeConfiguratorVariant'
 import ThemeConfiguratorClasses from './ThemeConfiguratorClasses.vue'
 import ComponentPreview from './ThemeConfiguratorPreview.vue'
@@ -79,17 +84,40 @@ export default Vue.extend({
     componentName: {
       type: String,
       required: true
+    },
+    wrappedTheme: {
+      type: Object,
+      default: undefined
+    },
+    notWrappedTheme: {
+      type: Object,
+      default: undefined
     }
   },
   data () {
     return {
-      currentTheme: this.value
+      currentTheme: this.value,
+      wrapped: this.value.wrapped
     }
   },
   watch: {
+    'wrapped' (wrapped) {
+      let newTheme
+
+      if (wrapped) {
+        newTheme = clone(get(this.wrappedTheme, this.componentName))
+      } else {
+        newTheme = clone(get(this.notWrappedTheme, this.componentName))
+      }
+
+      newTheme.wrapped = wrapped
+
+      this.currentTheme = newTheme
+    },
     currentTheme: {
       handler (currentTheme) {
         let fixedClasses = {}
+
         if (typeof currentTheme.fixedClasses === 'object') {
           Object.keys(currentTheme.fixedClasses).forEach((elementName) => {
             if (currentTheme.fixedClasses[elementName]) {
@@ -102,9 +130,12 @@ export default Vue.extend({
         } else {
           fixedClasses = currentTheme.fixedClasses ? currentTheme.fixedClasses : undefined
         }
+
+        const wrapped = currentTheme.wrapped || undefined
+
         this.$emit('input', {
           ...currentTheme,
-          ...{ fixedClasses }
+          ...{ fixedClasses, wrapped }
         })
       },
       deep: true
@@ -116,12 +147,16 @@ export default Vue.extend({
     }
   },
   methods: {
+    updateVariantName (currentVariantName, newVariantName) {
+      delete Object.assign(this.currentTheme.variants, { [newVariantName]: this.currentTheme.variants[currentVariantName] })[currentVariantName]
+    },
     addVariant () {
-      this.currentTheme.variants.push({
-        id: uniqid(),
-        name: `variant${this.currentTheme.variants.length + 1}`,
-        classes: this.currentTheme.classes
-      })
+      const index = Object.keys(this.currentTheme.variants).length + 1
+      this.$set(
+        this.currentTheme.variants,
+        `variant${index}`,
+        clone(this.currentTheme.classes)
+      )
     }
   }
 })

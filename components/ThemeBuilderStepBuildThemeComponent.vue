@@ -31,6 +31,8 @@
       v-show="selected"
       v-model="currentComponentTheme"
       :component-name="componentName"
+      :wrapped-theme="wrappedTheme"
+      :not-wrapped-theme="notWrappedTheme"
       class="p-4 pb-0"
     />
 
@@ -43,7 +45,6 @@
 </template>
 <script>
 import Vue from 'vue'
-import uniqid from 'uniqid'
 import isEqual from 'lodash/isEqual'
 import Icon from '@/components/Icon'
 import ThemeConfigurator from '@/components/ThemeConfigurator.vue'
@@ -69,6 +70,14 @@ export default Vue.extend({
     componentName: {
       type: String,
       required: true
+    },
+    wrappedTheme: {
+      type: Object,
+      default: undefined
+    },
+    notWrappedTheme: {
+      type: Object,
+      default: undefined
     }
   },
   data () {
@@ -95,58 +104,15 @@ export default Vue.extend({
     },
     currentComponentTheme: {
       handler (currentComponentTheme) {
-        const themeAsExpectedInSettings = {}
-        currentComponentTheme.variants.forEach((variant) => {
-          themeAsExpectedInSettings[variant.name] = variant.classes
-        })
-
-        const newTheme = {
-          classes: currentComponentTheme.classes,
-          variants: themeAsExpectedInSettings
-        }
-
-        if (currentComponentTheme.fixedClasses) {
-          newTheme.fixedClasses = currentComponentTheme.fixedClasses
-        }
-
-        if (currentComponentTheme.wrapped !== undefined) {
-          newTheme.wrapped = currentComponentTheme.wrapped
-        }
-
-        if (!isEqual(newTheme, this.value)) {
-          this.$emit('input', newTheme)
+        if (!isEqual(currentComponentTheme, this.value)) {
+          this.$emit('input', currentComponentTheme)
         }
       },
       deep: true
     },
     value: {
       handler (value) {
-        const variants = Object.keys(value.variants).map((variantName) => {
-          const currentVariant = this.currentComponentTheme.variants
-            ? this.currentComponentTheme.variants.find(v => v.name === variantName)
-            : null
-
-          return {
-            id: currentVariant ? currentVariant.id : uniqid(),
-            name: variantName,
-            classes: value.variants[variantName]
-          }
-        })
-
-        const currentComponentTheme = {
-          classes: value.classes,
-          variants
-        }
-
-        if (value.fixedClasses !== undefined) {
-          currentComponentTheme.fixedClasses = value.fixedClasses
-        }
-
-        if (value.wrapped !== undefined) {
-          currentComponentTheme.wrapped = value.wrapped
-        }
-
-        this.currentComponentTheme = currentComponentTheme
+        this.currentComponentTheme = value
       },
       immediate: true
     }

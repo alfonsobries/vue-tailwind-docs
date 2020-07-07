@@ -14,7 +14,6 @@
 
 <script>
 import Vue from 'vue'
-import uniqid from 'uniqid'
 import isEqual from 'lodash/isEqual'
 import ThemeConfigurator from '@/components/ThemeConfigurator.vue'
 
@@ -40,50 +39,15 @@ export default Vue.extend({
   watch: {
     currentTheme: {
       handler (currentTheme) {
-        const themeAsExpectedInSettings = {}
-        currentTheme.variants.forEach((variant) => {
-          themeAsExpectedInSettings[variant.name] = variant.classes
-        })
-
-        const newTheme = {
-          classes: currentTheme.classes,
-          variants: themeAsExpectedInSettings
-        }
-
-        if (typeof currentTheme.wrapped === 'boolean') {
-          newTheme.wrapped = currentTheme.wrapped
-        }
-
-        if (!isEqual(newTheme, this.settings)) {
-          this.$emit('update:settings', newTheme)
+        if (!isEqual(currentTheme, this.settings)) {
+          this.$emit('update:settings', currentTheme)
         }
       },
       deep: true
     },
     settings: {
       handler (value) {
-        const variants = Object.keys(value.variants).map((variantName) => {
-          const currentVariant = this.currentTheme.variants
-            ? this.currentTheme.variants.find(v => v.name === variantName)
-            : null
-
-          return {
-            id: currentVariant ? currentVariant.id : uniqid(),
-            name: variantName,
-            classes: value.variants[variantName]
-          }
-        })
-
-        const currentTheme = {
-          classes: value.classes,
-          variants
-        }
-
-        if (typeof value.wrapped === 'boolean') {
-          currentTheme.wrapped = value.wrapped
-        }
-
-        this.currentTheme = currentTheme
+        this.currentTheme = value
       },
       immediate: true
     }

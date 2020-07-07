@@ -13,6 +13,8 @@
         :index="Object.keys(currentTheme).indexOf(componentName)"
         :component-name="componentName"
         :selected="componentName === selected"
+        :wrapped-theme="wrappedTheme"
+        :not-wrapped-theme="notWrappedTheme"
         @select="selected = componentName"
         @next="selectNextComponent"
       />
@@ -35,6 +37,14 @@ export default Vue.extend({
     value: {
       type: Object,
       required: true
+    },
+    wrappedTheme: {
+      type: Object,
+      default: undefined
+    },
+    notWrappedTheme: {
+      type: Object,
+      default: undefined
     }
   },
   data () {

@@ -13,7 +13,7 @@
       <div class="sm:items-start">
         <div class="mb-3">
           <t-input-group label="Variant name">
-            <t-input v-model="currentName" @blur="localVariant.name = currentName" />
+            <t-input v-model="currentVariantName" @blur="updateName" />
           </t-input-group>
         </div>
       </div>
@@ -21,10 +21,11 @@
       <div>
         <div class="sm:items-start">
           <theme-configurator-classes
-            v-model="localVariant.classes"
+            v-model="localVariant"
             label="Variant classes"
-            :description="`Classes used when the ${currentName} variant is applied`"
+            :description="`Classes used when the ${currentVariantName} variant is applied`"
             :base-classes="theme.classes"
+            :wrapped.sync="wrapped"
             :fixed-classes="theme.fixedClasses"
             :component-name="componentName"
           />
@@ -33,7 +34,7 @@
         <component-preview
           :theme="theme"
           :component-name="componentName"
-          :variant="localVariant.name"
+          :variant="currentVariantName"
         />
       </div>
 
@@ -61,7 +62,11 @@ export default Vue.extend({
       required: true
     },
     value: {
-      type: Object,
+      type: [String, Object],
+      required: true
+    },
+    variantName: {
+      type: String,
       required: true
     },
     index: {
@@ -75,23 +80,31 @@ export default Vue.extend({
   },
   data () {
     return {
-      localVariant: { ...this.value },
-      currentName: this.value.name
+      localVariant: this.value,
+      currentVariantName: this.variantName,
+      wrapped: this.theme.wrapped
     }
   },
   watch: {
+    value: {
+      handler (value) {
+        this.localVariant = value
+      },
+      deep: true
+    },
     localVariant: {
       handler (localVariant) {
-        if (typeof localVariant.classes === 'object') {
-          Object.keys(localVariant.classes).forEach((className) => {
-            if (localVariant.classes[className] === '') {
-              delete localVariant.classes[className]
-            }
-          })
-        }
         this.$emit('input', localVariant)
       },
       deep: true
+    },
+    variantName (variantName) {
+      this.currentVariantName = variantName
+    }
+  },
+  methods: {
+    updateName () {
+      this.$emit('update-name', this.currentVariantName)
     }
   }
 

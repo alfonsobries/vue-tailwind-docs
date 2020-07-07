@@ -88,18 +88,21 @@ export default Vue.extend({
     },
     baseClasses: {
       handler (baseClasses) {
-        this.localBaseClasses = baseClasses
+        this.localBaseClasses = baseClasses || this.getDefaultClasses()
       },
       deep: true
     },
     fixedClasses: {
       handler (fixedClasses) {
-        this.localFixedClasses = fixedClasses
+        this.localFixedClasses = fixedClasses || this.getDefaultClasses()
       },
       deep: true
     },
-    value (value) {
-      this.localValue = value
+    value: {
+      handler (value) {
+        this.localValue = value || this.getDefaultClasses()
+      },
+      deep: true
     }
   },
   methods: {

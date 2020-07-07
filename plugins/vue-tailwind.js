@@ -84,7 +84,7 @@ Vue.use(VueTailwind, {
       },
       classes: {
         wrapper: 'mb-4 px-3 pt-1 border rounded bg-white',
-        label: 'text-base font-medium text-gray-900 block mt-3',
+        label: 'flex justify-between',
         body: 'py-3 border-t mt-3',
         feedback: 'text-sm text-gray-500',
         description: 'text-sm text-gray-500 leading-tight'

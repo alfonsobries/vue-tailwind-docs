@@ -106,6 +106,7 @@
         :variant="variant"
         :variants="variants"
         :classes="classes"
+        :wrapped="wrapped"
         :fixed-classes="fixedClasses"
         :value="hasLabel ? componentValue: undefined"
         :checked="true"
@@ -141,6 +142,9 @@ export default Vue.extend({
     }
   },
   computed: {
+    wrapped () {
+      return this.theme.wrapped
+    },
     classes () {
       return this.theme.classes
     },
@@ -148,17 +152,18 @@ export default Vue.extend({
       return this.theme.fixedClasses
     },
     variants () {
-      if (!this.theme.variants) {
-        return []
-      }
+      return this.theme.variants
+      // if (!this.theme.variants) {
+      //   return []
+      // }
 
-      const variants = {}
+      // const variants = {}
 
-      this.theme.variants.forEach((variant) => {
-        variants[variant.name] = variant.classes
-      })
+      // this.theme.variants.forEach((variant) => {
+      //   variants[variant.name] = variant.classes
+      // })
 
-      return variants
+      // return variants
     },
     modalClasses () {
       return this.getDemoableModalClasses(this.classes)

@@ -1,18 +1,33 @@
 <template>
   <t-input-group
-    :label="label"
     :description="description"
     variant="classes"
     :sorted-elements="['label', 'description', 'default', 'feedback']"
   >
     <classes-form
+      :key="`wrapped-${wrapped}`"
       v-model="localValue"
       :base-classes="baseClasses"
       :fixed-classes="fixedClasses"
       :elements="elements"
     />
 
-    <slot v-if="needsFormsPlugin" name="feedback">
+    <template slot="label">
+      <h4 class="text-base font-medium text-gray-900 block mt-3">
+        {{ label }}
+      </h4>
+
+      <label v-if="localWrapped !== undefined" class="flex items-center text-sm">
+        <t-checkbox
+          v-model="localWrapped"
+          class="mr-2 text-gray-600 uppercase"
+        />
+
+        Wrapped
+      </label>
+    </template>
+
+    <template v-if="needsFormsPlugin" slot="feedback">
       <p class="text-orange-400  text-xs flex items-center mt-1">
         <icon class="w-4 h-4 text-orange-300 mr-1 inline-block flex-shrink-0">
           <path id="Combined-Shape" d="M2.92893219,17.0710678 C6.83417511,20.9763107 13.1658249,20.9763107 17.0710678,17.0710678 C20.9763107,13.1658249 20.9763107,6.83417511 17.0710678,2.92893219 C13.1658249,-0.976310729 6.83417511,-0.976310729 2.92893219,2.92893219 C-0.976310729,6.83417511 -0.976310729,13.1658249 2.92893219,17.0710678 L2.92893219,17.0710678 Z M15.6568542,15.6568542 C18.7810486,12.5326599 18.7810486,7.46734008 15.6568542,4.34314575 C12.5326599,1.21895142 7.46734008,1.21895142 4.34314575,4.34314575 C1.21895142,7.46734008 1.21895142,12.5326599 4.34314575,15.6568542 C7.46734008,18.7810486 12.5326599,18.7810486 15.6568542,15.6568542 Z M9,11 L9,10.5 L9,9 L11,9 L11,15 L9,15 L9,11 Z M9,5 L11,5 L11,7 L9,7 L9,5 Z" />
@@ -21,9 +36,10 @@
           To use the class <strong>`{{ formsPluginClass }}`</strong> you need to install the <a class="underline" target="_blank" href="https://github.com/tailwindcss/custom-forms">custom-forms</a> plugin.
         </span>
       </p>
-    </slot>
+    </template>
   </t-input-group>
 </template>
+
 <script>
 import Vue from 'vue'
 import Icon from '@/components/Icon'
@@ -57,15 +73,32 @@ export default Vue.extend({
     componentName: {
       type: String,
       required: true
+    },
+    wrapped: {
+      type: Boolean,
+      default: undefined
     }
   },
   data () {
     return {
-      localValue: this.value
+      localValue: this.value,
+      localWrapped: this.wrapped
     }
   },
   computed: {
     elements () {
+      if (this.localWrapped) {
+        switch (this.componentName) {
+          case 'TSelect':
+            return {
+              wrapper: 'relative',
+              input: 'Select input',
+              arrowWrapper: 'Arrow wrapper',
+              arrow: 'Arrow icon'
+            }
+        }
+      }
+
       switch (this.componentName) {
         case 'TAlert':
           return {
@@ -169,8 +202,17 @@ export default Vue.extend({
     localValue (localValue) {
       this.$emit('input', localValue)
     },
-    value (value) {
-      this.localValue = value
+    value: {
+      handler (value) {
+        this.localValue = value
+      },
+      deep: true
+    },
+    localWrapped (localWrapped) {
+      this.$emit('update:wrapped', localWrapped)
+    },
+    wrapped (wrapped) {
+      this.localWrapped = wrapped
     }
   }
 })
