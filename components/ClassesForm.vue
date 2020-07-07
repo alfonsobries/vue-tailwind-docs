@@ -125,18 +125,12 @@ export default Vue.extend({
       return snakeCase(elementName).split('_').join(' ') + ' classes'
     },
     getDescription (elementName = null) {
-      if (elementName) {
-        return get(this.localFixedClasses, elementName)
-      }
-
-      return this.localFixedClasses
+      const description = elementName ? get(this.localFixedClasses, elementName) : this.localFixedClasses
+      return typeof description === 'string' ? description : ''
     },
     getPlaceholder (elementName = null) {
-      if (elementName) {
-        return get(this.localBaseClasses, elementName)
-      }
-
-      return this.localBaseClasses || ''
+      const placeholder = elementName ? get(this.localBaseClasses, elementName) : this.localBaseClasses
+      return typeof placeholder === 'string' ? placeholder : ''
     }
 
   }

@@ -107,6 +107,7 @@ const wrappedTheme = {
 
 const defaultTheme = {
   TSelect: wrappedTheme.TSelect,
+
   TInput: {
     fixedClasses: 'form-input',
     classes: '',
@@ -123,7 +124,6 @@ const defaultTheme = {
       success: 'border-green-300 bg-green-100'
     }
   },
-
   TRadio: {
     fixedClasses: 'form-radio',
     classes: '',
@@ -139,7 +139,6 @@ const defaultTheme = {
       success: 'form-checkbox border-green-300 bg-green-100 text-green-500'
     }
   },
-
   TInputGroup: {
     fixedClasses: {
       wrapper: 'mb-4',

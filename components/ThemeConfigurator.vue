@@ -3,6 +3,7 @@
     <div class="mb-4">
       <div class="sm:items-start">
         <theme-configurator-classes
+          :key="`fixed-configurator-${wrapped}`"
           v-model="currentTheme.fixedClasses"
           :wrapped.sync="wrapped"
           :component-name="componentName"
@@ -11,6 +12,7 @@
         />
 
         <theme-configurator-classes
+          :key="`base-configurator-${wrapped}`"
           v-model="currentTheme.classes"
           :component-name="componentName"
           :wrapped.sync="wrapped"
@@ -41,12 +43,14 @@
       >
         <theme-configurator-variant
           v-for="(variantName, vIndex) in Object.keys(currentTheme.variants)"
-          :key="`${variantName}-${vIndex}`"
+          :key="`${variantName}-${vIndex}-${wrapped}`"
           v-model="currentTheme.variants[variantName]"
           :variant-name="variantName"
           :theme="currentTheme"
           :component-name="componentName"
           :index="vIndex"
+          :wrapped-theme="wrappedTheme"
+          :not-wrapped-theme="notWrappedTheme"
           @delete="removeVariant(variantName)"
           @update-name="(newVariantName) => updateVariantName(variantName, newVariantName)"
         />
