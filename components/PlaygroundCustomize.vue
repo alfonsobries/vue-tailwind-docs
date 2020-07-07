@@ -7,6 +7,7 @@
     <theme-configurator
       v-model="currentTheme"
       class="p-4"
+      v-bind="themeBuilderSettings"
       :component-name="componentName"
     />
   </div>
@@ -27,6 +28,14 @@ export default Vue.extend({
       required: true
     },
     settings: {
+      type: Object,
+      default: null
+    },
+    themeBuilderSettings: {
+      type: Object,
+      default: null
+    },
+    params: {
       type: Object,
       default: null
     }

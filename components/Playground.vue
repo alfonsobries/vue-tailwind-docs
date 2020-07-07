@@ -76,6 +76,7 @@
       <playground-customize
         v-show="view === 'customize'"
         :settings.sync="currentSettings"
+        :theme-builder-settings="themeBuilderSettings"
         :component-name="componentName"
         @select="(selected) => view = selected"
       />
@@ -138,6 +139,10 @@ export default Vue.extend({
       default: null
     },
     params: {
+      type: Object,
+      default: null
+    },
+    themeBuilderSettings: {
       type: Object,
       default: null
     },

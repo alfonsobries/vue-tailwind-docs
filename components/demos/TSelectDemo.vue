@@ -6,6 +6,8 @@
       :classes="settings.classes"
       :variant="settings.variant ? settings.variant : undefined"
       :variants="settings.variants"
+      :fixed-classes="settings.fixedClasses"
+      :wrapped="settings.wrapped"
       :placeholder="settings.placeholder ? settings.placeholder : undefined"
     />
 

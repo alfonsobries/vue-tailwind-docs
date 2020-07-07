@@ -92,7 +92,7 @@ const wrappedTheme = {
     },
     classes: {
       wrapper: '',
-      input: 'bg-white border-gray-500',
+      input: 'bg-white border-gray-300',
       arrowWrapper: 'text-gray-700',
       arrow: ''
     },

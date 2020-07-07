@@ -4,6 +4,7 @@
     src="/playgrounds/t-select"
     :settings.sync="settings"
     :params.sync="params"
+    :theme-builder-settings="themeBuilderSettings"
     :variant="variant"
   >
     <template slot="controls">
@@ -66,24 +67,50 @@
 </template>
 
 <script>
+import cloneDeep from 'lodash/cloneDeep'
 import ComponentPlayground from './ComponentPlayground'
 
+const themeBuilderSettings = {
+  notWrappedTheme: {
+    fixedClasses: 'form-select',
+    classes: '',
+    variants: {
+      danger: 'border-red-300 bg-red-100',
+      success: 'border-green-300 bg-green-100'
+    }
+  },
+  wrappedTheme: {
+    wrapped: true,
+    fixedClasses: {
+      wrapper: 'relative',
+      input: 'appearance-none focus:outline-none focus:shadow-outline border rounded py-2 px-4 block w-full leading-normal',
+      arrowWrapper: 'pointer-events-none absolute inset-y-0 right-0 flex items-center px-2',
+      arrow: 'fill-current h-4 w-4'
+    },
+    classes: {
+      wrapper: '',
+      input: 'bg-white border-gray-300',
+      arrowWrapper: 'text-gray-700',
+      arrow: ''
+    },
+    variants: {
+      danger: {
+        input: 'bg-red-100 border-red-500',
+        arrowWrapper: 'text-red-700'
+      }
+    }
+  }
+}
 export default ComponentPlayground.extend({
 
   data () {
     return {
       variant: '',
+      themeBuilderSettings,
       params: {
         placeholder: 'Select an option'
       },
-      settings: {
-        classes: 'form-select w-full leading-normal',
-        variants: {
-          error: 'form-select text-red-600 bg-red-100 focus:outline-none focus:shadow-outline border-red-300 w-full leading-normal',
-          success: 'form-select text-green-600 bg-green-100 focus:outline-none focus:shadow-outline border-green-300 w-full leading-normal',
-          fun: 'form-select bg-orange-100 border-2 border-orange-300 focus:border-orange-500 focus:outline-none leading-normal px-4 py-3 rounded-full shadow-inner w-full'
-        }
-      }
+      settings: cloneDeep(themeBuilderSettings.notWrappedTheme)
     }
   }
 })
