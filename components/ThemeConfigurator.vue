@@ -47,7 +47,7 @@
           :theme="currentTheme"
           :component-name="componentName"
           :index="vIndex"
-          @delete="delete currentTheme.variants[variantName]"
+          @delete="removeVariant(variantName)"
           @update-name="(newVariantName) => updateVariantName(variantName, newVariantName)"
         />
       </transition-group>
@@ -149,6 +149,9 @@ export default Vue.extend({
   methods: {
     updateVariantName (currentVariantName, newVariantName) {
       delete Object.assign(this.currentTheme.variants, { [newVariantName]: this.currentTheme.variants[currentVariantName] })[currentVariantName]
+    },
+    removeVariant (variantName) {
+      this.$delete(this.currentTheme.variants, variantName)
     },
     addVariant () {
       const index = Object.keys(this.currentTheme.variants).length + 1
