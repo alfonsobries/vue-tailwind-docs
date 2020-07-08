@@ -86,17 +86,25 @@ export default Vue.extend({
   },
   computed: {
     wrappable () {
-      return ['TSelect'].includes(this.componentName)
+      return ['TSelect', 'TRadio'].includes(this.componentName)
     },
     elements () {
       if (this.localWrapped) {
         switch (this.componentName) {
           case 'TSelect':
             return {
-              wrapper: 'relative',
+              wrapper: 'Wrapper',
               input: 'Select input',
               arrowWrapper: 'Arrow wrapper',
               arrow: 'Arrow icon'
+            }
+          case 'TRadio':
+            return {
+              wrapper: 'Wrapper',
+              wrapperChecked: 'Wrapper when the input is checked',
+              label: 'Label next to input',
+              labelChecked: 'Label when the input is checked',
+              input: 'Input'
             }
         }
       }

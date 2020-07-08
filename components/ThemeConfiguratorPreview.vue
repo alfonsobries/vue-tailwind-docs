@@ -4,7 +4,6 @@
     <label
       class="relative "
       :class="{
-        'flex items-center': hasLabel,
         'w-full max-w-xs': componentName === 'TRichSelect',
       }"
       :for="`${componentName}-${_uid}`"
@@ -98,6 +97,36 @@
       >
         <t-input />
       </t-input-group>
+      <div v-else-if="componentName === 'TRadio'" class="flex flex-row items-center">
+        <div class="px-1">
+          <t-radio
+            :id="`${componentName}-${_uid}-1`"
+            v-model="radioModel"
+            :name="`${componentName}-${_uid}`"
+            :value="true"
+            :variant="variant"
+            :variants="radioVariants"
+            :classes="radioClasses"
+            :wrapped="wrapped"
+            :fixed-classes="radioFixedClasses"
+            label="Option A"
+          />
+        </div>
+        <div class="px-1">
+          <t-radio
+            :id="`${componentName}-${_uid}-2`"
+            v-model="radioModel"
+            :name="`${componentName}-${_uid}`"
+            :value="false"
+            :variant="variant"
+            :variants="radioVariants"
+            :classes="radioClasses"
+            :wrapped="wrapped"
+            :fixed-classes="radioFixedClasses"
+            label="Option B"
+          />
+        </div>
+      </div>
       <component
         :is="componentName"
         v-else
@@ -108,12 +137,11 @@
         :classes="classes"
         :wrapped="wrapped"
         :fixed-classes="fixedClasses"
-        :value="hasLabel ? componentValue: undefined"
+        :value="componentValue"
         :checked="true"
         v-bind="componentAttribs"
       />
 
-      <span v-if="hasLabel" class="ml-2 text-gray-700 text-sm">Hello there!</span>
     </label>
   </div>
 </template>
@@ -140,6 +168,7 @@ export default Vue.extend({
   },
   data () {
     return {
+      radioModel: true,
       showModal: true,
       showModalFull: false,
       componentValue: 'Hello there!'
@@ -155,6 +184,25 @@ export default Vue.extend({
     variants () {
       return this.theme.variants
     },
+    radioClasses () {
+      return this.getDemoableRadioClasses(this.classes)
+    },
+    radioFixedClasses () {
+      return this.getDemoableRadioClasses(this.fixedClasses)
+    },
+    radioVariants () {
+      if (this.variants) {
+        const demoableVariants = {}
+
+        Object.keys(this.variants).forEach((variantName) => {
+          demoableVariants[variantName] = this.getDemoableRadioClasses(this.variants[variantName])
+        })
+
+        return demoableVariants
+      }
+
+      return undefined
+    },
     modalClasses () {
       return this.getDemoableModalClasses(this.classes)
     },
@@ -166,7 +214,7 @@ export default Vue.extend({
         const demoableVariants = {}
 
         Object.keys(this.variants).forEach((variantName) => {
-          demoableVariants[variantName] = this.getDemoableModalClasses(this.variants[variantName].classes)
+          demoableVariants[variantName] = this.getDemoableModalClasses(this.variants[variantName])
         })
 
         return demoableVariants
@@ -174,9 +222,7 @@ export default Vue.extend({
 
       return undefined
     },
-    hasLabel () {
-      return ['TRadio', 'TCheckbox'].includes(this.componentName)
-    },
+
     componentAttribs () {
       if (this.componentName === 'TSelect') {
         return {
@@ -187,6 +233,10 @@ export default Vue.extend({
     }
   },
   methods: {
+    uncheckRadio () {
+      this.radioModel = false
+      this.$refs.radio.$refs.input.checked = false
+    },
     /**
      * Removes position related classes so we can show the preview inline
      */
@@ -205,6 +255,23 @@ export default Vue.extend({
         }
 
         return classes
+      }
+
+      return null
+    },
+    getDemoableRadioClasses (classes) {
+      if (typeof classes === 'string') {
+        return classes
+      }
+
+      if (classes) {
+        return {
+          ...classes,
+          ...{
+            labelChecked: !classes.labelChecked ? undefined : classes.labelChecked,
+            wrapperChecked: !classes.wrapperChecked ? undefined : classes.wrapperChecked
+          }
+        }
       }
 
       return null

@@ -78,6 +78,14 @@ const notWrappedTheme = {
       danger: 'border-red-300 bg-red-100',
       success: 'border-green-300 bg-green-100'
     }
+  },
+  TRadio: {
+    fixedClasses: 'form-radio',
+    classes: '',
+    variants: {
+      danger: 'border-red-300 bg-red-100 text-red-500',
+      success: 'border-green-300 bg-green-100 text-green-500'
+    }
   }
 }
 
@@ -102,11 +110,32 @@ const wrappedTheme = {
         arrowWrapper: 'text-red-700'
       }
     }
+  },
+  TRadio: {
+    wrapped: true,
+    fixedClasses: {
+      input: 'form-radio'
+    },
+    classes: {
+      label: '',
+      labelChecked: '',
+      wrapper: '',
+      wrapperChecked: '',
+      input: ''
+    },
+    variants: {
+      danger: {
+        input: 'border-red-300 bg-red-100 text-red-500'
+      },
+      success: {
+        input: 'border-green-300 bg-green-100 text-green-500'
+      }
+    }
   }
 }
 
 const defaultTheme = {
-  TSelect: cloneDeep(wrappedTheme.TSelect),
+  TRadio: cloneDeep(notWrappedTheme.TRadio),
 
   TInput: {
     fixedClasses: 'form-input',
@@ -124,14 +153,7 @@ const defaultTheme = {
       success: 'border-green-300 bg-green-100'
     }
   },
-  TRadio: {
-    fixedClasses: 'form-radio',
-    classes: '',
-    variants: {
-      danger: 'border-red-300 bg-red-100 text-red-500',
-      success: 'border-green-300 bg-green-100 text-green-500'
-    }
-  },
+
   TCheckbox: {
     classes: 'form-checkbox',
     variants: {
@@ -139,6 +161,7 @@ const defaultTheme = {
       success: 'form-checkbox border-green-300 bg-green-100 text-green-500'
     }
   },
+  TSelect: cloneDeep(notWrappedTheme.TSelect),
   TInputGroup: {
     fixedClasses: {
       wrapper: 'mb-4',
