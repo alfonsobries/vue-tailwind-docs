@@ -54,13 +54,36 @@
             </label>
           </div>
         </t-input-group>
+        <div class="flex items-end -mx-3">
+          <t-input-group
+            variant="playground"
+            label="Placeholder"
+            class="px-3"
+          >
+            <t-input v-model="params.placeholder" variant="playground" placeholder="No placeholder" />
+          </t-input-group>
 
-        <t-input-group
-          variant="playground"
-          label="Placeholder"
-        >
-          <t-input v-model="params.placeholder" variant="playground" placeholder="No placeholder" />
-        </t-input-group>
+          <t-input-group variant="playground" class="px-3">
+            <label
+              for="wrapped"
+              class=" flex"
+            >
+              <t-checkbox
+                id="wrapped"
+                v-model="wrapped"
+                name="wrapped"
+                class="form-checkbox h-4 w-4 text-orange-600 transition duration-150 ease-in-out mt-1"
+              />
+
+              <div class="ml-3">
+                <strong class="block text-sm font-medium text-gray-700 capitalize">
+                  Wrapped
+                </strong>
+                <span class="text-sm text-gray-500 leading-none block">Wraps the select tag in a div and some extra HTML that make the element more customizable.</span>
+              </div>
+            </label>
+          </t-input-group>
+        </div>
       </fieldset>
     </template>
   </playground>
@@ -101,16 +124,29 @@ const themeBuilderSettings = {
     }
   }
 }
-export default ComponentPlayground.extend({
 
+export default ComponentPlayground.extend({
   data () {
     return {
+      wrapped: false,
       variant: '',
       themeBuilderSettings,
       params: {
         placeholder: 'Select an option'
       },
       settings: cloneDeep(themeBuilderSettings.notWrappedTheme)
+    }
+  },
+  watch: {
+    wrapped (wrapped) {
+      if (wrapped) {
+        this.settings = cloneDeep(themeBuilderSettings.wrappedTheme)
+      } else {
+        this.settings = cloneDeep(themeBuilderSettings.notWrappedTheme)
+      }
+    },
+    'settings.wrapped' (wrapped) {
+      this.wrapped = !!wrapped
     }
   }
 })

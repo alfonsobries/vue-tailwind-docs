@@ -148,6 +148,7 @@ export default Vue.extend({
     value (value) {
       if (!isEqual(value, this.currentTheme)) {
         this.currentTheme = value
+        this.wrapped = value.wrapped
       }
     }
   },
