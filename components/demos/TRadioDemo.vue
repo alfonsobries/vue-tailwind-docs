@@ -10,6 +10,7 @@
             v-model="currentValue"
             name="radio-example"
             :value="option"
+            :fixed-classes="settings.fixedClasses"
             :classes="settings.classes"
             :variant="settings.variant ? settings.variant : undefined"
             :variants="settings.variants"

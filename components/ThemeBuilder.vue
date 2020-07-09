@@ -80,11 +80,11 @@ const notWrappedTheme = {
     }
   },
   TRadio: {
-    fixedClasses: 'form-radio',
+    fixedClasses: 'form-radio transition duration-150 ease-in-out',
     classes: '',
     variants: {
-      danger: 'border-red-300 bg-red-100 text-red-500',
-      success: 'border-green-300 bg-green-100 text-green-500'
+      error: 'text-red-500',
+      success: 'text-green-500'
     }
   }
 }
@@ -125,10 +125,10 @@ const wrappedTheme = {
     },
     variants: {
       danger: {
-        input: 'border-red-300 bg-red-100 text-red-500'
+        input: 'text-red-500'
       },
       success: {
-        input: 'border-green-300 bg-green-100 text-green-500'
+        input: 'text-green-500'
       }
     }
   }
