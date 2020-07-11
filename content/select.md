@@ -27,25 +27,26 @@ VueJs reactive `<select></select>` component with configurable classes, variants
 
 ## Props
 
-| Property       | Type                      | Default value   | Description                                                                                                                                 |
-| -------------- | ------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| id             | `String`                  | `undefined`     | HTML attribute                                                                                                                              |
-| autofocus      | `Boolean`                 | `undefined`     | HTML attribute                                                                                                                              |
-| disabled       | `Boolean`                 | `undefined`     | HTML attribute                                                                                                                              |
-| name           | `String`                  | `undefined`     | HTML attribute                                                                                                                              |
-| readonly       | `Boolean`                 | `undefined`     | HTML attribute                                                                                                                              |
-| required       | `Boolean`                 | `undefined`     | HTML attribute                                                                                                                              |
-| tabindex       | `[String, Number]`        | `undefined`     | HTML attribute                                                                                                                              |
-| multiple       | `Boolean`                 | `undefined`     | HTML attribute                                                                                                                              |
-| options        | `[Array, Object]`         | `undefined`     | The options of the select (see [options format](#options-format))                                                                           |
-| placeholder    | `String`                  | `undefined`     | When set it prepend an empty `option` tag with the value as text and the option value of `null` |
-| textAttribute  | `String`                  | `undefined`     | Optional attribute from the option to use as the text<br />(see [define the value/text attributes](#define-the-valuetext-attributes))       |
-| valueAttribute | `String`                  | `undefined`     | Optional attribute to use as the value of the `option` tag <br />(see [define the value/text attributes](#define-the-valuetext-attributes)) |
-| wrapped        | `Boolean`                 | `undefined`     | If set the input will be wrapped in a div within a svg icon (see [wrap select](#wrap-select))                                               |
-| classes        | `[String, Object, Array]` | `'form-select'` | The default CSS classes                                                                                                                     |
-| fixedClasses   | `[String, Object, Array]` | `undefined`     | Fixed CSS classes that will be merged with the active set of classes                                                                        |
-| variants       | `Object`                  | `undefined`     | The different variants of classes the component have                                                                                        |
-| variant        | `[String, Object]`        | `undefined`     | The variant that will be used                                                                                                               |
+| Property          | Type                      | Default value   | Description                                                                                                                                 |
+| ----------------- | ------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| value (`v-model`) | `[Array, String, Number]` | `undefined`     | The value for the element                                                                                                                   |
+| id                | `String`                  | `undefined`     | HTML attribute                                                                                                                              |
+| autofocus         | `Boolean`                 | `undefined`     | HTML attribute                                                                                                                              |
+| disabled          | `Boolean`                 | `undefined`     | HTML attribute                                                                                                                              |
+| name              | `String`                  | `undefined`     | HTML attribute                                                                                                                              |
+| readonly          | `Boolean`                 | `undefined`     | HTML attribute                                                                                                                              |
+| required          | `Boolean`                 | `undefined`     | HTML attribute                                                                                                                              |
+| tabindex          | `[String, Number]`        | `undefined`     | HTML attribute                                                                                                                              |
+| multiple          | `Boolean`                 | `undefined`     | HTML attribute                                                                                                                              |
+| options           | `[Array, Object]`         | `undefined`     | The options of the select (see [options format](#options-format))                                                                           |
+| placeholder       | `String`                  | `undefined`     | When set it prepend an empty `option` tag with the value as text and the option value of `null`                                             |
+| textAttribute     | `String`                  | `undefined`     | Optional attribute from the option to use as the text<br />(see [define the value/text attributes](#define-the-valuetext-attributes))       |
+| valueAttribute    | `String`                  | `undefined`     | Optional attribute to use as the value of the `option` tag <br />(see [define the value/text attributes](#define-the-valuetext-attributes)) |
+| wrapped           | `Boolean`                 | `undefined`     | If set the input will be wrapped in a div within a svg icon (see [wrap select](#wrap-select))                                               |
+| classes           | `[String, Object, Array]` | `'form-select'` | The default CSS classes                                                                                                                     |
+| fixedClasses      | `[String, Object, Array]` | `undefined`     | Fixed CSS classes that will be merged with the active set of classes                                                                        |
+| variants          | `Object`                  | `undefined`     | The different variants of classes the component have                                                                                        |
+| variant           | `[String, Object]`        | `undefined`     | The variant that will be used                                                                                                               |
 
 ## Options format
 
@@ -203,7 +204,7 @@ When the select is wrapped the classes, variants, etc need to be an object with 
 
 | Property     | Description                                                                |
 | ------------ | -------------------------------------------------------------------------- |
-| wrapper      | `div` that wraps the whole component                                         |
+| wrapper      | `div` that wraps the whole component                                       |
 | input        | `select` tag                                                               |
 | arrowWrapper | `span` that is a sibling of the `select` tag that is used to wrap the icon |
 | arrow        | `svg` icon                                                                 |

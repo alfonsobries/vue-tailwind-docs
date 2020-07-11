@@ -130,7 +130,7 @@ const themeBuilderSettings = {
         labelChecked: 'ml-2 text-white  text-sm',
         wrapper: 'pl-3 py-2 rounded-full border-2 flex items-center pr-5',
         wrapperChecked: 'px-3 py-2 rounded-full border-2 border-orange-500 bg-orange-500 flex items-center pr-5',
-        input: 'form-radio text-orange-500'
+        input: ''
       }
     }
   }

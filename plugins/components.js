@@ -21,6 +21,7 @@ import TRadioPlayground from '@/components/playgrounds/TRadioPlayground'
 import TRadioDemo from '@/components/demos/TRadioDemo'
 
 import SelectArrowSlotExample from '@/components/examples/select/SelectArrowSlot.vue'
+import RadioBasicExample from '@/components/examples/radio/RadioBasic.vue'
 
 Vue.component('tip', Tip)
 Vue.component('preview', Preview)
@@ -40,3 +41,4 @@ Vue.component('t-radio-playground', TRadioPlayground)
 Vue.component('t-radio-demo', TRadioDemo)
 
 Vue.component('select-arrow-slot-example', SelectArrowSlotExample)
+Vue.component('radio-basic-example', RadioBasicExample)
