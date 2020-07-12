@@ -12,7 +12,7 @@
         <span class="ml-2">Documentation</span>
       </nuxt-link>
       <nuxt-link
-        to="/themes-builder"
+        to="/theme-builder"
         class="px-3 py-1 mb-2 transition duration-200 ease-in-out relative hover:text-gray-900 text-gray-600 rounded flex items-center text-sm"
         active-class="text-gray-900"
       >
