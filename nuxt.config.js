@@ -85,6 +85,17 @@ export default {
     common: {
       Accept: 'application/json'
     }
+  },
+  generate: {
+    crawler: true,
+    routes () {
+      return [
+        '/playgrounds/t-radio',
+        '/playgrounds/t-select',
+        '/playgrounds/t-input',
+        '/playgrounds/t-textarea',
+      ]
+    }
   }
 
 }
