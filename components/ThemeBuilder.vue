@@ -83,8 +83,8 @@ const notWrappedTheme = {
     fixedClasses: 'form-radio transition duration-150 ease-in-out',
     classes: '',
     variants: {
-      error: 'text-red-500',
-      success: 'text-green-500'
+      error: 'text-red-500 border-red-500 bg-red-100',
+      success: 'text-green-500 border-green-500 bg-green-100'
     }
   }
 }
@@ -114,28 +114,35 @@ const wrappedTheme = {
   TRadio: {
     wrapped: true,
     fixedClasses: {
-      input: 'form-radio'
+      label: 'text-sm uppercase mx-2',
+      input: 'form-radio transition duration-150 ease-in-out',
+      inputWrapper: 'inline-flex',
+      wrapper: 'flex items-center'
     },
     classes: {
-      label: '',
+      label: 'text-gray-700',
       labelChecked: '',
+      inputWrapper: '',
+      inputWrapperChecked: '',
       wrapper: '',
       wrapperChecked: '',
       input: ''
     },
     variants: {
       danger: {
-        input: 'text-red-500'
+        label: 'text-red-500',
+        input: 'text-red-500 border-red-500 bg-red-100'
       },
       success: {
-        input: 'text-green-500'
+        label: 'text-green-500',
+        input: 'text-green-500 border-green-500 bg-green-100'
       }
     }
   }
 }
 
 const defaultTheme = {
-  TRadio: cloneDeep(notWrappedTheme.TRadio),
+  
 
   TInput: {
     fixedClasses: 'form-input',
@@ -162,6 +169,7 @@ const defaultTheme = {
     }
   },
   TSelect: cloneDeep(notWrappedTheme.TSelect),
+  TRadio: cloneDeep(notWrappedTheme.TRadio),
   TInputGroup: {
     fixedClasses: {
       wrapper: 'mb-4',
