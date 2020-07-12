@@ -142,8 +142,6 @@ const wrappedTheme = {
 }
 
 const defaultTheme = {
-  
-
   TInput: {
     fixedClasses: 'form-input',
     classes: '',

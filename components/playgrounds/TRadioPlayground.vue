@@ -101,6 +101,8 @@ const themeBuilderSettings = {
       labelChecked: '',
       wrapper: 'mx-1 bg-white border border-gray-300 flex items-center px-4 py-2 rounded shadow-sm cursor-pointer focus:shadow-outline text-sm text-gray-700 hover:text-gray-500 leading-5 uppercase',
       wrapperChecked: 'mx-1 bg-gray-100 border border-gray-300 flex items-center px-4 py-2 rounded shadow-inner cursor-pointer focus:shadow-outline text-sm text-gray-700 hover:text-gray-500 leading-5 uppercase',
+      inputWrapper: '',
+      inputWrapperChecked: '',
       input: 'absolute invisible'
     },
     variants: {
@@ -109,6 +111,8 @@ const themeBuilderSettings = {
         labelChecked: '',
         wrapper: 'mx-1 bg-red-100 border border-red-200 flex items-center px-4 py-2 rounded shadow-sm cursor-pointer focus:shadow-outline text-sm text-red-700 hover:text-red-500 leading-5 uppercase',
         wrapperChecked: 'mx-1 bg-red-500 border border-red-500 flex items-center px-4 py-2 rounded shadow-inner cursor-pointer focus:shadow-outline text-sm text-red-100 hover:text-red-200 leading-5 uppercase',
+        inputWrapper: '',
+        inputWrapperChecked: '',
         input: 'absolute invisible'
       },
       success: {
@@ -116,6 +120,8 @@ const themeBuilderSettings = {
         labelChecked: '',
         wrapper: 'mx-1 bg-green-100 border border-green-200 flex items-center px-4 py-2 rounded shadow-sm cursor-pointer focus:shadow-outline text-sm text-green-700 hover:text-green-500 leading-5 uppercase',
         wrapperChecked: 'mx-1 bg-green-500 border border-green-500 flex items-center px-4 py-2 rounded shadow-inner cursor-pointer focus:shadow-outline text-sm text-green-100 hover:text-green-200 leading-5 uppercase',
+        inputWrapper: 'absolute invisible',
+        inputWrapperChecked: '',
         input: 'absolute invisible'
       },
       tabs: {
@@ -123,14 +129,18 @@ const themeBuilderSettings = {
         labelChecked: '',
         wrapper: 'whitespace-no-wrap py-4 px-5 border-b-2 border-transparent font-medium text-sm leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 cursor-pointer mb-3 inline-flex',
         wrapperChecked: 'whitespace-no-wrap py-4 px-5 border-b-2 border-orange-500 font-medium text-sm leading-5 text-orange-600 focus:outline-none focus:text-orange-800 focus:border-orange-700  cursor-pointer mb-3 inline-flex ',
+        inputWrapper: 'absolute invisible',
+        inputWrapperChecked: '',
         input: 'absolute invisible'
       },
       radio: {
         label: 'ml-2 text-orange-500 text-sm',
         labelChecked: 'ml-2 text-white  text-sm',
-        wrapper: 'pl-3 py-2 rounded-full border-2 flex items-center pr-5',
-        wrapperChecked: 'px-3 py-2 rounded-full border-2 border-orange-500 bg-orange-500 flex items-center pr-5',
-        input: ''
+        wrapper: 'pl-3 py-2 rounded-full border-2 flex items-center pr-5 mx-1',
+        wrapperChecked: 'px-3 py-2 rounded-full border-2 border-orange-500 bg-orange-500 flex items-center pr-5 mx-1',
+        inputWrapper: 'block border-2 h-4 rounded-full w-4',
+        inputWrapperChecked: 'block border-2 border-orange-300 h-4 rounded-full w-4',
+        input: 'absolute invisible'
       }
     }
   }
