@@ -1,7 +1,6 @@
 <template>
   <playground
     component-name="TTextarea"
-    src="/playgrounds/t-textarea"
     :settings.sync="settings"
     :params.sync="params"
     :variant="variant"

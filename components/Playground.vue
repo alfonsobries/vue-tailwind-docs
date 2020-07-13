@@ -130,10 +130,6 @@ export default Vue.extend({
     Icon
   },
   props: {
-    src: {
-      type: String,
-      required: true
-    },
     settings: {
       type: Object,
       default: null
@@ -250,19 +246,18 @@ export default Vue.extend({
     getInitialSrc () {
       const params = {
         ...{
+          component: this.componentName
+        },
+        ...{
           variant: this.variant
         },
         ...this.settings,
         ...this.params
       }
 
-      if (!Object.keys(params).length && !Object.keys(this.params).length) {
-        return this.src
-      }
-
       const serializableParams = this.serializeParams(params)
       const query = new URLSearchParams(serializableParams).toString()
-      return `${this.src}?${query}`
+      return `/playground?${query}`
     },
     exitFullscreen () {
       this.fullscreen = false

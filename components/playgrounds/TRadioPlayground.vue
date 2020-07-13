@@ -1,7 +1,6 @@
 <template>
   <playground
     component-name="TRadio"
-    src="/playgrounds/t-radio"
     :settings.sync="settings"
     :theme-builder-settings="themeBuilderSettings"
     :variant="variant"

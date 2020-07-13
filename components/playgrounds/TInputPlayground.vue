@@ -1,7 +1,6 @@
 <template>
   <playground
     component-name="TInput"
-    src="/playgrounds/t-input"
     :settings.sync="settings"
     :params.sync="params"
     :variant="variant"

@@ -1,7 +1,6 @@
 <template>
   <playground
     component-name="TSelect"
-    src="/playgrounds/t-select"
     :settings.sync="settings"
     :params.sync="params"
     :theme-builder-settings="themeBuilderSettings"
