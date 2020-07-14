@@ -12,7 +12,7 @@
           variant="playground"
           :label="themeWasChanged ? 'Custom variants' : 'Example variants'"
         >
-          <div class="flex flex-wrap items-center -mx-3">
+          <div class="flex flex-wrap items-center  -mx-3">
             <label
               key="---"
               for="variant---"
@@ -53,7 +53,7 @@
             </label>
           </div>
         </t-input-group>
-        <div class="flex items-end -mx-3">
+        <div class="flex sm:items-end -mx-3 flex-col sm:flex-row">
           <t-input-group
             variant="playground"
             label="Placeholder"
@@ -62,7 +62,7 @@
             <t-input v-model="params.placeholder" variant="playground" placeholder="No placeholder" />
           </t-input-group>
 
-          <t-input-group variant="playground" class="px-3">
+          <t-input-group variant="playground" class="px-3 mt-3 sm:mt-0">
             <label
               for="wrapped"
               class=" flex"
