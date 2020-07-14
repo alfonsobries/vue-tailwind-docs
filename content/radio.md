@@ -54,7 +54,7 @@ VueJs reactive `<input type="radio" />` component with configurable classes, var
 
 ## Wrap radio
 
-This component accepts the `wrapped` setting (or prop) that when set it will wrap the `option` tag in a `label` HTML tag and will add a sibling `span` tag with the content of the `label` prop. This can give you more flexibility to customize your component.
+This component accepts the `wrapped` setting (or prop) that when set it will add some extra HTML tags that make the component even more flexible.
 
 Remember that the component can set as "wrapped" when installed or by using the `wrapped` prop (see [wrap inputs](/docs/theming#wrap-inputs) for more info):
 
@@ -79,22 +79,30 @@ Vue.use(VueTailwind, theme)
 A wrapped radio input will be rendered like this:
 
 ```html
-<label class="mx-1 bg-gray-100 border border-gray-300 flex items-center px-4 py-2 rounded shadow-inner cursor-pointer focus:shadow-outline text-sm text-gray-700 hover:text-gray-500 leading-5 uppercase">
-  <input value="Option A" type="radio" checked="checked" name="radio-example" class="absolute invisible">
-  <span class="">Option A</span>
+<label class="">
+  <span class="">
+    <input value="radio-value" type="radio" class="">
+  </span>
+  <span class="">label prop or default slot</span>
 </label>
 ```
 
-### Classes for wrapped select
+### Classes for wrapped input
 
-When the select is wrapped the classes, variants, etc need to be an object with the following properties:
+When the input has the wrapped setting, the classes, variants, etc. need to be an object with the following properties:
 
-| Property     | Description                                                                |
-| ------------ | -------------------------------------------------------------------------- |
-| wrapper      | `div` that wraps the whole component                                       |
-| input        | `select` tag                                                               |
-| arrowWrapper | `span` that is a sibling of the `select` tag that is used to wrap the icon |
-| arrow        | `svg` icon                                                                 |
+
+| Property            | Description                                                                   |
+| ------------------- | ----------------------------------------------------------------------------- |
+| wrapper             | Classes for the `label` HTML tag that wraps the whole component               |
+| wrapperChecked      | Classes to apply to the wrapper when the radio input is checked               |
+| inputWrapper        | Classes for the `span` that wraps the radio input                             |
+| inputWrapperChecked | Classes to apply to the inputWrapper when the radio input is checked          |
+| input               | Classes for the radio input                                                   |
+| label               | Classes for the `label` that wraps the label prop                             |
+| labelChecked        | Classes for the `label` that wraps the label prop when radio input is checked |
+
+The "Checked" attributes are optional.
 
 #### Example
 
@@ -103,10 +111,13 @@ const theme = {
   TRadio: {
     wrapped: true,
     classes: {
-      wrapper: 'relative',
-      input: 'appearance-none bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal',
-      arrowWrapper: 'pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700',
-      arrow: 'fill-current h-4 w-4',
+      label: 'text-sm uppercase mx-2 text-gray-700',
+      input: 'form-radio transition duration-150 ease-in-out',
+      inputWrapper: 'inline-flex',
+      wrapper: 'flex items-center',
+      // labelChecked: '',
+      // inputWrapperChecked: '',
+      // wrapperChecked: '',
     }
     // Variants and fixed classes in the same `object` format ...
   },
@@ -116,49 +127,66 @@ const theme = {
 Vue.use(VueTailwind, theme)
 ```
 
-If you use the settings above the component will be rendered like this:
+If you use the settings in the example above the component will be rendered like this:
 
 <preview>
-  <t-radio :classes="{
-    wrapper: 'relative',
-    input: 'appearance-none bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal',
-    arrowWrapper: 'pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700',
-    arrow: 'fill-current h-4 w-4',  
-  }" :options="['Option 1', 'Option 2', 'Option 3']" wrapped />
+  <t-radio name="example-b" :classes="{
+    label: 'text-sm uppercase mx-2 text-gray-700',
+    input: 'form-radio transition duration-150 ease-in-out',
+    inputWrapper: 'inline-flex',
+    wrapper: 'flex items-center',
+  }" label="Option A" wrapped ></t-radio>
+  <t-radio name="example-b" :classes="{
+    label: 'text-sm uppercase mx-2 text-gray-700',
+    input: 'form-radio transition duration-150 ease-in-out',
+    inputWrapper: 'inline-flex',
+    wrapper: 'flex items-center',
+  }" label="Option B" wrapped></t-radio>
 </preview>
 
-### Customize the select icon
+### Use a label
 
-If you want to use your own HTML instead of the default SVG icon you can use the `arrow` or `arrowWrapper` slots, use the first one if you only want to override the SVG icon and the second one if you want to override the whole icon wrapper.
-
-Both slots yield in the slot scope the current variant, the original classes the element has (from the theme), and the current value of the component in case you want to use those values inside the slot.
-
-##### Example:
-
-Let's say that for some reason you want to use an ascii down arrow instead of the default SVG icon, an angry emoji when it has an `error` variant and just because you can show a potato emoji when the current value is `>=2`, you know, a typical real-world use:
+When the TRadio component has the `wrapped` setting set it accepts a label prop that is added as a sibling of the `input`
 
 ```html
-<t-radio wrapped :options="[1,2,3]" variant="wrappedDemo">
-  <template slot="arrow" slot-scope="{ className, variant, value }">
-    <span v-if="variant==='error'" class="pr-2">😡</span>
-    <span v-else-if="value>=2" class="pr-2">🥔</span>
-    <span
-      v-else
-      :class="className"
-    >▼</span>
-  </template>
+<t-radio wrapped label="my own option" name="example-2">
+<t-radio wrapped label="my own option 2" name="example-2">
+```
+
+<preview>
+<t-radio wrapped label="my own option" name="example-2"></t-radio>
+<t-radio wrapped label="my own option 2" name="example-2"></t-radio>
+</preview>
+
+#### Label slot
+
+The label can be also added by using the default slot.
+
+```html
+I am: 
+<t-radio wrapped name="example-3">
+😡
+</t-radio>
+<t-radio wrapped name="example-3">
+😀
 </t-radio>
 ```
 
-The example above will look like this:
-
-<select-arrow-slot-example />
+<preview>
+I am: 
+<t-radio wrapped name="example-3">
+😡
+</t-radio>
+<t-radio wrapped name="example-3">
+😀
+</t-radio>
+</preview>
 
 ## Events
 
-| Event  | Arguments                                 | Description                                                                      |
-| ------ | ----------------------------------------- | -------------------------------------------------------------------------------- |
-| input  | `String` (The current value of the radio) | Emitted every time the value of the `v-model` change                             |
+| Event  | Arguments                                 | Description                                          |
+| ------ | ----------------------------------------- | ---------------------------------------------------- |
+| input  | `String` (The current value of the radio) | Emitted every time the value of the `v-model` change |
 | change | `String` (The current value of the radio) | Emitted every time the value of the `v-model` change |
-| focus  | `FocusEvent`                              | Emitted when the radio is focused                                                |
-| blur   | `FocusEvent`                              | Emitted when the radio is blurred                                                |
+| focus  | `FocusEvent`                              | Emitted when the radio is focused                    |
+| blur   | `FocusEvent`                              | Emitted when the radio is blurred                    |
