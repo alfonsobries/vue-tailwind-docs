@@ -20,6 +20,9 @@ import TSelectDemo from '@/components/demos/TSelectDemo'
 import TRadioPlayground from '@/components/playgrounds/TRadioPlayground'
 import TRadioDemo from '@/components/demos/TRadioDemo'
 
+import TButtonPlayground from '@/components/playgrounds/TButtonPlayground'
+import TButtonDemo from '@/components/demos/TButtonDemo'
+
 import SelectArrowSlotExample from '@/components/examples/select/SelectArrowSlot.vue'
 import RadioBasicExample from '@/components/examples/radio/RadioBasic.vue'
 
@@ -39,6 +42,8 @@ Vue.component('t-select-playground', TSelectPlayground)
 Vue.component('t-select-demo', TSelectDemo)
 Vue.component('t-radio-playground', TRadioPlayground)
 Vue.component('t-radio-demo', TRadioDemo)
+Vue.component('t-button-playground', TButtonPlayground)
+Vue.component('t-button-demo', TButtonDemo)
 
 Vue.component('select-arrow-slot-example', SelectArrowSlotExample)
 Vue.component('radio-basic-example', RadioBasicExample)

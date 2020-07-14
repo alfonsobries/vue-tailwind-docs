@@ -29,6 +29,12 @@
         <component-checkbox v-model="selected" value="TRadio" label="Radio">
           <t-radio class="pointer-events-none" /> <span class="ml-2">...</span>
         </component-checkbox>
+
+        <component-checkbox v-model="selected" value="TButton" label="Button">
+          <t-button class="pointer-events-none">
+            Button
+          </t-button>
+        </component-checkbox>
       </div>
     </fieldset>
 

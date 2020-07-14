@@ -127,6 +127,13 @@
           />
         </div>
       </div>
+      <t-button
+        v-else-if="componentName === 'TButton'"
+        :variant="variant"
+        :variants="radioVariants"
+        :classes="radioClasses"
+        :fixed-classes="radioFixedClasses"
+      >Button example</t-button>
       <component
         :is="componentName"
         v-else
