@@ -86,6 +86,14 @@ const notWrappedTheme = {
       error: 'text-red-500 border-red-500 bg-red-100',
       success: 'text-green-500 border-green-500 bg-green-100'
     }
+  },
+  TCheckbox: {
+    fixedClasses: 'form-checkbox transition duration-150 ease-in-out',
+    classes: '',
+    variants: {
+      error: 'text-red-500 border-red-500 bg-red-100',
+      success: 'text-green-500 border-green-500 bg-green-100'
+    }
   }
 }
 
@@ -138,20 +146,38 @@ const wrappedTheme = {
         input: 'text-green-500 border-green-500 bg-green-100'
       }
     }
+  },
+  TCheckbox: {
+    wrapped: true,
+    fixedClasses: {
+      label: 'text-sm uppercase mx-2',
+      input: 'form-checkbox transition duration-150 ease-in-out',
+      inputWrapper: 'inline-flex',
+      wrapper: 'flex items-center'
+    },
+    classes: {
+      label: 'text-gray-700',
+      labelChecked: '',
+      inputWrapper: '',
+      inputWrapperChecked: '',
+      wrapper: '',
+      wrapperChecked: '',
+      input: ''
+    },
+    variants: {
+      danger: {
+        label: 'text-red-500',
+        input: 'text-red-500 border-red-500 bg-red-100'
+      },
+      success: {
+        label: 'text-green-500',
+        input: 'text-green-500 border-green-500 bg-green-100'
+      }
+    }
   }
 }
 
 const defaultTheme = {
-  TButton: {
-    fixedClasses: 'focus:outline-none focus:shadow-outline inline-flex items-center transition ease-in-out duration-150',
-    classes: 'text-white bg-blue-600 hover:bg-blue-500 focus:border-blue-700 active:bg-blue-700 text-sm font-medium border border-transparent px-3 py-2 rounded-md',
-    variants: {
-      secondary: 'text-gray-800 bg-white hover:text-gray-600 text-sm font-medium border px-3 py-2 rounded-md',
-      error: 'text-white bg-red-600 hover:bg-red-500 focus:border-red-700  active:bg-red-700 text-sm font-medium border border-transparent px-3 py-2 rounded-md',
-      success: 'text-white bg-green-600 hover:bg-green-500 focus:border-green-700 active:bg-green-700 text-sm font-medium border border-transparent px-3 py-2 rounded-md',
-      link: 'text-blue-500 underline hover:bg-blue-100 text-sm font-medium border border-transparent px-3 py-2 rounded-md'
-    }
-  },
   TInput: {
     fixedClasses: 'form-input',
     classes: '',
@@ -168,16 +194,19 @@ const defaultTheme = {
       success: 'border-green-300 bg-green-100'
     }
   },
-  TCheckbox: {
-    classes: 'form-checkbox',
-    variants: {
-      danger: 'form-checkbox border-red-300 bg-red-100 text-red-500',
-      success: 'form-checkbox border-green-300 bg-green-100 text-green-500'
-    }
-  },
   TSelect: cloneDeep(notWrappedTheme.TSelect),
   TRadio: cloneDeep(notWrappedTheme.TRadio),
-
+  TCheckbox: cloneDeep(notWrappedTheme.TCheckbox),
+  TButton: {
+    fixedClasses: 'focus:outline-none focus:shadow-outline inline-flex items-center transition ease-in-out duration-150',
+    classes: 'text-white bg-blue-600 hover:bg-blue-500 focus:border-blue-700 active:bg-blue-700 text-sm font-medium border border-transparent px-3 py-2 rounded-md',
+    variants: {
+      secondary: 'text-gray-800 bg-white hover:text-gray-600 text-sm font-medium border px-3 py-2 rounded-md',
+      error: 'text-white bg-red-600 hover:bg-red-500 focus:border-red-700  active:bg-red-700 text-sm font-medium border border-transparent px-3 py-2 rounded-md',
+      success: 'text-white bg-green-600 hover:bg-green-500 focus:border-green-700 active:bg-green-700 text-sm font-medium border border-transparent px-3 py-2 rounded-md',
+      link: 'text-blue-500 underline hover:bg-blue-100 text-sm font-medium border border-transparent px-3 py-2 rounded-md'
+    }
+  },
   TInputGroup: {
     fixedClasses: {
       wrapper: 'mb-4',

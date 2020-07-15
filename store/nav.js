@@ -61,7 +61,7 @@ export const state = () => ({
           text: 'Button'
         },
         {
-          to: '/docs/checbox',
+          to: '/docs/checkbox',
           text: 'Checkbox'
         }
       ]
@@ -79,7 +79,7 @@ export const state = () => ({
           text: 'Datepicker'
         },
         {
-          to: '/docs/checbox-group',
+          to: '/docs/checkbox-group',
           text: 'Checkbox group'
         },
         {

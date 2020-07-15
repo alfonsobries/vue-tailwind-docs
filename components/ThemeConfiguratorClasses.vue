@@ -86,7 +86,7 @@ export default Vue.extend({
   },
   computed: {
     wrappable () {
-      return ['TSelect', 'TRadio'].includes(this.componentName)
+      return ['TSelect', 'TRadio', 'TCheckbox'].includes(this.componentName)
     },
     elements () {
       if (this.localWrapped) {
@@ -101,9 +101,21 @@ export default Vue.extend({
           case 'TRadio':
             return {
               wrapper: 'Wrapper',
-              wrapperChecked: 'Wrapper when the input is checked',
+              wrapperChecked: 'Wrapper when the input if checked',
               label: 'Label next to input',
-              labelChecked: 'Label when the input is checked',
+              labelChecked: 'Label when the input if checked',
+              inputWrapper: 'Wrapper of the input',
+              inputWrapperChecked: 'Wrapper of the input if checkec',
+              input: 'Input'
+            }
+          case 'TCheckbox':
+            return {
+              wrapper: 'Wrapper',
+              wrapperChecked: 'Wrapper when the input if checked',
+              label: 'Label next to input',
+              labelChecked: 'Label when the input if checked',
+              inputWrapper: 'Wrapper of the input',
+              inputWrapperChecked: 'Wrapper of the input if checkec',
               input: 'Input'
             }
         }

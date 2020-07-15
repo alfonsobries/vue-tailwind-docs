@@ -127,6 +127,50 @@
           />
         </div>
       </div>
+      <div v-else-if="componentName === 'TCheckbox'" class="flex flex-row items-center">
+        <div class="px-1">
+          <t-checkbox
+            :id="`${componentName}-${_uid}-1`"
+            v-model="checkboxModel"
+            :name="`${componentName}-${_uid}`"
+            value="a"
+            :variant="variant"
+            :variants="checkboxVariants"
+            :classes="checkboxClasses"
+            :wrapped="wrapped"
+            :fixed-classes="checkboxFixedClasses"
+            label="Option A"
+          />
+        </div>
+        <div class="px-1">
+          <t-checkbox
+            :id="`${componentName}-${_uid}-2`"
+            v-model="checkboxModel"
+            :name="`${componentName}-${_uid}`"
+            value="b"
+            :variant="variant"
+            :variants="checkboxVariants"
+            :classes="checkboxClasses"
+            :wrapped="wrapped"
+            :fixed-classes="checkboxFixedClasses"
+            label="Option B"
+          />
+        </div>
+        <div class="px-1">
+          <t-checkbox
+            :id="`${componentName}-${_uid}-2`"
+            v-model="checkboxModel"
+            :name="`${componentName}-${_uid}`"
+            value="c"
+            :variant="variant"
+            :variants="checkboxVariants"
+            :classes="checkboxClasses"
+            :wrapped="wrapped"
+            :fixed-classes="checkboxFixedClasses"
+            label="Option C"
+          />
+        </div>
+      </div>
       <t-button
         v-else-if="componentName === 'TButton'"
         :variant="variant"
@@ -176,6 +220,7 @@ export default Vue.extend({
   data () {
     return {
       radioModel: true,
+      checkboxModel: ['a'],
       showModal: true,
       showModalFull: false,
       componentValue: 'Hello there!'
@@ -203,6 +248,25 @@ export default Vue.extend({
 
         Object.keys(this.variants).forEach((variantName) => {
           demoableVariants[variantName] = this.getDemoableRadioClasses(this.variants[variantName])
+        })
+
+        return demoableVariants
+      }
+
+      return undefined
+    },
+    checkboxClasses () {
+      return this.getDemoableCheckboxClasses(this.classes)
+    },
+    checkboxFixedClasses () {
+      return this.getDemoableCheckboxClasses(this.fixedClasses)
+    },
+    checkboxVariants () {
+      if (this.variants) {
+        const demoableVariants = {}
+
+        Object.keys(this.variants).forEach((variantName) => {
+          demoableVariants[variantName] = this.getDemoableCheckboxClasses(this.variants[variantName])
         })
 
         return demoableVariants
@@ -267,6 +331,23 @@ export default Vue.extend({
       return null
     },
     getDemoableRadioClasses (classes) {
+      if (typeof classes === 'string') {
+        return classes
+      }
+
+      if (classes) {
+        return {
+          ...classes,
+          ...{
+            labelChecked: !classes.labelChecked ? undefined : classes.labelChecked,
+            wrapperChecked: !classes.wrapperChecked ? undefined : classes.wrapperChecked
+          }
+        }
+      }
+
+      return null
+    },
+    getDemoableCheckboxClasses (classes) {
       if (typeof classes === 'string') {
         return classes
       }
