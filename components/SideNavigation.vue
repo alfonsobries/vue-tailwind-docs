@@ -54,6 +54,9 @@
               active-class="bg-orange-100 text-orange-500"
             >
               {{ item.text }}
+              <span v-if="item.soon" class="bg-orange-500 leading-none ml-2 py-1 px-2 rounded-lg text-white text-xs">
+                WIP
+              </span>
             </nuxt-link>
           </li>
         </ul>

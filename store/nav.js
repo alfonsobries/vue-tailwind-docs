@@ -76,7 +76,8 @@ export const state = () => ({
         },
         {
           to: '/docs/datepicker',
-          text: 'Datepicker'
+          text: 'Datepicker',
+          soon: true
         },
         {
           to: '/docs/checkbox-group',
