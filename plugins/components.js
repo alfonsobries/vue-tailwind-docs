@@ -29,6 +29,9 @@ import TCheckboxDemo from '@/components/demos/TCheckboxDemo'
 import SelectArrowSlotExample from '@/components/examples/select/SelectArrowSlot.vue'
 import RadioBasicExample from '@/components/examples/radio/RadioBasic.vue'
 import CheckboxBasicExample from '@/components/examples/radio/CheckboxBasic.vue'
+import RichSelectLabelSlotExample from '@/components/examples/rich-select/RichSelectLabelSlot.vue'
+import RichSelectOptionSlotExample from '@/components/examples/rich-select/RichSelectOptionSlot.vue'
+import RichSelectCreateOptionExample from '@/components/examples/rich-select/RichSelectCreateOption.vue'
 
 Vue.component('tip', Tip)
 Vue.component('preview', Preview)
@@ -54,3 +57,6 @@ Vue.component('t-button-demo', TButtonDemo)
 Vue.component('select-arrow-slot-example', SelectArrowSlotExample)
 Vue.component('radio-basic-example', RadioBasicExample)
 Vue.component('checkbox-basic-example', CheckboxBasicExample)
+Vue.component('rich-select-label-slot-example', RichSelectLabelSlotExample)
+Vue.component('rich-select-option-slot-example', RichSelectOptionSlotExample)
+Vue.component('rich-select-create-option-example', RichSelectCreateOptionExample)

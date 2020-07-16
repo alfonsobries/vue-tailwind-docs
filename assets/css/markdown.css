@@ -1,5 +1,5 @@
 .nuxt-content {
-  @apply text-gray-700 leading-relaxed overflow-auto;
+  @apply text-gray-700 leading-relaxed;
 }
 
 .nuxt-content > h1 {
