@@ -7,7 +7,7 @@ description: VueJs reactive rich select component inspired in jquery select2 wit
 
 VueJs reactive rich select component inspired in jquery select2 with configurable classes, variants, and most common events. Friendly with utility-first frameworks like TailwindCSS.
 
-<t-radio-playground></t-radio-playground>
+<t-rich-select-playground></t-rich-select-playground>
 
 <hr>
 

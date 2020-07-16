@@ -26,6 +26,9 @@ import TButtonDemo from '@/components/demos/TButtonDemo'
 import TCheckboxPlayground from '@/components/playgrounds/TCheckboxPlayground'
 import TCheckboxDemo from '@/components/demos/TCheckboxDemo'
 
+import TRichSelectPlayground from '@/components/playgrounds/TRichSelectPlayground'
+import TRichSelectDemo from '@/components/demos/TRichSelectDemo'
+
 import SelectArrowSlotExample from '@/components/examples/select/SelectArrowSlot.vue'
 import RadioBasicExample from '@/components/examples/radio/RadioBasic.vue'
 import CheckboxBasicExample from '@/components/examples/radio/CheckboxBasic.vue'
@@ -53,6 +56,8 @@ Vue.component('t-checkbox-playground', TCheckboxPlayground)
 Vue.component('t-checkbox-demo', TCheckboxDemo)
 Vue.component('t-button-playground', TButtonPlayground)
 Vue.component('t-button-demo', TButtonDemo)
+Vue.component('t-rich-select-playground', TRichSelectPlayground)
+Vue.component('t-rich-select-demo', TRichSelectDemo)
 
 Vue.component('select-arrow-slot-example', SelectArrowSlotExample)
 Vue.component('radio-basic-example', RadioBasicExample)
