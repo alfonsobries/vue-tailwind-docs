@@ -12,10 +12,6 @@ VueJs input group component with configurable classes and infinite variants. Fri
 <hr>
 
 
-## Playground
-
-
-
 ## Basic example
 
 ```html

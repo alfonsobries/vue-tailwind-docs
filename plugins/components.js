@@ -32,12 +32,16 @@ import TRichSelectDemo from '@/components/demos/TRichSelectDemo'
 import TInputGroupPlayground from '@/components/playgrounds/TInputGroupPlayground'
 import TInputGroupDemo from '@/components/demos/TInputGroupDemo'
 
+import TTagPlayground from '@/components/playgrounds/TTagPlayground'
+import TTagDemo from '@/components/demos/TTagDemo'
+
 import SelectArrowSlotExample from '@/components/examples/select/SelectArrowSlot.vue'
 import RadioBasicExample from '@/components/examples/radio/RadioBasic.vue'
 import CheckboxBasicExample from '@/components/examples/radio/CheckboxBasic.vue'
 import RichSelectLabelSlotExample from '@/components/examples/rich-select/RichSelectLabelSlot.vue'
 import RichSelectOptionSlotExample from '@/components/examples/rich-select/RichSelectOptionSlot.vue'
 import RichSelectCreateOptionExample from '@/components/examples/rich-select/RichSelectCreateOption.vue'
+import TagBasicExample from '@/components/examples/tag/TagBasic.vue'
 
 Vue.component('tip', Tip)
 Vue.component('preview', Preview)
@@ -63,6 +67,8 @@ Vue.component('t-rich-select-playground', TRichSelectPlayground)
 Vue.component('t-rich-select-demo', TRichSelectDemo)
 Vue.component('t-input-group-playground', TInputGroupPlayground)
 Vue.component('t-input-group-demo', TInputGroupDemo)
+Vue.component('t-tag-playground', TTagPlayground)
+Vue.component('t-tag-demo', TTagDemo)
 
 Vue.component('select-arrow-slot-example', SelectArrowSlotExample)
 Vue.component('radio-basic-example', RadioBasicExample)
@@ -70,3 +76,4 @@ Vue.component('checkbox-basic-example', CheckboxBasicExample)
 Vue.component('rich-select-label-slot-example', RichSelectLabelSlotExample)
 Vue.component('rich-select-option-slot-example', RichSelectOptionSlotExample)
 Vue.component('rich-select-create-option-example', RichSelectCreateOptionExample)
+Vue.component('tag-basic-example', TagBasicExample)

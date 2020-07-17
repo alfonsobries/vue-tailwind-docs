@@ -2,6 +2,13 @@ import Vue from 'vue'
 import VueTailwind from 'vue-tailwind'
 
 Vue.use(VueTailwind, {
+  TTag: {
+    variants: {
+      h3: 'text-xl leading-5 font-semibold tracking-tight font-display text-gray-900',
+      badgeDemo: 'px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-orange-100 text-orange-800',
+      bodyDemo: 'mt-2 text-base leading-6 text-gray-500'
+    }
+  },
   TButton: {
     fixedClasses: 'transform ease-in-out duration-100',
     classes: 'bg-orange-500 hover:bg-orange-700 text-white uppercase text-sm py-2 px-4 rounded',
@@ -39,6 +46,7 @@ Vue.use(VueTailwind, {
     classes: 'form-select border-2 bg-orange-100 text-gray-700',
     variants: {
       demo: 'form-select w-full',
+      playground: 'form-select p-2 px-3 py-1 text-sm',
       wrappedDemo: {
         wrapper: 'relative',
         input: 'appearance-none bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal',
@@ -194,6 +202,7 @@ Vue.use(VueTailwind, {
       }
     }
   },
+
   TModal: {
     classes: {
       overlay: 'z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed bg-black bg-opacity-50',

@@ -178,6 +178,13 @@
         :classes="radioClasses"
         :fixed-classes="radioFixedClasses"
       >Button example</t-button>
+      <t-tag
+        v-else-if="componentName === 'TTag'"
+        :variant="variant"
+        :variants="variants"
+        :classes="classes"
+        :fixed-classes="fixedClasses"
+      >My text</t-tag>
       <component
         :is="componentName"
         v-else
