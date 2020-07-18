@@ -35,6 +35,9 @@ import TInputGroupDemo from '@/components/demos/TInputGroupDemo'
 import TTagPlayground from '@/components/playgrounds/TTagPlayground'
 import TTagDemo from '@/components/demos/TTagDemo'
 
+import TAlertPlayground from '@/components/playgrounds/TAlertPlayground'
+import TAlertDemo from '@/components/demos/TAlertDemo'
+
 import SelectArrowSlotExample from '@/components/examples/select/SelectArrowSlot.vue'
 import RadioBasicExample from '@/components/examples/radio/RadioBasic.vue'
 import CheckboxBasicExample from '@/components/examples/radio/CheckboxBasic.vue'
@@ -69,6 +72,8 @@ Vue.component('t-input-group-playground', TInputGroupPlayground)
 Vue.component('t-input-group-demo', TInputGroupDemo)
 Vue.component('t-tag-playground', TTagPlayground)
 Vue.component('t-tag-demo', TTagDemo)
+Vue.component('t-alert-playground', TAlertPlayground)
+Vue.component('t-alert-demo', TAlertDemo)
 
 Vue.component('select-arrow-slot-example', SelectArrowSlotExample)
 Vue.component('radio-basic-example', RadioBasicExample)
