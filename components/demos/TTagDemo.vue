@@ -12,7 +12,7 @@
 
     <p class="mt-4">
       <span class="text-gray-500 text-sm block">Rendered HTML: </span>
-      <span ref="render" class="whitespace-pre block bg-gray-200 font-mono p-2 rounded text-gray-900 text-sm">{{ `<${settings.tag}>${settings.text}</${settings.tag}>` }}</span>
+      <span ref="render" class="whitespace-pre block bg-gray-200 font-mono p-2 rounded text-gray-900 text-sm overflow-auto">{{ `<${settings.tag}>${settings.text}</${settings.tag}>` }}</span>
     </p>
   </div>
 </template>
