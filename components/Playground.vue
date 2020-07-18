@@ -90,7 +90,7 @@
           <div
             ref="iframeWrapper"
             class="flex-grow relative ease-in-out transition-all origin-top duration-75"
-            :style="`height: ${initialHeight}px; min-height: 100px`"
+            :style="`height: ${initialHeight}px; min-height: ${minHeight}px`"
             :class="{'pointer-events-none': dragging}"
           >
             <iframe
@@ -155,6 +155,10 @@ export default Vue.extend({
       default: 200
     },
     initialHeight: {
+      type: Number,
+      default: 100
+    },
+    minHeight: {
       type: Number,
       default: 100
     }
