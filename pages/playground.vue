@@ -1,5 +1,7 @@
 <template>
-  <component :is="`${componentName}-demo`" :params="params" />
+  <client-only>
+    <component :is="`${componentName}-demo`" :params="params" />
+  </client-only>
 </template>
 
 <script>
