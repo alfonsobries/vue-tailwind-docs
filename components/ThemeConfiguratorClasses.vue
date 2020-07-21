@@ -122,6 +122,19 @@ export default Vue.extend({
       }
 
       switch (this.componentName) {
+        case 'TTable':
+          return {
+            table: 'Table',
+            tbody: 'Tbody',
+            tr: 'Body tr',
+            td: 'Body td',
+            thead: 'Thead',
+            theadTr: 'Thead tr',
+            theadTh: 'Thead th',
+            tfoot: 'Tfoot',
+            tfootTr: 'Tfoot tr',
+            tfootTd: 'Tfoot td'
+          }
         case 'TAlert':
           return {
             wrapper: 'Wrapper',

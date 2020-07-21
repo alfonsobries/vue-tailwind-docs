@@ -303,6 +303,18 @@ const defaultTheme = {
       }
     }
   },
+  TTag: {
+    fixedClasses: '',
+    classes: '',
+    variants: {
+      title: 'text-2xl leading-8 font-extrabold text-gray-900 tracking-tight',
+      subtitle: 'text-lg leading-6 font-medium text-gray-900',
+      error: 'text-red-500',
+      badge: 'inline-flex items-center px-3 rounded-full text-xs font-medium leading-4 bg-gray-100 text-gray-800',
+      avatar: 'inline-flex items-center justify-center h-10 w-10 rounded-full bg-gray-500 overflow-hidden leading-none text-center'
+    }
+  },
+
   TAlert: {
     fixedClasses: {
       wrapper: 'rounded p-4 flex text-sm border-l-4',
@@ -377,6 +389,20 @@ const defaultTheme = {
         header: 'border-red-100 text-red-700',
         footer: 'border-red-100 bg-red-100',
         close: 'text-red-700 hover:text-red-600'
+      }
+    }
+  },
+  TTable: {
+    classes: {
+      table: 'shadow min-w-full divide-y divide-gray-200',
+      tbody: 'bg-white divide-y divide-gray-200',
+      td: 'px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-700',
+      theadTh: 'px-6 py-3 border-b border-gray-200 bg-gray-100 text-left text-xs leading-4 font-medium text-gray-700 uppercase tracking-wider'
+    },
+    variants: {
+      thin: {
+        td: 'p-1 whitespace-no-wrap text-sm leading-4 text-gray-700',
+        theadTh: 'p-1 border-b border-gray-200 bg-gray-100 text-left text-xs leading-4 font-medium text-gray-700 uppercase tracking-wider'
       }
     }
   }

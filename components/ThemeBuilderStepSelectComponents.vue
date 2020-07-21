@@ -53,6 +53,12 @@
           </t-input-group>
         </component-checkbox>
 
+        <component-checkbox v-model="selected" value="TTag" label="TTag">
+          <t-tag variant="demo">
+            Custom tag
+          </t-tag>
+        </component-checkbox>
+
         <component-checkbox v-model="selected" value="TRichSelect" label="TRichSelect">
           <t-rich-select
             placeholder="Select an option"
@@ -75,6 +81,7 @@
 
         <component-checkbox v-model="selected" value="TModal" label="Modal">
           <t-modal
+            :fixed-classes="{}"
             variant="demo"
             :value="true"
             :focus-on-open="false"
@@ -87,14 +94,75 @@
             Im a full-stack software from Mexico City that likes Vue & TailwindCSS.
           </t-modal>
         </component-checkbox>
-        <component-checkbox value="TTable" label="Table">
-          <span class="ml-2"> (coming soon...)</span>
+        <component-checkbox v-model="selected" value="TTable" label="Table">
+          <t-table
+            variant="demo"
+            :headers="['Name', 'Email', 'Age', 'Sales']"
+            :data="[
+              ['Alfonso Bribiesca', 'alfonso@vexilo.com', '31', '$9,999.00'],
+              ['Saida Redondo', 'saida@gmail.com', 27, '$124.00'],
+            ]"
+          />
         </component-checkbox>
-        <component-checkbox value="TPagination" label="Pagination">
-          <span class="ml-2"> (coming soon...)</span>
+        <component-checkbox v-model="selected" value="TPagination" label="Pagination">
+          <t-pagination
+            variant="demo"
+            :total-items="50"
+            :per-page="10"
+          />
         </component-checkbox>
-        <component-checkbox value="TDropdown" label="Dropdown">
-          <span class="ml-2"> (coming soon...)</span>
+        <component-checkbox v-model="selected" value="TDropdown" label="Dropdown">
+          <t-dropdown>
+            <div
+              slot="trigger"
+              slot-scope="{
+                mousedownHandler: userMenuMousedownHandler,
+                focusHandler: userMenuFocusHandler,
+                blurHandler: userMenuBlurHandler,
+                keydownHandler: userMenuKeydownHandler,
+              }"
+            >
+              <button
+                class="flex items-center transform ease-in-out duration-100 text-orange-500 border-orange-500 border-2 uppercase text-sm py-2 px-4 rounded"
+                aria-label="User menu"
+                aria-haspopup="true"
+                @mousedown="userMenuMousedownHandler"
+                @focus="userMenuFocusHandler"
+                @blur="userMenuBlurHandler"
+                @keydown="userMenuKeydownHandler"
+              >
+                Account
+                <icon class="h-3 w-3 ml-2">
+                  <path d="M19 9l-7 7-7-7" />
+                </icon>
+              </button>
+            </div>
+            <template>
+              <div class="py-1 rounded-md bg-white shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+                  role="menuitem"
+                >
+                  Your Profile
+                </a>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+                  role="menuitem"
+                >
+                  Settings
+                </a>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+                  role="menuitem"
+                >
+                  Sign out
+                </a>
+              </div>
+            </template>
+          </t-dropdown>
         </component-checkbox>
       </div>
     </fieldset>
@@ -103,9 +171,11 @@
 <script>
 import Vue from 'vue'
 import ComponentCheckbox from './ThemeBuilderStepSelectComponentsSelector'
+import Icon from '@/components/Icon'
 export default Vue.extend({
   components: {
-    ComponentCheckbox
+    ComponentCheckbox,
+    Icon
   },
   props: {
     value: {

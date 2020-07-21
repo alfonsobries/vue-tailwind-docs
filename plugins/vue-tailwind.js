@@ -6,7 +6,8 @@ Vue.use(VueTailwind, {
     variants: {
       h3: 'text-xl leading-5 font-semibold tracking-tight font-display text-gray-900',
       badgeDemo: 'px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-orange-100 text-orange-800',
-      bodyDemo: 'mt-2 text-base leading-6 text-gray-500'
+      bodyDemo: 'mt-2 text-base leading-6 text-gray-500',
+      demo: 'py-1 bg-orange-200 px-5 inline-flex text-sm leading-5 font-semibold rounded-full text-orange-600'
     }
   },
   TButton: {
@@ -202,7 +203,30 @@ Vue.use(VueTailwind, {
       }
     }
   },
-
+  TTable: {
+    variants: {
+      demo: {
+        table: 'shadow min-w-full divide-y divide-gray-200',
+        tbody: 'bg-white divide-y divide-gray-200',
+        td: 'px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-700',
+        theadTh: 'px-6 py-3 border-b border-gray-200 bg-gray-100 text-left text-xs leading-4 font-medium text-gray-700 uppercase tracking-wider'
+      }
+    }
+  },
+  TPagination: {
+    variants: {
+      demo: {
+        wrapper: 'table border-collapse text-center bg-white',
+        element: 'w-8 h-8 border-2 table-cell',
+        disabledElement: 'w-8 h-8 border-2 table-cell',
+        ellipsisElement: 'w-8 h-8 border-2 hidden md:table-cell',
+        activeButton: 'bg-gray-300 w-full h-full',
+        disabledButton: 'opacity-25 w-full h-full cursor-not-allowed',
+        button: 'hover:bg-gray-200 w-full h-full text-gray-700',
+        ellipsis: ''
+      }
+    }
+  },
   TModal: {
     classes: {
       overlay: 'z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed bg-black bg-opacity-50',

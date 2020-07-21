@@ -64,6 +64,20 @@
           placeholder="Select an option"
         />
       </div>
+      <t-table
+        v-else-if="componentName === 'TTable'"
+        :headers="['Name', 'Email', 'Age', 'Sales']"
+        :data="[
+          ['Alfonso Bribiesca', 'alfonso@vexilo.com', '31', '$9,999.00'],
+          ['Saida Redondo', 'saida@gmail.com', 27, '$124.00'],
+        ]"
+        :variant="variant"
+        :variants="variants"
+        :classes="classes"
+        :fixed-classes="fixedClasses"
+      >
+        So you selected VueJs & Tailwind Combo, Good decision!
+      </t-table>
       <t-alert
         v-else-if="componentName === 'TAlert'"
         show
