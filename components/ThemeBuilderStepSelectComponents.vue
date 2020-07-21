@@ -107,6 +107,7 @@
         <component-checkbox v-model="selected" value="TPagination" label="Pagination">
           <t-pagination
             variant="demo"
+            :value="2"
             :total-items="50"
             :per-page="10"
           />

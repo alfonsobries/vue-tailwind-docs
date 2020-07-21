@@ -178,6 +178,7 @@ const wrappedTheme = {
 }
 
 const defaultTheme = {
+
   TInput: {
     fixedClasses: 'form-input',
     classes: '',
@@ -403,6 +404,50 @@ const defaultTheme = {
       thin: {
         td: 'p-1 whitespace-no-wrap text-sm leading-4 text-gray-700',
         theadTh: 'p-1 border-b border-gray-200 bg-gray-100 text-left text-xs leading-4 font-medium text-gray-700 uppercase tracking-wider'
+      }
+    }
+  },
+  TPagination: {
+    classes: {
+      wrapper: 'table border-collapse text-center bg-white mx-auto mt-2',
+      element: 'w-8 h-8 border table-cell',
+      disabledElement: 'w-8 h-8 border table-cell',
+      ellipsisElement: 'w-8 h-8 border hidden md:table-cell',
+      activeButton: 'bg-gray-300 w-full h-full',
+      disabledButton: 'opacity-25 w-full h-full cursor-not-allowed',
+      button: 'hover:bg-gray-200 w-full h-full',
+      ellipsis: ''
+    },
+    variants: {
+      rounded: {
+        wrapper: 'flex',
+        element: 'w-8 h-8 mx-1',
+        disabledElement: 'w-8 h-8 mx-1',
+        ellipsisElement: 'w-8 h-8 mx-1',
+        activeButton: 'bg-blue-500 w-full h-full text-white rounded-full ',
+        disabledButton: 'opacity-25 w-full h-full cursor-not-allowed rounded-full',
+        button: 'hover:bg-blue-100 w-full h-full text-blue-500 rounded-full ',
+        ellipsis: 'text-gray-500'
+      }
+    }
+  },
+  TDropdown: {
+    classes: {
+      button: 'px-4 py-2 flex items-center border rounded hover:text-gray-700',
+      wrapper: 'inline-flex flex-col',
+      dropdownWrapper: 'relative z-10',
+      dropdown: 'origin-top-right absolute right-0 w-56 rounded-md shadow-lg bg-white',
+      enterClass: '',
+      enterActiveClass: 'transition ease-out duration-100 transform opacity-0 scale-95',
+      enterToClass: 'transform opacity-100 scale-100',
+      leaveClass: 'transition ease-in transform opacity-100 scale-100',
+      leaveActiveClass: '',
+      leaveToClass: 'transform opacity-0 scale-95 duration-75'
+    },
+    variants: {
+      danger: {
+        button: 'px-4 py-2 flex items-center border rounded bg-red-100 border-red-600 text-red-500 hover:text-red-400',
+        dropdown: 'origin-top-right absolute right-0 w-56 rounded-md shadow bg-red-100'
       }
     }
   }

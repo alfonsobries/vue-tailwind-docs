@@ -135,6 +135,31 @@ export default Vue.extend({
             tfootTr: 'Tfoot tr',
             tfootTd: 'Tfoot td'
           }
+        case 'TPagination':
+          return {
+            wrapper: 'Wrapper',
+            element: 'Element',
+            disabledElement: 'Disabled element',
+            ellipsisElement: 'Ellipsis element',
+            activeButton: 'Active button',
+            disabledButton: 'Disabled button',
+            button: 'Button',
+            ellipsis: 'Ellipisis'
+          }
+        case 'TDropdown':
+          return {
+            button: '',
+            wrapper: '',
+            dropdownWrapper: '',
+            dropdown: '',
+            enterClass: '',
+            enterActiveClass: '',
+            enterToClass: '',
+            leaveClass: '',
+            leaveActiveClass: '',
+            leaveToClass: ''
+
+          }
         case 'TAlert':
           return {
             wrapper: 'Wrapper',

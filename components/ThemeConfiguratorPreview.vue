@@ -78,6 +78,55 @@
       >
         So you selected VueJs & Tailwind Combo, Good decision!
       </t-table>
+      <t-dropdown
+        v-else-if="componentName === 'TDropdown'"
+        :variant="variant"
+        :variants="variants"
+        :classes="classes"
+        :fixed-classes="fixedClasses"
+      >
+        <template
+          slot="button"
+        >
+          My account
+          <icon class="h-3 w-3 ml-2">
+            <path d="M19 9l-7 7-7-7" />
+          </icon>
+        </template>
+        <div class="py-1 rounded-md shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+          <a
+            href="#"
+            class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+            role="menuitem"
+          >
+            Your Profile
+          </a>
+          <a
+            href="#"
+            class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+            role="menuitem"
+          >
+            Settings
+          </a>
+          <a
+            href="#"
+            class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+            role="menuitem"
+          >
+            Sign out
+          </a>
+        </div>
+      </t-dropdown>
+      <t-pagination
+        v-else-if="componentName === 'TPagination'"
+        :value="2"
+        :total-items="100"
+        :per-page="10"
+        :variant="variant"
+        :variants="variants"
+        :classes="classes"
+        :fixed-classes="fixedClasses"
+      />
       <t-alert
         v-else-if="componentName === 'TAlert'"
         show
@@ -219,7 +268,11 @@
 </template>
 <script>
 import Vue from 'vue'
+import Icon from '@/components/Icon'
 export default Vue.extend({
+  components: {
+    Icon
+  },
   props: {
     theme: {
       type: Object,
