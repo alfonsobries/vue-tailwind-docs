@@ -1,6 +1,7 @@
 <template>
   <div class="relative rounded overflow-hidden max-w-full">
     <loading-overlay v-if="loadingIFrame" />
+
     <t-card
       ref="card"
       :variant="{
@@ -13,10 +14,11 @@
       <template slot="header">
         <div>
           <h3 class="text-base font-medium text-gray-900">
-            Playground:
+            {{ title }}
           </h3>
+          <p v-if="subtitle" class="text-gray-500 text-sm" v-text="subtitle" />
         </div>
-        <div class="hidden sm:flex items-center text-sm md:text-base">
+        <div v-if="!hideTabs" class="hidden sm:flex items-center text-sm md:text-base">
           <t-button
             :variant="{
               'playgroundMenuActive': view === 'demo',
@@ -62,26 +64,28 @@
         </div>
       </template>
 
-      <template v-if="view === 'demo'" slot="footer">
-        <slot name="controls" />
+      <template v-if="!hideTabs">
+        <template v-if="view === 'demo'" slot="footer">
+          <slot name="controls" />
+        </template>
+
+        <playground-settings
+          v-show="view === 'settings'"
+          :settings="currentSettings"
+          :component-name="componentName"
+          @select="(selected) => view = selected"
+        />
+
+        <playground-customize
+          v-show="view === 'customize'"
+          :settings.sync="currentSettings"
+          :theme-builder-settings="themeBuilderSettings"
+          :component-name="componentName"
+          @select="(selected) => view = selected"
+        />
       </template>
 
-      <playground-settings
-        v-show="view === 'settings'"
-        :settings="currentSettings"
-        :component-name="componentName"
-        @select="(selected) => view = selected"
-      />
-
-      <playground-customize
-        v-show="view === 'customize'"
-        :settings.sync="currentSettings"
-        :theme-builder-settings="themeBuilderSettings"
-        :component-name="componentName"
-        @select="(selected) => view = selected"
-      />
-
-      <div v-show="view === 'demo'" ref="wrapper" class="w-full bg-gray-700 relative max-w-full shadow-inner pattern2">
+      <div v-show="view === 'demo' || !hideTabs" ref="wrapper" class="w-full bg-gray-700 relative max-w-full shadow-inner pattern2">
         <div
           ref="resizable"
           :style="`min-width:${minWidth}px`"
@@ -130,6 +134,18 @@ export default Vue.extend({
     Icon
   },
   props: {
+    title: {
+      type: String,
+      default: 'Playground:'
+    },
+    subtitle: {
+      type: String,
+      default: undefined
+    },
+    hideTabs: {
+      type: Boolean,
+      default: false
+    },
     settings: {
       type: Object,
       default: null
