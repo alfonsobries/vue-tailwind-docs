@@ -75,9 +75,7 @@
         :variants="variants"
         :classes="classes"
         :fixed-classes="fixedClasses"
-      >
-        So you selected VueJs & Tailwind Combo, Good decision!
-      </t-table>
+      />
       <t-dropdown
         v-else-if="componentName === 'TDropdown'"
         :variant="variant"

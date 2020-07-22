@@ -18,7 +18,7 @@ VueJs reactive `<select></select>` component with configurable classes, variants
   placeholder="Select an option"
   :options="['Option A', 'Option B', 'Option C']"
   variant="demo"
-/>
+></t-select>
 ```
 
 <preview>

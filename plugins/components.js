@@ -41,6 +41,9 @@ import TAlertDemo from '@/components/demos/TAlertDemo'
 import TModalPlayground from '@/components/playgrounds/TModalPlayground'
 import TModalDemo from '@/components/demos/TModalDemo'
 
+import TTablePlayground from '@/components/playgrounds/TTablePlayground'
+import TTableDemo from '@/components/demos/TTableDemo'
+
 import SelectArrowSlotExample from '@/components/examples/select/SelectArrowSlot.vue'
 import RadioBasicExample from '@/components/examples/radio/RadioBasic.vue'
 import CheckboxBasicExample from '@/components/examples/radio/CheckboxBasic.vue'
@@ -49,6 +52,11 @@ import RichSelectOptionSlotExample from '@/components/examples/rich-select/RichS
 import RichSelectCreateOptionExample from '@/components/examples/rich-select/RichSelectCreateOption.vue'
 import TagBasicExample from '@/components/examples/tag/TagBasic.vue'
 import ModalBasicExample from '@/components/examples/modal/ModalBasic.vue'
+import TableSlotColumnExample from '@/components/examples/table/SlotColumn.vue'
+import TableSlotRowExample from '@/components/examples/table/SlotRow.vue'
+import TableSlotTbodyExample from '@/components/examples/table/SlotTbody.vue'
+import TableSlotTheadExample from '@/components/examples/table/SlotThead.vue'
+import TableSlotTfootExample from '@/components/examples/table/SlotTfoot.vue'
 
 Vue.component('tip', Tip)
 Vue.component('preview', Preview)
@@ -80,6 +88,8 @@ Vue.component('t-alert-playground', TAlertPlayground)
 Vue.component('t-alert-demo', TAlertDemo)
 Vue.component('t-modal-playground', TModalPlayground)
 Vue.component('t-modal-demo', TModalDemo)
+Vue.component('t-table-playground', TTablePlayground)
+Vue.component('t-table-demo', TTableDemo)
 
 Vue.component('select-arrow-slot-example', SelectArrowSlotExample)
 Vue.component('radio-basic-example', RadioBasicExample)
@@ -89,3 +99,8 @@ Vue.component('rich-select-option-slot-example', RichSelectOptionSlotExample)
 Vue.component('rich-select-create-option-example', RichSelectCreateOptionExample)
 Vue.component('tag-basic-example', TagBasicExample)
 Vue.component('modal-basic-example', ModalBasicExample)
+Vue.component('table-slot-column-example', TableSlotColumnExample)
+Vue.component('table-slot-row-example', TableSlotRowExample)
+Vue.component('table-slot-tbody-example', TableSlotTbodyExample)
+Vue.component('table-slot-thead-example', TableSlotTheadExample)
+Vue.component('table-slot-tfoot-example', TableSlotTfootExample)
