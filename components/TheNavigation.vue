@@ -45,6 +45,8 @@
                 </div>
                 <input
                   id="search"
+                  v-model="query"
+                  autocomplete="off"
                   class="block w-full pl-10 pr-3 py-2 border border-transparent focus:outline-none focus:bg-gray-300 focus:text-gray-900 rounded-md leading-5 sm:text-sm transition duration-150 ease-in-out bg-gray-200 text-gray-700 placeholder-gray-600"
                   :class="{
                     'lg:bg-white lg:placeholder-gray-500 ': transparent
@@ -52,6 +54,14 @@
                   placeholder="Search the docs (Press &quot;/&quot; to focus)"
                   type="search"
                 >
+
+                <!-- <ul v-if="articles.length">
+                  <li v-for="article of articles" :key="article.slug">
+                    <NuxtLink :to="{ name: 'docs', params: { slug: article.slug } }">
+                      {{ article.title }}
+                    </NuxtLink>
+                  </li>
+                </ul> -->
               </div>
             </div>
           </div>
@@ -179,9 +189,32 @@ export default Vue.extend({
       required: true
     }
   },
+  data () {
+    return {
+      query: '',
+      articles: []
+
+    }
+  },
   computed: mapGetters({
     mainMenu: 'nav/main'
   }),
+  watch: {
+    async query (query) {
+      if (!query) {
+        this.articles = []
+        return
+      }
+
+      this.articles = await this.$content()
+        .only(['title', 'slug'])
+        .sortBy('createdAt', 'asc')
+        .limit(12)
+        .search(query)
+        .fetch()
+    }
+  },
+
   created () {
     this.$root.$on('routeChanged', () => {
       this.$refs.menu.doHide()
