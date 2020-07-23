@@ -315,7 +315,6 @@ const defaultTheme = {
       avatar: 'inline-flex items-center justify-center h-10 w-10 rounded-full bg-gray-500 overflow-hidden leading-none text-center'
     }
   },
-
   TAlert: {
     fixedClasses: {
       wrapper: 'rounded p-4 flex text-sm border-l-4',

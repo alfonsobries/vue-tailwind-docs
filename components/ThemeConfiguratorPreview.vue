@@ -76,6 +76,14 @@
         :classes="classes"
         :fixed-classes="fixedClasses"
       />
+      <t-checkbox-group
+        v-else-if="componentName === 'TCheckboxGroup'"
+        :options="['Option A', 'Option B', 'Option C', 'Option D']"
+        :variant="variant"
+        :variants="variants"
+        :classes="classes"
+        :fixed-classes="fixedClasses"
+      />
       <t-dropdown
         v-else-if="componentName === 'TDropdown'"
         :variant="variant"

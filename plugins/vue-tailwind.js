@@ -203,6 +203,15 @@ Vue.use(VueTailwind, {
       }
     }
   },
+  TCheckboxGroup: {
+    classes: {
+      groupWrapper: 'flex flex-col',
+      label: 'text-sm uppercase mx-2 text-gray-700',
+      input: 'form-checkbox transition duration-150 ease-in-out',
+      inputWrapper: 'inline-flex',
+      wrapper: 'flex items-center'
+    }
+  },
   TTable: {
     classes: {
       table: 'shadow min-w-full divide-y divide-gray-200',
