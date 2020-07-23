@@ -25,7 +25,7 @@ VueJs reactive checkbox group component with configurable classes, variants, and
 
 | Property          | Type               | Default value | Description                                                                                                                                 |
 | ----------------- | ------------------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| value (`v-model`) | `Array`            | `[]`          | The value for the checkbox element when checked                                                                                             |
+| value (`v-model`) | `Array`            | `[]`          | The value for the checkbox element checked                                                                                             |
 | id                | `String`           | `undefined`   | HTML attribute                                                                                                                              |
 | autofocus         | `Boolean`          | `undefined`   | HTML attribute                                                                                                                              |
 | disabled          | `Boolean`          | `undefined`   | HTML attribute                                                                                                                              |

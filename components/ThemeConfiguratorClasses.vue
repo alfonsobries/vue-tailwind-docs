@@ -133,6 +133,17 @@ export default Vue.extend({
             inputWrapperChecked: 'Wrapper of the input if checkec',
             input: 'Input'
           }
+        case 'TRadioGroup':
+          return {
+            groupWrapper: 'group wrapper',
+            wrapper: 'Wrapper',
+            wrapperChecked: 'Wrapper when the input if checked',
+            label: 'Label next to input',
+            labelChecked: 'Label when the input if checked',
+            inputWrapper: 'Wrapper of the input',
+            inputWrapperChecked: 'Wrapper of the input if checkec',
+            input: 'Input'
+          }
 
         case 'TTable':
           return {

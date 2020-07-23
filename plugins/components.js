@@ -44,6 +44,9 @@ import TModalDemo from '@/components/demos/TModalDemo'
 import TCheckboxGroupPlayground from '@/components/playgrounds/TCheckboxGroupPlayground'
 import TCheckboxGroupDemo from '@/components/demos/TCheckboxGroupDemo'
 
+import TRadioGroupPlayground from '@/components/playgrounds/TRadioGroupPlayground'
+import TRadioGroupDemo from '@/components/demos/TRadioGroupDemo'
+
 import TTablePlayground from '@/components/playgrounds/TTablePlayground'
 import TTableDemo from '@/components/demos/TTableDemo'
 import TTableResponsiveDemo from '@/components/demos/TTableResponsiveDemo'
@@ -63,6 +66,7 @@ import TableSlotTheadExample from '@/components/examples/table/SlotThead.vue'
 import TableSlotTfootExample from '@/components/examples/table/SlotTfoot.vue'
 import TableResponsiveExample from '@/components/examples/table/Responsive.vue'
 import CheckboxGroupLabelSlotExample from '@/components/examples/checkbox-group/LabelSlot.vue'
+import RadioGroupLabelSlotExample from '@/components/examples/radio-group/LabelSlot.vue'
 
 Vue.component('tip', Tip)
 Vue.component('preview', Preview)
@@ -99,6 +103,8 @@ Vue.component('t-table-demo', TTableDemo)
 Vue.component('t-table-responsive-demo', TTableResponsiveDemo)
 Vue.component('t-checkbox-group-playground', TCheckboxGroupPlayground)
 Vue.component('t-checkbox-group-demo', TCheckboxGroupDemo)
+Vue.component('t-radio-group-playground', TRadioGroupPlayground)
+Vue.component('t-radio-group-demo', TRadioGroupDemo)
 
 Vue.component('select-arrow-slot-example', SelectArrowSlotExample)
 Vue.component('radio-basic-example', RadioBasicExample)
@@ -115,3 +121,4 @@ Vue.component('table-slot-thead-example', TableSlotTheadExample)
 Vue.component('table-slot-tfoot-example', TableSlotTfootExample)
 Vue.component('table-responsive-example', TableResponsiveExample)
 Vue.component('checkbox-group-label-slot-example', CheckboxGroupLabelSlotExample)
+Vue.component('radio-group-label-slot-example', RadioGroupLabelSlotExample)
