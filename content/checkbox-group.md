@@ -107,43 +107,53 @@ The component accepts the options in different formats:
 
 ```html
 <!-- Value, text attributes (preferred default) -->
-<t-checkbox-group :options="[{ value: 1, text: 'Option 1' }, { value: 2, text: 'Option 2' }]" />
+<t-checkbox-group :options="[{ value: 1, text: 'Option 1' }, { value: 2, text: 'Option 2' }]" name="checkbox" />
 <!-- id instead of value as attribute -->
-<t-checkbox-group :options="[{ id: 1, text: 'Option 1' }, { id: 2, text: 'Option 2' }]" />
+<t-checkbox-group :options="[{ id: 1, text: 'Option 1' }, { id: 2, text: 'Option 2' }]" name="checkbox"  />
 <!-- label instead of text as attribute -->
-<t-checkbox-group :options="[{ value: 1, label: 'Option 1' }, { value: 2, label: 'Option 2' }]" />
+<t-checkbox-group :options="[{ value: 1, label: 'Option 1' }, { value: 2, label: 'Option 2' }]" name="checkbox"  />
 
 <!-- All the examples above will render: -->
-<div>
-  <div>
-    <input id="checkbox-field-0" name="checkbox-field" type="checkbox" value="1">
-    <label for="checkbox-field-0">Option 1</label>
-  </div>
-  <div>
-    <input id="checkbox-field-1" name="checkbox-field" type="checkbox" value="2">
-    <label for="checkbox-field-1">Option 2</label>
-  </div>
+<div class="">
+  <label for="checkbox-1" class="">
+    <span class="">
+      <input id="checkbox-1" value="1" type="checkbox" name="checkbox" class="">
+    </span>
+    <span class="">Option 1</span>
+  </label>
+  <label for="checkbox-2" class="">
+    <span class="">
+      <input id="checkbox-2" value="2" type="checkbox" name="checkbox" class="">
+    </span>
+    <span class="">Option 2</span>
+  </label>
 </div>
 ```
 
 ### Object with value:text pairs
 ```html
-<t-checkbox-group :options="{ A: 'Option A', B: 'Option B', C: 'Option C' }" />
+<t-checkbox-group :options="{ A: 'Option A', B: 'Option B', C: 'Option C' }" name="checkbox" />
 
 <!-- Will Render: -->
-<div>
-  <div>
-    <input id="checkbox-field-0" name="checkbox-field" type="checkbox" value="A">
-    <label for="checkbox-field-0">Option A</label>
-  </div>
-  <div>
-    <input id="checkbox-field-1" name="checkbox-field" type="checkbox" value="B">
-    <label for="checkbox-field-1">Option B</label>
-  </div>
-  <div>
-    <input id="checkbox-field-2" name="checkbox-field" type="checkbox" value="C">
-    <label for="checkbox-field-2">Option C</label>
-  </div>
+<div class="">
+  <label for="checkbox-a" class="">
+    <span class="">
+      <input id="checkbox-a" value="A" type="checkbox" name="checkbox" class="">
+    </span>
+    <span class="">Option A</span>
+  </label>
+  <label for="checkbox-b" class="">
+    <span class="">
+      <input id="checkbox-b" value="B" type="checkbox" name="checkbox" class="">
+    </span>
+    <span class="">Option B</span>
+  </label>
+  <label for="checkbox-c" class="">
+    <span class="">
+      <input id="checkbox-c" value="C" type="checkbox" name="checkbox" class="">
+    </span>
+    <span class="">Option C</span>
+  </label>
 </div>
 ```
 
@@ -152,19 +162,25 @@ The component accepts the options in different formats:
 <t-checkbox-group :options="['Red', 'Blue', 'Yellow']" />
 
 <!-- Will Render: -->
-<div>
-  <div>
-    <input id="checkbox-field-0" name="checkbox-field" type="checkbox" value="Red">
-    <label for="checkbox-field-0">Red</label>
-  </div>
-  <div>
-    <input id="checkbox-field-1" name="checkbox-field" type="checkbox" value="Blue">
-    <label for="checkbox-field-1">Blue</label>
-  </div>
-  <div>
-    <input id="checkbox-field-2" name="checkbox-field" type="checkbox" value="Yellow">
-    <label for="checkbox-field-2">Yellow</label>
-  </div>
+<div class="">
+  <label for="checkbox-red" class="">
+    <span class="">
+      <input id="checkbox-red" value="Red" type="checkbox" name="checkbox" class="">
+    </span>
+    <span class="">Red</span>
+  </label>
+  <label for="checkbox-blue" class="">
+    <span class="">
+      <input id="checkbox-blue" value="Blue" type="checkbox" name="checkbox" class="">
+    </span>
+    <span class="">Blue</span>
+  </label>
+  <label for="checkbox-yellow" class="">
+    <span class="">
+      <input id="checkbox-yellow" value="Yellow" type="checkbox" name="checkbox" class="">
+    </span>
+    <span class="">Yellow</span>
+  </label>
 </div>
 ```
 ### Array of numbers
@@ -172,19 +188,25 @@ The component accepts the options in different formats:
 <t-checkbox-group :options="[18, 19, 20]" />
 
 <!-- Will Render: -->
-<div>
-  <div>
-    <input id="checkbox-field-0" name="checkbox-field" type="checkbox" value="18">
-    <label for="checkbox-field-0">18</label>
-  </div>
-  <div>
-    <input id="checkbox-field-1" name="checkbox-field" type="checkbox" value="19">
-    <label for="checkbox-field-1">19</label>
-  </div>
-  <div>
-    <input id="checkbox-field-2" name="checkbox-field" type="checkbox" value="20">
-    <label for="checkbox-field-2">20</label>
-  </div>
+<div class="">
+  <label for="checkbox-18" class="">
+    <span class="">
+      <input id="checkbox-18" value="18" type="checkbox" name="checkbox" class="">
+    </span>
+    <span class="">18</span>
+  </label>
+  <label for="checkbox-19" class="">
+    <span class="">
+      <input id="checkbox-19" value="19" type="checkbox" name="checkbox" class="">
+    </span>
+    <span class="">19</span>
+  </label>
+  <label for="checkbox-20" class="">
+    <span class="">
+      <input id="checkbox-20" value="20" type="checkbox" name="checkbox" class="">
+    </span>
+    <span class="">20</span>
+  </label>
 </div>
 ```
 
@@ -201,19 +223,25 @@ The component accepts the options in different formats:
 />
 
 <!-- Will Render: -->
-<div>
-  <div>
-    <input id="checkbox-field-0" name="checkbox-field" type="checkbox" value="A">
-    <label for="checkbox-field-0">One option</label>
-  </div>
-  <div>
-    <input id="checkbox-field-1" name="checkbox-field" type="checkbox" value="B">
-    <label for="checkbox-field-1">Another option</label>
-  </div>
-  <div>
-    <input id="checkbox-field-2" name="checkbox-field" type="checkbox" value="C">
-    <label for="checkbox-field-2">One more</label>
-  </div>
+<div class="">
+  <label for="checkbox-a" class="">
+    <span class="">
+      <input id="checkbox-a" value="A" type="checkbox" name="checkbox" class="">
+    </span>
+    <span class="">One option</span>
+  </label>
+  <label for="checkbox-b" class="">
+    <span class="">
+      <input id="checkbox-b" value="B" type="checkbox" name="checkbox" class="">
+    </span>
+    <span class="">Another option</span>
+  </label>
+  <label for="checkbox-c" class="">
+    <span class="">
+      <input id="checkbox-c" value="C" type="checkbox" name="checkbox" class="">
+    </span>
+    <span class="">One more</span>
+  </label>
 </div>
 ```
 

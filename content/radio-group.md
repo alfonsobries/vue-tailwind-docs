@@ -117,28 +117,44 @@ The component accepts the options in different formats:
 
 <!-- All the examples above will render: -->
 <div class="">
-  <label to="1" class="flex items-center">
-    <span class="inline-flex">
-      <input value="1" id="1" type="radio" class="form-radio transition duration-150 ease-in-out"></span><span class="text-sm uppercase mx-2 text-gray-700">Option 1</span></label><label to="2" class="flex items-center"><span class="inline-flex"><input value="2" id="2" type="radio" class="form-radio transition duration-150 ease-in-out"></span><span class="text-sm uppercase mx-2 text-gray-700">Option 2</span></label></div>
-```
-
-### Object with value:text pairs
-```html
-<t-radio-group :options="{ A: 'Option A', B: 'Option B', C: 'Option C' }" />
-
-<!-- Will Render: -->
-<div class="">
-  <label to="radio-1" class="">
+  <label for="radio-1" class="">
     <span class="">
       <input id="radio-1" value="1" type="radio" name="radio" class="">
     </span>
     <span class="">Option 1</span>
   </label>
-  <label to="radio-2" class="">
+  <label for="radio-2" class="">
     <span class="">
       <input id="radio-2" value="2" type="radio" name="radio" class="">
     </span>
     <span class="">Option 2</span>
+  </label>
+</div>
+```
+
+### Object with value:text pairs
+```html
+<t-radio-group :options="{ A: 'Option A', B: 'Option B', C: 'Option C' }" name="radio" />
+
+<!-- Will Render: -->
+<div class="">
+  <label for="radio-a" class="">
+    <span class="">
+      <input id="radio-a" value="A" type="radio" name="radio" class="">
+    </span>
+    <span class="">Option A</span>
+  </label>
+  <label for="radio-b" class="">
+    <span class="">
+      <input id="radio-b" value="B" type="radio" name="radio" class="">
+    </span>
+    <span class="">Option B</span>
+  </label>
+  <label for="radio-c" class="">
+    <span class="">
+      <input id="radio-c" value="C" type="radio" name="radio" class="">
+    </span>
+    <span class="">Option C</span>
   </label>
 </div>
 ```
@@ -149,19 +165,19 @@ The component accepts the options in different formats:
 
 <!-- Will Render: -->
 <div class="">
-  <label to="radio-red" class="">
+  <label for="radio-red" class="">
     <span class="">
       <input id="radio-red" value="red" type="radio" name="radio" class="">
     </span>
     <span class="">Red</span>
   </label>
-  <label to="radio-blue" class="">
+  <label for="radio-blue" class="">
     <span class="">
       <input id="radio-blue" value="blue" type="radio" name="radio" class="">
     </span>
     <span class="">Blue</span>
   </label>
-  <label to="radio-yellow" class="">
+  <label for="radio-yellow" class="">
     <span class="">
       <input id="radio-yellow" value="yellow" type="radio" name="radio" class="">
     </span>
@@ -171,23 +187,23 @@ The component accepts the options in different formats:
 ```
 ### Array of numbers
 ```html
-<t-radio-group :options="[18, 19, 20]" />
+<t-radio-group :options="[18, 19, 20]" name="radio" />
 
 <!-- Will Render: -->
 <div class="">
-  <label to="radio-18" class="">
+  <label for="radio-18" class="">
     <span class="">
       <input id="radio-18" value="18" type="radio" name="radio" class="">
     </span>
     <span class="">18</span>
   </label>
-  <label to="radio-19" class="">
+  <label for="radio-19" class="">
     <span class="">
       <input id="radio-19" value="19" type="radio" name="radio" class="">
     </span>
     <span class="">19</span>
   </label>
-  <label to="radio-20" class="">
+  <label for="radio-20" class="">
     <span class="">
       <input id="radio-20" value="20" type="radio" name="radio" class="">
     </span>
@@ -199,6 +215,7 @@ The component accepts the options in different formats:
 ### Define the value/text attributes
 ```html
 <t-radio-group
+  name="radio"
   :options="[
     { key: 'A', description: 'One option' },
     { key: 'B', description: 'Another option' },
@@ -210,19 +227,19 @@ The component accepts the options in different formats:
 
 <!-- Will Render: -->
 <div class="">
-  <label to="radio-a" class="">
+  <label for="radio-a" class="">
     <span class="">
       <input id="radio-a" value="a" type="radio" name="radio" class="">
     </span>
     <span class="">One option</span>
   </label>
-  <label to="radio-b" class="">
+  <label for="radio-b" class="">
     <span class="">
       <input id="radio-b" value="b" type="radio" name="radio" class="">
     </span>
     <span class="">Another option</span>
   </label>
-  <label to="radio-c" class="">
+  <label for="radio-c" class="">
     <span class="">
       <input id="radio-c" value="c" type="radio" name="radio" class="">
     </span>
