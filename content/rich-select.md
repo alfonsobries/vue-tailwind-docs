@@ -1,5 +1,5 @@
 ---
-title: TailwindCSS Rich Select Vue Component
+title: Rich Select Component
 description: VueJs reactive rich select component inspired in jquery select2 with configurable classes, variants, and most common events. Friendly with utility-first frameworks like TailwindCSS.
 ---
 

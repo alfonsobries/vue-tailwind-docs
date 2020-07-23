@@ -1,5 +1,5 @@
 ---
-title: TailwindCSS Radio button Vue Component
+title: Radio Input component
 description: VueJs reactive radio button component with customizable TailwindCSS or any CSS Framework classes.
 ---
 

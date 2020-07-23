@@ -1,5 +1,5 @@
 ---
-title: TailwindCSS Button Vue Component
+title: Button Component
 description: VueJs reactive button component with customizable TailwindCSS or any CSS Framework classes.
 ---
 

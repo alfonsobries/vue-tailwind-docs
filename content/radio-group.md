@@ -1,5 +1,5 @@
 ---
-title: TailwindCSS Radio Group Vue Component
+title: Radio Group Component
 description: VueJs reactive radio input group component with customizable TailwindCSS or any CSS Framework classes.
 ---
 

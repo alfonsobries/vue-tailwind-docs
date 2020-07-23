@@ -1,9 +1,9 @@
 ---
-title: TailwindCSS Checkbox Vue Component
+title: Checkbox Component
 description: VueJs reactive Checkbox component with customizable TailwindCSS or any CSS Framework classes.
 ---
 
-# checkbox input (TCheckbox)
+# Checkbox input (TCheckbox)
 
 VueJs reactive `<input type="checkbox" />` component with configurable classes, variants, and most common events. Friendly with utility-first frameworks like TailwindCSS..
 

@@ -200,6 +200,18 @@ Vue.use(VueTailwind, {
         leaveClass: 'transition ease-in transform opacity-100',
         leaveActiveClass: '',
         leaveToClass: 'transform opacity-0 duration-75'
+      },
+      searchBox: {
+        // button: '',
+        wrapper: 'max-w-lg w-full lg:max-w-xs relative',
+        dropdownWrapper: '',
+        dropdown: 'origin-top-right right-0 rounded-md shadow-lg bg-white border w-full fixed mt-3 md:absolute md:mt-0'
+        // enterClass: '',
+        // enterActiveClass: 'transition ease-out duration-100 transform opacity-0',
+        // enterToClass: 'transform opacity-100',
+        // leaveClass: 'transition ease-in transform opacity-100',
+        // leaveActiveClass: '',
+        // leaveToClass: 'transform opacity-0 duration-75'
       }
     }
   },

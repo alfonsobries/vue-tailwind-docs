@@ -1,5 +1,5 @@
 ---
-title: TailwindCSS Dialog Vue Component
+title: Dialog Component
 description: VueJs reactive dialog component with configurable classes and variants. Friendly with utility-first frameworks like TailwindCSS.
 ---
 

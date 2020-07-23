@@ -1,5 +1,5 @@
 ---
-title: TailwindCSS Text Input Vue Component
+title: Text Input Component
 description: VueJs reactive text input component with customizable TailwindCSS or any CSS Framework classes.
 ---
 

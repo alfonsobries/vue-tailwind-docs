@@ -1,5 +1,5 @@
 ---
-title: TailwindCSS Datepicker Vue Component
+title: Datepicker Component
 description: VueJs reactive datepicker component with configurable classes and variants. Friendly with utility-first frameworks like TailwindCSS.
 ---
 

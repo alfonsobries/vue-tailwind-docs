@@ -1,5 +1,5 @@
 ---
-title: TailwindCSS Tag Vue Component
+title: Custom Tag Component
 description: VueJs custom HTML tag with configurable classes and infinite variants. Friendly with utility-first frameworks like TailwindCSS.
 ---
 

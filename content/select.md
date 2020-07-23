@@ -1,5 +1,5 @@
 ---
-title: TailwindCSS select Vue Component
+title: Select component
 description: VueJs reactive select component with customizable TailwindCSS or any CSS Framework classes.
 ---
 

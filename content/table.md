@@ -1,5 +1,5 @@
 ---
-title: TailwindCSS Table Vue Component
+title: Table component
 description: VueJs reactive HTML Table component with customizable TailwindCSS or any CSS Framework classes.
 ---
 

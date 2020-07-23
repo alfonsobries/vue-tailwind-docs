@@ -1,5 +1,5 @@
 ---
-title: TailwindCSS Checkbox Group Vue Component
+title: Checkbox Group Component
 description: VueJs reactive Checkbox group component with customizable TailwindCSS or any CSS Framework classes.
 ---
 

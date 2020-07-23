@@ -1,5 +1,5 @@
 ---
-title: TailwindCSS Textarea Vue Component
+title: Textarea Component
 description: VueJs reactive textarea component with customizable TailwindCSS or any CSS Framework classes.
 ---
 

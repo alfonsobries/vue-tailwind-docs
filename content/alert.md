@@ -1,5 +1,5 @@
 ---
-title: TailwindCSS Alert Vue Component
+title: Alert Component
 description: VueJs Alert component with configurable classes and infinite variants. Friendly with utility-first frameworks like TailwindCSS.
 ---
 

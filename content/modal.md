@@ -1,5 +1,5 @@
 ---
-title: TailwindCSS Modal Vue Component
+title: Modal Component
 description: VueJs Modal component with configurable classes and infinite variants. Friendly with utility-first frameworks like TailwindCSS.
 ---
 

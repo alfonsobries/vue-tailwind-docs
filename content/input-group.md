@@ -1,5 +1,5 @@
 ---
-title: TailwindCSS Input Group Vue Component
+title: Input Group Component
 description: VueJs input group component with configurable classes and variants. Friendly with utility-first frameworks like TailwindCSS.
 ---
 
