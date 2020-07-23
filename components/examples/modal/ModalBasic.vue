@@ -2,6 +2,7 @@
   <preview>
     <t-modal
       variant="demo"
+      :fixed-classes="{}"
       :value="true"
       :focus-on-open="false"
       :disable-body-scroll="false"

@@ -199,7 +199,7 @@ The properties in that object are the following:
 ```
 
 
-## Headers `value` attribute
+## Headers value attribute
 
 When you use the `value` attribute in the headers items together with `data` objects the datatable will render only the attributes that are in the headers.
 
