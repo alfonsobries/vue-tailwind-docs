@@ -47,6 +47,9 @@ import TCheckboxGroupDemo from '@/components/demos/TCheckboxGroupDemo'
 import TRadioGroupPlayground from '@/components/playgrounds/TRadioGroupPlayground'
 import TRadioGroupDemo from '@/components/demos/TRadioGroupDemo'
 
+import TPaginationPlayground from '@/components/playgrounds/TPaginationPlayground'
+import TPaginationDemo from '@/components/demos/TPaginationDemo'
+
 import TTablePlayground from '@/components/playgrounds/TTablePlayground'
 import TTableDemo from '@/components/demos/TTableDemo'
 import TTableResponsiveDemo from '@/components/demos/TTableResponsiveDemo'
@@ -105,6 +108,8 @@ Vue.component('t-checkbox-group-playground', TCheckboxGroupPlayground)
 Vue.component('t-checkbox-group-demo', TCheckboxGroupDemo)
 Vue.component('t-radio-group-playground', TRadioGroupPlayground)
 Vue.component('t-radio-group-demo', TRadioGroupDemo)
+Vue.component('t-pagination-playground', TPaginationPlayground)
+Vue.component('t-pagination-demo', TPaginationDemo)
 
 Vue.component('select-arrow-slot-example', SelectArrowSlotExample)
 Vue.component('radio-basic-example', RadioBasicExample)
