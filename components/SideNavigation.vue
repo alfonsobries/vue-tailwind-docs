@@ -22,7 +22,7 @@
         <span class="ml-2">Theme Builder</span>
       </nuxt-link>
       <nuxt-link
-        to="/community"
+        to="/community-themes"
         class="px-3 py-1 mb-2 transition duration-200 ease-in-out relative hover:text-gray-900 text-gray-600 rounded flex items-center text-sm"
         active-class="text-gray-900"
       >
