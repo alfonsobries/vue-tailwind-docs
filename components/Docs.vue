@@ -3,7 +3,7 @@
     <div class="mx-auto max-w-screen-xl px-4 sm:px-6">
       <div class="flex lg:-mx-6 relative">
         <side-navigation
-          class="hidden lg:block lg:px-6 lg:w-1/5 lg:-mt-16"
+          class="hidden lg:block lg:pb-6 lg:w-1/5 lg:-mt-16 lg:pt-16"
         />
 
         <div class="lg:px-6 pt-10 lg:w-3/5 w-full mb-10">

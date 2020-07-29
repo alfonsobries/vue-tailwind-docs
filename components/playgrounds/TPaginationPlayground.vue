@@ -4,8 +4,6 @@
     :settings.sync="settings"
     :params.sync="params"
     :variant="variant"
-    :min-height="300"
-    :initial-height="300"
   >
     <template slot="controls">
       <fieldset>
@@ -116,7 +114,7 @@ export default ComponentPlayground.extend({
     return {
       variant: '',
       params: {
-        totalItems: 50,
+        totalItems: 200,
         perPage: 20,
         value: 2,
         limit: 5,
