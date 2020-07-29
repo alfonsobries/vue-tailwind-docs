@@ -8,6 +8,10 @@
 
     <hr class="border-t my-4">
 
+    <p class="my-4 italic max-w-md mx-auto">
+      This feature is not ready yet but will be very soon, follow @alfonsobries on twitter to get updates.
+    </p>
+
     <div v-if="storedTheme">
       <h3 class="text-2xl font-medium text-gray-900">
         ¡Great work!
@@ -63,7 +67,7 @@
         >
           <t-input
             v-model="form.name"
-            :disabled="form.busy"
+            disabled
             :variant="{
               'error': form.errors.has('name')
             }"
@@ -82,7 +86,7 @@
         >
           <t-textarea
             v-model="form.description"
-            :disabled="form.busy"
+            disabled
             :variant="{
               'error': form.errors.has('description')
             }"
@@ -118,9 +122,10 @@
 
       <t-input-group>
         <t-button
-          :disabled="form.busy"
+          :disabled="true || form.busy"
           type="button"
           class="d-block w-full"
+          variant="disabled"
           @click.prevent="storeTheme"
         >
           <template v-if="form.busy">
@@ -197,19 +202,20 @@ export default Vue.extend({
       this.form.busy = false
     },
     storeTheme () {
-      this.form.busy = true
-      // if (!this.$auth.loggedIn) {
-      //   this.authSubmitted = true
-      //   this.$refs.authForm.submitForm()
-      // }
 
-      this.form.post('/themes')
-        .then(({ data: theme }) => {
-          this.storedTheme = theme
-        })
-        .catch((error) => {
-          this.$handleException(error)
-        })
+      // this.form.busy = true
+      // // if (!this.$auth.loggedIn) {
+      // //   this.authSubmitted = true
+      // //   this.$refs.authForm.submitForm()
+      // // }
+
+      // this.form.post('/themes')
+      //   .then(({ data: theme }) => {
+      //     this.storedTheme = theme
+      //   })
+      //   .catch((error) => {
+      //     this.$handleException(error)
+      //   })
     }
   }
 })

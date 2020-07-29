@@ -462,7 +462,7 @@ export default Vue.extend({
   },
   data () {
     return {
-      step: 0,
+      step: 3,
       stepReady: 0,
       lastActiveStep: 0,
       selectedComponents: Object.keys(defaultTheme),

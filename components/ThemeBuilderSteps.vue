@@ -44,8 +44,8 @@ export default Vue.extend({
           description: 'Grab the code to use with the VueTailwnd plugin'
         },
         {
-          label: 'Share it',
-          description: 'Optionally share your theme with the community'
+          label: 'Share it (WIP)',
+          description: 'Optionally share your theme with the community (Coming soon...)'
         }
       ]
     }
