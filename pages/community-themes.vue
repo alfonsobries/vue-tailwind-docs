@@ -5,7 +5,11 @@
         Community themes
       </h1>
 
-      <p>Coming soon...</p>
+      <p>This section is not ready yet, but the idea is to have a place with themes created and shared by the community, the first version of this feature is almost ready and will be released soon.</p>
+
+      <p class="mt-4">
+        Follow me on twitter to be informed about this feature <a class="underline text-orange-500" target="_blank" href="https://twitter.com/alfonsobries">@alfonsobries</a>.
+      </p>
     </div>
   </div>
 </template>
