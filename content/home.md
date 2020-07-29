@@ -89,8 +89,14 @@ The variant prop also accepts an object that takes the first attribute with a _t
 - Unlimited variants and a easy way to configure them
 
 
+## Whats next?
+
+- Im working in a datepicker that is the most requested component, after that im planning to create a swal like dialog component.
+- Already started to work in a react version of this package called react-tailwind.
+- Im making some final changes to the Community themes features that should be released soon.
+
 ## Contribute
 
-Is this project helpful for you? Consider sponsoring me [https://github.com/sponsors/alfonsobries](https://github.com/sponsors/alfonsobries)
+Is this project helpful for you? Consider sponsoring me [https://github.com/sponsors/alfonsobries](https://github.com/sponsors/alfonsobries).
 
-Of course, any other kind help is welcome, even if you notice some grammar mistakes (English is not my primary language) see [CONTRIBUTING](https://github.com/alfonsobries/vue-tailwind/blob/master/CONTRIBUTING.md) for details.
+Of course, any other kind help is welcome, even if you notice some grammar mistakes (English is not my primary language) see <nuxt-link to="/contribute">contribute page</nuxt-link> for details.

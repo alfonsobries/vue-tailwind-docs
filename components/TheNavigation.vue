@@ -12,7 +12,7 @@
   >
     <template slot="trigger" slot-scope="{ mousedownHandler, focusHandler, blurHandler, keydownHandler, isShown }">
       <div
-        class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 z-50 relative bg-white shadow-sm lg:shadow-none lg:bg-transparent"
+        class="max-w-screen-xl mx-auto px-2 sm:px-4 lg:px-8 z-50 relative bg-white shadow-sm lg:shadow-none lg:bg-transparent"
       >
         <div class="relative flex items-center justify-between h-16 z-50">
           <div class="flex items-center px-2 lg:px-0">
