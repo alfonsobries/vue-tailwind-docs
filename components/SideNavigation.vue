@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <div class="lg:sticky top-0 lg:max-h-screen lg:overflow-y-auto lg:scrolling-touch">
+    <div class="lg:sticky lg:top-0 lg:max-h-screen lg:overflow-y-auto lg:scrolling-touch lg:pt-10 ">
       <nuxt-link
         to="/docs/installation"
         class="px-3 py-1 mb-2 transition duration-200 ease-in-out relative hover:text-gray-900 text-gray-600 rounded flex items-center text-sm"

@@ -17,8 +17,8 @@
       <nuxt />
     </main>
 
-    <div>
-      <div class="container mx-auto md:flex justify-between py-8 text-center">
+    <footer class="border-t px-6">
+      <div class="max-w-screen-xl mx-auto md:flex justify-between py-8 text-center">
         <div class="flex justify-center md:order-2">
           <a href="https://twitter.com/alfonsobries" target="_blank" class="ml-6 text-gray-600 hover:text-gray-700">
             <span class="sr-only">Twitter</span>
@@ -43,7 +43,7 @@
           </p>
         </div>
       </div>
-    </div>
+    </footer>
   </div>
 </template>
 
