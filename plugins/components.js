@@ -53,6 +53,9 @@ import TRadioGroupDemo from '@/components/demos/TRadioGroupDemo'
 import TPaginationPlayground from '@/components/playgrounds/TPaginationPlayground'
 import TPaginationDemo from '@/components/demos/TPaginationDemo'
 
+import TDropdownPlayground from '@/components/playgrounds/TDropdownPlayground'
+import TDropdownDemo from '@/components/demos/TDropdownDemo'
+
 import TTablePlayground from '@/components/playgrounds/TTablePlayground'
 import TTableDemo from '@/components/demos/TTableDemo'
 import TTableResponsiveDemo from '@/components/demos/TTableResponsiveDemo'
@@ -74,6 +77,12 @@ import TableSlotTfootExample from '@/components/examples/table/SlotTfoot.vue'
 import TableResponsiveExample from '@/components/examples/table/Responsive.vue'
 import CheckboxGroupLabelSlotExample from '@/components/examples/checkbox-group/LabelSlot.vue'
 import RadioGroupLabelSlotExample from '@/components/examples/radio-group/LabelSlot.vue'
+import DropdownSlotDefaultExample from '@/components/examples/dropdown/SlotDefault.vue'
+import DropdownSlotTriggerExample from '@/components/examples/dropdown/SlotTrigger.vue'
+import DropdownSlotTriggerExample2 from '@/components/examples/dropdown/SlotTrigger2.vue'
+import DropdownSlotTriggerExample3 from '@/components/examples/dropdown/SlotTrigger3.vue'
+import DropdownSlotTriggerExample4 from '@/components/examples/dropdown/SlotTrigger4.vue'
+import TDropdownResponsiveDemo from '@/components/demos/TDropdownResponsiveDemo.vue'
 
 Vue.component('tip', Tip)
 Vue.component('preview', Preview)
@@ -116,6 +125,9 @@ Vue.component('t-radio-group-playground', TRadioGroupPlayground)
 Vue.component('t-radio-group-demo', TRadioGroupDemo)
 Vue.component('t-pagination-playground', TPaginationPlayground)
 Vue.component('t-pagination-demo', TPaginationDemo)
+Vue.component('t-dropdown-playground', TDropdownPlayground)
+Vue.component('t-dropdown-demo', TDropdownDemo)
+Vue.component('t-dropdown-responsive-demo', TDropdownResponsiveDemo)
 
 Vue.component('select-arrow-slot-example', SelectArrowSlotExample)
 Vue.component('radio-basic-example', RadioBasicExample)
@@ -134,3 +146,8 @@ Vue.component('table-slot-tfoot-example', TableSlotTfootExample)
 Vue.component('table-responsive-example', TableResponsiveExample)
 Vue.component('checkbox-group-label-slot-example', CheckboxGroupLabelSlotExample)
 Vue.component('radio-group-label-slot-example', RadioGroupLabelSlotExample)
+Vue.component('dropdown-slot-default-example', DropdownSlotDefaultExample)
+Vue.component('dropdown-slot-trigger-example', DropdownSlotTriggerExample)
+Vue.component('dropdown-slot-trigger-example-2', DropdownSlotTriggerExample2)
+Vue.component('dropdown-slot-trigger-example-3', DropdownSlotTriggerExample3)
+Vue.component('dropdown-slot-trigger-example-4', DropdownSlotTriggerExample4)

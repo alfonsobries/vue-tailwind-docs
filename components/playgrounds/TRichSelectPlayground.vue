@@ -4,6 +4,8 @@
     :settings.sync="settings"
     :params.sync="params"
     :variant="variant"
+    :min-height="350"
+    :initial-height="350"
   >
     <template slot="controls">
       <fieldset>
