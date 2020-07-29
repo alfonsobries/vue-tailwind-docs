@@ -20,6 +20,10 @@
     <footer class="border-t px-6">
       <div class="max-w-screen-xl mx-auto md:flex justify-between py-8 text-center">
         <div class="flex justify-center md:order-2">
+          <a href="https://v0.vue-tailwind.com/" target="_blank" class="ml-6 text-gray-600 hover:text-gray-700">
+            Version 0.x Docs
+          </a>
+
           <a href="https://twitter.com/alfonsobries" target="_blank" class="ml-6 text-gray-600 hover:text-gray-700">
             <span class="sr-only">Twitter</span>
             <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">

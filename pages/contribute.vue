@@ -1,18 +1,40 @@
 <template>
-  <div class="mx-auto max-w-screen-xl px-4 sm:px-6 pb-10 bg-gray-100 py-10">
-    <h1 class="mb-10 leading-none text-gray-900 font-medium text-3xl tracking-tight">
-      Contribute
-    </h1>
+  <div class="mx-auto max-w-screen-xl px-4 sm:px-6 pb-10 py-10">
+    <div class="max-w-xl mx-auto">
+      <h1 class="mb-10 leading-none text-gray-900 font-medium text-3xl tracking-tight">
+        Contribute to this project
+      </h1>
+      <h3 class="text-xl font-semibold">
+        👋 Hey! Alfonso here
+      </h3>
 
-    <h3 class="text-gray-800 text-2xl">
-      👋 Hey! Alfonso here
-    </h3>
+      <p class="mt-4">
+        I spend hundreds of hours in this project to challenge myself to make the greatest and more flexible library of UI components for CSS utility-first frameworks like TailwindCSS.
+      </p>
 
-    <p>I spend hundreds of hours in this project with the purpose of challengue myself to make the greatest and more flexible library of UI components for utility-first frameworks, as you may imagine this project represents a lot of work and different associated costs.</p>
+      <p class="mt-4">
+        As you may imagine, this project represents a lot of work and different associated costs.
+      </p>
 
-    <p>
-      You can in different ways
-    </p><p>The contributions allow me to spend more time on this project so, if you want to help a good way is to sponsor me, you can do it here [https://github.com/sponsors/alfonsobries](https://github.com/sponsors/alfonsobries) or visit the [contribute](/contribute) page for more info.</p>
+      <p class="mt-4">
+        Is this project is helpful for you can help in different ways:
+      </p>
+
+      <ol class="px-4 list-decimal">
+        <li class="mt-4">
+          Help to add new features or fixing bugs in Github <a class="underline border-orange-300 hover:text-orange-600 text-orange-500" href="https://github.com/alfonsobries/vue-tailwind" target="_blank">https://github.com/alfonsobries/vue-tailwind</a>
+        </li>
+        <li class="mt-4">
+          Improve the documentation by fixing missing or wrong information, typos, or grammar errors (I'm not a native English speaker). Check the source code here: <a class="underline border-orange-300 hover:text-orange-600 text-orange-500" target="_blank" href="https://github.com/alfonsobries/vue-tailwind-themes">https://github.com/alfonsobries/vue-tailwind-themes</a>
+        </li>
+        <li class="mt-4">
+          One of the best ways to help me is by sponsoring me in GitHub <a class="underline border-orange-300 hover:text-orange-600 text-orange-500" target="_blank" href="https://github.com/sponsors/alfonsobries">https://github.com/sponsors/alfonsobries</a> so I can spend more time in this project and still pay the bills.
+        </li>
+        <li class="mt-4">
+          I can also avaiable for small projects, you can contact me via <a class="underline border-orange-300 hover:text-orange-600 text-orange-500" target="_blank" href="https://twitter.com/alfonsobries">twitter</a> or in my company website (<a class="underline border-orange-300 hover:text-orange-600 text-orange-500" target="_blank" href="https://www.vexilo.com/en">https://www.vexilo.com/en</a>).
+        </li>
+      </ol>
+    </div>
   </div>
 </template>
 
