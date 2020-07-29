@@ -92,7 +92,7 @@
           />
         </t-input-group>
       </form>
-      <template v-if="!$auth.loggedIn">
+      <!-- <template v-if="!$auth.loggedIn">
         <div v-if="signIn">
           <h3 class="text-lg leading-6 font-medium text-gray-900">
             Sign in
@@ -114,7 +114,7 @@
           <hr class="border-t my-4">
           <register-form ref="authForm" hide-submit-button @error="authNotReady" />
         </div>
-      </template>
+      </template> -->
 
       <t-input-group>
         <t-button
@@ -176,13 +176,13 @@ export default Vue.extend({
       return `${fullUrl}/themes/${this.storedTheme.slug}`
     }
   },
-  watch: {
-    '$auth.loggedIn' (loggedIn) {
-      if (loggedIn && this.authSubmitted) {
-        this.storeTheme()
-      }
-    }
-  },
+  // watch: {
+  //   '$auth.loggedIn' (loggedIn) {
+  //     if (loggedIn && this.authSubmitted) {
+  //       this.storeTheme()
+  //     }
+  //   }
+  // },
   methods: {
     copyPermalink () {
       copy(this.themePermalink)
@@ -198,10 +198,10 @@ export default Vue.extend({
     },
     storeTheme () {
       this.form.busy = true
-      if (!this.$auth.loggedIn) {
-        this.authSubmitted = true
-        this.$refs.authForm.submitForm()
-      }
+      // if (!this.$auth.loggedIn) {
+      //   this.authSubmitted = true
+      //   this.$refs.authForm.submitForm()
+      // }
 
       this.form.post('/themes')
         .then(({ data: theme }) => {
