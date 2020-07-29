@@ -178,7 +178,9 @@ export default Vue.extend({
   }),
   created () {
     this.$root.$on('routeChanged', () => {
-      this.$refs.menu.doHide()
+      if (this.$refs.menu) {
+        this.$refs.menu.doHide()
+      }
     })
   }
 })
