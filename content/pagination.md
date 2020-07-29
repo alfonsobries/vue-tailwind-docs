@@ -52,7 +52,7 @@ VueJs Pagination component with configurable classes and infinite variants. Frie
 | hideFirstLastControls | `Boolean`          | `false`              | If set will hide the first and last controls                          |
 | hidePrevNextControls  | `Boolean`          | `false`              | If set will hide the prev and next controls                           |
 | hideEllipsis          | `Boolean`          | `false`              | If set will hide ellipsis control                                     |
-| fixedClasses          | `Object`           | `{...}`  (see below) | The default CSS Fixed classes shared for all variants                 |
+| fixedClasses          | `Object`           | `undefined`          | The default CSS Fixed classes shared for all variants                 |
 | classes               | `Object`           | `{...}`  (see below) | The default CSS classes                                               |
 | variants              | `Object`           | `undefined`          | The different variants of classes the component have                  |
 | variant               | `[String, Object]` | `undefined`          | The variant that should be used                                       |

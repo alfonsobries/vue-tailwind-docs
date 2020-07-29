@@ -41,6 +41,9 @@ import TAlertDemo from '@/components/demos/TAlertDemo'
 import TModalPlayground from '@/components/playgrounds/TModalPlayground'
 import TModalDemo from '@/components/demos/TModalDemo'
 
+import TCardPlayground from '@/components/playgrounds/TCardPlayground'
+import TCardDemo from '@/components/demos/TCardDemo'
+
 import TCheckboxGroupPlayground from '@/components/playgrounds/TCheckboxGroupPlayground'
 import TCheckboxGroupDemo from '@/components/demos/TCheckboxGroupDemo'
 
@@ -62,6 +65,7 @@ import RichSelectOptionSlotExample from '@/components/examples/rich-select/RichS
 import RichSelectCreateOptionExample from '@/components/examples/rich-select/RichSelectCreateOption.vue'
 import TagBasicExample from '@/components/examples/tag/TagBasic.vue'
 import ModalBasicExample from '@/components/examples/modal/ModalBasic.vue'
+import CardBasicExample from '@/components/examples/card/CardBasic.vue'
 import TableSlotColumnExample from '@/components/examples/table/SlotColumn.vue'
 import TableSlotRowExample from '@/components/examples/table/SlotRow.vue'
 import TableSlotTbodyExample from '@/components/examples/table/SlotTbody.vue'
@@ -101,6 +105,8 @@ Vue.component('t-alert-playground', TAlertPlayground)
 Vue.component('t-alert-demo', TAlertDemo)
 Vue.component('t-modal-playground', TModalPlayground)
 Vue.component('t-modal-demo', TModalDemo)
+Vue.component('t-card-playground', TCardPlayground)
+Vue.component('t-card-demo', TCardDemo)
 Vue.component('t-table-playground', TTablePlayground)
 Vue.component('t-table-demo', TTableDemo)
 Vue.component('t-table-responsive-demo', TTableResponsiveDemo)
@@ -119,6 +125,7 @@ Vue.component('rich-select-option-slot-example', RichSelectOptionSlotExample)
 Vue.component('rich-select-create-option-example', RichSelectCreateOptionExample)
 Vue.component('tag-basic-example', TagBasicExample)
 Vue.component('modal-basic-example', ModalBasicExample)
+Vue.component('card-basic-example', CardBasicExample)
 Vue.component('table-slot-column-example', TableSlotColumnExample)
 Vue.component('table-slot-row-example', TableSlotRowExample)
 Vue.component('table-slot-tbody-example', TableSlotTbodyExample)
