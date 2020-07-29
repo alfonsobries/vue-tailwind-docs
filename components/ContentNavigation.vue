@@ -16,16 +16,16 @@
       </ul>
 
       <div id="add-1" class="mt-10">
-        <a href="https://www.vexilo.com/en/?utm_source=vuetailwind&amp;utm_medium=sidebar-widget" class="mt-3 block">
+        <a target="_blank" href="https://www.vexilo.com/en/?utm_source=vuetailwind&amp;utm_medium=sidebar-widget" class="mt-3 block">
           <img src="@/assets/img/vexilo-add.png" alt="Nearshore software development company">
         </a>
         <p class="mt-4 text-gray-700">
-          <a href="https://www.vexilo.com/en/?utm_source=vuetailwind&amp;utm_medium=sidebar-widget" class="text-gray-700">
+          <a target="_blank" href="https://www.vexilo.com/en/?utm_source=vuetailwind&amp;utm_medium=sidebar-widget" class="text-gray-700">
             Nearshore software development company
           </a>
         </p>
         <div class="mt-2">
-          <a href="https://www.vexilo.com/en/?utm_source=vuetailwind&amp;utm_medium=sidebar-widget" class="text-sm text-gray-800 font-medium hover:underline">
+          <a target="_blank" href="https://www.vexilo.com/en/?utm_source=vuetailwind&amp;utm_medium=sidebar-widget" class="text-sm text-gray-800 font-medium hover:underline">
             Learn more →
           </a>
         </div>
