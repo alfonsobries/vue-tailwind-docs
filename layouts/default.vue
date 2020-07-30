@@ -18,7 +18,7 @@
     </main>
 
     <footer class="border-t px-6">
-      <a class="absolute top-0 right-0 z-50 hidden xl:block" href="https://github.com/alfonsobries/vue-tailwind"><img
+      <a class="fixed top-0 right-0 z-40 hidden xl:block" href="https://github.com/alfonsobries/vue-tailwind"><img
         width="149"
         height="149"
         src="https://github.blog/wp-content/uploads/2008/12/forkme_right_orange_ff7600.png?resize=149%2C149"

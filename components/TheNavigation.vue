@@ -2,7 +2,7 @@
   <t-dropdown
     ref="menu"
     variant="menu"
-    class="fixed top-0 left-0 w-full z-50 transition ease-in-out duration-500 bg-white shadow-sm h-16"
+    class="fixed top-0 left-0 w-full z-40 transition ease-in-out duration-500 bg-white shadow-sm h-16"
     :class="{
       'lg:shadow-none lg:bg-transparent': transparent,
     }"
