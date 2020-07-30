@@ -12,13 +12,13 @@ Learn how to install and configure vue-tailwind.
 ## 1. Install the dependencies 
 
 ```console
-npm install vue-tailwind@next --save
+npm install vue-tailwind --save
 ``` 
 
 Or: 
 
 ```console
-yarn add vue-tailwind@next
+yarn add vue-tailwind
 ``` 
 
 <tip>

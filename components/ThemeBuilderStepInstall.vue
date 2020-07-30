@@ -67,8 +67,8 @@ export default Vue.extend({
   data () {
     return {
       copied: undefined,
-      installCode: `npm install --save vue-tailwind@next
-// Or yarn add vue-tailwind@next`
+      installCode: `npm install --save vue-tailwind
+// Or yarn add vue-tailwind`
     }
   },
   computed: {
