@@ -2063,14 +2063,14 @@
     consola "^2.11.3"
     http-proxy-middleware "^1.0.4"
 
-"@nuxtjs/tailwindcss@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/tailwindcss/-/tailwindcss-2.1.0.tgz#93d26f6096d95ade2285346c7325be598295c110"
-  integrity sha512-VaZvkESeOZ+cVucXcDr83xaAMqcaPVQUogWnMjmCT4UReQJm8rgWV1Yf5lxKYn85YN8wAhEcbVL77un0zPk1Xg==
+"@nuxtjs/tailwindcss@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/tailwindcss/-/tailwindcss-2.1.1.tgz#7120a269b5a43d4a9d60947f7f734458cf86c180"
+  integrity sha512-9DC7Adds1AKvxMbfW0Jd2EPpDUh3pVVE4wwiuJ45CiwOcz9EIU3Lc02h+bjnb1QFf07ZxJVO2xkN00IwQEFp8w==
   dependencies:
     consola "^2.14.0"
     fs-extra "^9.0.1"
-    tailwindcss "^1.5.1"
+    tailwindcss "^1.6.0"
 
 "@nuxtjs/youch@^4.2.3":
   version "4.2.3"
@@ -3438,11 +3438,6 @@ body-parser@1.19.0, body-parser@^1.19.0:
     qs "6.7.0"
     raw-body "2.4.0"
     type-is "~1.6.17"
-
-body-scroll-lock@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/body-scroll-lock/-/body-scroll-lock-3.0.2.tgz#97df9bb3b17a0140c4a09b3568d146ae9af6b981"
-  integrity sha512-PtItUun94iIupKry8J/h6SfRCLWZnly77KbPsTSKALmxfR282L8R0Ujkv7bydSZvLxAJS4sBJ3y/E6X8gYkGrQ==
 
 body-scroll-lock@^3.0.3:
   version "3.0.3"
@@ -11572,10 +11567,10 @@ table@^5.2.3:
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
 
-tailwindcss@^1.5.1:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-1.5.2.tgz#3e99526e55c600b9df9152b0db12449ed9770855"
-  integrity sha512-OR7wxFetvHruLkQABeQac7jFdTOs+MwXzsuccOuMItva9GBANPd2VX8NgJ3pdvuGSL23c5cVId9jsvuKgulBiQ==
+tailwindcss@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-1.6.0.tgz#cdad8cdd225129ad41bff6aa607aa39ad6524593"
+  integrity sha512-UZEex5ebsQlCTIBjI0oZITL67HBjOrzMgA4ceLOf8mrBGquLSn7LsO92do1nBSBZBV2Qqpivz9QUwT3zMSQkMA==
   dependencies:
     "@fullhuman/postcss-purgecss" "^2.1.2"
     autoprefixer "^9.4.5"
@@ -12474,13 +12469,13 @@ vue-style-loader@^4.1.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-tailwind@^1.0.0-39:
-  version "1.0.0-39"
-  resolved "https://registry.yarnpkg.com/vue-tailwind/-/vue-tailwind-1.0.0-39.tgz#47ebfdc38cafae7ab2550678e4e0c50ffd3afbff"
-  integrity sha512-QcN7ZNgGbHzf2uSlA9a/WI4Iy6gdRk/rljqtERYM70Bnr7ylPzNbxHo/qTTYdrqK75hmTKNwZyoVH0bmsMwotw==
+vue-tailwind@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/vue-tailwind/-/vue-tailwind-1.0.1.tgz#984d79cf785a80addb9a33f252b97a64e0d3809b"
+  integrity sha512-qhO3liCS+VUwVyykX+UJuvB4jlfM+Jm/hUjVd6QuDHBrbYEEFieancJH8ce02+aM6qR455Tjxs8hH8lbj3SICQ==
   dependencies:
-    body-scroll-lock "^3.0.2"
-    lodash "^4.17.15"
+    body-scroll-lock "^3.0.3"
+    lodash "^4.17.19"
     vue "^2.6.11"
 
 vue-template-compiler@^2.6.11:

@@ -28,7 +28,7 @@
     "nuxt": "^2.14.0",
     "vform": "^1.0.1",
     "vue-code-highlight": "^0.7.4",
-    "vue-tailwind": "^1.0.0-39"
+    "vue-tailwind": "^1.0.1"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.0",
@@ -36,7 +36,7 @@
     "@nuxtjs/eslint-config-typescript": "^3.0.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/google-analytics": "^2.4.0",
-    "@nuxtjs/tailwindcss": "^2.1.0",
+    "@nuxtjs/tailwindcss": "^2.1.1",
     "@tailwindcss/custom-forms": "^0.2.1",
     "@types/axios": "^0.14.0",
     "@vue/test-utils": "^1.0.3",
