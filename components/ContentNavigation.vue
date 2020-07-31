@@ -15,8 +15,6 @@
         </li>
       </ul>
 
-      <a class="mt-5 block" href="https://www.producthunt.com/posts/vuetailwind?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-vuetailwind" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=225300&theme=light" alt="VueTailwind - UI library of customizable vuejs components for TailwindCSS | Product Hunt Embed" style="width: 250px; height: 54px;" width="250px" height="54px"></a>
-
       <div id="add-1" class="mt-10">
         <a target="_blank" href="https://www.vexilo.com/en/?utm_source=vuetailwind&amp;utm_medium=sidebar-widget" class="mt-3 block">
           <img src="@/assets/img/vexilo-add.png" alt="Nearshore software development company">

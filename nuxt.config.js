@@ -12,7 +12,8 @@ export default {
       { hid: 'description', name: 'description', content: 'Set of customizable Vue components that works great with TailwindCSS Framework' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+      { 'data-ad-client': 'ca-pub-4751207776405212', src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', async: true }
     ]
   },
 
