@@ -1,1 +1,14 @@
+  /elements/input.html           /docs/text-input
+  /elements/textarea.html           /docs/textarea
+  /elements/select.html           /docs/select
+  /elements/radio.html           /docs/radio
+  /elements/radio-group.html           /docs/radio-group
+  /elements/checkbox.html           /docs/checkbox
+  /elements/checkbox-group.html           /docs/checkbox-group
+  /components/alert.html           /docs/alert
+  /components/table.html           /docs/table
+  /components/modal.html           /docs/modal
+  /components/pagination.html           /docs/pagination
+  /components/card.html           /docs/card
   /components/dropdown.html           /docs/dropdown
+  /components/input-group.html           /docs/input-group
