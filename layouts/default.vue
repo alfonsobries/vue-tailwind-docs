@@ -18,14 +18,6 @@
     </main>
 
     <footer class="border-t px-6">
-      <a class="fixed top-0 right-0 z-40 hidden xl:block" href="https://github.com/alfonsobries/vue-tailwind"><img
-        width="149"
-        height="149"
-        src="https://github.blog/wp-content/uploads/2008/12/forkme_right_orange_ff7600.png?resize=149%2C149"
-        class="attachment-full size-full"
-        alt="Fork me on GitHub"
-        data-recalc-dims="1"
-      ></a>
       <div class="max-w-screen-xl mx-auto md:flex justify-between py-8 text-center">
         <div class="flex justify-center md:order-2">
           <a href="https://v0.vue-tailwind.com/" target="_blank" class="ml-6 text-gray-600 hover:text-gray-700">
