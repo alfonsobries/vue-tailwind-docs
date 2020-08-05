@@ -12,8 +12,7 @@ export default {
       { hid: 'description', name: 'description', content: 'Set of customizable Vue components that works great with TailwindCSS Framework' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
-      { 'data-ad-client': 'ca-pub-4751207776405212', src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', async: true }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
     ]
   },
 
@@ -57,7 +56,12 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // '@nuxtjs/auth',
-    '@nuxt/content'
+    '@nuxt/content',
+    ['@nuxtjs/google-adsense', {
+      id: 'ca-pub-4751207776405212',
+      analyticsUacct: 'UA-142051519-1',
+      analyticsDomainName: 'vue-tailwind.com'
+    }]
   ],
   content: {
     markdown: {

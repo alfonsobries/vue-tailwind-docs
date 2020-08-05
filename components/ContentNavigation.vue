@@ -17,17 +17,7 @@
 
       <div id="add-1" class="mt-10">
         <!-- sidebar -->
-        <ins
-          class="adsbygoogle"
-          style="display:block"
-          data-ad-client="ca-pub-4751207776405212"
-          data-ad-slot="3494479226"
-          data-ad-format="auto"
-          data-full-width-responsive="true"
-        ><!-- --></ins>
-        <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
+        <adsbygoogle ad-slot="3494479226" />
       </div>
 
       <div id="add-2" class="mt-10">
