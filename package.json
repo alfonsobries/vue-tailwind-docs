@@ -13,7 +13,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@nuxt/content": "^1.5.3",
+    "@nuxt/content": "^1.6.0",
     "@nuxt/typescript-runtime": "^1.0.0",
     "@nuxtjs/auth": "^4.9.1",
     "@nuxtjs/axios": "^5.12.1",
@@ -42,10 +42,10 @@
     "@types/axios": "^0.14.0",
     "@vue/test-utils": "^1.0.3",
     "babel-eslint": "^10.1.0",
-    "babel-jest": "^26.2.2",
+    "babel-jest": "^26.3.0",
     "eslint": "^7.6.0",
     "eslint-plugin-nuxt": ">=1.0.0",
-    "jest": "^26.2.2",
+    "jest": "^26.3.0",
     "ts-jest": "^26.1.4",
     "vue-jest": "^4.0.0-0"
   }
