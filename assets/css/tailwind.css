@@ -5,6 +5,7 @@
 @import 'tailwindcss/utilities.css';
 @import './code';
 @import './markdown';
+@import './algolia';
 /* purgecss end ignore */
 
 .top-20 {

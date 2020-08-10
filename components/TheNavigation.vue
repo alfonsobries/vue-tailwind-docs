@@ -34,7 +34,28 @@
               </div>
             </div>
           </div>
-          <search-box :transparent="transparent" />
+          <div class="flex-1 flex justify-center px-2 lg:ml-6 lg:justify-end">
+            <label for="search" class="sr-only">Search</label>
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none z-10">
+                <svg class="h-5 w-5 text-gray-700" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <input
+                id="search"
+                autocomplete="off"
+                class="block w-full pl-10 pr-3 py-2 border border-transparent focus:outline-none focus:bg-gray-300 focus:text-gray-900 rounded-md leading-5 sm:text-sm transition duration-150 ease-in-out bg-gray-200 text-gray-700 placeholder-gray-600"
+                :class="{
+                  'lg:bg-white lg:placeholder-gray-500 ': transparent
+                }"
+                placeholder="Search the docs (Press &quot;/&quot; to focus)"
+                type="search"
+              >
+            </div>
+          </div>
+
+          <!-- <search-box :transparent="transparent" /> -->
           <div class="flex lg:hidden">
             <button
               class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-150 ease-in-out"
@@ -161,11 +182,11 @@
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
 import SideNavigation from '@/components/SideNavigation'
-import SearchBox from '@/components/SearchBox'
+// import SearchBox from '@/components/SearchBox'
 export default Vue.extend({
   components: {
-    SideNavigation,
-    SearchBox
+    SideNavigation
+    // SearchBox
   },
   props: {
     transparent: {

@@ -81,6 +81,14 @@ export default {
     })
 
     this.isScrolled = window.scrollY > 0
+
+    // eslint-disable-next-line no-undef
+    docsearch({
+      apiKey: '4aea9352059c96cd2e15f6e36965b3c7',
+      indexName: 'vue-tailwind',
+      inputSelector: '#search',
+      debug: true // Set debug to true if you want to inspect the dropdown
+    })
   },
   methods: {
     async logout () {

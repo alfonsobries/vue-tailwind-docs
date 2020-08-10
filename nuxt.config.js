@@ -12,7 +12,15 @@ export default {
       { hid: 'description', name: 'description', content: 'Set of customizable Vue components that works great with TailwindCSS Framework' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+      { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css' }
+    ],
+    script: [
+      {
+        tyoe: 'text/javascript',
+        src: 'https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js',
+        defer: true
+      }
     ]
   },
 

@@ -1,0 +1,33 @@
+/* Main dropdown wrapper */
+.algolia-autocomplete .ds-dropdown-menu {
+  @apply border-none shadow-sm bg-white;
+}
+
+@media (max-width: 640px) {
+  .algolia-autocomplete .ds-dropdown-menu {
+    right: 0 !important;
+    left: 0 !important;
+    position: fixed !important;
+    min-width: 100%;
+    width: 100%;
+    top: 4em !important;
+  }
+  .algolia-autocomplete.algolia-autocomplete-right .ds-dropdown-menu:before {
+    right: 30%;
+  }
+}
+
+/* Main category (eg. Getting Started) */
+.algolia-autocomplete .algolia-docsearch-suggestion--category-header {
+  @apply text-gray-800;
+}
+
+/* Highlighted text */
+.algolia-autocomplete .algolia-docsearch-suggestion--highlight {
+  @apply text-orange-500;
+}
+
+.algolia-autocomplete .ds-dropdown-menu [class^=ds-dataset-],
+.algolia-autocomplete .ds-dropdown-menu:before {
+@apply border-gray-300
+}
