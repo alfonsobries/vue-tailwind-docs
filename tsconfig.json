@@ -24,6 +24,7 @@
     },
     "types": [
       "@types/node",
+      "@types/vue",
       "@nuxt/types",
       "@nuxt/content"
     ]

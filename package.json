@@ -25,11 +25,11 @@
     "dotenv": "^8.2.0",
     "less": "^3.12.2",
     "less-loader": "^6.2.0",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.20",
     "nuxt": "^2.14.1",
     "vform": "^1.0.1",
     "vue-code-highlight": "^0.7.4",
-    "vue-tailwind": "^1.0.2"
+    "vue-tailwind": "^1.1.1"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.1",
@@ -43,10 +43,10 @@
     "@vue/test-utils": "^1.0.3",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.3.0",
-    "eslint": "^7.6.0",
+    "eslint": "^7.7.0",
     "eslint-plugin-nuxt": ">=1.0.0",
-    "jest": "^26.3.0",
-    "ts-jest": "^26.1.4",
+    "jest": "^26.4.0",
+    "ts-jest": "^26.2.0",
     "vue-jest": "^4.0.0-0"
   }
 }
