@@ -131,6 +131,14 @@
           </a>
         </div>
       </t-dropdown>
+      <t-toggle
+        v-else-if="componentName === 'TToggle'"
+        checked
+        :variant="variant"
+        :variants="variants"
+        :classes="classes"
+        :fixed-classes="fixedClasses"
+      />
       <t-pagination
         v-else-if="componentName === 'TPagination'"
         :value="2"

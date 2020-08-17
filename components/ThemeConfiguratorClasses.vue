@@ -183,6 +183,15 @@ export default Vue.extend({
             leaveToClass: ''
 
           }
+        case 'TToggle':
+          return {
+            wrapper: 'Wrapper',
+            wrapperChecked: 'Wrapper when checked',
+            button: 'Button',
+            buttonChecked: 'Button when checked',
+            checkedPlaceholder: 'Placeholder',
+            uncheckedPlaceholder: 'Placeholder when checked'
+          }
         case 'TAlert':
           return {
             wrapper: 'Wrapper',

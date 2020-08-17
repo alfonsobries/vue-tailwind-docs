@@ -67,6 +67,10 @@
           />
         </component-checkbox>
 
+        <component-checkbox v-model="selected" value="TToggle" label="TToggle">
+          <t-toggle />
+        </component-checkbox>
+
         <component-checkbox v-model="selected" value="TAlert" label="Alert">
           <t-alert class="pointer-events-none" show>
             So you selected VueJs & Tailwind Combo, Good decision!
@@ -171,8 +175,8 @@
 </template>
 <script>
 import Vue from 'vue'
-import ComponentCheckbox from './ThemeBuilderStepSelectComponentsSelector'
 import Icon from '@/components/Icon'
+import ComponentCheckbox from './ThemeBuilderStepSelectComponentsSelector'
 export default Vue.extend({
   components: {
     ComponentCheckbox,
