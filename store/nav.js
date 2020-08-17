@@ -90,6 +90,11 @@ export const state = () => ({
         {
           to: '/docs/input-group',
           text: 'Input group'
+        },
+        {
+          to: '/docs/toggle',
+          text: 'Toggle',
+          since: '1.1.0'
         }
       ]
     },

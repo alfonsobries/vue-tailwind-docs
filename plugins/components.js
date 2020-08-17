@@ -56,6 +56,9 @@ import TPaginationDemo from '@/components/demos/TPaginationDemo'
 import TDropdownPlayground from '@/components/playgrounds/TDropdownPlayground'
 import TDropdownDemo from '@/components/demos/TDropdownDemo'
 
+import TTogglePlayground from '@/components/playgrounds/TTogglePlayground'
+import TToggleDemo from '@/components/demos/TToggleDemo'
+
 import TTablePlayground from '@/components/playgrounds/TTablePlayground'
 import TTableDemo from '@/components/demos/TTableDemo'
 import TTableResponsiveDemo from '@/components/demos/TTableResponsiveDemo'
@@ -128,6 +131,8 @@ Vue.component('t-pagination-demo', TPaginationDemo)
 Vue.component('t-dropdown-playground', TDropdownPlayground)
 Vue.component('t-dropdown-demo', TDropdownDemo)
 Vue.component('t-dropdown-responsive-demo', TDropdownResponsiveDemo)
+Vue.component('t-toggle-playground', TTogglePlayground)
+Vue.component('t-toggle-demo', TToggleDemo)
 
 Vue.component('select-arrow-slot-example', SelectArrowSlotExample)
 Vue.component('radio-basic-example', RadioBasicExample)

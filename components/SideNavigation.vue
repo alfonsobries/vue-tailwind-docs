@@ -54,8 +54,11 @@
               active-class="bg-orange-100 text-orange-500"
             >
               {{ item.text }}
-              <span v-if="item.soon" class="bg-orange-500 leading-none ml-2 py-1 px-2 rounded-lg text-white text-xs">
+              <span v-if="item.soon" class="bg-orange-300 leading-none ml-2 py-1 px-2 rounded-lg text-orange-700 text-xs">
                 WIP
+              </span>
+              <span v-else-if="item.since" class="bg-orange-300 leading-none ml-2 py-1 px-2 rounded-lg text-orange-700 text-xs">
+                v{{ item.since }}+
               </span>
             </nuxt-link>
           </li>
