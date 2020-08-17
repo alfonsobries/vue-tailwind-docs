@@ -86,6 +86,7 @@ import DropdownSlotTriggerExample2 from '@/components/examples/dropdown/SlotTrig
 import DropdownSlotTriggerExample3 from '@/components/examples/dropdown/SlotTrigger3.vue'
 import DropdownSlotTriggerExample4 from '@/components/examples/dropdown/SlotTrigger4.vue'
 import TDropdownResponsiveDemo from '@/components/demos/TDropdownResponsiveDemo.vue'
+import ToggleDefaultSlotExample from '@/components/examples/toggle/SlotDefault.vue'
 
 Vue.component('tip', Tip)
 Vue.component('preview', Preview)
@@ -156,3 +157,4 @@ Vue.component('dropdown-slot-trigger-example', DropdownSlotTriggerExample)
 Vue.component('dropdown-slot-trigger-example-2', DropdownSlotTriggerExample2)
 Vue.component('dropdown-slot-trigger-example-3', DropdownSlotTriggerExample3)
 Vue.component('dropdown-slot-trigger-example-4', DropdownSlotTriggerExample4)
+Vue.component('toggle-default-slot-example', ToggleDefaultSlotExample)

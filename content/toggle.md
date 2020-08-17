@@ -14,180 +14,187 @@ VueJs reactive **toggle** component with configurable classes, variants, and mos
 ## Basic example
 
 ```html
-<div class="flex">
-  <label class="flex items-center">
-    <t-checkbpx name="options" value="a" />
-    <span class="ml-2 text-sm">Option A</span>
-  </label>
-  <label class="ml-2 flex items-center">
-    <t-checkbpx name="options" value="b" />
-    <span class="ml-2 text-sm">Option B</span>
-  </label>
-</div>
+<t-toggle checked />
 ```
 
-<checkbox-basic-example></checkbox-basic-example>
+<t-toggle checked></t-toggle>
 
 ## Props
 
 
-| Property          | Type                                       | Default value     | Description                                                                                                 |
-| ----------------- | ------------------------------------------ | ----------------- | ----------------------------------------------------------------------------------------------------------- |
-| model (`v-model`) | `[String, Object, Number, Boolean, Array]` | `undefined`       | The element using for the `v-model`                                                                         |
-| value             | `[String, Object, Number, Boolean, Array]` | `true`            | The value for the checkbox element when checked                                                             |
-| uncheckedValue    | `[String, Object, Number, Boolean, Array]` | `false`           | The value for the checkbox element when unchecked                                                           |
-| checked           | `[Boolean, String]`                        | `falee`           | HTML attribute                                                                                              |
-| id                | `String`                                   | `undefined`       | HTML attribute                                                                                              |
-| autofocus         | `Boolean`                                  | `undefined`       | HTML attribute                                                                                              |
-| disabled          | `Boolean`                                  | `undefined`       | HTML attribute                                                                                              |
-| name              | `String`                                   | `undefined`       | HTML attribute                                                                                              |
-| readonly          | `Boolean`                                  | `undefined`       | HTML attribute                                                                                              |
-| required          | `Boolean`                                  | `undefined`       | HTML attribute                                                                                              |
-| tabindex          | `[String, Number]`                         | `undefined`       | HTML attribute                                                                                              |
-| wrapped           | `Boolean`                                  | `undefined`       | If set the input will be wrapped in a div and will add some exra HTML (see [wrap checkbox](#wrap-checkbox)) |
-| wrapperTag        | `String`                                   | `'label'`         | The HTML tag to use to wrap the input when `wrapped` is set to true                                         |
-| label             | `String`                                   | `'label'`         | When the input is `wrapped` the label is added as sibling of the input                                      |
-| labelTag          | `String`                                   | `'span'`          | The HTML tag to use for the label prop                                                                      |
-| classes           | `[String, Array, Object]`                  | `'form-checkbox'` | The default CSS classes                                                                                     |
-| fixedClasses      | `[String, Array, Object]`                  | `undefined`       | Fixed CSS classes that will be merged with the active set of classes                                        |
-| variants          | `Object`                                   | `undefined`       | The different variants of classes the component have                                                        |
-| variant           | `[String, Object]`                         | `undefined`       | The variant that will be used                                                                               |
-
-## Wrap checkbox
-
-This component accepts the `wrapped` setting (or prop) that when set it will add some extra HTML tags that make the component even more flexible.
-
-Remember that the component can set as "wrapped" when installed or by using the `wrapped` prop (see [wrap inputs](/docs/theming#wrap-inputs) for more info):
-
-```js
-// When installed
-const theme = {
-  TCheckbox: {
-    wrapped: true,
-    // classes, variants, etc...
-  },
-  // ...
-}
-
-Vue.use(VueTailwind, theme)
-```
-
-```html
-<!-- // Using the wrapped prop -->
-<t-checkbox wrapped />
-```
-
-A wrapped checkbox input will be rendered like this:
-
-```html
-<label class="">
-  <span class="">
-    <input type="checkbox" class="">
-  </span>
-  <span class="">Label of the checkbox</span>
-</label>
-```
-
-### Classes for wrapped input
-
-When the input has the wrapped setting, the classes, variants, etc. need to be an object with the following properties:
+| Property             | Type                                       | Default value       | Description                                                          |
+| -------------------- | ------------------------------------------ | ------------------- | -------------------------------------------------------------------- |
+| model (`v-model`)    | `[String, Object, Number, Boolean, Array]` | `undefined`         | The element using for the `v-model`                                  |
+| value                | `[String, Object, Number, Boolean, Array]` | `true`              | The value for the element when checked                               |
+| uncheckedValue       | `[String, Object, Number, Boolean, Array]` | `false`             | The value for the element when unchecked                             |
+| checkedPlaceholder   | `String`                                   | `undefined`         | Optional string to show in the unchecked side                        |
+| uncheckedPlaceholder | `String`                                   | `undefined`         | Optional string to show in the checked side                          |
+| checkedLabel         | `String`                                   | `undefined`         | Optional string to show inside the button when checked               |
+| uncheckedLabel       | `String`                                   | `undefined`         | Optional string to show inside the button when unchecked             |
+| checked              | `Boolean`                                  | `undefined`         | Used to show the toggle as checked when no using a v-model           |
+| id                   | `String`                                   | `undefined`         | HTML attribute                                                       |
+| autofocus            | `Boolean`                                  | `undefined`         | HTML attribute                                                       |
+| disabled             | `Boolean`                                  | `undefined`         | HTML attribute                                                       |
+| name                 | `String`                                   | `undefined`         | HTML attribute of the hidden input                                   |
+| readonly             | `Boolean`                                  | `undefined`         | HTML attribute of the hidden input                                   |
+| required             | `Boolean`                                  | `undefined`         | HTML attribute of the hidden input                                   |
+| tabindex             | `[String, Number]`                         | `0`                 | HTML attribute                                                       |
+| classes              | `Object`                                   | `{...}` (see below) | The default CSS classes                                              |
+| fixedClasses         | `Object`                                   | `{...}` (see below) | Fixed CSS classes that will be merged with the active set of classes |
+| variants             | `Object`                                   | `undefined`         | The different variants of classes the component have                 |
+| variant              | `[String, Object]`                         | `undefined`         | The variant that will be used                                        |
 
 
-| Property            | Description                                                                      |
-| ------------------- | -------------------------------------------------------------------------------- |
-| wrapper             | Classes for the `label` HTML tag that wraps the whole component                  |
-| wrapperChecked      | Classes to apply to the wrapper when the checkbox input is checked               |
-| inputWrapper        | Classes for the `span` that wraps the checkbox input                             |
-| inputWrapperChecked | Classes to apply to the inputWrapper when the checkbox input is checked          |
-| input               | Classes for the checkbox input                                                   |
-| label               | Classes for the `label` that wraps the label prop                                |
-| labelChecked        | Classes for the `label` that wraps the label prop when checkbox input is checked |
+## Classes and variants format
 
-The "Checked" attributes are optional.
+This component expects an object with classes named after every child element.
 
-#### Example
+The properties in that object are the following:
+
+| Property             | Description                       |
+| -------------------- | --------------------------------- |
+| wrapper              | Wrapper of the component          |
+| wrapperChecked       | Wrapper when checked              |
+| button               | Toggle button                     |
+| buttonChecked        | Toggle button when checked        |
+| checkedPlaceholder   | Placeholder in the unchecked side |
+| uncheckedPlaceholder | Placeholder in the checked side   |
+
+
+### Default fixed classes
+
+As you may know, the fixed classes are shared and merged with the different variants and default classes. The classes we define here as default are the ones that you usually will need to make this component works correctly so you can only focus on colors, size, etc when creating your theme.
 
 ```js
-const theme = {
-  TCheckbox: {
-    wrapped: true,
-    classes: {
-      label: 'text-sm uppercase mx-2 text-gray-700',
-      input: 'form-checkbox transition duration-150 ease-in-out',
-      inputWrapper: 'inline-flex',
-      wrapper: 'flex items-center',
-      // labelChecked: '',
-      // inputWrapperChecked: '',
-      // wrapperChecked: '',
-    }
-    // Variants and fixed classes in the same `object` format ...
-  },
-  // ...
+{
+  wrapper: 'relative inline-flex flex-shrink-0 cursor-pointer transition-colors ease-in-out duration-200',
+  wrapperChecked: 'relative inline-flex flex-shrink-0 cursor-pointer transition-colors ease-in-out duration-200',
+  button: 'inline-block absolute transform translate-x-0 transition ease-in-out duration-200',
+  buttonChecked: 'inline-block absolute transform translate-x-full transition ease-in-out duration-200',
+  checkedPlaceholder: 'inline-block',
+  uncheckedPlaceholder: 'inline-block',
+};
+```
+
+### Default classes
+
+```js
+{
+  wrapper: 'bg-gray-200 focus:outline-none focus:shadow-outline rounded-full border-2 border-transparent',
+  wrapperChecked: 'bg-blue-500 focus:outline-none focus:shadow-outline rounded-full border-2 border-transparent',
+  button: 'h-5 w-5 rounded-full bg-white shadow  flex items-center justify-center text-gray-400 text-xs',
+  buttonChecked: 'h-5 w-5 rounded-full bg-white shadow  flex items-center justify-center text-blue-500 text-xs',
+  checkedPlaceholder: 'rounded-full w-5 h-5 flex items-center justify-center text-gray-500 text-xs',
+  uncheckedPlaceholder: 'rounded-full w-5 h-5 flex items-center justify-center text-gray-500 text-xs',
 }
-
-Vue.use(VueTailwind, theme)
 ```
 
-If you use the settings in the example above the component will be rendered like this:
+## Label and placeholders
 
-<preview>
-  <t-checkbox name="example-b" :classes="{
-    label: 'text-sm uppercase mx-2 text-gray-700',
-    input: 'form-checkbox transition duration-150 ease-in-out',
-    inputWrapper: 'inline-flex',
-    wrapper: 'flex items-center',
-  }" label="Option A" wrapped ></t-checkbox>
-  <t-checkbox name="example-b" :classes="{
-    label: 'text-sm uppercase mx-2 text-gray-700',
-    input: 'form-checkbox transition duration-150 ease-in-out',
-    inputWrapper: 'inline-flex',
-    wrapper: 'flex items-center',
-  }" label="Option B" wrapped></t-checkbox>
-</preview>
+The labels and placeholder are optional and are useful for adding some extra info to the toggle components, the label placeholder is shown inside the button and the placeholder behind.
 
-### Use a label
 
-When the TCheckbox component has the `wrapped` setting set it accepts a label prop that is added as a sibling of the `input`
+### Example
+
+A good example is an AM/PM toggle for a time picker
 
 ```html
-<t-checkbox wrapped label="my own option" name="example-2">
-<t-checkbox wrapped label="my own option 2" name="example-2">
+<t-toggle
+  value="PM"
+  unchecked-value="AM"
+  checked-placeholder="AM"
+  unchecked-placeholder="PM"
+  checked-label="PM"
+  unchecked-label="AM"
+  :classes="{
+    wrapper: 'bg-gray-200 focus:outline-none focus:shadow-outline rounded-sm border-2',
+    wrapperChecked: 'bg-gray-200 focus:outline-none focus:shadow-outline rounded-sm border-2',
+    button: 'rounded-sm w-6 h-6 bg-white shadow flex items-center justify-center text-gray-800 text-xs',
+    buttonChecked: 'rounded-sm w-6 h-6 bg-white shadow flex items-center justify-center text-gray-800 text-xs',
+    checkedPlaceholder: 'rounded-sm w-6 h-6 flex items-center justify-center text-gray-500 text-xs',
+    uncheckedPlaceholder: 'rounded-sm w-6 h-6 flex items-center justify-center text-gray-500 text-xs'
+  }"
+/>
 ```
 
 <preview>
-<t-checkbox wrapped label="my own option" name="example-2"></t-checkbox>
-<t-checkbox wrapped label="my own option 2" name="example-2"></t-checkbox>
+<t-toggle
+  value="PM"
+  unchecked-value="AM"
+  checked-placeholder="AM"
+  unchecked-placeholder="PM"
+  checked-label="PM"
+  unchecked-label="AM"
+  :classes="{
+    wrapper: 'bg-gray-200 focus:outline-none focus:shadow-outline rounded-sm border-2',
+    wrapperChecked: 'bg-gray-200 focus:outline-none focus:shadow-outline rounded-sm border-2',
+    button: 'rounded-sm w-6 h-6 bg-white shadow flex items-center justify-center text-gray-800 text-xs',
+    buttonChecked: 'rounded-sm w-6 h-6 bg-white shadow flex items-center justify-center text-gray-800 text-xs',
+    checkedPlaceholder: 'rounded-sm w-6 h-6 flex items-center justify-center text-gray-500 text-xs',
+    uncheckedPlaceholder: 'rounded-sm w-6 h-6 flex items-center justify-center text-gray-500 text-xs'
+  }"
+></t-toggle>
 </preview>
 
-#### Label slot
+## Scoped slots
 
-The label can be also added by using the default slot.
+| Slot      | Description                                              |
+| --------- | -------------------------------------------------------- |
+| default   | Set the content inside the option                        |
+| checked   | Set the content in the placeholder of the unchecked side |
+| unchecked | Set the content in the placeholder of the checked side   |
+
+### Default slot
+
+Allows you to add content inside the button
+
+| Slot           | type      | Description                 |
+| -------------- | --------- | --------------------------- |
+| value          | `String`  | The checked value           |
+| uncheckedValue | `String`  | The unchecked value         |
+| isChecked      | `Boolean` | If the component is checked |
+
+#### Example: 
+
+Add an icon according to the checked/unchecked
 
 ```html
-I am: 
-<t-checkbox wrapped name="example-3">
-😡
-</t-checkbox>
-<t-checkbox wrapped name="example-3">
-😀
-</t-checkbox>
+<t-toggle>
+  <template
+    slot="default"
+    slot-scope="{ isChecked }"
+  >
+    <span
+      class="absolute inset-0 h-full w-full flex items-center justify-center transition-opacity"
+      :class="{
+        'opacity-100 ease-in duration-200': !isChecked,
+        'opacity-0 ease-out duration-100': isChecked,
+      }"
+    >
+      👍
+    </span>
+    <span
+      class=" absolute inset-0 h-full w-full flex items-center justify-center transition-opacity"
+      :class="{
+        'opacity-100 ease-in duration-200': isChecked,
+        'opacity-0 ease-out duration-100': !isChecked,
+      }"
+    >
+      👎
+    </span>
+  </template>
+</t-toggle>
 ```
 
-<preview>
-I am: 
-<t-checkbox wrapped name="example-3">
-😡
-</t-checkbox>
-<t-checkbox wrapped name="example-3">
-😀
-</t-checkbox>
-</preview>
+The example above will look like this:
+
+<toggle-default-slot-example></toggle-default-slot-example>
 
 ## Events
 
-| Event  | Arguments                                    | Description                                          |
-| ------ | -------------------------------------------- | ---------------------------------------------------- |
-| input  | `String` (The current value of the checkbox) | Emitted every time the value of the `v-model` change |
-| change | `String` (The current value of the checkbox) | Emitted every time the value of the `v-model` change |
-| focus  | `FocusEvent`                                 | Emitted when the checkbox is focused                 |
-| blur   | `FocusEvent`                                 | Emitted when the checkbox is blurred                 |
+| Event  | Arguments                                  | Description                                          |
+| ------ | ------------------------------------------ | ---------------------------------------------------- |
+| input  | `String` (The current value of the toggle) | Emitted every time the value of the `v-model` change |
+| change | `String` (The current value of the toggle) | Emitted every time the value of the `v-model` change |
+| focus  | `FocusEvent`                               | Emitted when the toggle is focused                   |
+| blur   | `FocusEvent`                               | Emitted when the toggle is blurred                   |
