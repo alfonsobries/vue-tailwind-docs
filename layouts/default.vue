@@ -49,6 +49,7 @@
                   required
                   class="appearance-none w-full px-5 py-3 border-2 text-base leading-6 rounded-md focus:outline-none transition duration-150 ease-in-out sm:max-w-xs"
                   placeholder="Enter your email"
+                  @input="form.errors.clear('email')"
                 />
                 <div class="mt-3 sm:mt-0 sm:ml-3 sm:flex-shrink-0">
                   <button class="w-full flex items-center justify-center px-5 py-3 text-base leading-6 font-medium rounded-md text-white bg-orange-500 hover:bg-orange-400 focus:outline-none focus:bg-orange-400 transition duration-150 ease-in-out">
@@ -63,6 +64,12 @@
           </div>
         </div>
       </div>
+
+      <div id="add-footer" class="sm:hidden">
+        <!-- sidebar -->
+        <adsbygoogle ad-slot="2883119029" />
+      </div>
+
       <div class="px-6 bg-white">
         <div class="max-w-screen-xl mx-auto md:flex justify-between py-4 text-center">
           <div class="flex justify-center md:order-2">
@@ -143,6 +150,7 @@ export default {
   },
   methods: {
     submitNewsletter () {
+      this.newsletterSent = false
       this.form.post('/newsletter/subscribe')
         .then(() => {
           this.newsletterSent = true
