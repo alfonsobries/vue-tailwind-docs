@@ -33,7 +33,10 @@ Vue.use(VueTailwind, {
     variants: {
       demo: 'bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal',
       error: 'form-input border-2 bg-orange-100 border-red-500 text-red-500',
-      playground: 'form-input p-2 px-3 py-1 text-sm'
+      playground: 'form-input p-2 px-3 py-1 text-sm',
+      newsletter: 'border-gray-200 text-gray-900 placeholder-gray-500 focus:placeholder-gray-400 bg-white',
+      newsletterError: 'border-red-200 text-red-900 placeholder-red-500 focus:placeholder-red-400 bg-red-100',
+      newsletterSuccess: 'border-green-200 text-green-900 placeholder-green-500 focus:placeholder-green-400 bg-green-100'
     }
   },
   TTextarea: {
@@ -87,6 +90,14 @@ Vue.use(VueTailwind, {
       description: 'text-sm text-gray-500`'
     },
     variants: {
+      newsletter: {
+        body: 'sm:flex items-center',
+        feedback: 'text-sm text-red-700'
+      },
+      newsletterSuccess: {
+        body: 'sm:flex items-center',
+        feedback: 'text-sm text-green-700'
+      },
       error: {
         label: 'block uppercase tracking-wide text-xs font-semibold text-red-500',
         feedback: 'text-sm text-red-500'

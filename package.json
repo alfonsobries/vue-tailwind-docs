@@ -13,7 +13,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@nuxt/content": "^1.6.0",
+    "@nuxt/content": "^1.6.1",
     "@nuxt/typescript-runtime": "^1.0.0",
     "@nuxtjs/auth": "^4.9.1",
     "@nuxtjs/axios": "^5.12.1",
