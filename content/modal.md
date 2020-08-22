@@ -252,6 +252,9 @@ export default {
       this.$modal.open()
     },
     onBeforeOpen(params) {
+      if (false) {
+        params.cancel();
+      }
       this.user = params.user
     }
   }
@@ -261,13 +264,17 @@ export default {
 
 ## Events
 
-| Name         | Description                                                    |
-| ------------ | -------------------------------------------------------------- |
-| before-open  | Emits while modal is still invisible, but was added to the DOM |
-| opened       | Emits after modal became visible or started transition         |
-| before-close | Emits before modal is going to be closed                       |
-| closed       | Emits right before modal is destroyed                          |
-| input        | Emits when the v-model value change                            |
+| Name         | Params               | Description                                                    |
+| ------------ | -------------------- | -------------------------------------------------------------- |
+| before-open  | `{ params, cancel }` | Emits while modal is still invisible, but was added to the DOM |
+| opened       | `{ params }`         | Emits after modal became visible or started transition         |
+| before-close | `{ cancel }`         | Emits before modal is going to be closed                       |
+| closed       |                      | Emits right before modal is destroyed                          |
+| input        |                      | Emits when the v-model value change                            |
+
+<tip>
+The `cancel` param is a method that you can use to stop the modal to open or to close.
+</tip>
 
 ## Slots
 

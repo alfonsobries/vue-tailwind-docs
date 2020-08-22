@@ -25,27 +25,28 @@ VueJs reactive `<button />` component with configurable classes, variants, and m
 ## Props
 
 
-| Property          | Type                      | Default value  | Description                                                          |
-| ----------------- | ------------------------- | -------------- | -------------------------------------------------------------------- |
-| value (`v-model`) | `[String, Number]`        | `undefined`    | HTML attribute                                                       |
-| id                | `String`                  | `undefined`    | HTML attribute                                                       |
-| name              | `String`                  | `undefined`    | HTML attribute                                                       |
-| disabled          | `Boolean`                 | `undefined`    | HTML attribute                                                       |
-| readonly          | `Boolean`                 | `undefined`    | HTML attribute                                                       |
-| autofocus         | `Boolean`                 | `undefined`    | HTML attribute                                                       |
-| required          | `Boolean`                 | `undefined`    | HTML attribute                                                       |
-| autocomplete      | `String`                  | `undefined`    | HTML attribute                                                       |
-| type              | `String`                  | `undefined`    | HTML attribute                                                       |
-| tabindex          | `[String, Number]`        | `undefined`    | HTML attribute                                                       |
-| text              | `String`                  | `undefined`    | Text of the button (when no slot used)                               |
-| tagName           | `String`                  | `'button'`     | HTML Tag to use for the component `button` or `a`                    |
-| href              | `String`                  | `null`         | Href attribute for `a`                                               |
-| classes           | `[String, Array, Object]` | `'form-radio'` | The default CSS classes                                              |
-| fixedClasses      | `[String, Array, Object]` | `undefined`    | Fixed CSS classes that will be merged with the active set of classes |
-| variants          | `Object`                  | `undefined`    | The different variants of classes the component have                 |
-| variant           | `[String, Object]`        | `undefined`    | The variant that will be used                                        |
+| Property          | Type                      | Default value  | Description                                                                            |
+| ----------------- | ------------------------- | -------------- | -------------------------------------------------------------------------------------- |
+| value (`v-model`) | `[String, Number]`        | `null`         | HTML attribute                                                                         |
+| id                | `String`                  | `undefined`    | HTML attribute                                                                         |
+| name              | `String`                  | `undefined`    | HTML attribute                                                                         |
+| disabled          | `Boolean`                 | `undefined`    | HTML attribute                                                                         |
+| readonly          | `Boolean`                 | `undefined`    | HTML attribute                                                                         |
+| autofocus         | `Boolean`                 | `undefined`    | HTML attribute                                                                         |
+| required          | `Boolean`                 | `undefined`    | HTML attribute                                                                         |
+| autocomplete      | `String`                  | `undefined`    | HTML attribute                                                                         |
+| type              | `String`                  | `undefined`    | HTML attribute                                                                         |
+| tabindex          | `[String, Number]`        | `undefined`    | HTML attribute                                                                         |
+| text              | `String`                  | `undefined`    | Text of the button (when no slot used)                                                 |
+| tagName           | `String`                  | `'button'`     | HTML Tag to use for the component `button` or `a`                                      |
+| href              | `String`                  | `null`         | Href attribute for `a`                                                                 |
+| native            | `Boolean`                 | `false`        | Set to force to render the default button instead for a router-link, inertia-link, etc |
+| classes           | `[String, Array, Object]` | `'form-radio'` | The default CSS classes                                                                |
+| fixedClasses      | `[String, Array, Object]` | `undefined`    | Fixed CSS classes that will be merged with the active set of classes                   |
+| variants          | `Object`                  | `undefined`    | The different variants of classes the component have                                   |
+| variant           | `[String, Object]`        | `undefined`    | The variant that will be used                                                          |
 
-
+    
 *Note:* when the `href` prop is set it changes the tag name to `a`
 
 ## VueRouter compatibility
@@ -74,14 +75,14 @@ This button is compatible with `inertia-link` and will be converted if the `href
 
 When the component is rendered as RouterLink you can use the properties of that component:
 
-| Property       | Type      | Default value |
-| -------------- | --------- | ------------- |
-| method         | `String`  | `null`        |
-| data           | `Object`  | `null`        |
-| preserveState  | `Boolean` | `false`       |
-| preserveScroll | `Boolean` | `false`       |
-
-
+| Property       | Type              | Default value |
+| -------------- | ----------------- | ------------- |
+| method         | `String`          | `'get'`       |
+| data           | `Object`          | `{}`          |
+| preserveState  | `Boolean`         | `false`       |
+| preserveScroll | `Boolean`         | `false`       |
+| event          | `[String, Array]` | `'click'`     |
+| only           | `Array`           | `[]`          |
 
 ## Events
 
