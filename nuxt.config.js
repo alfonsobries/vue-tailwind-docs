@@ -64,12 +64,7 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // '@nuxtjs/auth',
-    '@nuxt/content',
-    ['@nuxtjs/google-adsense', {
-      id: 'ca-pub-4751207776405212',
-      analyticsUacct: 'UA-142051519-1',
-      analyticsDomainName: 'vue-tailwind.com'
-    }]
+    '@nuxt/content'
   ],
   content: {
     markdown: {
