@@ -17,7 +17,7 @@
     "@nuxt/typescript-runtime": "^1.0.0",
     "@nuxtjs/auth": "^4.9.1",
     "@nuxtjs/axios": "^5.12.1",
-    "axios": "^0.19.2",
+    "axios": "^0.20.0",
     "axios-cancel": "^0.2.2",
     "body-scroll-lock": "^3.0.3",
     "clipboard-copy": "^3.1.0",
@@ -28,7 +28,7 @@
     "nuxt": "^2.14.3",
     "vform": "^1.0.1",
     "vue-code-highlight": "^0.7.4",
-    "vue-tailwind": "^1.1.4"
+    "vue-tailwind": "^1.1.7"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.3",
@@ -36,7 +36,7 @@
     "@nuxtjs/eslint-config-typescript": "^3.0.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/google-analytics": "^2.4.0",
-    "@nuxtjs/tailwindcss": "^3.0.0",
+    "@nuxtjs/tailwindcss": "^3.0.1",
     "@tailwindcss/custom-forms": "^0.2.1",
     "@types/axios": "^0.14.0",
     "@vue/test-utils": "^1.0.4",
@@ -44,7 +44,7 @@
     "babel-jest": "^26.3.0",
     "eslint": "^7.7.0",
     "eslint-plugin-nuxt": ">=1.0.0",
-    "jest": "^26.4.0",
+    "jest": "^26.4.2",
     "ts-jest": "^26.2.0",
     "vue-jest": "^4.0.0-0"
   }
