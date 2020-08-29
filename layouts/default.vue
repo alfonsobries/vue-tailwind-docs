@@ -18,13 +18,13 @@
     </main>
 
     <footer>
-      <div class="px-6 bg-orange-200">
+      <div class="px-6 mt-5 bg-gray-100">
         <div class="max-w-screen-xl py-16 mx-auto lg:flex lg:items-center">
           <div class="lg:w-0 lg:flex-1">
-            <h2 id="newsletter-headline" class="text-2xl leading-9 tracking-tight text-orange-700 font-semilbold sm:text-4xl sm:leading-10">
+            <h2 id="newsletter-headline" class="text-2xl leading-9 tracking-tight text-gray-700 font-semilbold sm:text-4xl sm:leading-10">
               Sign up for our newsletter
             </h2>
-            <p class="max-w-3xl mt-3 text-orange-500">
+            <p class="max-w-3xl mt-3 text-gray-500">
               Stay up-to-date on news and updates about this project by email.
             </p>
           </div>
@@ -52,13 +52,13 @@
                   @input="form.errors.clear('email')"
                 />
                 <div class="mt-3 sm:mt-0 sm:ml-3 sm:flex-shrink-0">
-                  <button class="flex items-center justify-center w-full px-5 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-orange-500 rounded-md hover:bg-orange-400 focus:outline-none focus:bg-orange-400">
+                  <button class="flex items-center justify-center w-full px-5 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-gray-500 rounded-md hover:bg-gray-400 focus:outline-none focus:bg-gray-400">
                     Notify me
                   </button>
                 </div>
               </t-input-group>
             </form>
-            <p class="mt-3 text-sm leading-5 text-orange-500">
+            <p class="mt-3 text-sm leading-5 text-gray-500">
               I will never spam or share your email under any circustance.
             </p>
           </div>
