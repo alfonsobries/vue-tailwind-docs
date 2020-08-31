@@ -47,7 +47,13 @@ VueJs reactive rich select component inspired in jquery select2 with configurabl
 | variants                | `Object`             | `undefined`                 | The different variants of classes the component have                                                     |
 | variant                 | `[String, Object]`   | `undefined`                 | The variant that should be used                                                                          |
 
-<small>* The minimumInputLengthText accepts an `string` or a `Function` that receive the min input length and the current query and should return an string, example: `(minimumInputLength: number, _query?: string) => 'Please enter' + minimumInputLength +'  or more characters'`</small>
+<small>* The minimumInputLengthText accepts an `string` or a `Function` that receive the min input length and the current query and should return an string, example:</small>
+
+```
+(minimumInputLength: number, _query?: string) => {
+  return 'Please enter' + minimumInputLength +'  or more characters';
+}
+```
 
 ## Classes and variants format
 
@@ -267,9 +273,9 @@ Consider that the options come from an ajax query that contains a `repo` object 
             :src="option.raw.owner.avatar_url"
           >
         </span>
-        <div class="ml-2 flex flex-col text-gray-800">
+        <div class="flex flex-col ml-2 text-gray-800">
           <strong>{{ option.raw.full_name }}</strong>
-          <span class="text-sm text-gray-700 leading-tight">{{ option.raw.description }}</span>
+          <span class="text-sm leading-tight text-gray-700">{{ option.raw.description }}</span>
         </div>
       </div>
     </template>
@@ -331,12 +337,12 @@ Consider that the options come from an ajax query that contains a `repo` object 
             :src="option.raw.owner.avatar_url"
           >
         </span>
-        <div class="ml-2 flex flex-col text-gray-800">
+        <div class="flex flex-col ml-2 text-gray-800">
           <strong>
             {{ option.raw.full_name }}
             <span v-if="isSelected">(Selected)</span>
           </strong>
-          <span class="text-sm text-gray-700 leading-tight">{{ option.raw.description }}</span>
+          <span class="text-sm leading-tight text-gray-700">{{ option.raw.description }}</span>
         </div>
       </div>
     </template>
@@ -485,7 +491,7 @@ Useful for place an action button, consider this example for dinamically create 
       >
         <button
           type="button"
-          class="block p-3 w-full border bg-blue-500 hover:bg-blue-600 text-white"
+          class="block w-full p-3 text-white bg-blue-500 border hover:bg-blue-600"
           @click="createOption(query)"
         >
           Create {{ query }}
