@@ -5,7 +5,7 @@
       :last-active-step="lastActiveStep"
       @select="(index) => step = index"
     />
-    <div class="px-6 bg-white rounded rounded-r rounded-br py-5 sm:p-6 w-full md:w-3/4">
+    <div class="w-full px-6 py-5 bg-white rounded rounded-r rounded-br sm:p-6 md:w-3/4">
       <div class="w-full md:pl-4">
         <theme-builder-step-select-components
           v-show="step === 0"
@@ -33,7 +33,7 @@
           :theme="theme"
         />
 
-        <div class="flex justify-between mt-8 pt-4 border-t">
+        <div class="flex justify-between pt-4 mt-8 border-t">
           <t-button
             type="button"
             :variant="{
@@ -300,6 +300,122 @@ const defaultTheme = {
         selectButton: 'border-green-500 text-green-500 bg-green-100 border rounded p-2 focus:outline-none focus:shadow-outline',
         selectButtonPlaceholder: 'text-green-400',
         selectButtonClearButton: 'hover:bg-green-200 text-green-500 rounded'
+      }
+    }
+  },
+  TDatepicker: {
+    fixedClasses: {
+      navigator: 'flex',
+      navigatorViewButton: 'flex items-center',
+      navigatorViewButtonIcon: 'flex-shrink-0 h-5 w-5',
+      navigatorViewButtonBackIcon: 'flex-shrink-0 h-5 w-5',
+      navigatorLabel: 'flex items-center py-1',
+      navigatorPrevButtonIcon: 'h-6 w-6 inline-flex',
+      navigatorNextButtonIcon: 'h-6 w-6 inline-flex',
+
+      inputWrapper: 'relative',
+      viewGroup: 'inline-flex',
+      view: 'w-64',
+      calendarDaysWrapper: 'grid grid-cols-7',
+      calendarHeaderWrapper: 'grid grid-cols-7',
+      monthWrapper: 'grid grid-cols-4',
+      yearWrapper: 'grid grid-cols-4',
+
+      clearButton: 'flex flex-shrink-0 items-center justify-center absolute right-0 top-0 m-2 h-6 w-6',
+      clearButtonIcon: 'fill-current h-3 w-3'
+    },
+    classes: {
+      // Dropdown related classes
+      wrapper: 'inline-flex flex-col',
+      dropdownWrapper: 'relative z-10',
+      dropdown: 'origin-top-left absolute rounded-md shadow-lg',
+      enterClass: '',
+      enterActiveClass: 'transition ease-out duration-100 transform opacity-0 scale-95',
+      enterToClass: 'transform opacity-100 scale-100',
+      leaveClass: 'transition ease-in transform opacity-100 scale-100',
+      leaveActiveClass: '',
+      leaveToClass: 'transform opacity-0 scale-95 duration-75',
+
+      // Wrapper for inline calendar
+      inlineWrapper: '',
+
+      // Text input related classes
+      inputWrapper: '',
+      input: 'form-input w-full',
+
+      // Picker views
+      viewGroup: 'bg-white border',
+      view: '',
+
+      // Navigator
+      navigator: 'pt-2 px-2',
+      navigatorViewButton: 'transition ease-in-out duration-100 inline-flex cursor-pointer rounded-full px-2 py-1 -ml-1 hover:bg-gray-200',
+      navigatorViewButtonIcon: 'fill-current text-gray-500',
+      navigatorViewButtonBackIcon: 'fill-current text-gray-500',
+      navigatorViewButtonMonth: 'text-gray-700 font-semibold',
+      navigatorViewButtonYear: 'text-gray-600 ml-1',
+      navigatorViewButtonYearRange: 'text-gray-600 ml-1',
+      navigatorLabel: 'py-1',
+      navigatorLabelMonth: 'text-gray-700 font-semibold',
+      navigatorLabelYear: 'text-gray-600 ml-1',
+      navigatorPrevButton: 'transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-gray-200 rounded-full p-1 ml-2 ml-auto disabled:opacity-25 disabled:cursor-not-allowed',
+      navigatorNextButton: 'transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-gray-200 rounded-full p-1 -mr-1 disabled:opacity-25 disabled:cursor-not-allowed',
+      navigatorPrevButtonIcon: 'text-gray-500',
+      navigatorNextButtonIcon: 'text-gray-500',
+
+      // Calendar View
+      calendarWrapper: 'p-2',
+      calendarHeaderWrapper: '',
+      calendarHeaderWeekDay: 'uppercase text-xs text-gray-600 w-8 h-8 flex items-center justify-center',
+      calendarDaysWrapper: '',
+      calendarDaysDayWrapper: 'w-full h-8 flex flex-shrink-0 items-center',
+
+      // Day item
+      otherMonthDay: 'text-sm rounded-full w-8 h-8 mx-auto hover:bg-blue-100 text-gray-400 disabled:opacity-25 disabled:cursor-not-allowed',
+      emptyDay: '',
+      inRangeFirstDay: 'text-sm bg-blue-500 text-white w-full h-8 rounded-l-full',
+      inRangeLastDay: 'text-sm bg-blue-500 text-white w-full h-8 rounded-r-full',
+      inRangeDay: 'text-sm bg-blue-200 w-full h-8 disabled:opacity-25 disabled:cursor-not-allowed',
+      selectedDay: 'text-sm rounded-full w-8 h-8 mx-auto bg-blue-500 text-white disabled:opacity-25 disabled:cursor-not-allowed',
+      activeDay: 'text-sm rounded-full bg-blue-100 w-8 h-8 mx-auto disabled:opacity-25 disabled:cursor-not-allowed',
+      highlightedDay: 'text-sm rounded-full bg-blue-200 w-8 h-8 mx-auto disabled:opacity-25 disabled:cursor-not-allowed',
+      day: 'text-sm rounded-full w-8 h-8 mx-auto hover:bg-blue-100 disabled:opacity-25 disabled:cursor-not-allowed',
+      today: 'text-sm rounded-full w-8 h-8 mx-auto hover:bg-blue-100 disabled:opacity-25 disabled:cursor-not-allowed border border-blue-500',
+
+      // Months View
+      monthWrapper: 'p-2',
+      selectedMonth: 'text-sm rounded w-full h-12 mx-auto bg-blue-500 text-white',
+      activeMonth: 'text-sm rounded w-full h-12 mx-auto bg-blue-100',
+      month: 'text-sm rounded w-full h-12 mx-auto hover:bg-blue-100',
+
+      // Years View
+      yearWrapper: 'p-2',
+      year: 'text-sm rounded w-full h-12 mx-auto hover:bg-blue-100',
+      selectedYear: 'text-sm rounded w-full h-12 mx-auto bg-blue-500 text-white',
+      activeYear: 'text-sm rounded w-full h-12 mx-auto bg-blue-100',
+
+      clearButton: 'hover:bg-gray-200 text-gray-500 rounded',
+      clearButtonIcon: ''
+    },
+    variants: {
+      danger: {
+        input: 'bg-red-100 border-red-500 form-input w-full text-red-500',
+        clearButton: 'hover:bg-red-200 text-red-500 rounded',
+        otherMonthDay: 'text-sm rounded-full w-8 h-8 mx-auto hover:bg-red-100 text-gray-400 disabled:opacity-25 disabled:cursor-not-allowed',
+        inRangeFirstDay: 'text-sm bg-red-500 text-white w-full h-8 rounded-l-full',
+        inRangeLastDay: 'text-sm bg-red-500 text-white w-full h-8 rounded-r-full',
+        inRangeDay: 'text-sm bg-red-200 w-full h-8 disabled:opacity-25 disabled:cursor-not-allowed',
+        selectedDay: 'text-sm rounded-full w-8 h-8 mx-auto bg-red-500 text-white disabled:opacity-25 disabled:cursor-not-allowed',
+        activeDay: 'text-sm rounded-full bg-red-100 w-8 h-8 mx-auto disabled:opacity-25 disabled:cursor-not-allowed',
+        highlightedDay: 'text-sm rounded-full bg-red-200 w-8 h-8 mx-auto disabled:opacity-25 disabled:cursor-not-allowed',
+        day: 'text-sm rounded-full w-8 h-8 mx-auto hover:bg-red-100 disabled:opacity-25 disabled:cursor-not-allowed',
+        today: 'text-sm rounded-full w-8 h-8 mx-auto hover:bg-red-100 disabled:opacity-25 disabled:cursor-not-allowed border border-red-500',
+        selectedMonth: 'text-sm rounded w-full h-12 mx-auto bg-red-500 text-white',
+        activeMonth: 'text-sm rounded w-full h-12 mx-auto bg-red-100',
+        month: 'text-sm rounded w-full h-12 mx-auto hover:bg-red-100',
+        year: 'text-sm rounded w-full h-12 mx-auto hover:bg-red-100',
+        selectedYear: 'text-sm rounded w-full h-12 mx-auto bg-red-500 text-white',
+        activeYear: 'text-sm rounded w-full h-12 mx-auto bg-red-100'
       }
     }
   },

@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col items-center justify-center bg-white p-4 relative mt-2 shadow-sm rounded border-dashed border">
-    <span class="absolute left-0 top-0 m-2 pointer-events-none text-gray-500 uppercase text-sm">Preview</span>
+  <div class="relative flex flex-col items-center justify-center p-4 mt-2 bg-white border border-dashed rounded shadow-sm">
+    <span class="absolute top-0 left-0 m-2 text-sm text-gray-500 uppercase pointer-events-none">Preview</span>
     <label
       class="relative "
       :class="{
@@ -8,7 +8,16 @@
       }"
       :for="`${componentName}-${_uid}`"
     >
-      <div v-if="componentName === 'TModal'">
+      <t-datepicker
+        v-if="componentName === 'TDatepicker'"
+        v-model="date"
+        :variant="variant"
+        :variants="variants"
+        :classes="classes"
+        :fixed-classes="fixedClasses"
+      />
+
+      <div v-else-if="componentName === 'TModal'">
         <t-modal
           ref="modal"
           v-model="showModal"
@@ -30,12 +39,12 @@
             </div>
           </template>
         </t-modal>
-        <p class="text-center mt-2">
+        <p class="mt-2 text-center">
           <t-button v-if="!showModal" type="button" @click="resetModal">Show modal</t-button>
           <t-button v-else-if="showModal === true && showModalFull === false" type="button" variant="link" @click="showModalFull=true">Open real modal</t-button>
         </p>
       </div>
-      <div v-else-if="componentName === 'TRichSelect'" class="max-w-md w-full">
+      <div v-else-if="componentName === 'TRichSelect'" class="w-full max-w-md">
         <t-rich-select
           :variant="variant"
           :variants="variants"
@@ -103,28 +112,28 @@
           slot="button"
         >
           My account
-          <icon class="h-3 w-3 ml-2">
+          <icon class="w-3 h-3 ml-2">
             <path d="M19 9l-7 7-7-7" />
           </icon>
         </template>
         <div class="py-1 rounded-md shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
           <a
             href="#"
-            class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+            class="block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
             role="menuitem"
           >
             Your Profile
           </a>
           <a
             href="#"
-            class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+            class="block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
             role="menuitem"
           >
             Settings
           </a>
           <a
             href="#"
-            class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+            class="block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
             role="menuitem"
           >
             Sign out
@@ -315,6 +324,7 @@ export default Vue.extend({
   },
   data () {
     return {
+      date: '2020-02-18',
       radioModel: true,
       checkboxModel: ['a'],
       showModal: true,

@@ -13,7 +13,7 @@
     />
 
     <template slot="label">
-      <h4 class="text-base font-medium text-gray-900 block mt-3">
+      <h4 class="block mt-3 text-base font-medium text-gray-900">
         {{ label }}
       </h4>
 
@@ -27,8 +27,8 @@
       </label>
     </template>
 
-    <p v-if="needsFormsPlugin" class="-mt-3 bg-orange-100 flex items-center leading-none p-2 py-1 text-xs text-orange-700 rounded-b">
-      <icon class="w-4 h-4 text-orange-700 mr-1 inline-block flex-shrink-0">
+    <p v-if="needsFormsPlugin" class="flex items-center p-2 py-1 -mt-3 text-xs leading-none text-orange-700 bg-orange-100 rounded-b">
+      <icon class="flex-shrink-0 inline-block w-4 h-4 mr-1 text-orange-700">
         <path id="Combined-Shape" d="M2.92893219,17.0710678 C6.83417511,20.9763107 13.1658249,20.9763107 17.0710678,17.0710678 C20.9763107,13.1658249 20.9763107,6.83417511 17.0710678,2.92893219 C13.1658249,-0.976310729 6.83417511,-0.976310729 2.92893219,2.92893219 C-0.976310729,6.83417511 -0.976310729,13.1658249 2.92893219,17.0710678 L2.92893219,17.0710678 Z M15.6568542,15.6568542 C18.7810486,12.5326599 18.7810486,7.46734008 15.6568542,4.34314575 C12.5326599,1.21895142 7.46734008,1.21895142 4.34314575,4.34314575 C1.21895142,7.46734008 1.21895142,12.5326599 4.34314575,15.6568542 C7.46734008,18.7810486 12.5326599,18.7810486 15.6568542,15.6568542 Z M9,11 L9,10.5 L9,9 L11,9 L11,15 L9,15 L9,11 Z M9,5 L11,5 L11,7 L9,7 L9,5 Z" />
       </icon>
       <span>
@@ -132,6 +132,80 @@ export default Vue.extend({
             inputWrapper: 'Wrapper of the input',
             inputWrapperChecked: 'Wrapper of the input if checkec',
             input: 'Input'
+          }
+        case 'TDatepicker':
+          return {
+            // Dropdown related classes
+            wrapper: '',
+            dropdownWrapper: '',
+            dropdown: '',
+            enterClass: '',
+            enterActiveClass: '',
+            enterToClass: '',
+            leaveClass: '',
+            leaveActiveClass: '',
+            leaveToClass: '',
+
+            // Wrapper for inline calendar
+            inlineWrapper: '',
+
+            // Text input related classes
+            inputWrapper: '',
+            input: '',
+
+            // Picker views
+            viewGroup: '',
+            view: '',
+
+            // Navigator
+            navigator: '',
+            navigatorViewButton: '',
+            navigatorViewButtonIcon: '',
+            navigatorViewButtonBackIcon: '',
+            navigatorViewButtonMonth: '',
+            navigatorViewButtonYear: '',
+            navigatorViewButtonYearRange: '',
+            navigatorLabel: '',
+            navigatorLabelMonth: '',
+            navigatorLabelYear: '',
+            navigatorPrevButton: '',
+            navigatorNextButton: '',
+            navigatorPrevButtonIcon: '',
+            navigatorNextButtonIcon: '',
+
+            // Calendar View
+            calendarWrapper: '',
+            calendarHeaderWrapper: '',
+            calendarHeaderWeekDay: '',
+            calendarDaysWrapper: '',
+            calendarDaysDayWrapper: '',
+
+            // Day item
+            otherMonthDay: '',
+            emptyDay: '',
+            inRangeFirstDay: '',
+            inRangeLastDay: '',
+            inRangeDay: '',
+            selectedDay: '',
+            activeDay: '',
+            highlightedDay: '',
+            day: '',
+            today: '',
+
+            // Months View
+            monthWrapper: '',
+            selectedMonth: '',
+            activeMonth: '',
+            month: '',
+
+            // Years View
+            yearWrapper: '',
+            year: '',
+            selectedYear: '',
+            activeYear: '',
+
+            clearButton: '',
+            clearButtonIcon: ''
           }
         case 'TRadioGroup':
           return {

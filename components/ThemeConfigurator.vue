@@ -29,14 +29,14 @@
       />
     </div>
 
-    <div class="border bg-gray-100 rounded mb-4">
+    <div class="mb-4 bg-gray-100 border rounded">
       <h3 class="px-4 py-2 border-b">
         Variants:
       </h3>
 
       <transition-group
-        enter-active-class="transition ease-out duration-100"
-        leave-active-class="transition ease-in duration-100"
+        enter-active-class="transition duration-100 ease-out"
+        leave-active-class="transition duration-100 ease-in"
         enter-class="opacity-0"
         enter-to-class="opacity-100"
         leave-class="opacity-100"
