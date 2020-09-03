@@ -5,7 +5,7 @@
     </h2>
     <p>Copy or download the following code and install it in your project</p>
 
-    <hr class="border-t my-4">
+    <hr class="my-4 border-t">
 
     <t-alert v-if="copied === true" variant="success" @hidden="copied = undefined">
       The code was copied correctly!
@@ -15,16 +15,16 @@
     </t-alert>
 
     <div class="relative">
-      <div class="absolute right-0 top-0 m-4 flex items-center">
-        <button type="button" class="text-gray-500 hover:text-orange-500 flex items-center text-sm" @click="copyCode">
-          <icon class="h-5 w-5 mr-2 ">
+      <div class="absolute top-0 right-0 flex items-center m-4">
+        <button type="button" class="flex items-center text-sm text-gray-500 hover:text-orange-500" @click="copyCode">
+          <icon class="w-5 h-5 mr-2 ">
             <path id="Combined-Shape" d="M0,8.00585866 C0,6.89805351 0.897060126,6 2.00585866,6 L11.9941413,6 C13.1019465,6 14,6.89706013 14,8.00585866 L14,17.9941413 C14,19.1019465 13.1029399,20 11.9941413,20 L2.00585866,20 C0.898053512,20 0,19.1029399 0,17.9941413 L0,8.00585866 L0,8.00585866 Z M6,8 L2,8 L2,18 L12,18 L12,14 L15,14 L15,12 L18,12 L18,2 L8,2 L8,5 L6,5 L6,8 L12,8 L12,14 L17.9941413,14 C19.1029399,14 20,13.1019465 20,11.9941413 L20,2.00585866 C20,0.897060126 19.1019465,0 17.9941413,0 L8.00585866,0 C6.89706013,0 6,0.898053512 6,2.00585866 L6,8 Z" />
           </icon>
           Copy
         </button>
 
-        <button type="button" class="text-gray-500 hover:text-orange-500 flex items-center text-sm ml-4" @click="downloadCode">
-          <icon class="h-5 w-5 mr-2 ">
+        <button type="button" class="flex items-center ml-4 text-sm text-gray-500 hover:text-orange-500" @click="downloadCode">
+          <icon class="w-5 h-5 mr-2 ">
             <path id="Combined-Shape" d="M13,8 L13,2 L7,2 L7,8 L2,8 L10,16 L18,8 L13,8 Z M0,18 L20,18 L20,20 L0,20 L0,18 Z" />
           </icon>
           Download
@@ -73,15 +73,15 @@ export default Vue.extend({
   },
   computed: {
     code () {
-      const theme = JSON.stringify(this.theme, null, 2)
+      const settings = JSON.stringify(this.theme, null, 2)
         .replace(/"([^"]+)":/g, '$1:')
         .replace(/\"/g, '\'')
       return `import Vue from 'vue'
 import VueTailwind from 'vue-tailwind'
 
-const theme = ${theme}
+const settings = ${settings}
 
-Vue.use(VueTailwind, theme)
+Vue.use(VueTailwind, settings)
 
 `
     }

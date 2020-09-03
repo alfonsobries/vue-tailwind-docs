@@ -19,7 +19,7 @@ VueJs reactive `<input type="radio" />` component with configurable classes, var
     <t-radio name="options" value="a" />
     <span class="ml-2 text-sm">Option A</span>
   </label>
-  <label class="ml-2 flex items-center">
+  <label class="flex items-center ml-2">
     <t-radio name="options" value="b" />
     <span class="ml-2 text-sm">Option B</span>
   </label>
@@ -60,7 +60,7 @@ Remember that the component can set as "wrapped" when installed or by using the 
 
 ```js
 // When installed
-const theme = {
+const settings = {
   TRadio: {
     wrapped: true,
     // classes, variants, etc...
@@ -68,7 +68,7 @@ const theme = {
   // ...
 }
 
-Vue.use(VueTailwind, theme)
+Vue.use(VueTailwind, settings)
 ```
 
 ```html
@@ -107,7 +107,7 @@ The "Checked" attributes are optional.
 #### Example
 
 ```js
-const theme = {
+const settings = {
   TRadio: {
     wrapped: true,
     classes: {
@@ -124,7 +124,7 @@ const theme = {
   // ...
 }
 
-Vue.use(VueTailwind, theme)
+Vue.use(VueTailwind, settings)
 ```
 
 If you use the settings in the example above the component will be rendered like this:

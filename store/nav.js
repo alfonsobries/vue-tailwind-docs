@@ -27,8 +27,21 @@ export const state = () => ({
           text: 'Installation'
         },
         {
+          to: '/docs/release-notes',
+          text: 'Release Notes'
+        },
+        {
+          to: '/docs/upcoming-changes',
+          text: 'Upcoming changes'
+        },
+        {
           to: '/docs/theming',
           text: 'Theming'
+        },
+        {
+          to: '/docs/settings',
+          text: 'Override settings',
+          since: '1.2.0'
         },
         {
           to: '/docs/workflow',
@@ -77,7 +90,7 @@ export const state = () => ({
         {
           to: '/docs/datepicker',
           text: 'Datepicker',
-          soon: true
+          since: '1.2.0'
         },
         {
           to: '/docs/checkbox-group',
@@ -95,6 +108,11 @@ export const state = () => ({
           to: '/docs/toggle',
           text: 'Toggle',
           since: '1.1.0'
+        },
+        {
+          to: '/docs/dialog',
+          text: 'Dialog',
+          soon: true
         }
       ]
     },

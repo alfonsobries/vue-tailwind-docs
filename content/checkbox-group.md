@@ -66,7 +66,7 @@ When the input has the wrapped setting, the classes, variants, etc. need to be a
 #### Example
 
 ```js
-const theme = {
+const settings = {
   TCheckboxGroup: {
     classes: {
       groupWrapper: 'flex flex-col',
@@ -83,7 +83,7 @@ const theme = {
   // ...
 }
 
-Vue.use(VueTailwind, theme)
+Vue.use(VueTailwind, settings)
 ```
 
 If you use the settings in the example above the component will be rendered like this:

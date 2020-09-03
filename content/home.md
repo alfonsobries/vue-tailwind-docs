@@ -22,7 +22,7 @@ Here is a small example of how the classes and variants are defined when you imp
 import Vue from 'vue'
 import VueTailwind from 'vue-tailwind'
 
-const theme = {
+const settings = {
   TInput: {
     classes: 'form-input border-2 text-gray-700',
     variants: {
@@ -49,7 +49,7 @@ const theme = {
   // ... The rest of the components
 }
 
-Vue.use(VueTailwind, theme)
+Vue.use(VueTailwind, settings)
 ```
 
 The default classes and variants can also be defined in the component props:
@@ -86,14 +86,13 @@ The variant prop also accepts an object that takes the first attribute with a _t
 - Rebuilt from scratch in Typescript
 - Small bundle size and less dependencies
 - A better way to import only selected components
-- Unlimited variants and a easy way to configure them
+- Unlimited variants and an easy way to configure them
 
 ## What's next?
 
-- Im working in a datepicker that is the most requested component, after that im planning to create a swal like dialog component.
-- Already started to work in a react version of this package called react-tailwind.
-- Im making some final changes to the Community themes features that should be released soon.
-- Vue 3 compatibility
+- I'm working in a time picker feature for the Datepicker component
+- Also working in a Dialog component inspired in the [Sweetalert library](https://sweetalert2.github.io/) 
+- Vue 3 compatibility and more plans for v2.x. [Read more →](/docs/upcoming-changes)
 
 ## Contribute
 
