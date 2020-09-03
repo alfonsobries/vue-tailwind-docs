@@ -259,6 +259,7 @@ As you may know, the fixed classes are shared and merged with the different vari
 | Slot | description                                 |
 | ---- | ------------------------------------------- |
 | day  | Content of a day button inside the calendar |
+| month  | Content of a month button inside the calendar |
 
 
 ### Day scoped slot
@@ -278,7 +279,7 @@ The `day` scoped slot include this information that may be useful for you when r
 | isToday           | If the day is today                                            |
 | day               | The `Date` object that represents the current                  |
 | activeDate        | A `Date` object that represents the current active day         |
-| value             | A `Date` object that represents the current selected day       |
+| value             | A `Date` object that represents the currently selected day       |
 
 #### Example
 
@@ -305,8 +306,50 @@ Let`s show a cake when the day is in an hypothetical array of birthdays and a ta
   </template>
 </t-datepicker>
 ```
-<datepicker-day-slot-example></datepicker-day-slot-example>
- 
+
+<datepicker-day-slot-example></datepicker-day-slot-example> 
+
+### Month scoped slot
+
+The `day` scoped slot include this information that may be useful for you when rendering the value
+
+| Prop              | description                                                    |
+| ----------------- | -------------------------------------------------------------- |
+| monthFormatted      | The month formatted                                              |
+| isSelected        | If the month is selected                                         |
+| isActive          | If the month is active (for keyboard navigation)                 |
+| month               | The `Date` object that represents the current month                  |
+| activeDate        | A `Date` object that represents the current active month         |
+| value             | A `Date` object that represents the currently selected month       |
+
+
+#### Example
+
+Let's show a pumpkin in October:
+
+```
+<t-datepicker
+  v-model="date"
+  inline
+>
+  <template
+    slot="day"
+    slot-scope="{ day, dayFormatted }"
+  >
+    <span v-if="birthdays.includes(day)">
+      🎂
+    </span>
+    <span v-else-if="day.getDay() === 2">
+      🌮
+    </span>
+    <span v-else>
+      {{ dayFormatted }}
+    </span>
+  </template>
+</t-datepicker>
+```
+
+<datepicker-month-slot-example></datepicker-month-slot-example> 
 
 ## Localization
 
