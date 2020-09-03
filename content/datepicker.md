@@ -254,6 +254,60 @@ As you may know, the fixed classes are shared and merged with the different vari
 | update:show  | `Boolean`                             | Used to sync the `show` prop                                |
 | activeChange | `Date`                                | Emitted when the active date change                         |
 
+## Scoped slots
+
+| Slot | description                                 |
+| ---- | ------------------------------------------- |
+| day  | Content of a day button inside the calendar |
+
+
+### Day scoped slot
+
+The `day` scoped slot include this information that may be useful for you when rendering the value
+
+| Prop              | description                                                    |
+| ----------------- | -------------------------------------------------------------- |
+| dayFormatted      | The day formatted                                              |
+| isForAnotherMonth | If the day belongs to a different month that the one is active |
+| isFirstDayOfRange | For ranges: if the day is the first day of the range           |
+| isLastDayOfRange  | For ranges: if the day is the last day of the range            |
+| isInRange         | For ranges: if the day is part of the range                    |
+| isSelected        | If the day is selected                                         |
+| isActive          | If the day is active (for keyboard navigation)                 |
+| isHighlighted     | If the day is highlighted                                      |
+| isToday           | If the day is today                                            |
+| day               | The `Date` object that represents the current                  |
+| activeDate        | A `Date` object that represents the current active day         |
+| value             | A `Date` object that represents the current selected day       |
+
+#### Example
+
+Let`s show a cake when the day is in an hypothetical array of birthdays and a taco every tuesday:
+
+```
+<t-datepicker
+  v-model="date"
+  inline
+>
+  <template
+    slot="day"
+    slot-scope="{ day, dayFormatted }"
+  >
+    <span v-if="birthdays.includes(day)">
+      🎂
+    </span>
+    <span v-else-if="day.getDay() === 2">
+      🌮
+    </span>
+    <span v-else>
+      {{ dayFormatted }}
+    </span>
+  </template>
+</t-datepicker>
+```
+<datepicker-day-slot-example></datepicker-day-slot-example>
+ 
+
 ## Localization
 
 Since the localization files of this component are based in the [Flatpickr component](https://flatpickr.js.org/localization/) dozens of locales are already available in the [source code](https://github.com/alfonsobries/vue-tailwind/tree/master/src/l10n).
@@ -362,6 +416,7 @@ const settings = {
 
 Vue.use(VueTailwind, settings)
 ```
+
 <preview class="flex flex-col items-center p-4 bg-gray-100 border rounded shadow-inner">
 <t-datepicker inline value="1987-02-18" :locale="{ weekdays: { shorthand: ['S😴', 'M😭', 'T😑', 'W😶', 'T😔', 'F😎', 'S😵'] }}" /></t-datepicker>
 </preview>
