@@ -116,11 +116,11 @@ With this library, you can override the default settings when installing the lib
 For example, maybe you want:
 
 - That all the button components have the `type="button"` attribute (I do myself change that).
-- Change the default localization settings for a DatePicker.
-- Make all the alert not `dismissible` by default.
-- Don't allow the Modal to be closed by pressing `ESC` as default.
+- Change the default localization settings for the DatePicker.
+- Make all the Alert components not `dismissible` by default.
+- Don't allow the Modal to be closed by pressing the `ESC` key as default.
 
-You can also override the default values of the props for every component using the same syntax you use for the classes:
+With this library, you can do that and more since you can override the default value of all the `props` for every component.
 
 So let's try the goal explained above:
 
@@ -160,7 +160,6 @@ const settings = {
 // Add the settings as the second parameter when you register your component
 Vue.use(VueTailwind, settings)
 ```
-
 
 ## 3. Configure `purgecss` (optional)
 

@@ -14,20 +14,20 @@ However, we are aware than in a lot of cases is useful to change the default val
 Let's use an example, what if I want:
 
 - That all the button components have the `type="button"` attribute (I do myself change that).
-- Change the default localization settings for a DatePicker.
-- Make all the alert not `dismissible` by default.
-- Don't allow the Modal to be closed by pressing `ESC` as default.
+- Change the default localization settings for the DatePicker.
+- Make all the Alert components not `dismissible` by default.
+- Don't allow the Modal to be closed by pressing the `ESC` key as default.
 
-You can use this feature to override those default values so you don't need to use the props when using a component.
+With this library, you can do that and more since you can override the default value of all the `props` for every component.
 
 ## How to override a prop default value
 
-Piece of cake! When you install the library you just need to pass the name of the prop within the new default value. It expects exactly the same syntax used to override the classes (actually the classes are just another that we replace prop).
+Piece of cake! When you install the library you just need to pass the name of the prop within the new default value. It expects exactly the same syntax used to override the classes (if you think about it the classes are just another prop we are replacing).
 
 Take a look at this example where we try to achieve the example mentioned a few paragraphs above:
 
 ```js
-// Locale to eventually replace the default datepicker locale
+// Locale to eventually replace the default Datepicker locale
 import Spanish from 'vue-tailwind/dist/l10n/es'
 
 const settings = {
@@ -68,12 +68,12 @@ Vue.use(VueTailwind, settings)
 
 ### Use valid values
 
-When you override the default prop value of a component ensure to return a valid value according to every prop otherwise you may experience unexpected errors.
+When you override the default prop value of a component you need to ensure to return a valid value according to every prop otherwise you may experience unexpected errors.
 
 #### Example:
 
 <wrong-tip>
-The example above may causes issues since the <code class="font-mono text-sm text-orange-600 bg-orange-100">clickToClose</code> prop expects a <code class="font-mono text-sm text-orange-600 bg-orange-100">boolean</code> value.
+The example below may causes issues since the <code class="font-mono text-sm text-orange-600 bg-orange-100">clickToClose</code> prop expects a <code class="font-mono text-sm text-orange-600 bg-orange-100">boolean</code> value.
 </wrong-tip>
 
 ```js
@@ -88,13 +88,13 @@ Vue.use(VueTailwind, settings)
 ```
 
 <ok-tip>
-The example will work since you are overriding the <code class="font-mono text-sm text-orange-600 bg-orange-100">clickToClose</code> prop with a <code class="font-mono text-sm text-orange-600 bg-orange-100">boolean</code> value as expected.
+The next example will work since you are overriding the <code class="font-mono text-sm text-orange-600 bg-orange-100">clickToClose</code> prop with a <code class="font-mono text-sm text-orange-600 bg-orange-100">boolean</code> value as that specific prop expects.
 </ok-tip>
 
 ```js
 const settings = {
   TModal: {
-    clickToClose: 'yes',
+    clickToClose: false,
   },
   // ...
 }
