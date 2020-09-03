@@ -30,6 +30,8 @@ import TCheckboxDemo from '@/components/demos/TCheckboxDemo'
 import TRichSelectPlayground from '@/components/playgrounds/TRichSelectPlayground'
 import TRichSelectDemo from '@/components/demos/TRichSelectDemo'
 
+import DatepickerExample from '@/components/examples/datepicker/DatepickerExample'
+
 import TInputGroupPlayground from '@/components/playgrounds/TInputGroupPlayground'
 import TInputGroupDemo from '@/components/demos/TInputGroupDemo'
 
@@ -136,6 +138,7 @@ Vue.component('t-dropdown-demo', TDropdownDemo)
 Vue.component('t-dropdown-responsive-demo', TDropdownResponsiveDemo)
 Vue.component('t-toggle-playground', TTogglePlayground)
 Vue.component('t-toggle-demo', TToggleDemo)
+Vue.component('datepicker-example', DatepickerExample)
 
 Vue.component('select-arrow-slot-example', SelectArrowSlotExample)
 Vue.component('radio-basic-example', RadioBasicExample)
