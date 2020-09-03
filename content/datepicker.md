@@ -240,7 +240,6 @@ As you may know, the fixed classes are shared and merged with the different vari
 }
 ```
 
-
 ## Events
 
 | Event       | Arguments                                | Description                                                                       |
@@ -255,6 +254,125 @@ As you may know, the fixed classes are shared and merged with the different vari
 | update:show       | `Boolean`                               | Used to sync the `show` prop                                         |
 | activeChange       | `Date`                               | Emitted when the active date change                                       |
 
+## Localization
+
+Since the localization files of this component are based in the [Flatpickr component](https://flatpickr.js.org/localization/) dozens of locales are already available in the [source code](https://github.com/alfonsobries/vue-tailwind/tree/master/src/l10n).
+
+### Add more locales
+
+To keep the bundle size small only the English locale is loaded by default but adding more locales is very easy.
+
+1. Import the locale file from the `vue-tailwind/dist/l10n/{localename}` path.
+
+2. Add that locale object to the `locale` prop in the configuration settings for the TDatepicker:
+
+```js
+import Vue from 'vue'
+import VueTailwind from 'vue-tailwind'
+import Spanish from 'vue-tailwind/dist/l10n/es'
+
+const settings = {
+  // TInput: {...},
+  // ...,
+  TDatepicker: {
+    // classes: {...},
+    // fixedClasses: {...},
+    locale: Spanish,
+  }
+}
+
+Vue.use(VueTailwind, settings)
+```
+
+
+### Multiple locales
+
+If you need multiple locales you can use the `locales` prop of the date-picker, when using the component you can switch the active language by using the `lang` prop:
+
+1. Import all the locale files you need from the `vue-tailwind/dist/l10n/{localename}` path.
+
+2. Add those locales to the configuration settings when installing the library:
+
+3. Optionally define a default language.
+
+```js
+import Vue from 'vue'
+import VueTailwind from 'vue-tailwind'
+
+import English from 'vue-tailwind/dist/l10n/index'
+import Spanish from 'vue-tailwind/dist/l10n/es'
+import Mandarin from 'vue-tailwind/dist/l10n/zh'
+import Japanese from 'vue-tailwind/dist/l10n/ja'
+import French from 'vue-tailwind/dist/l10n/fr'
+
+const settings = {
+  // TInput: {...},
+  // ...,
+  TDatepicker: {
+    // classes: {...},
+    // fixedClasses: {...},
+    locales: {
+      en:  English,
+      es:  Spanish,
+      zh:  Mandarin,
+      ja:  Japanese,
+      fr:  French,
+    },
+    // Optionally define the default language
+    lang: 'es'
+  }
+}
+
+Vue.use(VueTailwind, settings)
+```
+
+When using the component you can switch the language by using the `lang` prop.
+
+```html
+<t-datepicker lang="fr" />
+```
+
+### Custom localization
+
+Of you you can also define your own localization file, just use one of the ones available in the [source code](https://github.com/alfonsobries/vue-tailwind/tree/master/src/l10n) as a base and add it to your settings as you do with any of the imported files.
+
+Since the custom localization files are merged to the default localization you just need to define the attributes you want to override.
+
+Example:
+
+
+```js
+import Vue from 'vue'
+import VueTailwind from 'vue-tailwind'
+
+const customLocale = {
+  weekdays: {
+    shorthand: ["S😴", "M😭", "T😑", "W😶", "T😔", "F😎", "S😵"],    
+  },
+}
+
+const settings = {
+  // TInput: {...},
+  // ...,
+  TDatepicker: {
+    // classes: {...},
+    // fixedClasses: {...},
+    locale: customLocale,
+  }
+}
+
+Vue.use(VueTailwind, settings)
+```
+<preview class="flex flex-col items-center p-4 bg-gray-100 border rounded shadow-inner">
+<t-datepicker inline value="1987-02-18" :locale="{ weekdays: { shorthand: ['S😴', 'M😭', 'T😑', 'W😶', 'T😔', 'F😎', 'S😵'] }}" /></t-datepicker>
+</preview>
+
+
+<tip>
+Notice that in the custom locale I am only defining one of the different attributes the locale files have. These attributes will be merged with the <a href="https://github.com/alfonsobries/vue-tailwind/blob/master/src/l10n/default.ts" target="_blank" class="underline">default localization file</a>.
+</tip>
+
+
 ## Timepicker
 
-The timepicker feature will be an important feature of this component but is not ready yet. I am working hard to have it ready as soon as possible. Follow me on twitter [@alfonsobries](https://twitter.com/alfonsobries) so I can keep you updated.
+The time-picker feature will be an important feature of this component but is not ready yet. I am working hard to have it ready as soon as possible. Follow me on twitter [@alfonsobries](https://twitter.com/alfonsobries) so I can keep you updated.
