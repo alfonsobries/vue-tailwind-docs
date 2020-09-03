@@ -42,7 +42,7 @@ export default {
   */
   plugins: [
     '@plugins/axios.js',
-    '@plugins/vue-tailwind.js',
+    '@plugins/vue-tailwind.ts',
     '@plugins/components.js',
     '@plugins/exception-handler.js'
   ],

@@ -4,22 +4,22 @@
       Choose the component you need
     </h2>
     <p>Select the components that you want to personalize</p>
-    <hr class="border-t my-4">
+    <hr class="my-4 border-t">
     <fieldset>
-      <legend class="text-base leading-6 font-medium text-gray-900">
+      <legend class="text-base font-medium leading-6 text-gray-900">
         HTML Inputs
       </legend>
       <div class="mt-4">
         <component-checkbox v-model="selected" value="TInput" label="Text Input">
-          <t-input class="pointer-events-none w-64" placeholder="..." />
+          <t-input class="w-64 pointer-events-none" placeholder="..." />
         </component-checkbox>
 
         <component-checkbox v-model="selected" value="TTextarea" label="Textarea">
-          <t-textarea class="pointer-events-none w-64" placeholder="..." />
+          <t-textarea class="w-64 pointer-events-none" placeholder="..." />
         </component-checkbox>
 
         <component-checkbox v-model="selected" value="TSelect" label="Select">
-          <t-select class="pointer-events-none w-64" placeholder="..." />
+          <t-select class="w-64 pointer-events-none" placeholder="..." />
         </component-checkbox>
 
         <component-checkbox v-model="selected" value="TCheckbox" label="Checkbox">
@@ -39,7 +39,7 @@
     </fieldset>
 
     <fieldset class="mt-10">
-      <legend class="text-base leading-6 font-medium text-gray-900">
+      <legend class="text-base font-medium leading-6 text-gray-900">
         UI Components
       </legend>
       <div class="mt-4">
@@ -64,6 +64,13 @@
             placeholder="Select an option"
             :options="['Option A', 'Option B', 'Option C', 'Option D']"
             class="max-w-xs"
+          />
+        </component-checkbox>
+        <component-checkbox v-model="selected" value="TDatepicker" label="TDatepicker">
+          <t-datepicker
+            class="max-w-xs"
+            inline
+            value="2020-02-18"
           />
         </component-checkbox>
 
@@ -128,7 +135,7 @@
               }"
             >
               <button
-                class="flex items-center transform ease-in-out duration-100 text-orange-500 border-orange-500 border-2 uppercase text-sm py-2 px-4 rounded"
+                class="flex items-center px-4 py-2 text-sm text-orange-500 uppercase duration-100 ease-in-out transform border-2 border-orange-500 rounded"
                 aria-label="User menu"
                 aria-haspopup="true"
                 @mousedown="userMenuMousedownHandler"
@@ -137,30 +144,30 @@
                 @keydown="userMenuKeydownHandler"
               >
                 Account
-                <icon class="h-3 w-3 ml-2">
+                <icon class="w-3 h-3 ml-2">
                   <path d="M19 9l-7 7-7-7" />
                 </icon>
               </button>
             </div>
             <template>
-              <div class="py-1 rounded-md bg-white shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+              <div class="py-1 bg-white rounded-md shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
                 <a
                   href="#"
-                  class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+                  class="block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
                   role="menuitem"
                 >
                   Your Profile
                 </a>
                 <a
                   href="#"
-                  class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+                  class="block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
                   role="menuitem"
                 >
                   Settings
                 </a>
                 <a
                   href="#"
-                  class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+                  class="block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
                   role="menuitem"
                 >
                   Sign out

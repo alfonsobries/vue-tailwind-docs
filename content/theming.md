@@ -20,7 +20,7 @@ For more complex components that depends of multiple tags it expects an `object`
 Take a look as this example:
 
 ```js
-const theme = {
+const settings = {
   // Single tag elements
   TInput: {
     classes: 'border-2 block w-full rounded text-gray-800',
@@ -62,8 +62,8 @@ const theme = {
   }
 }
 
-// Add the theme as the second parameter when you register your component
-Vue.use(VueTailwind, theme)
+// Add the settings as the second parameter when you register your component
+Vue.use(VueTailwind, settings)
 ```
 
 ## Variants
@@ -74,7 +74,7 @@ The variants are the heart of the theming system you can create as many variants
 #### Single tag elements
 
 ```js
-const theme = {
+const settings = {
   TInput: {
     classes: 'border-2 block w-full rounded text-gray-800 p-3',
     variants: {
@@ -87,7 +87,7 @@ const theme = {
   // ...etc
 }
 
-Vue.use(VueTailwind, theme)
+Vue.use(VueTailwind, settings)
 ```
 
 <tip>
@@ -97,7 +97,7 @@ When you use a variant, the variant classes will override the default classes; t
 #### Multiple tag elements
 
 ```js
-const theme = {
+const settings = {
   TAlert: {
     classes: {
       wrapper: 'rounded bg-blue-100 p-4 flex text-sm border-l-4 border-blue-500',
@@ -122,7 +122,7 @@ const theme = {
   // ....
 }
 
-Vue.use(VueTailwind, theme)
+Vue.use(VueTailwind, settings)
 ```
 
 <tip>
@@ -143,7 +143,7 @@ You can repeat the same common classes over and over.
 </meh-tip>
 
 ```js
-const theme = {
+const settings = {
   TButton: {
     classes: 'transform ease-in-out duration-100 shadow bg-orange-500,
     variants: {
@@ -176,7 +176,7 @@ A better idea is to use the `fixedClasses` prop to define CSS classes that all t
 </ok-tip>
 
 ```js
-const theme = {
+const settings = {
   TButton: {
     fixedClasses: 'transform ease-in-out duration-100 shadow',
     classes: 'bg-orange-500,
@@ -210,36 +210,36 @@ const theme = {
   // ....
 }
 
-Vue.use(VueTailwind, theme)
+Vue.use(VueTailwind, settings)
 ```
 
 For the example above, with both alternatives, the results will look like this:
 
 ```html
 <!-- <t-button>Press me</tbutton> -->
-<button class="transform ease-in-out duration-100 shadow bg-orange-500">Press me</button>
+<button class="duration-100 ease-in-out transform bg-orange-500 shadow">Press me</button>
 
 <!-- <t-alert show>Hello world</talert> -->
-<div class="rounded flex flex text-sm w-full border-l-4 p-4 bg-blue-100 border-blue-700">
+<div class="flex w-full p-4 text-sm bg-blue-100 border-l-4 border-blue-700 rounded">
   <div class="flex-grow text-blue-700">
     Hello world
   </div>
-  <button type="button" class="p-2 ml-4 rounded text-blue-700 hover:text-blue-600">
-    <svg class="h-5 w-5 fill-current">...</svg>
+  <button type="button" class="p-2 ml-4 text-blue-700 rounded hover:text-blue-600">
+    <svg class="w-5 h-5 fill-current">...</svg>
   </button>
 </div>
 
 
 <!-- <t-button variant="secondary">Press me</tbutton> -->
-<button class="transform ease-in-out duration-100 shadow underline text-orange-500">Press me</button>
+<button class="text-orange-500 underline duration-100 ease-in-out transform shadow">Press me</button>
 
 <!-- <t-alert variant="error" show>Hello world</talert> -->
-<div class="rounded flex flex text-sm w-full border-l-4 p-4 bg-red-100 border-red-700">
+<div class="flex w-full p-4 text-sm bg-red-100 border-l-4 border-red-700 rounded">
   <div class="flex-grow text-red-700">
     Hello world
   </div>
-  <button type="button" class="p-2 ml-4 rounded text-red-700 hover:text-red-600">
-    <svg class="h-5 w-5 fill-current">...</svg>
+  <button type="button" class="p-2 ml-4 text-red-700 rounded hover:text-red-600">
+    <svg class="w-5 h-5 fill-current">...</svg>
   </button>
 </div>
 ```
@@ -289,7 +289,7 @@ You can define the component as `wrapped` when you install the plugin or by usin
 ##### Global configuration:
 
 ```js
-const theme = {
+const settings = {
   TSelect: {
     wrapped: true,
     // classes, variants, etc...
@@ -297,7 +297,7 @@ const theme = {
   // ...
 }
 
-Vue.use(VueTailwind, theme)
+Vue.use(VueTailwind, settings)
 ```
 
 ##### Use the prop
@@ -318,7 +318,7 @@ Consider the example of the `t-select` component:
 #### Not wrapped: 
 
 ```js
-const theme = {
+const settings = {
   TSelect: {
     classes: 'bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal'
     // Variants and fixed classes in the same `single` format ...
@@ -326,13 +326,13 @@ const theme = {
   // ...
 }
 
-Vue.use(VueTailwind, theme)
+Vue.use(VueTailwind, settings)
 ```
 
 #### Wrapped: 
 
 ```js
-const theme = {
+const settings = {
   TSelect: {
     wrapped: true,
     classes: {
@@ -346,7 +346,7 @@ const theme = {
   // ...
 }
 
-Vue.use(VueTailwind, theme)
+Vue.use(VueTailwind, settings)
 ```
 
 By using the settings above this is how the select will look like:

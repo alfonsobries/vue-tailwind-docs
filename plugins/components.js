@@ -4,6 +4,7 @@ import Tip from '@/components/Tip'
 import Preview from '@/components/Preview'
 import OkTip from '@/components/OkTip'
 import WrongTip from '@/components/WrongTip'
+import Since from '@/components/Since'
 import MehTip from '@/components/MehTip'
 import Playground from '@/components/Playground'
 import LoadingOverlay from '@/components/LoadingOverlay'
@@ -28,6 +29,8 @@ import TCheckboxDemo from '@/components/demos/TCheckboxDemo'
 
 import TRichSelectPlayground from '@/components/playgrounds/TRichSelectPlayground'
 import TRichSelectDemo from '@/components/demos/TRichSelectDemo'
+
+import DatepickerExample from '@/components/examples/datepicker/DatepickerExample'
 
 import TInputGroupPlayground from '@/components/playgrounds/TInputGroupPlayground'
 import TInputGroupDemo from '@/components/demos/TInputGroupDemo'
@@ -91,6 +94,7 @@ import ToggleDefaultSlotExample from '@/components/examples/toggle/SlotDefault.v
 Vue.component('tip', Tip)
 Vue.component('preview', Preview)
 Vue.component('ok-tip', OkTip)
+Vue.component('since', Since)
 Vue.component('wrong-tip', WrongTip)
 Vue.component('meh-tip', MehTip)
 Vue.component('playground', Playground)
@@ -134,6 +138,7 @@ Vue.component('t-dropdown-demo', TDropdownDemo)
 Vue.component('t-dropdown-responsive-demo', TDropdownResponsiveDemo)
 Vue.component('t-toggle-playground', TTogglePlayground)
 Vue.component('t-toggle-demo', TToggleDemo)
+Vue.component('datepicker-example', DatepickerExample)
 
 Vue.component('select-arrow-slot-example', SelectArrowSlotExample)
 Vue.component('radio-basic-example', RadioBasicExample)

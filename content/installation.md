@@ -33,11 +33,11 @@ Dont forget to <a class="underline" href="https://tailwindcss.com/docs/installat
 import Vue from 'vue'
 import VueTailwind from 'vue-tailwind'
 
-const theme = {
+const settings = {
   //...
 }
 
-Vue.use(VueTailwind, theme)
+Vue.use(VueTailwind, settings)
 ```
 
 #### Apply your own theme:
@@ -66,12 +66,12 @@ const TButton = {
   // fixedClasses: 'transform ease-in-out duration-100',
 }
 
-const MyOwnTheme = {
+const settings = {
   TInput,
   TButton,
 }
 
-export default MyOwnTheme
+export default settings
 ```
 
 Then you can import your theme and add it as a parameter when you install VueTailwind:
@@ -79,9 +79,9 @@ Then you can import your theme and add it as a parameter when you install VueTai
 ```js {3,6}
 import Vue from 'vue'
 import VueTailwind from 'vue-tailwind'
-import MyOwnTheme from './myOwnTheme.js'
+import settings from './settings.js'
 
-Vue.use(VueTailwind, MyOwnTheme)
+Vue.use(VueTailwind, settings)
 ```
 
 Or just define the settings directly:
@@ -106,6 +106,61 @@ Vue.use(VueTailwind, {
   }
 })
 ```
+
+#### Override the default settings <since>1.2.0+</since>
+
+Let's say that some default values of the component are not the best for your specific project needs and you see yourself setting the props over and over every time you use the component.
+
+With this library, you can override the default settings when installing the library.
+
+For example, maybe you want:
+
+- That all the button components have the `type="button"` attribute (I do myself change that).
+- Change the default localization settings for a DatePicker.
+- Make all the alert not `dismissible` by default.
+- Don't allow the Modal to be closed by pressing `ESC` as default.
+
+You can also override the default values of the props for every component using the same syntax you use for the classes:
+
+So let's try the goal explained above:
+
+```js
+// Locale to eventually replace the default datepicker locale
+import Spanish from 'vue-tailwind/dist/l10n/es'
+
+const settings = {
+  TButton: {
+    // classes: '...',
+    // ...
+    // Originally it defaults to `undefined` that means is considered a submit
+    // button if the button is inside a form.
+    type: 'button',
+  },
+  TDatepicker: {
+    // classes: '...',
+    // ...
+    // Originally a locale object with English values
+    locale: Spanish,
+  },
+  TAlert: {
+    // classes: '...',
+    // ...
+    // Originally `true`
+    dismissible: false,
+  },
+  TModal: {
+    // classes: '...',
+    // ...
+    // Originally `true`
+    escToClose: false,
+  },
+  
+}
+
+// Add the settings as the second parameter when you register your component
+Vue.use(VueTailwind, settings)
+```
+
 
 ## 3. Configure `purgecss` (optional)
 

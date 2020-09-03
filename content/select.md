@@ -168,7 +168,7 @@ Remember that the component can set as "wrapped" when installed or by using the 
 
 ```js
 // When installed
-const theme = {
+const settings = {
   TSelect: {
     wrapped: true,
     // classes, variants, etc...
@@ -176,7 +176,7 @@ const theme = {
   // ...
 }
 
-Vue.use(VueTailwind, theme)
+Vue.use(VueTailwind, settings)
 ```
 
 ```html
@@ -212,7 +212,7 @@ When the select is wrapped the classes, variants, etc need to be an object with 
 #### Example
 
 ```js
-const theme = {
+const settings = {
   TSelect: {
     wrapped: true,
     classes: {
@@ -226,7 +226,7 @@ const theme = {
   // ...
 }
 
-Vue.use(VueTailwind, theme)
+Vue.use(VueTailwind, settings)
 ```
 
 If you use the settings above the component will be rendered like this:
