@@ -1,6 +1,10 @@
 <template>
   <nav>
     <div class="lg:sticky lg:top-0 lg:max-h-screen lg:overflow-y-auto lg:scrolling-touch lg:pt-10 ">
+      <nuxt-link to="/contribute" class="items-center justify-center hidden h-24 mx-3 mb-3 text-gray-600 bg-gray-100 border-2 border-gray-300 border-dashed md:flex">
+        Your logo here
+      </nuxt-link>
+
       <nuxt-link
         to="/docs/installation"
         class="relative flex items-center px-3 py-1 mb-2 text-sm text-gray-600 transition duration-200 ease-in-out rounded hover:text-gray-900"
@@ -64,6 +68,10 @@
           </li>
         </ul>
       </div>
+
+      <nuxt-link to="/contribute" class="flex items-center justify-center h-24 mx-3 mb-3 text-gray-600 bg-gray-100 border-2 border-gray-300 border-dashed md:hidden">
+        Your logo here
+      </nuxt-link>
 
       <a href="https://twitter.com/alfonsobries" target="_blank" class="relative flex items-center px-3 py-1 mb-2 text-sm text-gray-600 transition duration-200 ease-in-out rounded lg:hidden hover:text-gray-900">
         <icon class="w-4 h-4 text-gray-400">

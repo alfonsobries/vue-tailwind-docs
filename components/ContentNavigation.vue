@@ -15,6 +15,17 @@
         </li>
       </ul>
 
+      <div id="add-1" class="mt-10">
+        <nuxt-link to="/contribute" class="flex items-center justify-center w-full h-24 mt-3 bg-gray-100 border-2 border-gray-300 border-dashed text-gray-60">
+          Your logo here
+        </nuxt-link>
+        <div class="mt-2">
+          <nuxt-link to="/contribute" class="text-sm font-medium text-gray-800 hover:underline">
+            Learn more →
+          </nuxt-link>
+        </div>
+      </div>
+
       <div id="add-2" class="mt-10">
         <a target="_blank" href="https://www.vexilo.com/en/?utm_source=vuetailwind&amp;utm_medium=sidebar-widget" class="block mt-3">
           <img src="@/assets/img/vexilo-add.png" alt="Nearshore software development company">

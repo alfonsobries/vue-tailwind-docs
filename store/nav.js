@@ -13,7 +13,7 @@ export const state = () => ({
       text: 'Community Themes'
     },
     {
-      to: '/Contribute',
+      to: '/contribute',
       text: 'Contribute'
     }
   ],
