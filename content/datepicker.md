@@ -254,3 +254,7 @@ As you may know, the fixed classes are shared and merged with the different vari
 | shown        | ``                               | Emitted when the dropdown is shown                                                |
 | update:show       | `Boolean`                               | Used to sync the `show` prop                                         |
 | activeChange       | `Date`                               | Emitted when the active date change                                       |
+
+## Timepicker
+
+The timepicker feature will be an important feature of this component but is not ready yet. I am working hard to have it ready as soon as possible. Follow me on twitter [@alfonsobries](https://twitter.com/alfonsobries) so I can keep you updated.
