@@ -49,7 +49,7 @@
         </p>
 
         <p class="mt-4">
-          You can contact me through Twitter or my personal email account: <span class="font-mono text-sm bg-gray-200 nowrap">alfonso[at]vexilo.com</span>.</a>
+          You can contact me through <a class="text-orange-500 underline border-orange-300 hover:text-orange-600" target="_blank" href="https://twitter.com/alfonsobries">twitter</a> or send me an email: <span class="font-mono text-sm bg-gray-200 nowrap">alfonso[at]vexilo.com</span>.</a>
         </p>
       </div>
     </div>
