@@ -6,6 +6,7 @@
         placeholder="Select a date"
         date-format="Y-m-d"
         user-format="m/d/Y"
+        show
       />
 
       <span class="px-3 py-1 ml-2 text-sm text-orange-700 bg-orange-100 rounded-full">Value: {{ date || '---' }}</span>
