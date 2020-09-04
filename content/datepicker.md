@@ -329,7 +329,7 @@ The `month` scoped slot include this information that may be useful for you when
 
 Let's show a pumpkin in October:
 
-```
+```html
 <t-datepicker
   v-model="date"
   initial-view="month"
@@ -485,10 +485,7 @@ const settings = {
 Vue.use(VueTailwind, settings)
 ```
 
-<preview class="flex flex-col items-center p-4 bg-gray-100 border rounded shadow-inner">
-<t-datepicker inline value="1987-02-18" :locale="{ weekdays: { shorthand: ['S😴', 'M😭', 'T😑', 'W😶', 'T😔', 'F😎', 'S😵'] }}"></t-datepicker>
-</preview>
-
+<datepicker-custom-locale-example></datepicker-custom-locale-example>
 
 <tip>
 Notice that in the custom locale I am only defining one of the different attributes the locale files have. These attributes will be merged with the <a href="https://github.com/alfonsobries/vue-tailwind/blob/master/src/l10n/default.ts" target="_blank" class="underline">default localization file</a>.
@@ -623,8 +620,6 @@ For this example lets disable dates with an array with all the valid formats:
 </template>
 
 <script>
-import moment from 'moment'
-
 export default {
   data () {
     return {
@@ -634,26 +629,19 @@ export default {
         '1987-03-19',
         // A date object ('1987-03-25',)
         new Date(1987, 4, 25),
-        // Disable sundays
+        // Disable mondays
         function (date) {
-          return date.getDay() === 0;
-        },
-      ],
+          return date.getDay() === 1
+        }
+      ]
     }
-  },
-  
+  }
+
 }
 </script>
 ```
 
-<preview>
-<t-datepicker
-  value="1987-03-18"
-  inline
-  :disabled-dates="['1987-03-19', new Date(1987, 4, 25), (date) => date.getDay() === 0]"
-></t-datepicker>
-</preview>
-
+<datepicker-disabled-dates-example></datepicker-disabled-dates-example>
 
 ## Highlight dates
 
@@ -682,8 +670,6 @@ For this example lets hightlight dates with an array with all the valid formats:
 </template>
 
 <script>
-import moment from 'moment'
-
 export default {
   data () {
     return {
@@ -693,26 +679,19 @@ export default {
         '1987-03-19',
         // A date object ('1987-03-25',)
         new Date(1987, 4, 25),
-        // Disable sundays
+        // Disable mondays
         function (date) {
-          return date.getDay() === 0;
-        },
-      ],
+          return date.getDay() === 1
+        }
+      ]
     }
-  },
-  
+  }
+
 }
 </script>
 ```
 
-<preview>
-<t-datepicker
-  value="1987-03-18"
-  inline
-  :disabled-dates="['1987-03-19', new Date(1987, 4, 25), (date) => date.getDay() === 0]"
-></t-datepicker>
-</preview>
-
+<datepicker-highlight-dates-example></datepicker-highlight-dates-example>
 
 ## Timepicker
 

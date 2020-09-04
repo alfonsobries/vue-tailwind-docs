@@ -33,6 +33,9 @@ import TRichSelectDemo from '@/components/demos/TRichSelectDemo'
 import DatepickerExample from '@/components/examples/datepicker/DatepickerExample'
 import DatepickerDaySlot from '@/components/examples/datepicker/DatepickerDaySlot'
 import DatepickerMonthSlot from '@/components/examples/datepicker/DatepickerMonthSlot'
+import DatepickerCustomLocale from '@/components/examples/datepicker/DatepickerCustomLocale'
+import DatepickerDisabledDates from '@/components/examples/datepicker/DatepickerDisabledDates'
+import DatepickerHighlightDates from '@/components/examples/datepicker/DatepickerHighlightDates'
 
 import TInputGroupPlayground from '@/components/playgrounds/TInputGroupPlayground'
 import TInputGroupDemo from '@/components/demos/TInputGroupDemo'
@@ -143,6 +146,9 @@ Vue.component('t-toggle-demo', TToggleDemo)
 Vue.component('datepicker-example', DatepickerExample)
 Vue.component('datepicker-day-slot-example', DatepickerDaySlot)
 Vue.component('datepicker-month-slot-example', DatepickerMonthSlot)
+Vue.component('datepicker-custom-locale-example', DatepickerCustomLocale)
+Vue.component('datepicker-disabled-dates-example', DatepickerDisabledDates)
+Vue.component('datepicker-highlight-dates-example', DatepickerHighlightDates)
 
 Vue.component('select-arrow-slot-example', SelectArrowSlotExample)
 Vue.component('radio-basic-example', RadioBasicExample)
