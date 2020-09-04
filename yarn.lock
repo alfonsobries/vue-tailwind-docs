@@ -12695,10 +12695,10 @@ vue-style-loader@^4.1.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-tailwind@^1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/vue-tailwind/-/vue-tailwind-1.2.4.tgz#3489fd77bab86096a139042caa62d784d5ac83e8"
-  integrity sha512-NnLflPsOgJBOmbeomNrEN9c9MMJAH9l7zS3tT7LOpmFjcL7iW/tRDkNDniwImwVT8PgvCmsuCDU7y5AIPe1duA==
+vue-tailwind@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/vue-tailwind/-/vue-tailwind-1.2.5.tgz#39163a282d84298a6f0a6443341315a01d8e46db"
+  integrity sha512-9c3BRRMcJwwGdOEfOD6H0xvSbKx2MmzWv6ZRu5UbPSRLUodZrQx8s9Ic/0i02pJUDzzCsHoj2fHlg/3X0sUFog==
   dependencies:
     body-scroll-lock "^3.0.3"
     lodash "^4.17.20"

@@ -19,7 +19,7 @@ I'm officially working in a new Dialog component inspired in the [Sweetalert lib
 
 ### 3. More components on the way
 
-I want to add a couple of more components. I'm currently considering a file input/manager, an autocomplete, a carousel, and probably more, still no special priority.
+I want to add a couple of more components. I'm currently considering toast notifications, file input/manager, an autocomplete, a carousel, and probably more, still no special priority.
 
 ## Plans for version 2.x
 

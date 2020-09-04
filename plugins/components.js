@@ -38,6 +38,7 @@ import DatepickerDisabledDates from '@/components/examples/datepicker/Datepicker
 import DatepickerHighlightDates from '@/components/examples/datepicker/DatepickerHighlightDates'
 import DatepickerRange from '@/components/examples/datepicker/DatepickerRange'
 import DatepickerMultiple from '@/components/examples/datepicker/DatepickerMultiple'
+import DatepickerMultipleViews from '@/components/examples/datepicker/DatepickerMultipleViews'
 
 import TInputGroupPlayground from '@/components/playgrounds/TInputGroupPlayground'
 import TInputGroupDemo from '@/components/demos/TInputGroupDemo'
@@ -153,6 +154,7 @@ Vue.component('datepicker-disabled-dates-example', DatepickerDisabledDates)
 Vue.component('datepicker-highlight-dates-example', DatepickerHighlightDates)
 Vue.component('datepicker-range-example', DatepickerRange)
 Vue.component('datepicker-multiple-example', DatepickerMultiple)
+Vue.component('datepicker-multiple-views-example', DatepickerMultipleViews)
 
 Vue.component('select-arrow-slot-example', SelectArrowSlotExample)
 Vue.component('radio-basic-example', RadioBasicExample)

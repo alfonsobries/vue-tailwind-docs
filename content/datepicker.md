@@ -38,9 +38,9 @@ Code for the example above:
 | placeholder           | `String`                          | `undefined`   | Placeholder for the text input that contains the user friendly date                                                            |
 | inputName             | `String`                          | `undefined`   | Name attribute for the text input that contains the user friendly date, the `name` prop is used for the hidden input           |
 | weekStart             | `Number`                          | `0`           | First day of the week show in the calendar, `0` = Sunday                                                                       |
-| monthsPerView         | `Number`                          | `1`           | How many months calendar show per view                                                                                         |
+| monthsPerView         | `Number`                          | `1`           | How many months calendar show per view (see [Multiple months per view](#multiple-months-per-view))                             |  |
 | lang                  | `String`                          | `en`          | Default language used in the component                                                                                         |
-| locale                | `Object`                          | `{...}`       | Object that define the localization   (see [Localization](#localization))                                                      |
+| locale                | `Object`                          | `{...}`       | Object that define the localization (see [Localization](#localization))                                                        |
 | locales               | `Object`                          | `{}`          | Object with the different languages objects available     (see [Formatting tokens](#formatting))                               |
 | dateFormat            | `String`                          | `'Y-m-d'`     | Formatted date added to the hidden input and to the `v-model` value                                                            |
 | userFormat            | `String`                          | `'F j, Y'`    | User friendly format that is shown in the text input                                                                           |
@@ -723,6 +723,13 @@ When the value of a range changes you should consider that the value is handled 
 
 <datepicker-range-example></datepicker-range-example>
 
+## Multiple months per view
+
+The Datepicker allows you to display multiple calendar per view by using the `monthsPerView` prop.
+
+#### Example
+
+<datepicker-multiple-views-example></datepicker-multiple-views-example>
 
 
 ## Timepicker
