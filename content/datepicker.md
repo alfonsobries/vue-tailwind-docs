@@ -57,11 +57,10 @@ Code for the example above:
 | maxDate               | `[Date, String]`                  | `undefined`   | Max allowed date                                                                                                               |
 | minDate               | `[Date, String]`                  | `undefined`   | Min allowed date                                                                                                               |
 | initialDate           | `[Date, String]`                  | `undefined`   | Initial active date                                                                                                            |
-| conjuntion            | `String`                          | `','`         | When multiple dates or range used to join the dates values                                                                     |
-| multiple              | `Boolean`                         | `false`       | When set it will allow to select multiple dates (see [Multiple dates](#range))                                                 |
-| range                 | `Boolean`                         | `false`       | When set it will expect a range of dates to be selected (see [Range](#range))                                                  |
+| conjunction           | `String`                          | `','`         | When multiple dates or range used to join the dates values                                                                     |
+| multiple              | `Boolean`                         | `false`       | When set it will create multiple hidden inputs with all the selected dates (see [Multiple dates](#handle-multiple-dates))      |
+| range                 | `Boolean`                         | `false`       | When set it will expect a range of dates to be selected (see [Range](#ranges))                                                 |
 | clearable             | `Boolean`                         | `true`        | If set will allow you to clear the date value                                                                                  |
- 
 
 
 ## Classes and variants format
@@ -242,17 +241,18 @@ As you may know, the fixed classes are shared and merged with the different vari
 
 ## Events
 
-| Event        | Arguments                             | Description                                                 |
-| ------------ | ------------------------------------- | ----------------------------------------------------------- |
-| input        | `String` (The current date formatted) | Emitted every time the value of the `v-model` change        |
-| change       | `String` (The current date formatted) | Emitted every time the value of the `v-model` change        |
-| focus        | `FocusEvent`                          | Emitted when the text input inside the component is focused |
-| blur         | `FocusEvent`                          | Emitted when the text input inside the component is blurred |
-| keydown      | `KeyboardEvent`                       | Emitted when the user keydown any key                       |
-| hidden       | ``                                    | Emitted when the dropdown is hidden                         |
-| shown        | ``                                    | Emitted when the dropdown is shown                          |
-| update:show  | `Boolean`                             | Used to sync the `show` prop                                |
-| activeChange | `Date`                                | Emitted when the active date change                         |
+| Event            | Arguments                             | Description                                                 |
+| ---------------- | ------------------------------------- | ----------------------------------------------------------- |
+| input            | `String` (The current date formatted) | Emitted every time the value of the `v-model` change        |
+| change           | `String` (The current date formatted) | Emitted every time the value of the `v-model` change        |
+| focus            | `FocusEvent`                          | Emitted when the text input inside the component is focused |
+| blur             | `FocusEvent`                          | Emitted when the text input inside the component is blurred |
+| keydown          | `KeyboardEvent`                       | Emitted when the user key down any key                      |
+| hidden           | ``                                    | Emitted when the dropdown is hidden                         |
+| shown            | ``                                    | Emitted when the dropdown is shown                          |
+| update:show      | `Boolean`                             | Used to sync the `show` prop                                |
+| activeChange     | `Date`                                | Emitted when the active date change                         |
+| userFormatedDate | `String`                              | Emitted when the user formatted date change                 |
 
 ## Scoped slots
 
@@ -373,7 +373,7 @@ Props in the `clearButton` slot
 | className        | Original `clearButtonIcon` class                            |
 | formatedDate     | Current formatted date                                      |
 | userFormatedDate | Current user formatted date                                 |
-| activeDate       | A `Date` object that represents the current active date     |
+| activeDate       | A `Date` object that represents the currently active date   |
 | value            | A `Date` object that represents the currently selected date |
 
 ## Localization
@@ -545,7 +545,7 @@ You may escape formatting tokens using `\\`.
 
 If you want to use your own date formatter / parser you can do it by using the  `dateFormatter` and `dateParser` props. You don't need to use it both, but you need to ensure that the formatted date works for the parsed date and vice versa.
 
-Both props expects a function that receive the following paramaters:
+Both props expect a function that receives the following parameters:
 
 
 | Parameter | Type             | Description                     |
@@ -595,16 +595,16 @@ Notice in the example above that the dateFormat prop and userFormat props are no
 
 ## Disable dates
 
-You can use the `disableDates` props to disable one or many fixed dates or based in a function.
+You can use the `disableDates` props to disable one or many fixed dates or based on a function.
 
-The props accepts the following formats:
+The props accept the following formats:
 
-| Format                    | Type       | Description                                                                |
-| ------------------------- | ---------- | -------------------------------------------------------------------------- |
-| Date string               | `String`   | Date formatted as string (will be parsed according to the dateFormat from) |
-| Date object               | `Date`     | You can pass a Date object directly                                        |
-| Function                  | `Function` | A function that receive the current date that is being validated           |
-| Array of dates and method | `Array`    | An array that includes all the methods above                               |
+| Format                    | Type       | Description                                                                  |
+| ------------------------- | ---------- | ---------------------------------------------------------------------------- |
+| Date string               | `String`   | Date formatted as a string (will be parsed according to the dateFormat from) |
+| Date object               | `Date`     | You can pass a Date object directly                                          |
+| Function                  | `Function` | A function that receives the current date that is being validated            |
+| Array of dates and method | `Array`    | An array that includes all the methods above                                 |
 
 #### Example
 
@@ -645,16 +645,16 @@ export default {
 
 ## Highlight dates
 
-You can use the `highlightDates` props to highligtt one or many fixed dates or based in a function.
+You can use the `highlightDates` props to highlight one or many fixed dates or based on a function.
 
-The props accepts the following formats:
+The props accept the following formats:
 
-| Format                    | Type       | Description                                                                |
-| ------------------------- | ---------- | -------------------------------------------------------------------------- |
-| Date string               | `String`   | Date formatted as string (will be parsed according to the dateFormat from) |
-| Date object               | `Date`     | You can pass a Date object directly                                        |
-| Function                  | `Function` | A function that receive the current date that is being validated           |
-| Array of dates and method | `Array`    | An array that includes all the methods above                               |
+| Format                    | Type       | Description                                                                  |
+| ------------------------- | ---------- | ---------------------------------------------------------------------------- |
+| Date string               | `String`   | Date formatted as a string (will be parsed according to the dateFormat from) |
+| Date object               | `Date`     | You can pass a Date object directly                                          |
+| Function                  | `Function` | A function that receives the current date that is being validated            |
+| Array of dates and method | `Array`    | An array that includes all the methods above                                 |
 
 #### Example
 
@@ -692,6 +692,38 @@ export default {
 ```
 
 <datepicker-highlight-dates-example></datepicker-highlight-dates-example>
+
+## Handle multiple dates
+
+The input will allow the user to select multiple dates if the `v-model` (or value) of the input has an array, it doesn't matter if the user set the `multiple` prop. 
+
+When you use the `multiple` prop the difference is that it will render one hidden inputs per value, this especially useful for POST form submissions.
+
+If you set `multiple` to `false` (default value) the hidden input will contain all the dates separated by comma o whatever value set in the `conjunction` prop
+
+#### Example
+
+<datepicker-multiple-example></datepicker-multiple-example>
+
+## Ranges
+
+The Datepicker is compatible with "range" values, when setting the value of the model will expect an array where the first element represents the "from" value, and the second one the "to" value.
+
+### Range Values
+
+When the value of a range changes you should consider that the value is handled in three different ways:
+
+1. The `v-model` or the value of the component will be an array with 2 formatted dates.
+
+2. It will create a hidden input with the formatted dates separated by comma o whatever value used in the `conjunction` prop. If used together with the `multiple` prop it will create two hidden inputs with both (from and two) values.
+
+3. The text input will render the value with the user format and by using the `rangeSeparator` defined in the current localization.
+
+#### Example
+
+<datepicker-range-example></datepicker-range-example>
+
+
 
 ## Timepicker
 
