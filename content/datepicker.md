@@ -25,42 +25,42 @@ Code for the example above:
 
 ## Props
 
-| Property              | Type                              | Default value | Description                                                                                                          |
-| --------------------- | --------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------- |
-| id                    | `String`                          | `undefined`   | id attribute of the text input that shows the user friendly date                                                     |
-| disabled              | `Boolean`                         | `undefined`   | disabled attribute of the text input that shows the user friendly date                                               |
-| name                  | `String`                          | `undefined`   | name attribute of the `hidden` input that contains the formatted                                                     |
-| readonly              | `Boolean`                         | `undefined`   | readonly attribute of the text input that shows the user friendly date                                               |
-| autofocus             | `Boolean`                         | `undefined`   | autofocus attribute of the text input that shows the user friendly date                                              |
-| required              | `Boolean`                         | `undefined`   | required attribute of the text input that shows the user friendly date                                               |
-| tabindex              | `[String, Number]`                | `undefined`   | tabindex attribute of the text input that shows the user friendly date                                               |
-| value (v-model)       | `[Date, String, Number, Array]`   | `null`        | The current value of the component                                                                                   |
-| placeholder           | `String`                          | `undefined`   | Placeholder for the text input that contains the user friendly date                                                  |
-| inputName             | `String`                          | `undefined`   | Name attribute for the text input that contains the user friendly date, the `name` prop is used for the hidden input |
-| weekStart             | `Number`                          | `0`           | First day of the week show in the calendar, `0` = Sunday                                                             |
-| monthsPerView         | `Number`                          | `1`           | How many months calendar show per view                                                                               |
-| lang                  | `String`                          | `en`          | Default language used in the component                                                                               |
-| locale                | `Object`                          | `{...}`       | Object that define the localization   (see [Localization](#localization))                                            |
-| locales               | `Object`                          | `{}`          | Object with the different languages objects available     (see [Formatting tokens](#formatting))                     |
-| dateFormat            | `String`                          | `'Y-m-d'`     | Formatted date added to the hidden input and to the `v-model` value                                                  |
-| userFormat            | `String`                          | `'F j, Y'`    | User friendly format that is shown in the text input                                                                 |
-| dateFormatter         | `Function`                        | `undefined`   | Allows you to override the default date formatter function (see [Custom date parse and format](#custom-date-parse-and-format))     |
-| dateParser            | `Function`                        | `undefined`   | Allows you to override the default date parser function (see [Custom date parse and format](#custom-date-parse-and-format))              |
-| closeOnSelect         | `Boolean`                         | `true`        | If set will close the date picker when a date is selected                                                            |
-| showDaysForOtherMonth | `Boolean`                         | `true`        | If set will show the days for the prev/next button in the current calendar view                                      |
-| show                  | `Boolean`                         | `false`       | If set will show the datepicker open when the component is loaded                                                    |
-| inline                | `Boolean`                         | `false`       | If set will show the datepicker open as a block                                                                      |
-| initialView           | `String`                          | `'day'`       | Initial view of the calendar (other options `'month'`, `'year'` )                                                    |
-| yearsPerView          | `Number`                          | `12`          | How many years will show in the `year` view                                                                          |
-| disabledDates         | `[Date, Array, Function, String]` | `undefined`   | Disable a single date, a group or dates or based in a function (see [Disable dates](#disable-dates))                 |
-| highlightDates        | `[Date, Array, Function, String]` | `undefined`   | Highlight a single date, a group or dates or based in a function (see [Highlight dates](#highlight-dates))           |
-| maxDate               | `[Date, String]`                  | `undefined`   | Max allowed date                                                                                                     |
-| minDate               | `[Date, String]`                  | `undefined`   | Min allowed date                                                                                                     |
-| initialDate           | `[Date, String]`                  | `undefined`   | Initial active date                                                                                                  |
-| conjuntion            | `String`                          | `','`         | When multiple dates or range used to join the dates values                                                           |
-| multiple              | `Boolean`                         | `false`       | When set it will allow to select multiple dates (see [Multiple dates](#range))                                       |
-| range                 | `Boolean`                         | `false`       | When set it will expect a range of dates to be selected (see [Range](#range))                                        |
-| clearable             | `Boolean`                         | `true`        | If set will allow you to clear the date value                                                                        |
+| Property              | Type                              | Default value | Description                                                                                                                    |
+| --------------------- | --------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| id                    | `String`                          | `undefined`   | id attribute of the text input that shows the user friendly date                                                               |
+| disabled              | `Boolean`                         | `undefined`   | disabled attribute of the text input that shows the user friendly date                                                         |
+| name                  | `String`                          | `undefined`   | name attribute of the `hidden` input that contains the formatted                                                               |
+| readonly              | `Boolean`                         | `undefined`   | readonly attribute of the text input that shows the user friendly date                                                         |
+| autofocus             | `Boolean`                         | `undefined`   | autofocus attribute of the text input that shows the user friendly date                                                        |
+| required              | `Boolean`                         | `undefined`   | required attribute of the text input that shows the user friendly date                                                         |
+| tabindex              | `[String, Number]`                | `undefined`   | tabindex attribute of the text input that shows the user friendly date                                                         |
+| value (v-model)       | `[Date, String, Number, Array]`   | `null`        | The current value of the component                                                                                             |
+| placeholder           | `String`                          | `undefined`   | Placeholder for the text input that contains the user friendly date                                                            |
+| inputName             | `String`                          | `undefined`   | Name attribute for the text input that contains the user friendly date, the `name` prop is used for the hidden input           |
+| weekStart             | `Number`                          | `0`           | First day of the week show in the calendar, `0` = Sunday                                                                       |
+| monthsPerView         | `Number`                          | `1`           | How many months calendar show per view                                                                                         |
+| lang                  | `String`                          | `en`          | Default language used in the component                                                                                         |
+| locale                | `Object`                          | `{...}`       | Object that define the localization   (see [Localization](#localization))                                                      |
+| locales               | `Object`                          | `{}`          | Object with the different languages objects available     (see [Formatting tokens](#formatting))                               |
+| dateFormat            | `String`                          | `'Y-m-d'`     | Formatted date added to the hidden input and to the `v-model` value                                                            |
+| userFormat            | `String`                          | `'F j, Y'`    | User friendly format that is shown in the text input                                                                           |
+| dateFormatter         | `Function`                        | `undefined`   | Allows you to override the default date formatter function (see [Custom date parse and format](#custom-date-parse-and-format)) |
+| dateParser            | `Function`                        | `undefined`   | Allows you to override the default date parser function (see [Custom date parse and format](#custom-date-parse-and-format))    |
+| closeOnSelect         | `Boolean`                         | `true`        | If set will close the date picker when a date is selected                                                                      |
+| showDaysForOtherMonth | `Boolean`                         | `true`        | If set will show the days for the prev/next button in the current calendar view                                                |
+| show                  | `Boolean`                         | `false`       | If set will show the datepicker open when the component is loaded                                                              |
+| inline                | `Boolean`                         | `false`       | If set will show the datepicker open as a block                                                                                |
+| initialView           | `String`                          | `'day'`       | Initial view of the calendar (other options `'month'`, `'year'` )                                                              |
+| yearsPerView          | `Number`                          | `12`          | How many years will show in the `year` view                                                                                    |
+| disabledDates         | `[Date, Array, Function, String]` | `undefined`   | Disable a single date, a group or dates or based in a function (see [Disable dates](#disable-dates))                           |
+| highlightDates        | `[Date, Array, Function, String]` | `undefined`   | Highlight a single date, a group or dates or based in a function (see [Highlight dates](#highlight-dates))                     |
+| maxDate               | `[Date, String]`                  | `undefined`   | Max allowed date                                                                                                               |
+| minDate               | `[Date, String]`                  | `undefined`   | Min allowed date                                                                                                               |
+| initialDate           | `[Date, String]`                  | `undefined`   | Initial active date                                                                                                            |
+| conjuntion            | `String`                          | `','`         | When multiple dates or range used to join the dates values                                                                     |
+| multiple              | `Boolean`                         | `false`       | When set it will allow to select multiple dates (see [Multiple dates](#range))                                                 |
+| range                 | `Boolean`                         | `false`       | When set it will expect a range of dates to be selected (see [Range](#range))                                                  |
+| clearable             | `Boolean`                         | `true`        | If set will allow you to clear the date value                                                                                  |
  
 
 
@@ -287,7 +287,7 @@ The `day` scoped slot include this information that may be useful for you when r
 
 Let`s show a cake when the day is in an hypothetical array of birthdays and a taco every tuesday:
 
-```
+```html
 <t-datepicker
   v-model="date"
   inline
@@ -332,20 +332,18 @@ Let's show a pumpkin in October:
 ```
 <t-datepicker
   v-model="date"
+  initial-view="month"
   inline
 >
   <template
-    slot="day"
-    slot-scope="{ day, dayFormatted }"
+    slot="month"
+    slot-scope="{ month, monthFormatted }"
   >
-    <span v-if="birthdays.includes(day)">
-      🎂
-    </span>
-    <span v-else-if="day.getDay() === 2">
-      🌮
+    <span v-if="month.getMonth() === 9">
+      🎃
     </span>
     <span v-else>
-      {{ dayFormatted }}
+      {{ monthFormatted }}
     </span>
   </template>
 </t-datepicker>
@@ -488,7 +486,7 @@ Vue.use(VueTailwind, settings)
 ```
 
 <preview class="flex flex-col items-center p-4 bg-gray-100 border rounded shadow-inner">
-<t-datepicker inline value="1987-02-18" :locale="{ weekdays: { shorthand: ['S😴', 'M😭', 'T😑', 'W😶', 'T😔', 'F😎', 'S😵'] }}" /></t-datepicker>
+<t-datepicker inline value="1987-02-18" :locale="{ weekdays: { shorthand: ['S😴', 'M😭', 'T😑', 'W😶', 'T😔', 'F😎', 'S😵'] }}"></t-datepicker>
 </preview>
 
 
@@ -554,9 +552,9 @@ Both props expects a function that receive the following paramaters:
 
 
 | Parameter | Type             | Description                     |
-| -------- | ---------------- | ------------------------------- |
-| dateObj  | `Date` or `null` | Date to be parsed or formatted  |
-| format   | `String`         | The format defined in the props |
+| --------- | ---------------- | ------------------------------- |
+| dateObj   | `Date` or `null` | Date to be parsed or formatted  |
+| format    | `String`         | The format defined in the props |
 
 #### Example
 
@@ -604,12 +602,12 @@ You can use the `disableDates` props to disable one or many fixed dates or based
 
 The props accepts the following formats:
 
-| Format | Type             | Description                     |
-| -------- | ---------------- | ------------------------------- |
-| Date string  | `String` | Date formatted as string (will be parsed according to the dateFormat from)  |
-| Date object  | `Date` | You can pass a Date object directly  |
-| Function   | `Function`         | A function that receive the current date that is being validated |
-| Array of dates and method   | `Array`         | An array that includes all the methods above |
+| Format                    | Type       | Description                                                                |
+| ------------------------- | ---------- | -------------------------------------------------------------------------- |
+| Date string               | `String`   | Date formatted as string (will be parsed according to the dateFormat from) |
+| Date object               | `Date`     | You can pass a Date object directly                                        |
+| Function                  | `Function` | A function that receive the current date that is being validated           |
+| Array of dates and method | `Array`    | An array that includes all the methods above                               |
 
 #### Example
 
@@ -653,7 +651,7 @@ export default {
   value="1987-03-18"
   inline
   :disabled-dates="['1987-03-19', new Date(1987, 4, 25), (date) => date.getDay() === 0]"
-><t-datepicker>
+></t-datepicker>
 </preview>
 
 
@@ -663,12 +661,12 @@ You can use the `highlightDates` props to highligtt one or many fixed dates or b
 
 The props accepts the following formats:
 
-| Format | Type             | Description                     |
-| -------- | ---------------- | ------------------------------- |
-| Date string  | `String` | Date formatted as string (will be parsed according to the dateFormat from)  |
-| Date object  | `Date` | You can pass a Date object directly  |
-| Function   | `Function`         | A function that receive the current date that is being validated |
-| Array of dates and method   | `Array`         | An array that includes all the methods above |
+| Format                    | Type       | Description                                                                |
+| ------------------------- | ---------- | -------------------------------------------------------------------------- |
+| Date string               | `String`   | Date formatted as string (will be parsed according to the dateFormat from) |
+| Date object               | `Date`     | You can pass a Date object directly                                        |
+| Function                  | `Function` | A function that receive the current date that is being validated           |
+| Array of dates and method | `Array`    | An array that includes all the methods above                               |
 
 #### Example
 
@@ -712,7 +710,7 @@ export default {
   value="1987-03-18"
   inline
   :disabled-dates="['1987-03-19', new Date(1987, 4, 25), (date) => date.getDay() === 0]"
-><t-datepicker>
+></t-datepicker>
 </preview>
 
 
