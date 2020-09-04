@@ -553,7 +553,7 @@ If you want to use your own date formatter / parser you can do it by using the  
 Both props expects a function that receive the following paramaters:
 
 
-| Paramter | Type             | Description                     |
+| Parameter | Type             | Description                     |
 | -------- | ---------------- | ------------------------------- |
 | dateObj  | `Date` or `null` | Date to be parsed or formatted  |
 | format   | `String`         | The format defined in the props |
@@ -597,6 +597,123 @@ export default {
 <tip>
 Notice in the example above that the dateFormat prop and userFormat props are now using valid moment format strings
 </tip>
+
+## Disable dates
+
+You can use the `disableDates` props to disable one or many fixed dates or based in a function.
+
+The props accepts the following formats:
+
+| Format | Type             | Description                     |
+| -------- | ---------------- | ------------------------------- |
+| Date string  | `String` | Date formatted as string (will be parsed according to the dateFormat from)  |
+| Date object  | `Date` | You can pass a Date object directly  |
+| Function   | `Function`         | A function that receive the current date that is being validated |
+| Array of dates and method   | `Array`         | An array that includes all the methods above |
+
+#### Example
+
+For this example lets disable dates with an array with all the valid formats:
+
+```html
+<template>
+  <t-datepicker
+    v-model="date"
+    inline
+    :disabled-dates="disabledDates"
+  />
+</template>
+
+<script>
+import moment from 'moment'
+
+export default {
+  data () {
+    return {
+      date: '1987-03-18',
+      disabledDates: [
+        // A formatted date
+        '1987-03-19',
+        // A date object ('1987-03-25',)
+        new Date(1987, 4, 25),
+        // Disable sundays
+        function (date) {
+          return date.getDay() === 0;
+        },
+      ],
+    }
+  },
+  
+}
+</script>
+```
+
+<preview>
+<t-datepicker
+  value="1987-03-18"
+  inline
+  :disabled-dates="['1987-03-19', new Date(1987, 4, 25), (date) => date.getDay() === 0]"
+><t-datepicker>
+</preview>
+
+
+## Highlight dates
+
+You can use the `highlightDates` props to highligtt one or many fixed dates or based in a function.
+
+The props accepts the following formats:
+
+| Format | Type             | Description                     |
+| -------- | ---------------- | ------------------------------- |
+| Date string  | `String` | Date formatted as string (will be parsed according to the dateFormat from)  |
+| Date object  | `Date` | You can pass a Date object directly  |
+| Function   | `Function`         | A function that receive the current date that is being validated |
+| Array of dates and method   | `Array`         | An array that includes all the methods above |
+
+#### Example
+
+For this example lets hightlight dates with an array with all the valid formats:
+
+```html
+<template>
+  <t-datepicker
+    v-model="date"
+    inline
+    :highlight-dates="highlightDates"
+  />
+</template>
+
+<script>
+import moment from 'moment'
+
+export default {
+  data () {
+    return {
+      date: '1987-03-18',
+      highlightDates: [
+        // A formatted date
+        '1987-03-19',
+        // A date object ('1987-03-25',)
+        new Date(1987, 4, 25),
+        // Disable sundays
+        function (date) {
+          return date.getDay() === 0;
+        },
+      ],
+    }
+  },
+  
+}
+</script>
+```
+
+<preview>
+<t-datepicker
+  value="1987-03-18"
+  inline
+  :disabled-dates="['1987-03-19', new Date(1987, 4, 25), (date) => date.getDay() === 0]"
+><t-datepicker>
+</preview>
 
 
 ## Timepicker
