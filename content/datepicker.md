@@ -44,8 +44,8 @@ Code for the example above:
 | locales               | `Object`                          | `{}`          | Object with the different languages objects available     (see [Formatting tokens](#formatting))                     |
 | dateFormat            | `String`                          | `'Y-m-d'`     | Formatted date added to the hidden input and to the `v-model` value                                                  |
 | userFormat            | `String`                          | `'F j, Y'`    | User friendly format that is shown in the text input                                                                 |
-| dateFormatter         | `Function`                        | `undefined`   | Allows you to override the default date formatter function (see [Custom date formatter](#custom-date-formatter))     |
-| dateParser            | `Function`                        | `undefined`   | Allows you to override the default date parser function (see [Custom date parser](#custom-date-parser))              |
+| dateFormatter         | `Function`                        | `undefined`   | Allows you to override the default date formatter function (see [Custom date parse and format](#custom-date-parse-and-format))     |
+| dateParser            | `Function`                        | `undefined`   | Allows you to override the default date parser function (see [Custom date parse and format](#custom-date-parse-and-format))              |
 | closeOnSelect         | `Boolean`                         | `true`        | If set will close the date picker when a date is selected                                                            |
 | showDaysForOtherMonth | `Boolean`                         | `true`        | If set will show the days for the prev/next button in the current calendar view                                      |
 | show                  | `Boolean`                         | `false`       | If set will show the datepicker open when the component is loaded                                                    |
@@ -545,6 +545,59 @@ You may escape formatting tokens using `\\`.
     dateFormat: "Y-m-d\\Z", // Displays: 2017-01-22Z
 }
 ```
+
+## Custom date parse and format
+
+If you want to use your own date formatter / parser you can do it by using the  `dateFormatter` and `dateParser` props. You don't need to use it both, but you need to ensure that the formatted date works for the parsed date and vice versa.
+
+Both props expects a function that receive the following paramaters:
+
+
+| Paramter | Type             | Description                     |
+| -------- | ---------------- | ------------------------------- |
+| dateObj  | `Date` or `null` | Date to be parsed or formatted  |
+| format   | `String`         | The format defined in the props |
+
+#### Example
+
+Consider the following example where we use the `moment` library to handle the dates:
+
+```html
+<template>
+  <t-datepicker
+    v-model="date"
+    :date-formatter="dateFormatter"
+    :date-parser="dateParser"
+    date-format="YYYY-MM-DD"
+    user-format="LLLL"
+  />
+</template>
+
+<script>
+import moment from 'moment'
+
+export default {
+  data () {
+    return {
+      date: '1987-03-18'
+    }
+  },
+  methods: {
+    dateFormatter (date, format) {
+      return moment(date).format(format)
+    },
+    dateParser (date, format) {
+      return moment(date, format).toDate()
+    }
+  }
+}
+</script>
+```
+
+<tip>
+Notice in the example above that the dateFormat prop and userFormat props are now using valid moment format strings
+</tip>
+
 
 ## Timepicker
 
