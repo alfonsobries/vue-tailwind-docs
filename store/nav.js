@@ -108,11 +108,6 @@ export const state = () => ({
           to: '/docs/toggle',
           text: 'Toggle',
           since: '1.1.0'
-        },
-        {
-          to: '/docs/dialog',
-          text: 'Dialog',
-          soon: true
         }
       ]
     },
@@ -147,6 +142,11 @@ export const state = () => ({
         {
           to: '/docs/dropdown',
           text: 'Dropdown'
+        },
+        {
+          to: '/docs/dialog',
+          text: 'Dialog',
+          soon: true
         }
       ]
     }
