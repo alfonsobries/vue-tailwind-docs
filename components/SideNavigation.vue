@@ -61,6 +61,9 @@
               <span v-if="item.soon" class="px-2 py-1 ml-2 text-xs leading-none text-orange-700 bg-orange-100 rounded-lg">
                 WIP
               </span>
+              <span v-else-if="recentlyUpdated(item)" class="px-2 py-1 ml-2 text-xs leading-none text-orange-700 bg-orange-100 rounded-lg">
+                Updated
+              </span>
               <span v-else-if="item.since" class="px-2 py-1 ml-2 text-xs leading-none text-orange-700 bg-orange-100 rounded-lg">
                 v{{ item.since }}+
               </span>
@@ -99,6 +102,20 @@ export default Vue.extend({
   },
   computed: mapGetters({
     docsMenu: 'nav/docs'
-  })
+  }),
+  methods: {
+    recentlyUpdated (item) {
+      if (!item.updated) {
+        return false
+      }
+
+      const updatedAt = new Date(item.updated)
+      const today = new Date()
+
+      const diffTime = Math.abs(today - updatedAt)
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+      return diffDays < 21
+    }
+  }
 })
 </script>

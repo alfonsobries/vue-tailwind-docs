@@ -32,7 +32,8 @@ export const state = () => ({
         },
         {
           to: '/docs/upcoming-changes',
-          text: 'Upcoming changes'
+          text: 'Upcoming changes',
+          updated: '2020-09-08'
         },
         {
           to: '/docs/theming',
