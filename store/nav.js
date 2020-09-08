@@ -8,10 +8,10 @@ export const state = () => ({
       to: '/theme-builder',
       text: 'Theme Builder'
     },
-    {
-      to: '/community-themes',
-      text: 'Community Themes'
-    },
+    // {
+    //   to: '/community-themes',
+    //   text: 'Community Themes'
+    // },
     {
       to: '/contribute',
       text: 'Contribute'

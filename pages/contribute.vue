@@ -37,7 +37,27 @@
           </li>
           <li class="flex mt-4">
             <span class="block mr-4 -ml-5 text-3xl">💵</span>
-            <span>One of the best ways to help me is by sponsoring me in GitHub <a class="text-orange-500 underline border-orange-300 hover:text-orange-600" target="_blank" href="https://github.com/sponsors/alfonsobries">https://github.com/sponsors/alfonsobries</a> so I can spend more time in this project and still pay the bills.</span>
+            <span>
+              One of the best ways to help me is by sponsoring me in GitHub <a class="text-orange-500 underline border-orange-300 hover:text-orange-600" target="_blank" href="https://github.com/sponsors/alfonsobries">https://github.com/sponsors/alfonsobries</a> so I can spend more time in this project and still pay the bills.
+              <iframe
+                class="h-8"
+                src="https://github.com/sponsors/alfonsobries/button"
+                title="Sponsor alfonsobries"
+                height="35"
+                width="116"
+                style="border: 0;"
+              />
+
+              <div class="mt-4">
+                <p class="">
+                  Also you can send me a single BTC donation:
+                </p>
+                <p><strong>1NqV86kF42bTKv8aHjrJae8HHRU1JzvyUA</strong></p>
+                <p class="text-center">
+                  <img class="max-w-full" src="@/assets/img/bitcoin.png">
+                </p>
+              </div>
+            </span>
           </li>
         </ol>
 

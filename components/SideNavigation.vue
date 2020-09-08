@@ -88,6 +88,10 @@
         </icon>
         <span class="ml-2">GitHub</span>
       </a>
+
+      <div class="px-3 py-1 mb-2">
+        <iframe src="https://github.com/sponsors/alfonsobries/button" title="Sponsor alfonsobries" height="35" width="116" style="border: 0;" />
+      </div>
     </div>
   </nav>
 </template>

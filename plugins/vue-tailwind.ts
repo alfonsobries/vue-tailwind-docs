@@ -203,6 +203,9 @@ Vue.use(VueTailwind, {
       tooltip: {
         dropdown: 'origin-top-left absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-black bg-opacity-50 text-white z-10'
       },
+      bitcoin: {
+        dropdown: 'origin-top-right absolute right-0 mt-2 rounded-md shadow-lg bg-white z-10'
+      },
       demo: {
         button: 'bg-white hover:bg-gray-100 border uppercase text-sm py-2 px-4 rounded'
       },
