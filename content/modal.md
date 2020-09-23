@@ -36,22 +36,22 @@ VueJs Modal component with configurable classes and infinite variants. Friendly 
 
 ## Props
 
-| Property          | Type               | Default value        | Description                                                                     |
-| ----------------- | ------------------ | -------------------- | ------------------------------------------------------------------------------- |
-| name              | `String`           | `undefined`          | Use to open and close the modal by his name                                     |
-| value (v-model)   | `Boolean`          | `false`              | Will show the modal according to the value                                      |
-| header            | `String`           | `undefined`          | The content of the header                                                       |
-| footer            | `String`           | `undefined`          | The content of the footer                                                       |
-| clickToClose      | `Boolean`          | `true`               | If true the modal will close when user click the overlay                        |
-| escToClose        | `Boolean`          | `true`               | If true the modal will close when user press the `esc` button                   |
-| noBody            | `Boolean`          | `false`              | If true the modal will be rendered without body, header and footer              |
-| hideCloseButton   | `Boolean`          | `false`              | If true the modal will hide the close button                                    |
-| disableBodyScroll | `Boolean`          | `true`               | When set the body of the page will be locked so a large modal can be scrollable |
-| focusOnOpen       | `Boolean`          | `true`               | The modal need to be focused to be closed with the esc key                      |
-| fixedClasses      | `Object`           | `{...}`  (see below) | The default CSS Fixed classes shared for all variants                           |
-| classes           | `Object`           | `{...}`  (see below) | The default CSS classes                                                         |
-| variants          | `Object`           | `undefined`          | The different variants of classes the component have                            |
-| variant           | `[String, Object]` | `undefined`          | The variant that should be used                                                 |
+| Property          | Type               | Default value        | Description                                                                                                                              |
+| ----------------- | ------------------ | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| name              | `String`           | `undefined`          | Use to open and close the modal by his name                                                                                              |
+| value (v-model)   | `Boolean`          | `false`              | Will show the modal according to the value                                                                                               |
+| header            | `String`           | `undefined`          | The content of the header                                                                                                                |
+| footer            | `String`           | `undefined`          | The content of the footer                                                                                                                |
+| clickToClose      | `Boolean`          | `true`               | If true, the modal will close when the user click the overlay                                                                            |
+| escToClose        | `Boolean`          | `true`               | If true, the modal will close when the user press the `esc` button                                                                       |
+| noBody            | `Boolean`          | `false`              | If true, the modal will be rendered without body, header, and footer                                                                     |
+| hideCloseButton   | `Boolean`          | `false`              | If true, the modal will hide the close button                                                                                            |
+| disableBodyScroll | `Boolean`          | `true`               | When set, the body of the page will be locked so a large modal can be scrollable                                                         |
+| focusOnOpen       | `Boolean`          | `true`               | When set, the modal will be focused after opened. This is necessary if you want that the modal close on when the user press the`esc` key |
+| fixedClasses      | `Object`           | `{...}`  (see below) | The default CSS Fixed classes shared for all variants                                                                                    |
+| classes           | `Object`           | `{...}`  (see below) | The default CSS classes                                                                                                                  |
+| variants          | `Object`           | `undefined`          | The different variants of classes the component have                                                                                     |
+| variant           | `[String, Object]` | `undefined`          | The variant that should be used                                                                                                          |
 
 ## Classes and variants format
 
@@ -72,7 +72,7 @@ The properties in that object are the following:
 
 ### Default fixed classes
 
-This component classes has a default value with the minimum CSS classes needed to work as expected, if you replace the classes or create variants you should keep at least the `wrapper` and `overlay` classes that are related with the display and position to ensure this component works as expected.
+The component classes have a default value with the minimum CSS classes needed to work as expected. If you replace the classes or create variants, you should keep the `wrapper` and `overlay` classes. Those classes are related to the display and position and help this component works as expected.
 
 ```js
 {
@@ -101,7 +101,7 @@ This component classes has a default value with the minimum CSS classes needed t
 
 ### Default classes
 
-The default style of the modal.
+Classes that define the default style of the component.
 
 ```js
 {
@@ -130,7 +130,7 @@ The default style of the modal.
 
 ### Margin and width
 
-If you need to add some margin or spacing between the modal and the screen or define a different width the `wrapper` attribute is the most appropriate, example:
+If you need to add some margin or spacing between the modal and the screen or define a different width, the `wrapper` attribute is the most appropriate example:
 
 ```js
 {
@@ -212,20 +212,22 @@ export default {
 
 ``` 
 
-### 3. Using the name of the modal with the built in global methods
+### 3. Open the modal by his name
+
+This library includes some global methods that you can use to show/hide a named modal. To use it, you just need to give the modal a name, and then you can show and hide it with the `$modal.show('name-of-your-modal')` and `$modal.hide('name-of-your-modal')` respectively.
 
 ```html
 <div> 
   <t-modal name="my-modal">hello world</t-modal>
   
   <button @click="$modal.show('my-modal')" type="button">Show modal</button>
-  <button @click="$modal.hide('my-modal'" type="button">Hide modal</button>
+  <button @click="$modal.hide('my-modal')" type="button">Hide modal</button>
 </div>
 ``` 
 
 Note:
 
-The `this.$modal.show('my-modal')` accept some extra parameters that are being sent in the `before-open` event, consider this example:
+The `this.$modal.show('my-modal')` accept some extra parameters that are passed to the `before-open` event and you can use to pass data to the modal. Consider the following example:
 
 ```html
 <template>
@@ -264,23 +266,23 @@ export default {
 
 ## Events
 
-| Name         | Params               | Description                                                    |
-| ------------ | -------------------- | -------------------------------------------------------------- |
-| before-open  | `{ params, cancel }` | Emits while modal is still invisible, but was added to the DOM |
-| opened       | `{ params }`         | Emits after modal became visible or started transition         |
-| before-close | `{ cancel }`         | Emits before modal is going to be closed                       |
-| closed       |                      | Emits right before modal is destroyed                          |
-| input        |                      | Emits when the v-model value change                            |
+| Name         | Params               | Description                                                       |
+| ------------ | -------------------- | ----------------------------------------------------------------- |
+| before-open  | `{ params, cancel }` | Emits while modal is still invisible, but it was added to the DOM |
+| opened       | `{ params }`         | Emits after modal became visible or started transition            |
+| before-close | `{ cancel }`         | Emits before modal is going to be closed                          |
+| closed       |                      | Emits right before modal is destroyed                             |
+| input        |                      | Emits when the v-model value change                               |
 
 <tip>
-The `cancel` param is a method that you can use to stop the modal to open or to close.
+The `cancel` param is a method you can use to stop the modal from opening or closing.
 </tip>
 
 ## Slots
 
 | Slot    | description                 |
 | ------- | --------------------------- |
-| default | Content of the modal        |
-| header  | Content of the header       |
-| footer  | Content of the footer       |
+| default | content of the modal        |
+| header  | content of the header       |
+| footer  | content of the footer       |
 | close   | Content of the close button |

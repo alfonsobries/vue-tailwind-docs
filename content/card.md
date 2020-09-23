@@ -42,7 +42,7 @@ VueJs Card component with configurable classes and infinite variants. Friendly w
 | tagName      | `String`           | `div`         | HTML tag that wraps the card component                            |
 | header       | `String`           | `undefined`   | The content of the header                                         |
 | footer       | `String`           | `undefined`   | The content of the footer                                         |
-| noBody       | `Boolean`          | `false`       | If set the modal will be rendered without body, header and footer |
+| noBody       | `Boolean`          | `false`       | If set the card will be rendered without body, header and footer |
 | fixedClasses | `Object`           | `undefined`   | The default CSS Fixed classes shared for all variants             |
 | classes      | `Object`           | `undefined`   | The default CSS classes                                           |
 | variants     | `Object`           | `undefined`   | The different variants of classes the component have              |
@@ -56,7 +56,7 @@ The properties in that object are the following:
 
 | Property | Description              |
 | -------- | ------------------------ |
-| wrapper  | Div that wraps the modal |
+| wrapper  | Div that wraps the card |
 | body     | Body wrapper class       |
 | header   | Header wrapper class     |
 | footer   | Footer wrapper class     |
@@ -65,7 +65,7 @@ The properties in that object are the following:
 
 | Slot    | description                 |
 | ------- | --------------------------- |
-| default | Content of the modal        |
+| default | Content of the card        |
 | header  | Content of the header       |
 | footer  | Content of the footer       |
 | close   | Content of the close button |
