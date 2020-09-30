@@ -141,9 +141,9 @@
                     <p class="text-xs font-semibold text-gray-600 uppercase">
                       Bitcoin Address:
                     </p>
-                    <p>1NqV86kF42bTKv8aHjrJae8HHRU1JzvyUA</p>
+                    <p>3NbFXSaNqjve4yWPTs4ALUqHywBDChUxh6</p>
                     <p class="text-center">
-                      <img class="max-w-full mx-auto" src="@/assets/img/bitcoin.png">
+                      <img class="max-w-full mx-auto" src="@/assets/img/3NbFXSaNqjve4yWPTs4ALUqHywBDChUxh6.png">
                     </p>
                   </div>
                 </template>
