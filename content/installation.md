@@ -79,7 +79,7 @@ Then you can import your theme and add it as a parameter when you install VueTai
 ```js {3,6}
 import Vue from 'vue'
 import VueTailwind from 'vue-tailwind'
-import settings from './settings.js'
+import settings from './myOwnTheme.js'
 
 Vue.use(VueTailwind, settings)
 ```
