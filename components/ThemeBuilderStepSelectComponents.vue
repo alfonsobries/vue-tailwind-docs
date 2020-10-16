@@ -46,7 +46,7 @@
         <component-checkbox v-model="selected" value="TInputGroup" label="Input Group">
           <t-input-group
             label="Your password"
-            classes="pointer-events-none mb-0"
+            class="mb-0 pointer-events-none"
             feedback="Your password doesnt match!"
           >
             <t-input type="password" />
