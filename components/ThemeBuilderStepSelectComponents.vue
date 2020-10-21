@@ -90,6 +90,24 @@
           </t-card>
         </component-checkbox>
 
+        <component-checkbox v-model="selected" value="TDialog" label="Dialog">
+          <t-dialog
+            :fixed-classes="{}"
+            variant="demo"
+            :value="true"
+            :focus-on-open="false"
+            :disable-body-scroll="false"
+            :esc-to-close="false"
+            :click-to-close="false"
+            type="confirm"
+            icon="question"
+            class="pointer-events-none"
+            title="Delete user?"
+          >
+            This action will delete the user permanently and cannot be undone.
+          </t-dialog>
+        </component-checkbox>
+
         <component-checkbox v-model="selected" value="TModal" label="Modal">
           <t-modal
             :fixed-classes="{}"
@@ -105,6 +123,7 @@
             Im a full-stack software from Mexico City that likes Vue & TailwindCSS.
           </t-modal>
         </component-checkbox>
+
         <component-checkbox v-model="selected" value="TTable" label="Table">
           <t-table
             variant="demo"

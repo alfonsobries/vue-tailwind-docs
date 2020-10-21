@@ -1,7 +1,7 @@
 <template>
   <div class="bg-gray-100">
-    <div class="mx-auto max-w-screen-xl px-4 sm:px-6 pb-10 py-10">
-      <h1 class="mb-10 leading-none text-gray-900 font-medium text-3xl tracking-tight">
+    <div class="max-w-screen-xl px-4 py-10 pb-10 mx-auto sm:px-6">
+      <h1 class="mb-10 text-3xl font-medium leading-none tracking-tight text-gray-900">
         Build your own theme
       </h1>
 

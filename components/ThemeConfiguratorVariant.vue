@@ -1,11 +1,11 @@
 <template>
   <div
-    class="p-4 flex"
+    class="flex p-4"
     :class="{
       'bg-gray-200': index % 2 === 1
     }"
   >
-    <icon class="h-4 w-4 mr-4 mt-1 text-gray-500 flex-shrink-0">
+    <icon class="flex-shrink-0 w-4 h-4 mt-1 mr-4 text-gray-500">
       <path id="Combined-Shape" d="M12.5355339,10.7071068 L9,14.2426407 L7.58578644,12.8284271 L10.4142136,10 L7.58578644,7.17157288 L9,5.75735931 L13.2426407,10 L12.5355339,10.7071068 L12.5355339,10.7071068 Z M10,-5.68434189e-14 C4.4771525,-5.68434189e-14 -5.68434189e-14,4.4771525 -5.68434189e-14,10 C-5.68434189e-14,15.5228475 4.4771525,20 10,20 C15.5228475,20 20,15.5228475 20,10 C20,4.4771525 15.5228475,-5.32907052e-14 10,-5.68434189e-14 L10,-5.68434189e-14 Z M2,10 C2,14.418278 5.581722,18 10,18 C14.418278,18 18,14.418278 18,10 C18,5.581722 14.418278,2 10,2 C5.581722,2 2,5.581722 2,10 L2,10 Z" />
     </icon>
 
@@ -40,8 +40,8 @@
         />
       </div>
 
-      <p class="flex justify-between text-sm items-end">
-        <a class="text-red-500 underline ml-auto" href="#" @click.prevent="$emit('delete')">Remove variant</a>
+      <p class="flex items-end justify-between text-sm">
+        <a class="ml-auto text-red-500 underline" href="#" @click.prevent="$emit('delete')">Remove variant</a>
       </p>
     </div>
   </div>
@@ -50,9 +50,9 @@
 import Vue from 'vue'
 import cloneDeep from 'lodash/cloneDeep'
 import get from 'lodash/get'
+import Icon from '@/components/Icon'
 import ComponentPreview from './ThemeConfiguratorPreview.vue'
 import ThemeConfiguratorClasses from './ThemeConfiguratorClasses.vue'
-import Icon from '@/components/Icon'
 
 export default Vue.extend({
   components: {

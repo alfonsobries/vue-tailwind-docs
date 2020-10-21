@@ -44,6 +44,62 @@
           <t-button v-else-if="showModal === true && showModalFull === false" type="button" variant="link" @click="showModalFull=true">Open real modal</t-button>
         </p>
       </div>
+      <div v-else-if="componentName === 'TDialog'">
+        <t-dialog
+          ref="dialog"
+          v-model="showDialog"
+          :focus-on-open="showDialogFull ? true : false"
+          :disable-body-scroll="showDialogFull ? true : false"
+          :esc-to-close="showDialogFull ? true : false"
+          :click-to-close="showDialogFull ? true : false"
+          :variants="dialogVariants"
+          :classes="dialogClasses"
+          :fixed-classes="dialogFixedClasses"
+          :variant="variant"
+          :type="modalType"
+          :icon="modalIcon"
+        >
+          <template slot="title">
+            Delete user?
+          </template>
+
+          This action will delete the user permanently and cannot be undone.
+        </t-dialog>
+
+        <p class="mt-2 text-center">
+          <t-button v-if="!showDialog" type="button" @click="resetDialog">Show dialog</t-button>
+        </p>
+
+        <t-input-group label="Modal type" :input-name="`modalType-${_uid}`">
+          <t-radio-group
+            :id="`modalType-${_uid}`"
+            v-model="modalType"
+            variant="vertical"
+            :name="`modalType-${_uid}`"
+            :options="{
+              confirm: 'Confirm',
+              prompt: 'Prompt',
+              alert: 'Alert',
+            }"
+          />
+        </t-input-group>
+
+        <t-input-group label="Modal icon" :input-name="`modalType-${_uid}`">
+          <t-radio-group
+            :id="`modalIcon-${_uid}`"
+            v-model="modalIcon"
+            variant="vertical"
+            :name="`modalIcon-${_uid}`"
+            :options="{
+              'success': 'Success',
+              'error': 'Error',
+              'warning': 'Warning',
+              'info': 'Info',
+              'question': 'Question',
+            }"
+          />
+        </t-input-group>
+      </div>
       <div v-else-if="componentName === 'TRichSelect'" class="w-full max-w-md">
         <t-rich-select
           :variant="variant"
@@ -324,11 +380,15 @@ export default Vue.extend({
   },
   data () {
     return {
+      modalType: 'confirm',
+      modalIcon: 'question',
       date: '2020-02-18',
       radioModel: true,
       checkboxModel: ['a'],
       showModal: true,
       showModalFull: false,
+      showDialog: true,
+      showDialogFull: false,
       componentValue: 'Hello there!'
     }
   },
@@ -399,6 +459,25 @@ export default Vue.extend({
 
       return undefined
     },
+    dialogClasses () {
+      return this.getDemoableDialogClasses(this.classes)
+    },
+    dialogFixedClasses () {
+      return this.getDemoableDialogClasses(this.fixedClasses)
+    },
+    dialogVariants () {
+      if (this.variants) {
+        const demoableVariants = {}
+
+        Object.keys(this.variants).forEach((variantName) => {
+          demoableVariants[variantName] = this.getDemoableDialogClasses(this.variants[variantName])
+        })
+
+        return demoableVariants
+      }
+
+      return undefined
+    },
 
     componentAttribs () {
       if (this.componentName === 'TSelect') {
@@ -413,6 +492,12 @@ export default Vue.extend({
     uncheckRadio () {
       this.radioModel = false
       this.$refs.radio.$refs.input.checked = false
+    },
+    /**
+     * Removes position related classes so we can show the preview inline
+     */
+    getDemoableDialogClasses (classes) {
+      return this.getDemoableModalClasses(classes)
     },
     /**
      * Removes position related classes so we can show the preview inline
@@ -473,6 +558,10 @@ export default Vue.extend({
     resetModal () {
       this.showModal = true
       this.showModalFull = false
+    },
+    resetDialog () {
+      this.showDialog = true
+      this.showDialogFull = false
     }
   }
 })

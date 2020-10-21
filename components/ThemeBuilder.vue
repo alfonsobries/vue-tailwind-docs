@@ -511,6 +511,7 @@ const defaultTheme = {
       }
     }
   },
+
   TModal: {
     fixedClasses: {
       overlay: 'z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed bg-opacity-50',
@@ -538,6 +539,85 @@ const defaultTheme = {
         header: 'border-red-100 text-red-700',
         footer: 'border-red-100 bg-red-100',
         close: 'text-red-700 hover:text-red-600'
+      }
+    }
+  },
+  TDialog: {
+    fixedClasses: {
+      overlay: 'overflow-auto scrolling-touch left-0 top-0 bottom-0 right-0 w-full h-full fixed',
+      wrapper: 'relative mx-auto ',
+      dialog: 'overflow-hidden relative',
+      close: 'absolute right-0 top-0'
+    },
+    classes: {
+      close: 'bg-gray-100 flex h-8 items-center justify-center m-1 rounded-full text-gray-700 w-8 hover:bg-gray-200',
+      closeIcon: 'h-5 w-5 fill-current',
+
+      overlay: 'z-40 bg-black bg-opacity-50',
+      wrapper: 'z-50 max-w-md',
+      dialog: 'bg-white rounded p-4 text-left overflow-hidden shadow ',
+
+      body: '',
+      buttons: 'mt-4 flex space-x-4 justify-center',
+
+      iconWrapper: 'mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-gray-200',
+      icon: 'w-6 h-6 text-gray-700',
+      content: 'mt-3',
+
+      titleWrapper: '',
+      title: 'text-lg leading-6 font-medium text-gray-900 text-center',
+
+      textWrapper: 'mt-2 text-gray-600',
+      text: '',
+
+      cancelButton: 'inline-flex justify-center rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5 w-full',
+      okButton: 'inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-blue-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5 w-full',
+
+      inputWrapper: 'mt-3 flex items-center space-x-4 justify-center',
+
+      input: 'form-input w-full',
+      select: 'form-select w-full',
+
+      radioWrapper: 'flex items-center space-x-2',
+      radio: 'form-radio',
+      radioText: '',
+
+      checkboxWrapper: 'flex items-center space-x-2',
+      checkbox: 'form-checkbox',
+      checkboxText: '',
+
+      errorMessage: 'text-red-500 block text-sm',
+
+      busyWrapper: 'absolute bg-opacity-50 bg-white flex h-full items-center justify-center left-0 top-0 w-full',
+      busyIcon: 'animate-spin h-6 w-6 fill-current text-gray-500',
+
+      overlayEnterClass: '',
+      overlayEnterActiveClass: 'opacity-0 transition ease-out duration-100',
+      overlayEnterToClass: 'opacity-100',
+      overlayLeaveClass: 'transition ease-in opacity-100',
+      overlayLeaveActiveClass: '',
+      overlayLeaveToClass: 'opacity-0 duration-75',
+
+      enterClass: '',
+      enterActiveClass: '',
+      enterToClass: '',
+      leaveClass: '',
+      leaveActiveClass: '',
+      leaveToClass: ''
+    },
+    variants: {
+      danger: {
+        overlay: 'bg-red-500 bg-opacity-50',
+        cancelButton: 'inline-flex justify-center rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-red-300 focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5 w-full',
+        okButton: 'inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-red-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5 w-full',
+        iconWrapper: 'mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-200',
+        icon: 'w-6 h-6 text-red-700'
+      },
+      horizontal: {
+        overlay: 'z-40 bg-black bg-opacity-50',
+        content: '',
+        title: 'text-lg leading-6 font-medium text-gray-900',
+        body: 'flex space-x-4'
       }
     }
   },

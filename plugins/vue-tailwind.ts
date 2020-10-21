@@ -222,16 +222,9 @@ Vue.use(VueTailwind, {
         leaveToClass: 'transform opacity-0 duration-75'
       },
       searchBox: {
-        // button: '',
         wrapper: 'max-w-lg w-full lg:max-w-xs relative',
         dropdownWrapper: '',
         dropdown: 'origin-top-right right-0 rounded-md shadow-lg bg-white border w-full fixed mt-3 md:absolute md:mt-0'
-        // enterClass: '',
-        // enterActiveClass: 'transition ease-out duration-100 transform opacity-0',
-        // enterToClass: 'transform opacity-100',
-        // leaveClass: 'transition ease-in transform opacity-100',
-        // leaveActiveClass: '',
-        // leaveToClass: 'transform opacity-0 duration-75'
       }
     }
   },
@@ -251,6 +244,11 @@ Vue.use(VueTailwind, {
       input: 'form-radio transition duration-150 ease-in-out',
       inputWrapper: 'inline-flex',
       wrapper: 'flex items-center'
+    },
+    variants: {
+      vertical: {
+        groupWrapper: 'flex flex-row space-x-2'
+      }
     }
   },
   TTable: {
@@ -326,6 +324,92 @@ Vue.use(VueTailwind, {
         footer: '',
         close: 'absolute right-0 top-0',
         closeIcon: 'h-5 w-5 fill-current'
+      }
+    }
+  },
+  TDialog: {
+    fixedClasses: {
+      overlay: 'overflow-auto scrolling-touch left-0 top-0 bottom-0 right-0 w-full h-full fixed',
+      wrapper: 'relative mx-auto ',
+      dialog: 'overflow-hidden relative',
+      close: 'absolute right-0 top-0'
+    },
+    classes: {
+      close: 'bg-gray-100 flex h-8 items-center justify-center m-1 rounded-full text-gray-700 w-8 hover:bg-gray-200',
+      closeIcon: 'h-5 w-5 fill-current',
+
+      overlay: 'z-40 bg-black bg-opacity-50',
+      wrapper: 'z-50 max-w-md',
+      dialog: 'bg-white rounded p-4 text-left overflow-hidden shadow ',
+
+      body: '',
+      buttons: 'mt-4 flex space-x-4 justify-center',
+
+      iconWrapper: 'mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-gray-200',
+      icon: 'w-6 h-6 text-gray-700',
+      content: 'mt-3',
+
+      titleWrapper: '',
+      title: 'text-lg leading-6 font-medium text-gray-900 text-center',
+
+      textWrapper: 'mt-2 text-gray-600',
+      text: '',
+
+      cancelButton: 'inline-flex justify-center rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5 w-full',
+      okButton: 'inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-blue-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5 w-full',
+
+      inputWrapper: 'mt-3 flex items-center space-x-4 justify-center',
+
+      input: 'form-input w-full',
+      select: 'form-select w-full',
+
+      radioWrapper: 'flex items-center space-x-2',
+      radio: 'form-radio',
+      radioText: '',
+
+      checkboxWrapper: 'flex items-center space-x-2',
+      checkbox: 'form-checkbox',
+      checkboxText: '',
+
+      errorMessage: 'text-red-500 block text-sm',
+
+      busyWrapper: 'absolute bg-opacity-50 bg-white flex h-full items-center justify-center left-0 top-0 w-full',
+      busyIcon: 'animate-spin h-6 w-6 fill-current text-gray-500',
+
+      overlayEnterClass: '',
+      overlayEnterActiveClass: 'opacity-0 transition ease-out duration-100',
+      overlayEnterToClass: 'opacity-100',
+      overlayLeaveClass: 'transition ease-in opacity-100',
+      overlayLeaveActiveClass: '',
+      overlayLeaveToClass: 'opacity-0 duration-75',
+
+      enterClass: '',
+      enterActiveClass: '',
+      enterToClass: '',
+      leaveClass: '',
+      leaveActiveClass: '',
+      leaveToClass: ''
+    },
+    variants: {
+      demo: {
+        overlay: 'bg-black bg-opacity-50 w-full p-4 rounded',
+        wrapper: 'z-50 relative mx-auto my-0 max-w-md',
+        dialog: 'bg-white rounded p-4 text-left shadow',
+        close: 'bg-gray-100 flex h-8 items-center justify-center m-1 rounded-full text-gray-700 w-8 hover:bg-gray-200 absolute right-0 top-0',
+        content: 'mt-3',
+        title: 'text-lg leading-6 font-medium text-gray-900 text-center',
+        textWrapper: 'mt-2 text-gray-600',
+        iconWrapper: 'mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-orange-200',
+        icon: 'w-6 h-6 text-orange-700',
+        cancelButton: 'inline-flex justify-center rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-orange-300 focus:shadow-outline-orange transition ease-in-out duration-150 sm:text-sm sm:leading-5 w-full',
+        okButton: 'inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-orange-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-orange-500 focus:outline-none focus:border-orange-700 focus:shadow-outline-orange transition ease-in-out duration-150 sm:text-sm sm:leading-5 w-full'
+      },
+      danger: {
+        overlay: 'bg-red-500 bg-opacity-50',
+        cancelButton: 'inline-flex justify-center rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-red-300 focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5 w-full',
+        okButton: 'inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-red-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red transition ease-in-out duration-150 sm:text-sm sm:leading-5 w-full',
+        iconWrapper: 'mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-200',
+        icon: 'w-6 h-6 text-red-700'
       }
     }
   }

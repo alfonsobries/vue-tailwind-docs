@@ -4,7 +4,7 @@
       Personalize your component CSS classes
     </h2>
     <p>Browse among the components you chose and assign them a list of default classes as well as all the variants you need.</p>
-    <hr class="border-t my-4">
+    <hr class="my-4 border-t">
     <div class="border rounded">
       <theme-builder-step-build-theme-component
         v-for="componentName in selectedComponents"
@@ -21,6 +21,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import Vue from 'vue'
 import difference from 'lodash/difference'
