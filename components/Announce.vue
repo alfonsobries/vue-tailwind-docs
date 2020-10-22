@@ -18,7 +18,7 @@
           </div>
           <div class="flex-shrink-0 order-3 w-full mt-2 sm:order-2 sm:mt-0 sm:w-auto">
             <div class="rounded-md shadow-sm">
-              <a href="/docs/release-notes#vue-tailwind-v13 " class="flex items-center justify-center px-4 py-2 text-sm font-medium leading-5 text-orange-600 transition duration-150 ease-in-out bg-white border border-transparent rounded-md hover:text-orange-500 focus:outline-none focus:shadow-outline">
+              <a href="/docs/release-notes#vue-tailwind-v13 " class="flex items-center justify-center px-4 py-2 text-sm font-medium leading-5 text-orange-600 transition duration-150 ease-in-out bg-white border border-transparent rounded-md hover:text-orange-500 focus:outline-none focus:shadow-outline" @click="closeAnnounce">
                 Read release notes →
               </a>
             </div>
