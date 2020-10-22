@@ -9,7 +9,7 @@ VueJs Dialog component with configurable classes and infinite variants. Friendly
 
 Use it for alerts, confirmation, or prompt dialogs, open it programmatically, or add the component normally as a Vue component.
 
-<!-- <t-modal-playground></t-modal-playground> -->
+<!-- <t-dialog-playground></t-dialog-playground> -->
 
 <hr>
 
@@ -21,7 +21,7 @@ Use it for alerts, confirmation, or prompt dialogs, open it programmatically, or
 
 Add the Dialog in your template as any Vue component if you want to have more control over the content of the dialog.
 
-For example, it allows you to use any custom HTML and reactive content by using the slots and interact with it by using the built-in functions like `this.$dialog.show('named-dialog')` similar to the way you interact with the Modal. This is especially useful for forms.
+For example, it allows you to use any custom HTML and reactive content by using the slots and interact with it by using the built-in functions like `this.$dialog.show('named-dialog')` similar to the way you interact with the Dialog. This is especially useful for forms.
 
 ```html
 <!-- Note that the visual style of the example comes from a custom theme made for this docs -->
@@ -280,6 +280,35 @@ You can open the dialog programatically by using the built-in functions.
 
 These functions are `$dialog.alert`, `$dialog.prompt` and `$dialog.confirm`, they all work the same an the only difference is the type of dialog that you will open.
 
+### Method parameters
+
+For simple dialogs you can pass strings to the method parameters with the `title` as a required first parameter and the optional `text` and `icon` as the rest of the parameters.
+
+#### Example:
+
+```js
+// Text parameters
+this.$dialog.alert('Title of the dialog');
+// Or
+this.$dialog.alert('Title of the dialog', 'text of the dialog (optional)', 'iconName (optional)');
+```
+
+You can also pass an object that accepts any of the `props` of this component
+
+#### Example:
+
+```js
+// Text parameters
+this.$dialog.alert({
+  title: 'Title of the dialog',
+  text: 'text of the dialog',
+  icon: 'question',
+  variant: 'danger',
+  textTag: 'span',
+  // .... basically any prop
+});
+```
+
 ### Dialog response
 
 The dialog will return a promise that will return and object useful data related with the user interaction.
@@ -320,7 +349,7 @@ The possible hide reason are the following:
 | `'cancel'`  | The user press the cancel button                             |
 | `'ok'`      | The user press the ok button                                 |
 | `'method'`  | The user closed the dialog with the `$dialog.hide` method    |
-| `'value'`   | The modal was closed because the `v-model` was set to `form` |
+| `'value'`   | The dialog was closed because the `v-model` was set to `form` |
 
 
 ## Toggle the dialog as vue component
@@ -359,7 +388,7 @@ export default {
 
 ``` 
 
-#### 3. Open the modal by his name
+#### 3. Open the dialog by his name
 
 This library includes some global methods that you can use to show/hide a named dialog. To use it, you just need to give the dialog a name, and then you can show and hide it with the `$dialog.show('name-of-your-dialog')` and `$dialog.hide('name-of-your-dialog')` respectively.
 
