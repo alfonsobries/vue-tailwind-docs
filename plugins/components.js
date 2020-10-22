@@ -6,6 +6,7 @@ import OkTip from '@/components/OkTip'
 import WrongTip from '@/components/WrongTip'
 import Since from '@/components/Since'
 import MehTip from '@/components/MehTip'
+import Announce from '@/components/Announce'
 import Playground from '@/components/Playground'
 import LoadingOverlay from '@/components/LoadingOverlay'
 
@@ -111,6 +112,7 @@ Vue.component('wrong-tip', WrongTip)
 Vue.component('meh-tip', MehTip)
 Vue.component('playground', Playground)
 Vue.component('loading-overlay', LoadingOverlay)
+Vue.component('announce', Announce)
 
 Vue.component('t-input-playground', TInputPlayground)
 Vue.component('t-input-demo', TInputDemo)
