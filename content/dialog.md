@@ -274,15 +274,15 @@ If you need to add some margin or spacing between the dialog and the screen or d
 }
 ```
 
-## Toggle the dialog programatically
+## Toggle the dialog programmatically
 
-You can open the dialog programatically by using the built-in functions.
+You can open the dialog programmatically by using the built-in functions.
 
-These functions are `$dialog.alert`, `$dialog.prompt` and `$dialog.confirm`, they all work the same an the only difference is the type of dialog that you will open.
+These functions are `$dialog.alert`, `$dialog.prompt`, and `$dialog.confirm`, they all work the same and the only difference is the type of dialog that you will open.
 
 ### Method parameters
 
-For simple dialogs you can pass strings to the method parameters with the `title` as a required first parameter and the optional `text` and `icon` as the rest of the parameters.
+For simple dialogs, you can pass strings to the method parameters with the `title` as a required first parameter and the optional `text` and `icon` as the rest of the parameters.
 
 #### Example:
 
@@ -335,24 +335,24 @@ The object returned will look like this:
 | isCancel    | If the cancel button was pressed                                                        |
 | isDismissed | If the dialog was closed for any other reason                                           |
 | input       | When using a prompt the result of the user prompt                                       |
-| response    | When using the `preConfirm` function  in a prompt the result of the preconfirm response |
+| response    | When using the `preConfirm` function in a prompt the result of the preconfirm response |
 
 ### Hide reason
 
-The possible hide reason are the following:
+The possible hide reasons are the following:
 
 | Reason      | Description                                                  |
 | ----------- | ------------------------------------------------------------ |
-| `'outside'` | Closed because the user click outside                        |
+| `'outside'` | Closed because the user clicks outside                        |
 | `'close'`   | Closed because the user press the close button               |
 | `'esc'`     | Closed because the user press the `esc` key                  |
-| `'cancel'`  | The user press the cancel button                             |
+| `'cancel'`  | The user presses the cancel button                             |
 | `'ok'`      | The user press the ok button                                 |
 | `'method'`  | The user closed the dialog with the `$dialog.hide` method    |
 | `'value'`   | The dialog was closed because the `v-model` was set to `form` |
 
 
-## Toggle the dialog as vue component
+## Toggle the dialog as a vue component
 
 When using the Dialog as a normal vue component you can open/close the dialog in 3 ways:
 
@@ -446,9 +446,9 @@ export default {
 
 | Name         | Params                                                           | Description                                                                                                     |
 | ------------ | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| before-open  | `{ params, cancel }`                                             | Emits while dialog is still invisible, but it was added to the DOM                                              |
+| before-open  | `{ params, cancel }`                                             | Emits while the dialog is still invisible, but it was added to the DOM                                              |
 | opened       | `{ params }`                                                     | Emits after dialog became visible or started transition                                                         |
-| before-close | `{ cancel, event, reason, input?, response? }`                   | Emits before dialog is going to be closed (include some of the data of the [dialog response](#dialog-response)) |
+| before-close | `{ cancel, event, reason, input?, response? }`                   | Emits before the dialog is going to be closed (include some of the data of the [dialog response](#dialog-response)) |
 | closed       | `{ hideReason, isOk, isCancel, isDismissed, input?, response? }` | Emits right before dialog is destroyed (include [dialog response](#dialog-response))                            |
 | input        | `boolean`                                                        | Emits when the v-model value change                                                                             |
 | change       | `boolean`                                                        | Emits when the v-model value change                                                                             |
@@ -470,7 +470,7 @@ The `cancel` param is a method you can use to stop the dialog from opening or cl
 
 ### Buttons scoped slot
 
-The buttons scoped slot includes some data that is neccesary to create your own buttons
+The buttons scoped slot includes some data that is necessary to create your own buttons
 
 
 | Attribute             | Type                                      |
@@ -482,8 +482,8 @@ The buttons scoped slot includes some data that is neccesary to create your own 
 | okButtonClass         | Same value as the prop                    |
 | cancelButtonClass     | Same value as the prop                    |
 | dialogType            | Same value as the prop                    |
-| cancel                | Method for trigger the "cancel" behaviour |
-| ok                    | Method for trigger the "ok" behaviour     |
+| cancel                | Method for trigger the "cancel" behavior |
+| ok                    | Method for trigger the "ok" behavior |
 
 
 ### Slots Example
