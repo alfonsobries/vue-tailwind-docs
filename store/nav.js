@@ -133,6 +133,11 @@ export const state = () => ({
           text: 'Modal'
         },
         {
+          to: '/docs/dialog',
+          text: 'Dialog',
+          since: '1.3.0'
+        },
+        {
           to: '/docs/pagination',
           text: 'Pagination'
         },
@@ -143,12 +148,8 @@ export const state = () => ({
         {
           to: '/docs/dropdown',
           text: 'Dropdown'
-        },
-        {
-          to: '/docs/dialog',
-          text: 'Dialog',
-          soon: true
         }
+
       ]
     }
   ]

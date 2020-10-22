@@ -19,3 +19,11 @@ What's new in the latest version of the vue-tailwind library.
 
 3. Better Typescript integration and some bug fixes
 
+## vue-tailwind v.1.3
+
+####  New features
+
+1. A brand new Dialog component (TDialog) released. [Read more →](/docs/dialog)
+
+2. Misc fixes
+

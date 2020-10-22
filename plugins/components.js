@@ -82,6 +82,10 @@ import RichSelectOptionSlotExample from '@/components/examples/rich-select/RichS
 import RichSelectCreateOptionExample from '@/components/examples/rich-select/RichSelectCreateOption.vue'
 import TagBasicExample from '@/components/examples/tag/TagBasic.vue'
 import ModalBasicExample from '@/components/examples/modal/ModalBasic.vue'
+import DialogBasicExample from '@/components/examples/dialog/DialogBasic.vue'
+import AlertBasicExample from '@/components/examples/dialog/AlertBasic.vue'
+import PromptBasicExample from '@/components/examples/dialog/PromptBasic.vue'
+import ConfirmBasicExample from '@/components/examples/dialog/ConfirmBasic.vue'
 import CardBasicExample from '@/components/examples/card/CardBasic.vue'
 import TableSlotColumnExample from '@/components/examples/table/SlotColumn.vue'
 import TableSlotRowExample from '@/components/examples/table/SlotRow.vue'
@@ -179,3 +183,7 @@ Vue.component('dropdown-slot-trigger-example-2', DropdownSlotTriggerExample2)
 Vue.component('dropdown-slot-trigger-example-3', DropdownSlotTriggerExample3)
 Vue.component('dropdown-slot-trigger-example-4', DropdownSlotTriggerExample4)
 Vue.component('toggle-default-slot-example', ToggleDefaultSlotExample)
+Vue.component('dialog-basic-example', DialogBasicExample)
+Vue.component('alert-basic-example', AlertBasicExample)
+Vue.component('prompt-basic-example', PromptBasicExample)
+Vue.component('confirm-basic-example', ConfirmBasicExample)

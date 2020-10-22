@@ -13,11 +13,7 @@ Updates and deprecations coming in the future and how to prepare for them.
 
 I'm working on adding a time picker to the Datepicker component, probably that feature will be released as a new optional setting that shouldn't conflict with the current version but there is a possibility that may affect the way the component is used.
 
-### 2. Dialog component
-
-I'm officially working in a new Dialog component inspired in the [Sweetalert library](https://sweetalert2.github.io/) I expect to have it ready during this month depending on the amount of work I have.
-
-### 3. More components on the way
+### 2. More components on the way
 
 I want to add a couple of more components. I'm currently considering toast notifications, file input/manager, an autocomplete, a carousel, and probably more, still no special priority.
 

@@ -231,32 +231,33 @@ The `this.$modal.show('my-modal')` accept some extra parameters that are passed 
 
 ```html
 <template>
-  <div> 
+  <div>
     <t-modal
+      name="modal-name"
       @before-open="onBeforeOpen"
-      v-model="showModal"
     >
-      hello {{ user.name }}
+      hello {{ user ? user.name : '' }}
     </t-modal>
-    <button @click="$modal.open({ name: 'Alfonso' })" type="button">Show modal</button>
+    <button type="button" @click="$modal.show('modal-name', { user: { name: 'Alfonso'} })">
+      Show modal
+    </button>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       user: undefined
     }
   },
   methods: {
-    openModal() {
-      this.$modal.open()
-    },
-    onBeforeOpen(params) {
+    onBeforeOpen ({ params, cancel }) {
+      // you can add a condition to cancel the modal opening
       if (false) {
-        params.cancel();
+        cancel()
       }
+
       this.user = params.user
     }
   }
