@@ -79,6 +79,7 @@ The properties in that object are the following:
 | searchBox                 | The search box input                                             |
 | optgroup                  | The div that wraps an optgroup                                   |
 | option                    | The default option item                                          |
+| disabledOption            | The option item when its disabled  <since>1.3.3+</since>                              |
 | highlightedOption         | The option item when its highlighted                             |
 | selectedOption            | The option item when it's selected                               |
 | selectedHighlightedOption | The option item when its selected & highlighted                  |
@@ -114,10 +115,11 @@ As you may know, the fixed classes are shared and merged with the different vari
   searchWrapper: 'inline-block w-full',
   searchBox: 'inline-block w-full',
   optgroup: '',
-  option: '',
-  highlightedOption: '',
-  selectedOption: '',
-  selectedHighlightedOption: '',
+  option: 'cursor-pointer',
+  disabledOption: 'opacity-50 cursor-not-allowed',
+  highlightedOption: 'cursor-pointer',
+  selectedOption: 'cursor-pointer',
+  selectedHighlightedOption: 'cursor-pointer',
   optionContent: '',
   optionLabel: 'truncate block',
   selectedIcon: 'fill-current h-4 w-4',
@@ -150,10 +152,11 @@ As you may know, the fixed classes are shared and merged with the different vari
   searchBox: 'p-2 bg-gray-200 text-sm rounded border focus:outline-none focus:shadow-outline',
   optgroup: 'text-gray-500 uppercase text-xs py-1 px-2 font-semibold',
   option: '',
+  disabledOption: '',
   highlightedOption: 'bg-gray-300',
   selectedOption: 'font-semibold bg-gray-100',
   selectedHighlightedOption: 'bg-gray-300 font-semibold',
-  optionContent: 'flex justify-between items-center p-2 cursor-pointer',
+  optionContent: 'flex justify-between items-center p-2',
   optionLabel: 'truncate block',
   selectedIcon: '',
   enterClass: '',

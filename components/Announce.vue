@@ -1,6 +1,6 @@
 <template>
   <div v-if="show" class="fixed inset-x-0 bottom-0 pb-2 sm:pb-5">
-    <div class="max-w-screen-xl px-2 mx- sm:px-6 lg:px-8">
+    <div class="max-w-screen-xl px-2 mx-auto mx- sm:px-6 lg:px-8">
       <div class="p-2 bg-orange-300 rounded-lg shadow-lg sm:p-3 auto">
         <div class="flex flex-wrap items-center justify-between">
           <div class="flex items-center flex-1 w-0">

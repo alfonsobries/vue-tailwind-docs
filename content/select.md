@@ -58,27 +58,38 @@ This component accepts the `options` in different formats:
 <!-- `value`, `text` attributes (Preferred) -->
 <t-select :options="[
   { value: 1, text: 'Option 1' },
-  { value: 2, text: 'Option 2' }
+  { value: 2, text: 'Option 2' },
+  { value: 3, text: 'Option 3', disabled: true }
 ]" />
 <!-- `id` instead of `value` as attribute -->
 <t-select :options="[
   { id: 1, text: 'Option 1' },
-  { id: 2, text: 'Option 2' }
+  { id: 2, text: 'Option 2' },
+  { id: 3, text: 'Option 3', disabled: true }
 ]" />
 <!-- `label` instead of `text` as attribute -->
 <t-select :options="[
   { value: 1, label: 'Option 1' },
-  { value: 2, label: 'Option 2' }
+  { value: 2, label: 'Option 2' },
+  { value: 3, label: 'Option 3', disabled: true }
 ]" />
 
 <!-- All the examples above will render: -->
 <select>
   <option value="1">Option 1</option>
   <option value="2">Option 2</option>
+  <option disabled value="3">Option 3</option>
 </select>
 ```
 
-### Object with value:text pairs
+<tip>
+  Notice that you can optionally add a `disabled` attribute
+  <span class="px-2 py-1 ml-2 text-xs leading-none text-orange-700 bg-orange-200 rounded-lg">
+    v1.3.3+
+  </span>
+</tip>
+
+### Objec t with value:text pairs
 ```html
 <t-select :options="{
   A: 'Option A',
