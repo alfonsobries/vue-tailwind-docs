@@ -36,7 +36,7 @@ VueJs reactive `<input type="checkbox" />` component with configurable classes, 
 | model (`v-model`) | `[String, Object, Number, Boolean, Array]` | `undefined`       | The element using for the `v-model`                                                                         |
 | value             | `[String, Object, Number, Boolean, Array]` | `true`            | The value for the checkbox element when checked                                                             |
 | uncheckedValue    | `[String, Object, Number, Boolean, Array]` | `false`           | The value for the checkbox element when unchecked                                                           |
-| checked           | `[Boolean, String]`                        | `falee`           | HTML attribute                                                                                              |
+| checked           | `[Boolean, String]`                        | `false`           | HTML attribute                                                                                              |
 | id                | `String`                                   | `undefined`       | HTML attribute                                                                                              |
 | autofocus         | `Boolean`                                  | `undefined`       | HTML attribute                                                                                              |
 | disabled          | `Boolean`                                  | `undefined`       | HTML attribute                                                                                              |
