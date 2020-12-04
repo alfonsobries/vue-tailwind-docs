@@ -72,27 +72,27 @@ import ThemeBuilderStepShare from './ThemeBuilderStepShare.vue'
 
 const notWrappedTheme = {
   TSelect: {
-    fixedClasses: 'form-select',
-    classes: '',
+    fixedClasses: 'block w-full pl-3 pr-10 py-2 transition duration-100 ease-in-out border rounded shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed',
+    classes: 'text-black placeholder-gray-400 bg-white border-gray-300 focus:border-blue-500 ',
     variants: {
-      danger: 'border-red-300 bg-red-100',
-      success: 'border-green-300 bg-green-100'
+      danger: 'border-red-300 bg-red-50 placeholder-red-200 text-red-900',
+      success: 'border-green-300 bg-green-50 placeholder-green-200 text-green-900'
     }
   },
   TRadio: {
-    fixedClasses: 'form-radio transition duration-150 ease-in-out',
-    classes: '',
+    fixedClasses: 'transition duration-100 ease-in-out shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 focus:ring-offset-0  disabled:opacity-50 disabled:cursor-not-allowed',
+    classes: 'text-blue-500 border-gray-300',
     variants: {
-      error: 'text-red-500 border-red-500 bg-red-100',
-      success: 'text-green-500 border-green-500 bg-green-100'
+      error: 'text-red-500 border-red-300',
+      success: 'text-green-500 border-green-300'
     }
   },
   TCheckbox: {
-    fixedClasses: 'form-checkbox transition duration-150 ease-in-out',
-    classes: '',
+    fixedClasses: 'transition duration-100 ease-in-out rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed',
+    classes: 'text-blue-500 border-gray-300 ',
     variants: {
-      error: 'text-red-500 border-red-500 bg-red-100',
-      success: 'text-green-500 border-green-500 bg-green-100'
+      error: 'text-red-500 border-red-300',
+      success: 'text-green-500 border-green-300'
     }
   }
 }
@@ -102,19 +102,20 @@ const wrappedTheme = {
     wrapped: true,
     fixedClasses: {
       wrapper: 'relative',
-      input: 'appearance-none focus:outline-none focus:shadow-outline border rounded py-2 px-4 block w-full leading-normal',
+      input: 'bg-none block w-full pl-3 pr-10 py-2 transition duration-100 ease-in-out border rounded shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed',
       arrowWrapper: 'pointer-events-none absolute inset-y-0 right-0 flex items-center px-2',
       arrow: 'fill-current h-4 w-4'
     },
     classes: {
-      wrapper: '',
-      input: 'bg-white border-gray-300',
+      wrapper: 'relative',
+      input: 'text-black placeholder-gray-400 bg-white border-gray-300 focus:border-blue-500',
       arrowWrapper: 'text-gray-700',
       arrow: ''
     },
     variants: {
       danger: {
-        input: 'bg-red-100 border-red-500',
+        wrapper: 'relative',
+        input: 'border-red-300 bg-red-50 placeholder-red-200 text-red-900',
         arrowWrapper: 'text-red-700'
       }
     }
@@ -123,8 +124,8 @@ const wrappedTheme = {
     wrapped: true,
     fixedClasses: {
       label: 'text-sm uppercase mx-2',
-      input: 'form-radio transition duration-150 ease-in-out',
-      inputWrapper: 'inline-flex',
+      input: 'transition duration-100 ease-in-out shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed',
+      inputWrapper: 'inline-flex items-center leading-none',
       wrapper: 'flex items-center'
     },
     classes: {
@@ -134,16 +135,16 @@ const wrappedTheme = {
       inputWrapperChecked: '',
       wrapper: '',
       wrapperChecked: '',
-      input: ''
+      input: 'text-blue-500 border-gray-300'
     },
     variants: {
       danger: {
         label: 'text-red-500',
-        input: 'text-red-500 border-red-500 bg-red-100'
+        input: 'text-red-500 border-red-300'
       },
       success: {
         label: 'text-green-500',
-        input: 'text-green-500 border-green-500 bg-green-100'
+        input: 'text-green-500 border-green-300'
       }
     }
   },
@@ -151,8 +152,8 @@ const wrappedTheme = {
     wrapped: true,
     fixedClasses: {
       label: 'text-sm uppercase mx-2',
-      input: 'form-checkbox transition duration-150 ease-in-out',
-      inputWrapper: 'inline-flex',
+      input: 'transition duration-100 ease-in-out rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed',
+      inputWrapper: 'inline-flex items-center leading-none',
       wrapper: 'flex items-center'
     },
     classes: {
@@ -162,16 +163,16 @@ const wrappedTheme = {
       inputWrapperChecked: '',
       wrapper: '',
       wrapperChecked: '',
-      input: ''
+      input: 'text-blue-500 border-gray-300'
     },
     variants: {
       danger: {
         label: 'text-red-500',
-        input: 'text-red-500 border-red-500 bg-red-100'
+        input: 'text-red-500 border-red-300'
       },
       success: {
         label: 'text-green-500',
-        input: 'text-green-500 border-green-500 bg-green-100'
+        input: 'text-green-500 border-green-300'
       }
     }
   }
@@ -179,32 +180,32 @@ const wrappedTheme = {
 
 const defaultTheme = {
   TInput: {
-    fixedClasses: 'form-input',
-    classes: '',
+    fixedClasses: 'block w-full px-3 py-2 transition duration-100 ease-in-out border rounded shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed',
+    classes: 'text-black placeholder-gray-400 bg-white border-gray-300 focus:border-blue-500 ',
     variants: {
-      danger: 'border-red-300 bg-red-100',
-      success: 'border-green-300 bg-green-100'
+      danger: 'border-red-300 bg-red-50 placeholder-red-200 text-red-900',
+      success: 'border-green-300 bg-green-50 placeholder-green-200 text-green-900'
     }
   },
   TTextarea: {
-    fixedClasses: 'form-textarea',
-    classes: '',
+    fixedClasses: 'block w-full px-3 py-2 transition duration-100 ease-in-out border rounded shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed',
+    classes: 'text-black placeholder-gray-400 bg-white border-gray-300 focus:border-blue-500 ',
     variants: {
-      danger: 'border-red-300 bg-red-100',
-      success: 'border-green-300 bg-green-100'
+      danger: 'border-red-300 bg-red-50 placeholder-red-200 text-red-900',
+      success: 'border-green-300 bg-green-50 placeholder-green-200 text-green-900'
     }
   },
   TSelect: cloneDeep(notWrappedTheme.TSelect),
   TRadio: cloneDeep(notWrappedTheme.TRadio),
   TCheckbox: cloneDeep(notWrappedTheme.TCheckbox),
   TButton: {
-    fixedClasses: 'focus:outline-none focus:shadow-outline inline-flex items-center transition ease-in-out duration-150',
-    classes: 'text-white bg-blue-600 hover:bg-blue-500 focus:border-blue-700 active:bg-blue-700 text-sm font-medium border border-transparent px-3 py-2 rounded-md',
+    fixedClasses: 'block px-4 py-2 transition duration-100 ease-in-out focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed',
+    classes: 'text-white bg-blue-500 border border-transparent shadow-sm rounded hover:bg-blue-600',
     variants: {
-      secondary: 'text-gray-800 bg-white hover:text-gray-600 text-sm font-medium border px-3 py-2 rounded-md',
-      error: 'text-white bg-red-600 hover:bg-red-500 focus:border-red-700  active:bg-red-700 text-sm font-medium border border-transparent px-3 py-2 rounded-md',
-      success: 'text-white bg-green-600 hover:bg-green-500 focus:border-green-700 active:bg-green-700 text-sm font-medium border border-transparent px-3 py-2 rounded-md',
-      link: 'text-blue-500 underline hover:bg-blue-100 text-sm font-medium border border-transparent px-3 py-2 rounded-md'
+      secondary: 'text-gray-800 bg-white border border-gray-300 shadow-sm hover:text-gray-600',
+      error: 'text-white bg-red-500 border border-transparent rounded shadow-sm hover:bg-red-600',
+      success: 'text-white bg-green-500 border border-transparent rounded shadow-sm hover:bg-green-600',
+      link: 'text-blue-500 underline hover:text-blue-600'
     }
   },
   TInputGroup: {

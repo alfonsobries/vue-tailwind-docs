@@ -17,7 +17,7 @@
         {{ label }}
       </h4>
 
-      <label v-if="wrappable" class="flex items-center text-sm">
+      <label v-if="main && wrappable" class="flex items-center text-sm">
         <t-checkbox
           v-model="localWrapped"
           class="mr-2 text-gray-600 uppercase"
@@ -76,6 +76,10 @@ export default Vue.extend({
     wrapped: {
       type: Boolean,
       default: undefined
+    },
+    main: {
+      type: Boolean,
+      default: false
     }
   },
   data () {

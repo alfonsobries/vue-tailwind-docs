@@ -2,6 +2,16 @@ import Vue from 'vue'
 import VueTailwind from 'vue-tailwind/dist/full'
 
 Vue.use(VueTailwind, {
+  TInput: {
+    variants: {
+      demo: 'bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal',
+      error: 'form-input border-2 bg-orange-100 border-red-500 text-red-500',
+      playground: 'form-input p-2 px-3 py-1 text-sm',
+      newsletter: 'border-gray-200 text-gray-900 placeholder-gray-500 focus:placeholder-gray-400 bg-white',
+      newsletterError: 'border-red-200 text-red-900 placeholder-red-500 focus:placeholder-red-400 bg-red-100',
+      newsletterSuccess: 'border-green-200 text-green-900 placeholder-green-500 focus:placeholder-green-400 bg-green-100'
+    }
+  },
   TTag: {
     variants: {
       h3: 'text-xl leading-5 font-semibold tracking-tight font-display text-gray-900',
@@ -23,31 +33,18 @@ Vue.use(VueTailwind, {
     }
   },
   TCheckbox: {
-    classes: 'form-checkbox h-4 w-4 text-orange-500 transition duration-150 ease-in-out'
+
   },
   TRadio: {
-    classes: 'form-radio h-4 w-4 text-orange-500 transition duration-150 ease-in-out'
-  },
-  TInput: {
-    classes: 'form-input border-2 bg-orange-100 text-gray-700',
-    variants: {
-      demo: 'bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal',
-      error: 'form-input border-2 bg-orange-100 border-red-500 text-red-500',
-      playground: 'form-input p-2 px-3 py-1 text-sm',
-      newsletter: 'border-gray-200 text-gray-900 placeholder-gray-500 focus:placeholder-gray-400 bg-white',
-      newsletterError: 'border-red-200 text-red-900 placeholder-red-500 focus:placeholder-red-400 bg-red-100',
-      newsletterSuccess: 'border-green-200 text-green-900 placeholder-green-500 focus:placeholder-green-400 bg-green-100'
-    }
+
   },
   TTextarea: {
-    classes: 'form-textarea border-2 bg-orange-100 text-gray-700',
     variants: {
       demo: 'bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal',
       error: 'form-textarea border-2 bg-orange-100 border-red-500 text-red-500'
     }
   },
   TSelect: {
-    classes: 'form-select border-2 bg-orange-100 text-gray-700',
     variants: {
       demo: 'form-select w-full',
       playground: 'form-select p-2 px-3 py-1 text-sm',
