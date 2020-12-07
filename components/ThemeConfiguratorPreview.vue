@@ -29,14 +29,11 @@
           :classes="modalClasses"
           :fixed-classes="modalFixedClasses"
           :variant="variant"
-          header="title of the modal"
+          header="Title of the modal"
         >
           So you selected VueJs & Tailwind Combo, Good decision!
-          <template v-slot:footer>
-            <div class="flex justify-between">
-              <t-button type="button" @click="showModalFull ? $refs.modal.hide() : undefined">Cancel</t-button>
-              <t-button type="button" @click="showModalFull ? $refs.modal.hide() : undefined">Ok</t-button>
-            </div>
+          <template #footer>
+            This it content inside the <strong>footer</strong> slot
           </template>
         </t-modal>
         <p class="mt-2 text-center">
@@ -58,13 +55,9 @@
           :variant="variant"
           :type="modalType"
           :icon="modalIcon"
-        >
-          <template slot="title">
-            Delete user?
-          </template>
-
-          This action will delete the user permanently and cannot be undone.
-        </t-dialog>
+          title="Delete user?"
+          text="This action will delete the user permanently and cannot be undone."
+        />
 
         <p class="mt-2 text-center">
           <t-button v-if="!showDialog" type="button" @click="resetDialog">Show dialog</t-button>

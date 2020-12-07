@@ -126,7 +126,6 @@
 
         <component-checkbox v-model="selected" value="TTable" label="Table">
           <t-table
-            variant="demo"
             :headers="['Name', 'Email', 'Age', 'Sales']"
             :data="[
               ['Alfonso Bribiesca', 'alfonso@vexilo.com', '31', '$9,999.00'],
@@ -136,38 +135,13 @@
         </component-checkbox>
         <component-checkbox v-model="selected" value="TPagination" label="Pagination">
           <t-pagination
-            variant="demo"
             :value="2"
             :total-items="50"
             :per-page="10"
           />
         </component-checkbox>
         <component-checkbox v-model="selected" value="TDropdown" label="Dropdown">
-          <t-dropdown>
-            <div
-              slot="trigger"
-              slot-scope="{
-                mousedownHandler: userMenuMousedownHandler,
-                focusHandler: userMenuFocusHandler,
-                blurHandler: userMenuBlurHandler,
-                keydownHandler: userMenuKeydownHandler,
-              }"
-            >
-              <button
-                class="flex items-center px-4 py-2 text-sm text-orange-500 uppercase duration-100 ease-in-out transform border-2 border-orange-500 rounded"
-                aria-label="User menu"
-                aria-haspopup="true"
-                @mousedown="userMenuMousedownHandler"
-                @focus="userMenuFocusHandler"
-                @blur="userMenuBlurHandler"
-                @keydown="userMenuKeydownHandler"
-              >
-                Account
-                <icon class="w-3 h-3 ml-2">
-                  <path d="M19 9l-7 7-7-7" />
-                </icon>
-              </button>
-            </div>
+          <t-dropdown text="My account">
             <template>
               <div class="py-1 bg-white rounded-md shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
                 <a
