@@ -8,7 +8,7 @@
         <li v-for="item in toc" :key="item.id">
           <a
             :href="`#${item.id}`"
-            class="relative flex items-center px-3 py-1 text-sm text-gray-600 transition duration-200 ease-in-out rounded hover:text-gray-900 hover:bg-orange-100"
+            class="relative flex items-center px-3 py-1 text-sm text-gray-600 transition duration-200 ease-in-out rounded hover:text-gray-900 hover:bg-blue-100"
           >
             <span :class="item.depth > 2 ? `pl-${item.depth}` : undefined">{{ item.text }}</span>
           </a>
@@ -44,8 +44,8 @@
 
       <div id="add-3" class="mt-10 text-center">
         <t-button to="/contribute" class="flex items-center">
-          <icon class="w-4 h-4 mr-2 text-orange-200">
-            <path id="Fill-97" d="M11.0010436,0 C9.89589787,0 9.00000024,0.886706352 9.0000002,1.99810135 L9,8 L1.9973917,8 C0.894262725,8 0,8.88772964 0,10 L0,12 L2.29663334,18.1243554 C2.68509206,19.1602453 3.90195042,20 5.00853025,20 L12.9914698,20 C14.1007504,20 15,19.1125667 15,18.000385 L15,10 L12,3 L12,0 L11.0010436,0 L11.0010436,0 Z M17,10 L20,10 L20,20 L17,20 L17,10 L17,10 Z" />
+          <icon class="w-4 h-4 mr-2 text-blue-200">
+            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
           </icon>
           Support us
         </t-button>

@@ -1,11 +1,11 @@
 <template>
-  <div class="flex-1 flex justify-center px-2 lg:ml-6 lg:justify-end">
+  <div class="flex justify-center flex-1 px-2 lg:ml-6 lg:justify-end">
     <t-dropdown variant="searchBox" :show="showResults" @hidden="clear">
       <template slot="trigger" slot-scope="{ hideIfFocusOutside}">
         <label for="search" class="sr-only">Search</label>
         <div class="relative">
-          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <svg class="h-5 w-5 text-gray-700" fill="currentColor" viewBox="0 0 20 20">
+          <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+            <svg class="w-5 h-5 text-gray-700" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
             </svg>
           </div>
@@ -14,7 +14,7 @@
             ref="search"
             v-model="query"
             autocomplete="off"
-            class="block w-full pl-10 pr-3 py-2 border border-transparent focus:outline-none focus:bg-gray-300 focus:text-gray-900 rounded-md leading-5 sm:text-sm transition duration-150 ease-in-out bg-gray-200 text-gray-700 placeholder-gray-600"
+            class="block w-full py-2 pl-10 pr-3 leading-5 text-gray-700 placeholder-gray-600 transition duration-150 ease-in-out bg-gray-200 border border-transparent rounded-md focus:outline-none focus:bg-gray-300 focus:text-gray-900 sm:text-sm"
             :class="{
               'lg:bg-white lg:placeholder-gray-500 ': transparent
             }"
@@ -28,7 +28,7 @@
         <ul v-if="articles.length">
           <li v-for="article of articles" :key="article.slug">
             <a
-              class="px-3 py-2 block w-full hover:bg-orange-100 focus:bg-orange-100"
+              class="block w-full px-3 py-2 hover:bg-blue-100 focus:bg-blue-100"
               href="#"
               @click="openArticle(article)"
               @blur="blurHandler"

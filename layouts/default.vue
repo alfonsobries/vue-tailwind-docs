@@ -52,7 +52,7 @@
                   @input="form.errors.clear('email')"
                 />
                 <div class="mt-3 sm:mt-0 sm:ml-3 sm:flex-shrink-0">
-                  <button class="flex items-center justify-center w-full px-5 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-orange-500 rounded-md hover:bg-orange-400 focus:outline-none focus:bg-orange-400">
+                  <button class="block px-5 py-3 text-white transition duration-100 ease-in-out bg-blue-500 border border-transparent rounded shadow-sm hover:bg-blue-600 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed">
                     Notify me
                   </button>
                 </div>

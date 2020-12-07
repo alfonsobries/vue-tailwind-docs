@@ -55,7 +55,7 @@ max-width: 100%;
 .nuxt-content > p a,
 .nuxt-content > ul li a,
 .nuxt-content > ol li a {
-  @apply text-orange-500 underline;
+  @apply text-blue-500 underline;
 
 }
 
@@ -63,7 +63,7 @@ max-width: 100%;
 .nuxt-content > p a:hover,
 .nuxt-content > ul li a:hover,
 .nuxt-content > ol li a:hover {
-    @apply text-orange-700;
+    @apply text-blue-700;
 }
 
 .nuxt-content > p strong,
@@ -84,7 +84,7 @@ max-width: 100%;
   @apply px-1;
   @apply leading-none;
   @apply whitespace-nowrap;
-  @apply text-orange-600;
+  @apply text-blue-600;
   @apply font-mono;
   @apply align-baseline;
   @apply break-words;
@@ -147,7 +147,7 @@ max-width: 100%;
 .nuxt-content > h2 > code,
 .nuxt-content > h3 > code,
 .nuxt-content > h4 > code {
-  @apply text-orange-600;
+  @apply text-blue-600;
   @apply font-mono;
 }
 
@@ -213,7 +213,7 @@ max-width: 100%;
 
 
 .nuxt-content .filename {
-  @apply inline-block px-2 pt-1 ml-2 font-mono text-xs text-gray-500 bg-gray-800 border-b border-gray-800 rounded-t shadow-inner;
+  @apply inline-block px-2 pt-1 ml-2 -mb-1 font-mono text-xs text-gray-300 bg-gray-800 border-b border-gray-800 rounded-t shadow-inner;
 }
 
 .nuxt-content > table {
@@ -233,11 +233,11 @@ max-width: 100%;
 }
 
 .nuxt-content > table td code {
-  @apply px-1 font-mono text-xs text-orange-700 align-baseline bg-gray-100;
+  @apply px-1 font-mono text-xs text-blue-700 align-baseline bg-gray-100;
 }
 
 .nuxt-content > table td a {
-  @apply text-orange-700 underline ;
+  @apply text-blue-700 underline ;
 }
 
 .nuxt-content > table td:first-child {

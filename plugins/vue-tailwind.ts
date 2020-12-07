@@ -5,7 +5,7 @@ Vue.use(VueTailwind, {
   TInput: {
     variants: {
       demo: 'bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal',
-      error: 'border-2 bg-orange-100 border-red-500 text-red-500',
+      error: 'border-2 bg-blue-100 border-red-500 text-red-500',
       playground: 'p-2 px-3 py-1 text-sm',
       newsletter: 'border-gray-200 text-gray-900 placeholder-gray-500 focus:placeholder-gray-400 bg-white',
       newsletterError: 'border-red-200 text-red-900 placeholder-red-500 focus:placeholder-red-400 bg-red-100',
@@ -15,17 +15,17 @@ Vue.use(VueTailwind, {
   TTag: {
     variants: {
       h3: 'text-xl leading-5 font-semibold tracking-tight font-display text-gray-900',
-      badgeDemo: 'px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-orange-100 text-orange-800',
+      badgeDemo: 'px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800',
       bodyDemo: 'mt-2 text-base leading-6 text-gray-500',
-      demo: 'py-1 bg-orange-200 px-5 inline-flex text-sm leading-5 font-semibold rounded-full text-orange-600'
+      demo: 'py-1 bg-blue-200 px-5 inline-flex text-sm leading-5 font-semibold rounded-full text-blue-600'
     }
   },
   TButton: {
     variants: {
-      disabled: 'bg-orange-500 text-white uppercase text-sm py-2 px-4 rounded opacity-50 cursor-not-allowed',
-      secondary: 'bg-orange-300 text-orange-500 hover:text-orange-700 uppercase text-sm py-2 px-4 rounded',
-      link: 'text-orange-500 hover:text-orange-700 underline uppercase text-sm py-2 px-4',
-      disabledLink: 'text-orange-500 underline uppercase text-sm py-2 px-4 opacity-50 cursor-not-allowed',
+      disabled: 'bg-blue-500 text-white uppercase text-sm py-2 px-4 rounded opacity-50 cursor-not-allowed',
+      secondary: 'bg-blue-300 text-blue-500 hover:text-blue-700 uppercase text-sm py-2 px-4 rounded',
+      link: 'text-blue-500 hover:text-blue-700 underline uppercase text-sm py-2 px-4',
+      disabledLink: 'text-blue-500 underline uppercase text-sm py-2 px-4 opacity-50 cursor-not-allowed',
       playgroundMenu: 'mx-1 focus:outline-none focus:shadow-outline hover:bg-gray-200 inline-block leading-none px-3 py-2 rounded-lg text-xs border border-transparent',
       playgroundMenuActive: 'mx-1 focus:outline-none focus:shadow-outline bg-gray-200 hover:bg-gray-300 inline-block leading-none px-3 py-2 rounded-lg shadow-inner text-xs border'
     }
@@ -39,7 +39,7 @@ Vue.use(VueTailwind, {
   TTextarea: {
     variants: {
       demo: 'bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal',
-      error: 'form-textarea border-2 bg-orange-100 border-red-500 text-red-500'
+      error: 'form-textarea border-2 bg-blue-100 border-red-500 text-red-500'
     }
   },
   TSelect: {
