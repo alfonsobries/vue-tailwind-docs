@@ -52,9 +52,9 @@
                 <p class="">
                   Also you can send me a single BTC donation:
                 </p>
-                <p><strong>3NbFXSaNqjve4yWPTs4ALUqHywBDChUxh6</strong></p>
+                <p><strong>bc1q9tqmk92qlkr99t7y9ase5m077xh5dame6cl7rq</strong></p>
                 <p class="text-center">
-                  <img class="max-w-full" src="@/assets/img/3NbFXSaNqjve4yWPTs4ALUqHywBDChUxh6.png">
+                  <img class="max-w-full" src="@/assets/img/bc1q9tqmk92qlkr99t7y9ase5m077xh5dame6cl7rq.png">
                 </p>
               </div>
             </span>

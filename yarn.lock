@@ -13102,10 +13102,10 @@ vue-style-loader@^4.1.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-tailwind@^2.0.0-4:
-  version "2.0.0-4"
-  resolved "https://registry.yarnpkg.com/vue-tailwind/-/vue-tailwind-2.0.0-4.tgz#7187395bfb1667f3cb36c21168dad252efb33ecc"
-  integrity sha512-JyoXXCrlZ5dbwxM+BnNsxiGXWbiIicP4kFIzn+XN7QHiCKt6uOsnHr9k1JTOOO7ef4aEl2VitRApnT1uHMaW2A==
+vue-tailwind@^2.0.0-8:
+  version "2.0.0-8"
+  resolved "https://registry.yarnpkg.com/vue-tailwind/-/vue-tailwind-2.0.0-8.tgz#4242771ea444393ec343ed561bb40b31c60b0cea"
+  integrity sha512-ew3hu86/+gq8bRa6eW1As0mk8XillkEQbipXHr/MWGut/QGOSVYyH0leAoZGnPv6eib1TkKJCYp83FE941kVCg==
   dependencies:
     body-scroll-lock "^3.1.5"
     lodash.clonedeep "^4.5.0"
