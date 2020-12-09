@@ -7,18 +7,7 @@ description: VueJs reactive date-time picker component with multiple features, c
 
 VueJs reactive date-time picker component with multiple features, configurable classes and variants, and most common events. Friendly with utility-first frameworks like TailwindCSS.
 
-<datepicker-example></datepicker-example>
-
-Code for the example above: 
-
-```html
-<t-datepicker
-  v-model="date"
-  placeholder="Select a date"
-  date-format="Y-m-d"
-  user-format="m/d/Y"
-/>
-```
+<t-datepicker-playground></t-datepicker-playground>
 
 <hr>
 

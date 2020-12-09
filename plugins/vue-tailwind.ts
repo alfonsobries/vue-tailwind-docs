@@ -45,7 +45,7 @@ Vue.use(VueTailwind, {
   TSelect: {
     variants: {
       demo: 'form-select w-full',
-      playground: 'form-select p-2 px-3 py-1 text-sm',
+      playground: 'pl-3 pr-10 py-1 text-sm block text-black placeholder-gray-400 transition duration-100 ease-in-out bg-white border border-gray-300 rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed',
       wrappedDemo: {
         wrapper: 'relative',
         input: 'appearance-none bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal',
