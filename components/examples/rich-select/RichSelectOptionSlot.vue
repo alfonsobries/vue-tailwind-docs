@@ -19,12 +19,12 @@
               :src="option.raw.owner.avatar_url"
             >
           </span>
-          <div class="ml-2 flex flex-col text-gray-800">
+          <div class="flex flex-col w-full ml-2 text-gray-800">
             <strong>
               {{ option.raw.full_name }}
               <span v-if="isSelected">(Selected)</span>
             </strong>
-            <span class="text-sm text-gray-700 leading-tight">{{ option.raw.description }}</span>
+            <span class="text-sm leading-tight text-gray-700">{{ option.raw.description }}</span>
           </div>
         </div>
       </template>
