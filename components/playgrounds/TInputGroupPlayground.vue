@@ -77,8 +77,8 @@
 </template>
 
 <script>
+import { defaultTheme } from '../../utils/demoTheme'
 import ComponentPlayground from './ComponentPlayground'
-
 export default ComponentPlayground.extend({
   data () {
     return {
@@ -87,32 +87,7 @@ export default ComponentPlayground.extend({
         label: 'Password',
         feedback: 'Password must be at least 6 characters long'
       },
-      settings: {
-        fixedClasses: {
-          wrapper: 'mb-4',
-          label: 'block uppercase tracking-wide text-xs font-bold mb-1',
-          body: '',
-          feedback: 'text-sm',
-          description: 'text-sm'
-        },
-        classes: {
-          wrapper: '',
-          label: '',
-          body: '',
-          feedback: 'text-gray-500',
-          description: 'text-gray-500'
-        },
-        variants: {
-          danger: {
-            label: 'text-red-500',
-            feedback: 'text-red-500'
-          },
-          success: {
-            label: 'text-green-500',
-            feedback: 'text-green-500'
-          }
-        }
-      }
+      settings: defaultTheme.TInputGroup
     }
   }
 

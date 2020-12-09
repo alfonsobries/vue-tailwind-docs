@@ -78,8 +78,8 @@
 </template>
 
 <script>
+import { defaultTheme } from '../../utils/demoTheme'
 import ComponentPlayground from './ComponentPlayground'
-
 export default ComponentPlayground.extend({
   data () {
     return {
@@ -89,32 +89,7 @@ export default ComponentPlayground.extend({
         body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent laoreet diam risus, et vulputate mauris sagittis at.',
         footer: 'Footer content'
       },
-      settings: {
-        fixedClasses: {
-          wrapper: 'rounded max-w-lg mx-auto shadow',
-          body: 'p-4',
-          header: 'p-4 border-b',
-          footer: 'p-4 border-t'
-        },
-        classes: {
-          wrapper: 'bg-white',
-          body: '',
-          header: '',
-          footer: ''
-        },
-        variants: {
-          danger: {
-            wrapper: 'bg-red-100 text-red-700',
-            header: 'border-red-200 text-red-700',
-            footer: 'border-red-200 bg-red-100 text-red-700'
-          },
-          clean: {
-            wrapper: 'rounded',
-            footer: 'bg-gray-100 ',
-            body: 'p-4 text-sm text-gray-700'
-          }
-        }
-      }
+      settings: defaultTheme.TCard
     }
   }
 })

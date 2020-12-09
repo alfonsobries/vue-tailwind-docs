@@ -77,59 +77,12 @@
 
 <script>
 import cloneDeep from 'lodash/cloneDeep'
+import { notWrappedTheme, wrappedTheme } from '../../utils/demoTheme'
 import ComponentPlayground from './ComponentPlayground'
 
 const themeBuilderSettings = {
-  notWrappedTheme: {
-    fixedClasses: 'form-checkbox transition duration-150 ease-in-out',
-    classes: '',
-    variants: {
-      error: 'text-red-500 ',
-      success: 'text-green-500 ',
-      orange: 'text-orange-500 '
-    }
-  },
-  wrappedTheme: {
-    wrapped: true,
-    classes: {
-      label: '',
-      labelChecked: '',
-      wrapper: 'mx-1 bg-white border border-gray-300 flex items-center px-4 py-2 rounded shadow-sm cursor-pointer focus:shadow-outline text-sm text-gray-700 hover:text-gray-500 leading-5 uppercase',
-      wrapperChecked: 'mx-1 bg-gray-100 border border-gray-300 flex items-center px-4 py-2 rounded shadow-inner cursor-pointer focus:shadow-outline text-sm text-gray-700 hover:text-gray-500 leading-5 uppercase',
-      inputWrapper: '',
-      inputWrapperChecked: '',
-      input: 'absolute invisible'
-    },
-    variants: {
-      error: {
-        label: '',
-        labelChecked: '',
-        wrapper: 'mx-1 bg-red-100 border border-red-200 flex items-center px-4 py-2 rounded shadow-sm cursor-pointer focus:shadow-outline text-sm text-red-700 hover:text-red-500 leading-5 uppercase',
-        wrapperChecked: 'mx-1 bg-red-500 border border-red-500 flex items-center px-4 py-2 rounded shadow-inner cursor-pointer focus:shadow-outline text-sm text-red-100 hover:text-red-200 leading-5 uppercase',
-        inputWrapper: '',
-        inputWrapperChecked: '',
-        input: 'absolute invisible'
-      },
-      success: {
-        label: '',
-        labelChecked: '',
-        wrapper: 'mx-1 bg-green-100 border border-green-200 flex items-center px-4 py-2 rounded shadow-sm cursor-pointer focus:shadow-outline text-sm text-green-700 hover:text-green-500 leading-5 uppercase',
-        wrapperChecked: 'mx-1 bg-green-500 border border-green-500 flex items-center px-4 py-2 rounded shadow-inner cursor-pointer focus:shadow-outline text-sm text-green-100 hover:text-green-200 leading-5 uppercase',
-        inputWrapper: 'absolute invisible',
-        inputWrapperChecked: '',
-        input: 'absolute invisible'
-      },
-      simple: {
-        wrapper: 'flex items-center',
-        wrapperChecked: 'flex items-center',
-        label: 'text-sm uppercase mx-2 text-gray-700',
-        labelChecked: 'text-sm uppercase mx-2 text-gray-700',
-        inputWrapper: '',
-        inputWrapperChecked: '',
-        input: 'form-checkbox transition duration-150 ease-in-out'
-      }
-    }
-  }
+  notWrappedTheme: notWrappedTheme.TCheckbox,
+  wrappedTheme: wrappedTheme.TCheckbox
 }
 
 export default ComponentPlayground.extend({

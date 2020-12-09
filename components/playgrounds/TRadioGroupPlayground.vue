@@ -63,13 +63,13 @@ export default ComponentPlayground.extend({
         classes: {
           groupWrapper: 'flex flex-col',
           label: 'ml-2 text-gray-700 uppercase text-sm',
-          input: 'form-radio'
+          input: 'text-blue-500 transition duration-100 ease-in-out border-gray-300 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed'
         },
         variants: {
           danger: {
             groupWrapper: 'flex flex-col',
             label: 'ml-2 text-red-500 uppercase text-sm',
-            input: 'form-radio text-red-500 border-red-500'
+            input: 'text-red-500 transition duration-100 ease-in-out border-red-500 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 focus:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed'
           },
           buttons: {
             groupWrapper: 'flex',
