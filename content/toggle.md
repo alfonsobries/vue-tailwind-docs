@@ -51,24 +51,30 @@ This component expects an object with classes named after every child element.
 
 The properties in that object are the following:
 
-| Property             | Description                       |
-| -------------------- | --------------------------------- |
-| wrapper              | Wrapper of the component          |
-| wrapperChecked       | Wrapper when checked              |
-| button               | Toggle button                     |
-| buttonChecked        | Toggle button when checked        |
-| checkedPlaceholder   | Placeholder in the unchecked side |
-| uncheckedPlaceholder | Placeholder in the checked side   |
+| Property               | Description                       |
+| ---------------------- | --------------------------------- |
+| wrapper                | Wrapper of the component          |
+| wrapperChecked         | Wrapper when checked              |
+| wrapperDisabled        | Wrapper when disabled             |
+| wrapperCheckedDisabled | Wrapper when checked and disable  |
+| button                 | Toggle button                     |
+| buttonChecked          | Toggle button when checked        |
+| checkedPlaceholder     | Placeholder in the unchecked side |
+| uncheckedPlaceholder   | Placeholder in the checked side   |
 
 
 ### Default fixed classes
 
-As you may know, the fixed classes are shared and merged with the different variants and default classes. The classes we define here as default are the ones that you usually will need to make this component works correctly so you can only focus on colors, size, etc when creating your theme.
+As you may know, the fixed classes are merged with the different variants and default classes.
+
+The default `fixedClasses` on this component are the ones you usually will need as a minimum to ensure this component works as expected.
 
 ```js
 {
   wrapper: 'relative inline-flex flex-shrink-0 cursor-pointer transition-colors ease-in-out duration-200',
   wrapperChecked: 'relative inline-flex flex-shrink-0 cursor-pointer transition-colors ease-in-out duration-200',
+  wrapperDisabled: 'relative inline-flex flex-shrink-0 cursor-pointer transition-colors ease-in-out duration-200 opacity-50 cursor-not-allowed',
+  wrapperCheckedDisabled: 'relative inline-flex flex-shrink-0 cursor-pointer transition-colors ease-in-out duration-200 opacity-50 cursor-not-allowed',
   button: 'inline-block absolute transform translate-x-0 transition ease-in-out duration-200',
   buttonChecked: 'inline-block absolute transform translate-x-full transition ease-in-out duration-200',
   checkedPlaceholder: 'inline-block',
@@ -80,19 +86,20 @@ As you may know, the fixed classes are shared and merged with the different vari
 
 ```js
 {
-  wrapper: 'bg-gray-200 focus:outline-none focus:shadow-outline rounded-full border-2 border-transparent',
-  wrapperChecked: 'bg-blue-500 focus:outline-none focus:shadow-outline rounded-full border-2 border-transparent',
-  button: 'h-5 w-5 rounded-full bg-white shadow  flex items-center justify-center text-gray-400 text-xs',
-  buttonChecked: 'h-5 w-5 rounded-full bg-white shadow  flex items-center justify-center text-blue-500 text-xs',
-  checkedPlaceholder: 'rounded-full w-5 h-5 flex items-center justify-center text-gray-500 text-xs',
-  uncheckedPlaceholder: 'rounded-full w-5 h-5 flex items-center justify-center text-gray-500 text-xs',
+  wrapper: 'bg-gray-100 rounded-full border-2 border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50',
+  wrapperChecked: 'bg-blue-500 rounded-full border-2 border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50',
+  wrapperDisabled: 'bg-gray-100 rounded-full border-2 border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50',
+  wrapperCheckedDisabled: 'bg-blue-500 rounded-full border-2 border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50',
+  button: 'h-5 w-5 rounded-full bg-white shadow flex items-center justify-center text-gray-400 text-xs',
+  buttonChecked: 'h-5 w-5 rounded-full bg-white shadow flex items-center justify-center text-blue-500 text-xs',
+  checkedPlaceholder: 'rounded-full w-5 h-5 flex items-center justify-center text-gray-400 text-xs',
+  uncheckedPlaceholder: 'rounded-full w-5 h-5 flex items-center justify-center text-gray-400 text-xs',
 }
 ```
 
 ## Label and placeholders
 
 The labels and placeholder are optional and are useful for adding some extra info to the toggle components, the label placeholder is shown inside the button and the placeholder behind.
-
 
 ### Example
 
@@ -165,7 +172,7 @@ Add an icon according to the checked/unchecked
     slot-scope="{ isChecked }"
   >
     <span
-      class="absolute inset-0 h-full w-full flex items-center justify-center transition-opacity"
+      class="absolute inset-0 flex items-center justify-center w-full h-full transition-opacity"
       :class="{
         'opacity-100 ease-in duration-200': !isChecked,
         'opacity-0 ease-out duration-100': isChecked,
@@ -174,7 +181,7 @@ Add an icon according to the checked/unchecked
       👍
     </span>
     <span
-      class=" absolute inset-0 h-full w-full flex items-center justify-center transition-opacity"
+      class="absolute inset-0 flex items-center justify-center w-full h-full transition-opacity "
       :class="{
         'opacity-100 ease-in duration-200': isChecked,
         'opacity-0 ease-out duration-100': !isChecked,

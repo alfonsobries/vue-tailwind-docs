@@ -21,7 +21,7 @@ Use it for alerts, confirmation, or prompt dialogs, open it programmatically, or
 
 Add the Dialog in your template as any Vue component if you want to have more control over the content of the dialog.
 
-For example, it allows you to use any custom HTML and reactive content by using the slots and interact with it by using the built-in functions like `this.$dialog.show('named-dialog')` similar to the way you interact with the Dialog. This is especially useful for forms.
+For example, it allows you to use any custom HTML and reactive content by using the slots and interact with it by using the built-in functions like `this.$dialog.show('named-dialog')` similar to the way you interact with the Modal. This is especially useful for forms.
 
 ```html
 <!-- Note that the visual style of the example comes from a custom theme made for this docs -->
@@ -207,9 +207,10 @@ The fixed classes have a default value with the minimum CSS classes this compone
 ```js
 {
   overlay: 'overflow-auto scrolling-touch left-0 top-0 bottom-0 right-0 w-full h-full fixed',
-  wrapper: 'relative mx-auto ',
-  dialog: 'overflow-hidden relative',
-  close: 'absolute right-0 top-0',
+  wrapper: 'relative mx-auto',
+  modal: 'overflow-visible relative ',
+  close: 'flex items-center justify-center',
+  dialog: 'overflow-visible relative',
 };
 ```
 
@@ -219,40 +220,54 @@ Classes that define the default style of the component.
 
 ```js
 {
-close: 'bg-gray-100 flex h-8 items-center justify-center m-1 rounded-full text-gray-700 w-8 hover:bg-gray-200',
-  closeIcon: 'h-5 w-5 fill-current',
+  close: 'bg-gray-100 text-gray-600 rounded-full absolute right-0 top-0 -m-3 h-8 w-8 transition duration-100 ease-in-out hover:bg-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50',
+  closeIcon: 'fill-current h-4 w-4',
+
   overlay: 'z-40 bg-black bg-opacity-50',
-  wrapper: 'z-50 max-w-md',
-  dialog: 'bg-white rounded p-4 text-left overflow-hidden shadow ',
-  body: '',
-  buttons: 'mt-4 flex space-x-4 justify-center',
-  iconWrapper: 'mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-gray-200 flex-shrink-0',
-  icon: 'w-6 h-6 text-gray-700',
-  content: 'mt-3',
+  wrapper: 'z-50 max-w-lg px-3 py-12',
+  dialog: 'bg-white shadow rounded text-left',
+
+  body: 'p-3 space-y-3',
+  buttons: 'p-3 flex space-x-4 justify-center bg-gray-100 rounded-b',
+
+  iconWrapper: 'bg-gray-100 flex flex-shrink-0 h-12 items-center justify-center rounded-full w-12 mx-auto',
+  icon: 'w-6 h-6 text-gray-500',
+  content: 'w-full flex justify-center flex-col',
+
   titleWrapper: '',
-  title: 'text-lg leading-6 font-medium text-gray-900 text-center',
-  textWrapper: 'mt-2 text-gray-600',
+  title: 'text-lg font-semibold text-center',
+
+  textWrapper: 'text-left w-full',
   text: '',
-  cancelButton: 'inline-flex justify-center rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5 w-full max-w-xs',
-  okButton: 'inline-flex justify-center rounded-md border border-transparent px-4 py-2 bg-blue-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5 w-full max-w-xs',
-  inputWrapper: 'mt-3 flex items-center space-x-4 justify-center',
-  input: 'form-input w-full',
-  select: 'form-select w-full',
+
+  cancelButton: 'block px-4 py-2 transition duration-100 ease-in-out bg-white border border-gray-300 rounded shadow-sm hover:bg-gray-100 focus:border-gray-100 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed w-full max-w-xs',
+  okButton: 'block px-4 py-2 text-white transition duration-100 ease-in-out bg-blue-500 border border-transparent rounded shadow-sm hover:bg-blue-600 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed w-full max-w-xs',
+
+  inputWrapper: 'mt-3 flex items-center space-x-3',
+
+  input: 'block w-full px-3 py-2 text-black placeholder-gray-400 transition duration-100 ease-in-out bg-white border border-gray-300 rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed w-full',
+  select: 'block w-full px-3 py-2 text-black placeholder-gray-400 transition duration-100 ease-in-out bg-white border border-gray-300 rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50  disabled:opacity-50 disabled:cursor-not-allowed w-full',
+
   radioWrapper: 'flex items-center space-x-2',
-  radio: 'form-radio',
+  radio: 'text-blue-500 transition duration-100 ease-in-out border-gray-300 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 focus:ring-offset-0  disabled:opacity-50 disabled:cursor-not-allowed',
   radioText: '',
+
   checkboxWrapper: 'flex items-center space-x-2',
-  checkbox: 'form-checkbox',
+  checkbox: 'text-blue-500 transition duration-100 ease-in-out border-gray-300 rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 focus:ring-offset-0  disabled:opacity-50 disabled:cursor-not-allowed',
   checkboxText: '',
+
   errorMessage: 'text-red-500 block text-sm',
+
   busyWrapper: 'absolute bg-opacity-50 bg-white flex h-full items-center justify-center left-0 top-0 w-full',
   busyIcon: 'animate-spin h-6 w-6 fill-current text-gray-500',
+
   overlayEnterClass: '',
   overlayEnterActiveClass: 'opacity-0 transition ease-out duration-100',
   overlayEnterToClass: 'opacity-100',
   overlayLeaveClass: 'transition ease-in opacity-100',
   overlayLeaveActiveClass: '',
   overlayLeaveToClass: 'opacity-0 duration-75',
+
   enterClass: '',
   enterActiveClass: '',
   enterToClass: '',
@@ -264,7 +279,7 @@ close: 'bg-gray-100 flex h-8 items-center justify-center m-1 rounded-full text-g
 
 ### Margin and width
 
-If you need to add some margin or spacing between the dialog and the screen or define a different width, the `wrapper` attribute is the most appropriate example:
+If you need to add some margin or spacing between the dialog and the screen or define a different width, the `wrapper` attribute is the most appropriate. Example:
 
 ```js
 {
@@ -311,7 +326,7 @@ this.$dialog.alert({
 
 ### Dialog response
 
-The dialog will return a promise that will return and object useful data related with the user interaction.
+The dialog will return a promise that eventually will return and object with some useful data related with the user interaction.
 
 The object returned will look like this:
 
@@ -328,27 +343,27 @@ The object returned will look like this:
 }
 ```
 
-| Property    | Description                                                                             |
-| ----------- | --------------------------------------------------------------------------------------- |
-| hideReason  | The dialog close reason                                                                 |
-| isOk        | If the ok button was pressed                                                            |
-| isCancel    | If the cancel button was pressed                                                        |
-| isDismissed | If the dialog was closed for any other reason                                           |
-| input       | When using a prompt the result of the user prompt                                       |
+| Property    | Description                                                                            |
+| ----------- | -------------------------------------------------------------------------------------- |
+| hideReason  | The dialog close reason                                                                |
+| isOk        | If the ok button was pressed                                                           |
+| isCancel    | If the cancel button was pressed                                                       |
+| isDismissed | If the dialog was closed for any other reason                                          |
+| input       | When using a prompt the result of the user prompt                                      |
 | response    | When using the `preConfirm` function in a prompt the result of the preconfirm response |
 
 ### Hide reason
 
 The possible hide reasons are the following:
 
-| Reason      | Description                                                  |
-| ----------- | ------------------------------------------------------------ |
+| Reason      | Description                                                   |
+| ----------- | ------------------------------------------------------------- |
 | `'outside'` | Closed because the user clicks outside                        |
-| `'close'`   | Closed because the user press the close button               |
-| `'esc'`     | Closed because the user press the `esc` key                  |
-| `'cancel'`  | The user presses the cancel button                             |
-| `'ok'`      | The user press the ok button                                 |
-| `'method'`  | The user closed the dialog with the `$dialog.hide` method    |
+| `'close'`   | Closed because the user press the close button                |
+| `'esc'`     | Closed because the user press the `esc` key                   |
+| `'cancel'`  | The user presses the cancel button                            |
+| `'ok'`      | The user press the ok button                                  |
+| `'method'`  | The user closed the dialog with the `$dialog.hide` method     |
 | `'value'`   | The dialog was closed because the `v-model` was set to `form` |
 
 
@@ -444,14 +459,14 @@ export default {
 
 ## Events
 
-| Name         | Params                                                           | Description                                                                                                     |
-| ------------ | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| Name         | Params                                                           | Description                                                                                                         |
+| ------------ | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | before-open  | `{ params, cancel }`                                             | Emits while the dialog is still invisible, but it was added to the DOM                                              |
-| opened       | `{ params }`                                                     | Emits after dialog became visible or started transition                                                         |
+| opened       | `{ params }`                                                     | Emits after dialog became visible or started transition                                                             |
 | before-close | `{ cancel, event, reason, input?, response? }`                   | Emits before the dialog is going to be closed (include some of the data of the [dialog response](#dialog-response)) |
-| closed       | `{ hideReason, isOk, isCancel, isDismissed, input?, response? }` | Emits right before dialog is destroyed (include [dialog response](#dialog-response))                            |
-| input        | `boolean`                                                        | Emits when the v-model value change                                                                             |
-| change       | `boolean`                                                        | Emits when the v-model value change                                                                             |
+| closed       | `{ hideReason, isOk, isCancel, isDismissed, input?, response? }` | Emits right before dialog is destroyed (include [dialog response](#dialog-response))                                |
+| input        | `boolean`                                                        | Emits when the v-model value change                                                                                 |
+| change       | `boolean`                                                        | Emits when the v-model value change                                                                                 |
 
 <tip>
 The `cancel` param is a method you can use to stop the dialog from opening or closing.
@@ -473,17 +488,17 @@ The `cancel` param is a method you can use to stop the dialog from opening or cl
 The buttons scoped slot includes some data that is necessary to create your own buttons
 
 
-| Attribute             | Type                                      |
-| --------------------- | ----------------------------------------- |
-| cancelButtonAriaLabel | Same value as the prop                    |
-| okButtonAriaLabel     | Same value as the prop                    |
-| cancelButtonText      | Same value as the prop                    |
-| okButtonText          | Same value as the prop                    |
-| okButtonClass         | Same value as the prop                    |
-| cancelButtonClass     | Same value as the prop                    |
-| dialogType            | Same value as the prop                    |
+| Attribute             | Type                                     |
+| --------------------- | ---------------------------------------- |
+| cancelButtonAriaLabel | Same value as the prop                   |
+| okButtonAriaLabel     | Same value as the prop                   |
+| cancelButtonText      | Same value as the prop                   |
+| okButtonText          | Same value as the prop                   |
+| okButtonClass         | Same value as the prop                   |
+| cancelButtonClass     | Same value as the prop                   |
+| dialogType            | Same value as the prop                   |
 | cancel                | Method for trigger the "cancel" behavior |
-| ok                    | Method for trigger the "ok" behavior |
+| ok                    | Method for trigger the "ok" behavior     |
 
 
 ### Slots Example

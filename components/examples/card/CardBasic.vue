@@ -1,13 +1,12 @@
 <template>
   <preview>
     <t-card
-      variant="demo"
       :fixed-classes="{}"
       header="Title of the card"
     >
       Content of the card.
 
-      <template v-slot:footer>
+      <template #footer>
         <div class="flex justify-between">
           <t-button type="button" @click="showModalFull ? $refs.modal.hide() : undefined">
             Cancel

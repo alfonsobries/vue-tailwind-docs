@@ -19,21 +19,21 @@ VueJs dropdown component with configurable classes and infinite variants. Friend
   <div class="py-1 rounded-md shadow-xs">
     <a
       href="#"
-      class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+      class="block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
       role="menuitem"
     >
       Your Profile
     </a>
     <a
       href="#"
-      class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+      class="block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
       role="menuitem"
     >
       Settings
     </a>
     <a
       href="#"
-      class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+      class="block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
       role="menuitem"
     >
       Sign out
@@ -43,25 +43,25 @@ VueJs dropdown component with configurable classes and infinite variants. Friend
 ```
 
 <preview>
-<t-dropdown variant="demo" text="Open Menu">
+<t-dropdown text="Open Menu">
   <div class="py-1 rounded-md shadow-xs">
     <a
       href="#"
-      class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+      class="block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
       role="menuitem"
     >
       Your Profile
     </a>
     <a
       href="#"
-      class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+      class="block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
       role="menuitem"
     >
       Settings
     </a>
     <a
       href="#"
-      class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+      class="block px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
       role="menuitem"
     >
       Sign out
@@ -114,10 +114,10 @@ The properties in that object are the following:
 
 ```js
 {
-  button: 'p-3',
+  button: 'block px-4 py-2 text-white transition duration-100 ease-in-out bg-blue-500 border border-transparent rounded shadow-sm hover:bg-blue-600 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed',
   wrapper: 'inline-flex flex-col',
   dropdownWrapper: 'relative z-10',
-  dropdown: 'origin-top-right absolute right-0 w-56 rounded-md shadow-lg bg-white',
+  dropdown: 'origin-top-left absolute left-0 w-56 rounded shadow bg-white mt-1',
   enterClass: '',
   enterActiveClass: 'transition ease-out duration-100 transform opacity-0 scale-95',
   enterToClass: 'transform opacity-100 scale-100',
@@ -154,14 +154,14 @@ Consider a dropdown that is used as a menu of items:
 <t-dropdown text="Click me">
   <div slot-scope="{ hide, blurHandler }">
     <button
-      class="block w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+      class="block w-full px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
       role="menuitem"
       @blur="blurHandler"
     >
       Your Profile
     </button>
     <button
-      class="block w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+      class="block w-full px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
       role="menuitem"
       @blur="blurHandler"
     >
@@ -169,7 +169,7 @@ Consider a dropdown that is used as a menu of items:
     </button>
 
     <button
-      class="border-t text-red-500 block w-full px-4 py-2 text-sm leading-5 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+      class="block w-full px-4 py-2 text-sm leading-5 text-red-500 transition duration-150 ease-in-out border-t hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
       @click="hide"
     >
       Close me
@@ -220,7 +220,7 @@ Will replace the current dropdown button, useful for any custom handler.
   >
     <button
       id="user-menu"
-      class="flex text-sm rounded-full text-gray-700 items-center pr-3 bg-gray-300 focus:outline-none focus:shadow-solid transition duration-150 ease-in-out border-2 border-gray-200"
+      class="flex items-center pr-3 text-sm text-gray-700 transition duration-150 ease-in-out bg-gray-300 border-2 border-gray-200 rounded-full focus:outline-none focus:shadow-solid"
       :class="{ 'border-gray-300 bg-gray-500 text-white ': isShown }"
       aria-label="User menu"
       aria-haspopup="true"
@@ -229,7 +229,7 @@ Will replace the current dropdown button, useful for any custom handler.
       @blur="blurHandler"
       @keydown="keydownHandler"
     >
-      <img class="h-8 w-8 rounded-full mr-2" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+      <img class="w-8 h-8 mr-2 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
 
       Hi, Alfonso!
     </button>
@@ -237,14 +237,14 @@ Will replace the current dropdown button, useful for any custom handler.
 
   <div slot-scope="{ hide, blurHandler }">
     <button
-      class="block w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+      class="block w-full px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
       role="menuitem"
       @blur="blurHandler"
     >
       Your Profile
     </button>
     <button
-      class="block w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+      class="block w-full px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
       role="menuitem"
       @blur="blurHandler"
     >
@@ -252,7 +252,7 @@ Will replace the current dropdown button, useful for any custom handler.
     </button>
 
     <button
-      class="border-t text-red-500 block w-full px-4 py-2 text-sm leading-5 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+      class="block w-full px-4 py-2 text-sm leading-5 text-red-500 transition duration-150 ease-in-out border-t hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
       @click="hide"
     >
       Close me
@@ -312,18 +312,18 @@ To create the perfect tooltip you can create your own variant and replace the HT
     class="flex"
   >
     <button
-      class="px-3 py-2 flex items-center justify-center bg-blue-500 hover:bg-blue-500 rounded-l text-white flex-shrink-0 border-r border-blue-600"
+      class="flex items-center justify-center flex-shrink-0 px-3 py-2 text-white bg-blue-500 border-r border-blue-600 rounded-l hover:bg-blue-500"
     >
       Hi, Alfonso!
     </button>
     <button
-      class="px-3 py-2 flex items-center justify-center bg-blue-500 hover:bg-blue-500 rounded-r text-white flex-shrink-0 border-l border-blue-400"
+      class="flex items-center justify-center flex-shrink-0 px-3 py-2 text-white bg-blue-500 border-l border-blue-400 rounded-r hover:bg-blue-500"
       @mousedown="mousedownHandler"
       @focus="focusHandler"
       @blur="blurHandler"
       @keydown="keydownHandler"
     >
-      <svg class="fill-current text-white w-4 h-4" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <svg class="w-4 h-4 text-white fill-current" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
           <g id="icon-shape">
             <polygon id="Combined-Shape" points="9.29289322 12.9497475 10 13.6568542 15.6568542 8 14.2426407 6.58578644 10 10.8284271 5.75735931 6.58578644 4.34314575 8" />
@@ -335,14 +335,14 @@ To create the perfect tooltip you can create your own variant and replace the HT
 
   <div slot-scope="{ hide, blurHandler }">
     <button
-      class="block w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+      class="block w-full px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
       role="menuitem"
       @blur="blurHandler"
     >
       Your Profile
     </button>
     <button
-      class="block w-full px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+      class="block w-full px-4 py-2 text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
       role="menuitem"
       @blur="blurHandler"
     >
@@ -378,14 +378,14 @@ Notice the in the example above the slot handler are only used in the trigger of
       keydownHandler,
       isShown
     }"
-    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+    class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8"
   >
     <div class="flex justify-between h-16">
       <div class="flex">
-        <div class="-ml-2 mr-2 flex items-center sm:hidden">
+        <div class="flex items-center mr-2 -ml-2 sm:hidden">
           <!-- Mobile menu button -->
           <button
-            class="inline-flex items-center justify-center p-2 rounded-md text-blue-400 hover:text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 focus:text-white transition duration-150 ease-in-out"
+            class="inline-flex items-center justify-center p-2 text-blue-400 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 focus:text-white"
             aria-label="Main menu"
             aria-expanded="false"
             @mousedown="mousedownHandler"
@@ -394,7 +394,7 @@ Notice the in the example above the slot handler are only used in the trigger of
           >
             <svg
               :class="{ 'hidden': isShown, 'block': !isShown}"
-              class="h-6 w-6"
+              class="w-6 h-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -403,7 +403,7 @@ Notice the in the example above the slot handler are only used in the trigger of
             </svg>
             <svg
               :class="{ 'hidden': !isShown, 'block': isShown}"
-              class="h-6 w-6"
+              class="w-6 h-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -412,13 +412,13 @@ Notice the in the example above the slot handler are only used in the trigger of
             </svg>
           </button>
         </div>
-        <div class="flex-shrink-0 flex items-center text-white">
+        <div class="flex items-center flex-shrink-0 text-white">
           MYAPP
         </div>
         <div class="hidden sm:ml-6 sm:flex sm:items-center">
-          <a href="#" class="px-3 py-2 rounded-md text-sm font-medium leading-5 text-white bg-blue-900 focus:outline-none focus:text-white focus:bg-blue-700 transition duration-150 ease-in-out">Users</a>
-          <a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-blue-300 hover:text-white hover:bg-blue-700 focus:outline-none focus:text-white focus:bg-blue-700 transition duration-150 ease-in-out">Companies</a>
-          <a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-blue-300 hover:text-white hover:bg-blue-700 focus:outline-none focus:text-white focus:bg-blue-700 transition duration-150 ease-in-out">Settings</a>
+          <a href="#" class="px-3 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-blue-900 rounded-md focus:outline-none focus:text-white focus:bg-blue-700">Users</a>
+          <a href="#" class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-blue-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-blue-700 focus:outline-none focus:text-white focus:bg-blue-700">Companies</a>
+          <a href="#" class="px-3 py-2 ml-4 text-sm font-medium leading-5 text-blue-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-blue-700 focus:outline-none focus:text-white focus:bg-blue-700">Settings</a>
         </div>
       </div>
     </div>
@@ -426,9 +426,9 @@ Notice the in the example above the slot handler are only used in the trigger of
 
   <div class="sm:hidden">
     <div class="px-2 pt-2 pb-3 sm:px-3">
-      <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-blue-900 focus:outline-none focus:text-white focus:bg-blue-700 transition duration-150 ease-in-out">Users</a>
-      <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-blue-300 hover:text-white hover:bg-blue-700 focus:outline-none focus:text-white focus:bg-blue-700 transition duration-150 ease-in-out">Companies</a>
-      <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-blue-300 hover:text-white hover:bg-blue-700 focus:outline-none focus:text-white focus:bg-blue-700 transition duration-150 ease-in-out">Settings</a>
+      <a href="#" class="block px-3 py-2 text-base font-medium text-white transition duration-150 ease-in-out bg-blue-900 rounded-md focus:outline-none focus:text-white focus:bg-blue-700">Users</a>
+      <a href="#" class="block px-3 py-2 mt-1 text-base font-medium text-blue-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-blue-700 focus:outline-none focus:text-white focus:bg-blue-700">Companies</a>
+      <a href="#" class="block px-3 py-2 mt-1 text-base font-medium text-blue-300 transition duration-150 ease-in-out rounded-md hover:text-white hover:bg-blue-700 focus:outline-none focus:text-white focus:bg-blue-700">Settings</a>
     </div>
   </div>
 </t-dropdown>
