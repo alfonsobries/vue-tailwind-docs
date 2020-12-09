@@ -176,7 +176,7 @@ Notice that in the example above we are using dot notation to get a nested attri
 
 This component accepts the `wrapped` prop that, when set it will wrap the `select` tag in a `DIV` and will add a sibling `SPAN` with an a `SVG` icon. This can give you more flexibility to customize your component.
 
-Remember that the component can set as "wrapped" when installed or by using the `wrapped` prop (see [wrap inputs](/docs/theming#wrapped-inputs) for more info):
+Remember that the component can set as "wrapped" when installed or by using the `wrapped` prop (see [wrapped inputs](/docs/theming#wrapped-inputs) for more info):
 
 ```js
 // When installed
