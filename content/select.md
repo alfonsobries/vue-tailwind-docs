@@ -27,26 +27,26 @@ VueJs reactive `<select></select>` component with configurable classes, variants
 
 ## Props
 
-| Property          | Type                      | Default value   | Description                                                                                                                                      |
-| ----------------- | ------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| value (`v-model`) | `[Array, String, Number]` | `undefined`     | The value for the element                                                                                                                        |
-| id                | `String`                  | `undefined`     | HTML attribute                                                                                                                                   |
-| autofocus         | `Boolean`                 | `undefined`     | HTML attribute                                                                                                                                   |
-| disabled          | `Boolean`                 | `undefined`     | HTML attribute                                                                                                                                   |
-| name              | `String`                  | `undefined`     | HTML attribute                                                                                                                                   |
-| readonly          | `Boolean`                 | `undefined`     | HTML attribute                                                                                                                                   |
-| required          | `Boolean`                 | `undefined`     | HTML attribute                                                                                                                                   |
-| tabindex          | `[String, Number]`        | `undefined`     | HTML attribute                                                                                                                                   |
-| multiple          | `Boolean`                 | `undefined`     | HTML attribute                                                                                                                                   |
-| placeholder       | `String`                  | `undefined`     | When set it will prepend an empty `option` tag with the text the value of `null`                                                                 |
-| options           | `[Array, Object]`         | `undefined`     | The options of the select (see [options format](#options-format))                                                                                |
-| textAttribute     | `String`                  | `undefined`     | Used to extract the text of the `option` from the options list. <br />(see [define the value/text attributes](#define-the-valuetext-attributes)) |
-| valueAttribute    | `String`                  | `undefined`     | Used to extract the value of the `option` from the options list <br />(see [define the value/text attributes](#define-the-valuetext-attributes)) |
-| wrapped           | `Boolean`                 | `false`         | If set, the select will be wrapped in a div within an SVG icon (see [wrap select](#wrap-select))                                                 |
-| classes           | `[String, Object, Array]` | `'form-select'` | The default CSS classes                                                                                                                          |
-| fixedClasses      | `[String, Object, Array]` | `undefined`     | Fixed CSS classes that will be merged with the active set of classes                                                                             |
-| variants          | `Object`                  | `undefined`     | The different variants of classes the component have                                                                                             |
-| variant           | `[String, Object]`        | `undefined`     | The variant that will be used                                                                                                                    |
+| Property          | Type                      | Default value | Description                                                                                                                                      |
+| ----------------- | ------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| value (`v-model`) | `[Array, String, Number]` | `undefined`   | The value for the element                                                                                                                        |
+| id                | `String`                  | `undefined`   | HTML attribute                                                                                                                                   |
+| autofocus         | `Boolean`                 | `undefined`   | HTML attribute                                                                                                                                   |
+| disabled          | `Boolean`                 | `undefined`   | HTML attribute                                                                                                                                   |
+| name              | `String`                  | `undefined`   | HTML attribute                                                                                                                                   |
+| readonly          | `Boolean`                 | `undefined`   | HTML attribute                                                                                                                                   |
+| required          | `Boolean`                 | `undefined`   | HTML attribute                                                                                                                                   |
+| tabindex          | `[String, Number]`        | `undefined`   | HTML attribute                                                                                                                                   |
+| multiple          | `Boolean`                 | `undefined`   | HTML attribute                                                                                                                                   |
+| placeholder       | `String`                  | `undefined`   | When set it will prepend an empty `option` tag with the text the value of `null`                                                                 |
+| options           | `[Array, Object]`         | `undefined`   | The options of the select (see [options format](#options-format))                                                                                |
+| textAttribute     | `String`                  | `undefined`   | Used to extract the text of the `option` from the options list. <br />(see [define the value/text attributes](#define-the-valuetext-attributes)) |
+| valueAttribute    | `String`                  | `undefined`   | Used to extract the value of the `option` from the options list <br />(see [define the value/text attributes](#define-the-valuetext-attributes)) |
+| wrapped           | `Boolean`                 | `false`       | If set, the select will be wrapped in a div within an SVG icon (see [wrap select](#wrap-select))                                                 |
+| classes           | `[String, Object, Array]` | ...           | The default CSS classes                                                                                                                          |
+| fixedClasses      | `[String, Object, Array]` | `undefined`   | Fixed CSS classes that will be merged with the active set of classes                                                                             |
+| variants          | `Object`                  | `undefined`   | The different variants of classes the component have                                                                                             |
+| variant           | `[String, Object]`        | `undefined`   | The variant that will be used                                                                                                                    |
 
 #### Default value of the *classes* prop:
 
