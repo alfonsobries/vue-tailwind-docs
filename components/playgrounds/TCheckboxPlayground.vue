@@ -10,20 +10,20 @@
         <t-input-group variant="playground">
           <label
             for="wrapped"
-            class=" flex"
+            class="flex "
           >
             <t-checkbox
               id="wrapped"
               v-model="wrapped"
               name="wrapped"
-              class="form-checkbox h-4 w-4 text-orange-600 transition duration-150 ease-in-out mt-1"
+              class="w-4 h-4 mt-1 text-orange-600 transition duration-150 ease-in-out form-checkbox"
             />
 
             <div class="ml-3">
               <strong class="block text-sm font-medium text-gray-700 capitalize">
                 Wrapped
               </strong>
-              <span class="text-sm text-gray-500 leading-none block">Wraps the radio tag in a div, add some extra HTML that make the element more customizable and accepts a label.</span>
+              <span class="block text-sm leading-none text-gray-500">Wraps the radio tag in a div, add some extra HTML that make the element more customizable and accepts a label.</span>
             </div>
 
           </label>
@@ -37,18 +37,16 @@
             <label
               key="---"
               for="variant---"
-              class="px-3 py-2 flex items-center "
+              class="flex items-center px-3 py-2 "
             >
-              <input
+              <t-radio
                 id="variant---"
                 v-model="variant"
                 :value="''"
                 name="variant"
-                type="radio"
-                class="form-radio h-4 w-4 text-orange-600 transition duration-150 ease-in-out"
-              >
+              />
 
-              <span class="block text-sm leading-5 font-medium text-gray-700 ml-3 capitalize">
+              <span class="block ml-3 text-sm font-medium leading-5 text-gray-700 capitalize">
                 Default
               </span>
             </label>
@@ -57,18 +55,16 @@
               v-for="(v, variantName) in settings.variants"
               :key="variantName"
               :for="`variant-${variantName}`"
-              class="px-3 py-2 flex items-center "
+              class="flex items-center px-3 py-2 "
             >
-              <input
+              <t-radio
                 :id="`variant-${variantName}`"
                 v-model="variant"
                 :value="variantName"
                 name="variant"
-                type="radio"
-                class="form-radio h-4 w-4 text-orange-600 transition duration-150 ease-in-out"
-              >
+              />
 
-              <span class="block text-sm leading-5 font-medium text-gray-700 ml-3 capitalize">
+              <span class="block ml-3 text-sm font-medium leading-5 text-gray-700 capitalize">
                 {{ variantName }}
               </span>
             </label>

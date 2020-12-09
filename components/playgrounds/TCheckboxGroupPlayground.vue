@@ -10,22 +10,20 @@
           variant="playground"
           :label="themeWasChanged ? 'Custom variants' : 'Example variants'"
         >
-          <div class="flex flex-wrap items-center  -mx-3">
+          <div class="flex flex-wrap items-center -mx-3">
             <label
               key="---"
               for="variant---"
-              class="px-3 py-2 flex items-center "
+              class="flex items-center px-3 py-2 "
             >
-              <input
+              <t-radio
                 id="variant---"
                 v-model="variant"
                 :value="''"
                 name="variant"
-                type="radio"
-                class="form-radio h-4 w-4 text-orange-600 transition duration-150 ease-in-out"
-              >
+              />
 
-              <span class="block text-sm leading-5 font-medium text-gray-700 ml-3 capitalize">
+              <span class="block ml-3 text-sm font-medium leading-5 text-gray-700 capitalize">
                 Default
               </span>
             </label>
@@ -34,18 +32,16 @@
               v-for="(v, variantName) in settings.variants"
               :key="variantName"
               :for="`variant-${variantName}`"
-              class="px-3 py-2 flex items-center "
+              class="flex items-center px-3 py-2 "
             >
-              <input
+              <t-radio
                 :id="`variant-${variantName}`"
                 v-model="variant"
                 :value="variantName"
                 name="variant"
-                type="radio"
-                class="form-radio h-4 w-4 text-orange-600 transition duration-150 ease-in-out"
-              >
+              />
 
-              <span class="block text-sm leading-5 font-medium text-gray-700 ml-3 capitalize">
+              <span class="block ml-3 text-sm font-medium leading-5 text-gray-700 capitalize">
                 {{ variantName }}
               </span>
             </label>

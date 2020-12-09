@@ -1,5 +1,5 @@
 <template>
-  <div class="relative rounded overflow-hidden max-w-full">
+  <div class="relative max-w-full overflow-hidden rounded">
     <loading-overlay v-if="loadingIFrame" />
 
     <t-card
@@ -16,9 +16,9 @@
           <h3 class="text-base font-medium text-gray-900">
             {{ title }}
           </h3>
-          <p v-if="subtitle" class="text-gray-500 text-sm" v-text="subtitle" />
+          <p v-if="subtitle" class="text-sm text-gray-500" v-text="subtitle" />
         </div>
-        <div v-if="!hideTabs" class="hidden sm:flex items-center text-sm md:text-base">
+        <div v-if="!hideTabs" class="items-center hidden text-sm sm:flex md:text-base">
           <t-button
             :variant="{
               'playgroundMenuActive': view === 'demo',
@@ -46,7 +46,7 @@
           >
             Settings
           </t-button>
-          <span class="border-gray-400 border-l h-4 inline-block mr-2" />
+          <span class="inline-block h-4 mr-2 border-l border-gray-400" />
           <button
             type="button"
             class="p-2 rounded-full focus:outline-none"
@@ -56,7 +56,7 @@
             }"
             @click="toggleFullscreen"
           >
-            <icon class="h-4 w-4 pointer-events-none">
+            <icon class="w-4 h-4 pointer-events-none">
               <path v-if="!fullscreen" id="Combined-Shape" d="M4.20710678,17.2071068 L7,20 L0,20 L0,13 L2.79289322,15.7928932 L7.12132034,11.4644661 L8.53553391,12.8786797 L4.20710678,17.2071068 Z M15.7928932,2.79289322 L13,0 L20,0 L20,7 L17.2071068,4.20710678 L12.8786797,8.53553391 L11.4644661,7.12132034 L15.7928932,2.79289322 Z M15.7928932,17.2071068 L13,20 L20,20 L20,13 L17.2071068,15.7928932 L12.8786797,11.4644661 L11.4644661,12.8786797 L15.7928932,17.2071068 Z M4.20710678,2.79289322 L7,0 L0,0 L0,7 L2.79289322,4.20710678 L7.12132034,8.53553391 L8.53553391,7.12132034 L4.20710678,2.79289322 Z" />
               <polygon v-else id="Combined-Shape" points="10 8.58578644 2.92893219 1.51471863 1.51471863 2.92893219 8.58578644 10 1.51471863 17.0710678 2.92893219 18.4852814 10 11.4142136 17.0710678 18.4852814 18.4852814 17.0710678 11.4142136 10 18.4852814 2.92893219 17.0710678 1.51471863 10 8.58578644" />
             </icon>
@@ -85,15 +85,15 @@
         />
       </template>
 
-      <div v-show="view === 'demo' || !hideTabs" ref="wrapper" class="w-full bg-gray-700 relative max-w-full shadow-inner pattern2">
+      <div v-show="view === 'demo' || !hideTabs" ref="wrapper" class="relative w-full max-w-full bg-gray-700 shadow-inner pattern2">
         <div
           ref="resizable"
           :style="`min-width:${minWidth}px`"
-          class="relative flex bg-white h-full"
+          class="relative flex h-full bg-white"
         >
           <div
             ref="iframeWrapper"
-            class="flex-grow relative ease-in-out transition-all origin-top duration-75"
+            class="relative flex-grow transition-all duration-75 ease-in-out origin-top"
             :style="`height: ${initialHeight}px; min-height: ${minHeight}px`"
             :class="{'pointer-events-none': dragging}"
           >
@@ -109,7 +109,7 @@
             style="cursor: ew-resize"
             class="sr-only sm:not-sr-only sm:border-l sm:bg-gray-100 sm:flex sm:items-center sm:w-4"
           >
-            <icon class="h-4 w-4 text-gray-600 pointer-events-none">
+            <icon class="w-4 h-4 text-gray-600 pointer-events-none">
               <path d="M8 5h2v14H8zM14 5h2v14h-2z" />
             </icon>
           </span>
@@ -123,9 +123,9 @@
 import Vue from 'vue'
 import isEqual from 'lodash/isEqual'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
+import Icon from '@/components/Icon'
 import PlaygroundSettings from './PlaygroundSettings'
 import PlaygroundCustomize from './PlaygroundCustomize'
-import Icon from '@/components/Icon'
 
 export default Vue.extend({
   components: {
@@ -213,8 +213,6 @@ export default Vue.extend({
     view () {
       if (this.view === 'demo') {
         this.syncIframeHeight()
-      } else {
-
       }
     },
     fullscreen (fullscreen) {
