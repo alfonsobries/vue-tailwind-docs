@@ -18,8 +18,6 @@
     </main>
 
     <footer>
-      <announce />
-
       <div class="px-6 mt-5 bg-gray-100">
         <div class="max-w-screen-xl py-16 mx-auto lg:flex lg:items-center">
           <div class="lg:w-0 lg:flex-1">
