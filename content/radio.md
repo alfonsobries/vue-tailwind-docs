@@ -30,7 +30,6 @@ VueJs reactive `<input type="radio" />` component with configurable classes, var
 
 ## Props
 
-
 | Property          | Type                                | Default value | Description                                                                                      |
 | ----------------- | ----------------------------------- | ------------- | ------------------------------------------------------------------------------------------------ |
 | value             | `[String, Object, Number, Boolean]` | `'on'`        | The value for the radio element                                                                  |
@@ -43,7 +42,7 @@ VueJs reactive `<input type="radio" />` component with configurable classes, var
 | readonly          | `Boolean`                           | `undefined`   | HTML attribute                                                                                   |
 | required          | `Boolean`                           | `undefined`   | HTML attribute                                                                                   |
 | tabindex          | `[String, Number]`                  | `undefined`   | HTML attribute                                                                                   |
-| wrapped           | `Boolean`                           | `false`       | If set the input will be wrapped in a div within some extra HTML (see [wrap radio](#wrap-radio)) |
+| wrapped           | `Boolean`                           | `false`       | If set the input will be wrapped in a div within some extra HTML (see [wrapped radio](#wrapped-radio)) |
 | wrapperTag        | `String`                            | `'label'`     | The HTML tag used to wrap the input when `wrapped` is set to `true`                              |
 | label             | `String`                            | `undefined`   | When the input is `wrapped` the label is added as sibling of the input                           |
 | labelTag          | `String`                            | `'span'`      | The HTML tag to use for the label                                                                |
