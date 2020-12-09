@@ -84,7 +84,7 @@ max-width: 100%;
   @apply px-1;
   @apply leading-none;
   @apply whitespace-nowrap;
-  @apply text-blue-600;
+  @apply text-orange-500;
   @apply font-mono;
   @apply align-baseline;
   @apply break-words;

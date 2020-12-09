@@ -25,7 +25,7 @@ Using as a premise that you have already defined a theme with different variants
 </t-alert>
 ```
 
-With our custom theme the alerts above will look like this:
+With the custom theme I previously define, the alerts above will look like this:
 
 <t-alert variant="error" show>
   Oops! Something goes wrong
@@ -86,7 +86,7 @@ The `variant` prop also accepts an object where the `key` should be the variant 
 If the variant object has more than one truthy value it will take the first one.
 </tip>
 
-To better exemplify the example above take a look at this one that has the values harcoded:
+To better exemplify the example above take a look at this one that has harcoded values:
 
 ```html
 <t-alert
@@ -143,13 +143,13 @@ In case you are wondering you can use the default `class` attribute and the `cla
 
 ```html
 <t-button
-  class="px-4 py-1 text-white text-sm rounded"
+  class="px-4 py-1 text-sm text-white rounded"
   classes="bg-orange-500 hover:bg-orange-600">
   Merged `class` and `classes`
 </t-button>
 ```
 
-<t-button class="px-4 py-1 text-white text-sm rounded" classes="bg-orange-500 hover:bg-orange-600">
+<t-button class="px-4 py-1 text-sm text-white rounded" classes="bg-orange-500 hover:bg-orange-600">
   Merged `class` and `classes`
 </t-button>
 
@@ -187,7 +187,7 @@ Notice that the `close` and `closeIcon` attributes in the example above uses arr
 
 ## Classes and variants formats by component
 
-The components that depend on a single tag like the inputs, buttons, etc. simply expect the classes list. For the rest of the components, the format varies for every single one.
+The components that depend on a single tag, like the inputs, buttons, etc., simply expect the classes list. For the rest of the components, the format varies for every single one.
 
 For more information about the format of any specific component, consult the component docs.
 

@@ -9,6 +9,27 @@ What's new in the latest version of the vue-tailwind library.
 
 <hr>
 
+
+## vue-tailwind v.2.0
+
+####  New features
+
+1. New syntax for installing the components
+2. Install only the components you need for smaller bundle size
+3. Custom name for components
+4. The ability to install the same component multiple times with different default settings and name
+5. New default theme
+
+
+## vue-tailwind v.1.3
+
+####  New features
+
+1. A brand new Dialog component (TDialog) released. [Read more →](/docs/dialog)
+
+2. Misc fixes
+
+
 ## vue-tailwind v.1.2
 
 ####  New features
@@ -18,12 +39,4 @@ What's new in the latest version of the vue-tailwind library.
 2. A brand new Datepicker component (TDatepicker) released. [Read more →](/docs/datepicker)
 
 3. Better Typescript integration and some bug fixes
-
-## vue-tailwind v.1.3
-
-####  New features
-
-1. A brand new Dialog component (TDialog) released. [Read more →](/docs/dialog)
-
-2. Misc fixes
 
