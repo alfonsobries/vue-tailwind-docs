@@ -102,52 +102,7 @@
                 style="border: 0;"
               />
 
-              <t-dropdown class="relative flex-shrink-0 ml-2" variant="bitcoin">
-                <div
-                  slot="trigger"
-                  slot-scope="{
-                    mousedownHandler: userMenuMousedownHandler,
-                    focusHandler: userMenuFocusHandler,
-                    blurHandler: userMenuBlurHandler,
-                    keydownHandler: userMenuKeydownHandler,
-                    isShown: userMenuIsShown
-                  }"
-                >
-                  <button
-                    id="donate-btc"
-                    class="flex items-center h-8 px-4 text-sm text-white transition duration-150 ease-in-out bg-white border border-gray-400 rounded-lg focus:outline-none focus:shadow-solid"
-                    :class="{ 'border-gray-300': userMenuIsShown }"
-                    aria-label="User menu"
-                    aria-haspopup="true"
-                    @mousedown="userMenuMousedownHandler"
-                    @focus="userMenuFocusHandler"
-                    @blur="userMenuBlurHandler"
-                    @keydown="userMenuKeydownHandler"
-                  >
-                    <svg class="w-5 h-5 mr-2" width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg">
-                      <g fill="none" fill-rule="evenodd">
-                        <circle fill="#FFAD02" cx="19" cy="19" r="19" />
-                        <path d="M24.7 19.68a3.63 3.63 0 0 0 1.47-2.06c.74-2.77-.46-4.87-3.2-5.6l.89-3.33a.23.23 0 0 0-.16-.28l-1.32-.35a.23.23 0 0 0-.28.15l-.89 3.33-1.75-.47.88-3.32a.23.23 0 0 0-.16-.28l-1.31-.35a.23.23 0 0 0-.28.15l-.9 3.33-3.73-1a.23.23 0 0 0-.27.16l-.36 1.33c-.03.12.04.25.16.28l.22.06a1.83 1.83 0 0 1 1.28 2.24l-1.9 7.09a1.83 1.83 0 0 1-2.07 1.33.23.23 0 0 0-.24.12l-.69 1.24a.23.23 0 0 0 0 .2c.02.07.07.12.14.13l3.67.99-.89 3.33c-.03.12.04.24.16.27l1.32.35c.12.03.24-.04.28-.16l.89-3.32 1.76.47-.9 3.33c-.02.12.05.24.16.27l1.32.35c.12.03.25-.04.28-.16l.9-3.32.87.23c2.74.74 4.83-.48 5.57-3.25.35-1.3-.05-2.6-.92-3.48zm-5.96-5.95l2.64.7a1.83 1.83 0 0 1 1.28 2.24 1.83 1.83 0 0 1-2.23 1.3l-2.64-.7.95-3.54zm1.14 9.8l-3.51-.95.95-3.54 3.51.94a1.83 1.83 0 0 1 1.28 2.24 1.83 1.83 0 0 1-2.23 1.3z" fill="#FFF" />
-                      </g>
-                    </svg>
-                    <span class="flex flex-col text-sm leading-none text-left">
-                      <span class="text-xs text-gray-500">Donate</span>
-                      <span class="font-semibold text-gray-600">BTC</span>
-                    </span>
-                  </button>
-                </div>
-                <template>
-                  <div class="p-4" role="menu" aria-orientation="vertical" aria-labelledby="donate-btc">
-                    <p class="text-xs font-semibold text-gray-600 uppercase">
-                      Bitcoin Address:
-                    </p>
-                    <p>3NbFXSaNqjve4yWPTs4ALUqHywBDChUxh6</p>
-                    <p class="text-center">
-                      <img class="max-w-full mx-auto" src="@/assets/img/3NbFXSaNqjve4yWPTs4ALUqHywBDChUxh6.png">
-                    </p>
-                  </div>
-                </template>
-              </t-dropdown>
+              <version-switcher />
             </div>
           </div>
         </div>
