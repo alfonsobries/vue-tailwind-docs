@@ -143,10 +143,12 @@
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
 import SideNavigation from '@/components/SideNavigation'
+import VersionSwitcher from '@/components/VersionSwitcher'
 // import SearchBox from '@/components/SearchBox'
 export default Vue.extend({
   components: {
-    SideNavigation
+    SideNavigation,
+    VersionSwitcher
     // SearchBox
   },
   props: {
