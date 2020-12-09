@@ -15,10 +15,7 @@ To apply a custom theme you should play with the `classes`, `fixedClasses`, and 
 
 The `classes` and `fixedClasses` props usually expects an `string` with a CSS class (but accepts any of the [formats accepted by Vue](https://vuejs.org/v2/guide/class-and-style.html))  for single-tag components (inputs, button, etc.) and an `object` for more complex components (modals, datepicker, etc) (see component docs for details).
 
-The `variants` props expects an object where every key represents the variant name and every value the classes that will be used when that variant is applied.
-
-
-The plugin expects an `object` that uses the name of the components as the `keys`. Every key should have a child `object` with the `classes`, `fixedClasses`, and `variants` keys. All the keys are optional.
+The `variants` prop expects an object where the keys represent the variant name and the key values the classes that will be used when that variant is applied.
 
 #### Example for a single-tag component: 
 
@@ -159,12 +156,11 @@ As you may notice in the example above, when you work with multiple tags classes
 
 ## Fixed classes
 
-When you create a theme, especially one with many variants, you will notice that you will start dealing with many repeated classes that all the variants have in common and that you have to write over and over again.
+When you create a theme, especially one with many variants, you will notice that you will start dealing with many repeated classes that all the variants have in common.
 
-To make it easier to handle those classes, you can use the prop `fixedClasses` that all the components have. The classes defined in this attribute will always be merge into the currently active class of the component.
+To make it easier to handle those classes, you can use the `fixedClasses` prop. The classes defined on this prop will be merged into the currently active class of the component.
 
-
-For example, let's say that you need all your buttons to have a small transition-related class and you know all of them will have a shadow. Consider these two alternatives:
+For example, let's say that you need all your buttons to have a small transition-related class, and you know all of them will have a shadow. Consider these two alternatives:
 
 <meh-tip>
 You can repeat the same common classes over and over.
@@ -293,7 +289,7 @@ When using the `fixedClasses` prop for multiple tags elements you only need to d
 
 Customize the `select`, `radio` and `checkbox` components may be a bit tricky, you may need to create some custom CSS properties or use something like the [tailwind form plugin](https://github.com/tailwindlabs/tailwindcss-forms) (that basically do that for you).
 
-As an alternative solution to give you more flexibility those components include a `wrapped` prop/setting that when set it wraps the HTML tags in a `div` and in the specific case of the `select` tag it also adds a custom SVG icon that can replace the default chevron.
+As an alternative solution to give you more flexibility, those components include a `wrapped` prop/setting that, when set it will wrap the HTML tags on a `DIV`. The specific case of the `select` tag will also add a custom SVG icon that can replace the default chevron.
 
 To be more illustrative see how the select is rendered with and without the `wrapped` prop:
 
@@ -468,5 +464,5 @@ Take a look at the following examples:
 ```
 
 <tip>
-We will talk more about the `variant` prop in the <strong>Workflow</strong> section.
+I will talk more about the `variant` prop in the <strong>Workflow</strong> section.
 </tip>

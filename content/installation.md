@@ -139,7 +139,7 @@ The format expected by the settings is the following:
 }
 ```
 
-The `component-name` is the name that you will use to add your component, and you can give any name you want. Example:
+The `component-name` is the name that you will use to add your component. You can give any name you want. Take a look at the following example:
 
 ```js
 const settings = {
@@ -153,7 +153,7 @@ const settings = {
 ```
 
 ```html
-<my-component-input />
+<my-text-input />
 ```
 
 In case you are wondering you can install the same component twice but with different settings:
@@ -185,6 +185,8 @@ const settings = {
 
 ### 3.2 Alternatively, you can use the v1.0 syntax
 
+This syntax will install all the components on this library.
+
 ```js
 import Vue from 'vue'
 // Notice that I am using a different path here:
@@ -205,7 +207,7 @@ const settings = {
 Vue.use(VueTailwind, settings)
 ```
 
-### 3.3 Or install only the components you need
+### 3.3 Or you can install only the components you need
 
 ```js
 import Vue from 'vue'
@@ -234,13 +236,11 @@ const settings = {
 Vue.use(VueTailwind, settings)
 ```
 
-<tip>Using the syntax from point **3.3** is the best way to prevent a big bundle size but only if you import a couple of components. If the number of components you install increases, the recommended way to install them is to use the syntax from the points **3.1** or **3.2** to help the library reuse some code and keep the bundle size at a minimum.</tip>
+<tip>Using the syntax from point **3.3** is the best way to prevent a big bundle size, but only if you import a couple of components. If the number of components you install increases, the recommended way to install them is to use the syntax from the points **3.1** or **3.2** to help the library reuse some code and keep the bundle size at a minimum.</tip>
 
 ## 4. Configure purgecss (optional)
 
-Using `purgecss` postcss plugin.
-
-Move your settings to a separate file and then add that file to the postcss config:
+To use `purgecss` postcss plugin, you will need a way to tell the plugin which classes you are using. One way to do that is to move your settings to a separate file and then add that file to the postcss config:
 
 ```js [./MySettings.js]
 import {

@@ -5,8 +5,7 @@ description: Override the default component settings when installing the library
 
 # Override default settings
 
-All the components on this library have default settings added as component props according to how 
- understand those settings are most commonly used.
+All the components on this library have default settings added as component props according to how I understand those settings are most commonly used.
 
 I am aware that in many cases is useful to change the default value, so you don't need to add the prop over and over when needed.
 ## When to use this feature
@@ -22,8 +21,7 @@ You can do that since this library allows you to override the default value of a
 
 ## How to override a prop default value
 
-Piece of cake! When you install the library, you need to pass the prop's name within the new default value. It expects the same syntax used to override the classes (if you think about it, the classes are just another prop 
- are replacing).
+Piece of cake! When you install the library, you need to pass the prop's name within the new default value. It expects the same syntax used to override the classes (if you think about it, the classes are just another prop we are replacing).
 
 Take a look at this example where I try to achieve the example mentioned above:
 
@@ -80,7 +78,7 @@ Vue.use(VueTailwind, settings)
 
 ### Use valid values
 
-When you override the default prop value of a component you need to ensure to return a valid value according to every prop otherwise you may experience unexpected errors.
+When you override the default prop value of a component you need to ensure to define a valid value according to every prop otherwise you may experience unexpected errors.
 
 #### Example:
 

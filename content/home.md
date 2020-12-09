@@ -14,7 +14,7 @@ All **VueTailwind** components were designed to be customized with **custom CSS 
 
 This means that when you use this library, you are not attached to any style defined by us like it happens when you use a typical library of components like Bootstrap. Instead, you can determine your theme based on your application's needs.
 
-This library makes special sense when you work with utility-first frameworks like [TailwindCss](https://tailwindcss.com), which is the default framework used in this library.
+This library makes special sense when you work with utility-first frameworks like [TailwindCss](https://tailwindcss.com), the default framework used in this library.
 
 In summary, with this library, you will be able to:
 

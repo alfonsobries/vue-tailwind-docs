@@ -86,7 +86,7 @@ The `variant` prop also accepts an object where the `key` should be the variant 
 If the variant object has more than one truthy value it will take the first one.
 </tip>
 
-To better exemplify the example above take a look at this one that has harcoded values:
+To better exemplify the example above, take a look at this one that has hardcoded values:
 
 ```html
 <t-alert
@@ -106,7 +106,7 @@ To better exemplify the example above take a look at this one that has harcoded 
 
 ## Working with classes
 
-The `classes` prop have similar behavior as default `class` attribute, this means that it accepts the classes in the same syntax that [Vue accepts](https://vuejs.org/v2/guide/class-and-style.html), (also when you define the classes in the global template)
+The `classes` prop accepts the classes in the same syntax that [Vue accepts](https://vuejs.org/v2/guide/class-and-style.html) for the native `class` attribute. (This also applies to the global theme).
 
 ### Single tag elements
 
