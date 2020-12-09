@@ -103,7 +103,9 @@
                 style="border: 0;"
               />
 
-              <t-dropdown class="relative flex-shrink-0 ml-2" variant="bitcoin">
+              <version-switcher />
+
+              <!-- <t-dropdown class="relative flex-shrink-0 ml-2" variant="bitcoin">
                 <div
                   slot="trigger"
                   slot-scope="{
@@ -148,7 +150,7 @@
                     </p>
                   </div>
                 </template>
-              </t-dropdown>
+              </t-dropdown> -->
             </div>
           </div>
         </div>
@@ -163,10 +165,12 @@
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
 import SideNavigation from '@/components/SideNavigation'
+import VersionSwitcher from '@/components/VersionSwitcher'
 // import SearchBox from '@/components/SearchBox'
 export default Vue.extend({
   components: {
-    SideNavigation
+    SideNavigation,
+    VersionSwitcher
     // SearchBox
   },
   props: {
