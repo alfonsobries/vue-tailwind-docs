@@ -66,16 +66,16 @@ export const state = () => ({
           text: 'Select'
         },
         {
+          to: '/docs/checkbox',
+          text: 'Checkbox'
+        },
+        {
           to: '/docs/radio',
           text: 'Radio'
         },
         {
           to: '/docs/button',
           text: 'Button'
-        },
-        {
-          to: '/docs/checkbox',
-          text: 'Checkbox'
         }
       ]
     },
