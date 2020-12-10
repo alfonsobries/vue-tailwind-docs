@@ -53,20 +53,20 @@
           </t-input-group>
         </component-checkbox>
 
-        <component-checkbox v-model="selected" value="TTag" label="TTag">
+        <component-checkbox v-model="selected" value="TTag" label="Custom Tag">
           <t-tag variant="demo">
             Custom tag
           </t-tag>
         </component-checkbox>
 
-        <component-checkbox v-model="selected" value="TRichSelect" label="TRichSelect">
+        <component-checkbox v-model="selected" value="TRichSelect" label="Rich Select">
           <t-rich-select
             placeholder="Select an option"
             :options="['Option A', 'Option B', 'Option C', 'Option D']"
             class="max-w-xs"
           />
         </component-checkbox>
-        <component-checkbox v-model="selected" value="TDatepicker" label="TDatepicker">
+        <component-checkbox v-model="selected" value="TDatepicker" label="Date picker">
           <t-datepicker
             class="max-w-xs"
             inline
@@ -74,7 +74,7 @@
           />
         </component-checkbox>
 
-        <component-checkbox v-model="selected" value="TToggle" label="TToggle">
+        <component-checkbox v-model="selected" value="TToggle" label="Toggle">
           <t-toggle />
         </component-checkbox>
 
