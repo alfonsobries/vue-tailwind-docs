@@ -1,4 +1,5 @@
 const colors = require('tailwindcss/colors')
+
 require('dotenv').config()
 
 export default {
