@@ -60,10 +60,11 @@ export default {
     extractCSS: true
   },
   tailwindcss: {
-    purge: {
-      enabled: false
-    },
     config: {
+      purge: {
+        enabled: false,
+        content: []
+      },
       theme: {
         extend: {
           colors
