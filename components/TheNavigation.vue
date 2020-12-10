@@ -95,7 +95,7 @@
               </a>
 
               <iframe
-                class="h-8"
+                class="h-8 rounded-md"
                 src="https://github.com/sponsors/alfonsobries/button"
                 title="Sponsor alfonsobries"
                 height="35"

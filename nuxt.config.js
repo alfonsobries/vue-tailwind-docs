@@ -62,7 +62,7 @@ export default {
   tailwindcss: {
     config: {
       purge: {
-        enabled: true
+        enabled: false
       },
       theme: {
         extend: {

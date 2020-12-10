@@ -68,9 +68,14 @@
       <div class="px-6 bg-white">
         <div class="justify-between max-w-screen-xl py-4 mx-auto text-center md:flex">
           <div class="flex justify-center md:order-2">
-            <a href="https://v0.vue-tailwind.com/" target="_blank" class="ml-6 text-gray-600 hover:text-gray-700">
-              Version 0.x Docs
-            </a>
+            <iframe
+              class="h-8 rounded-md"
+              src="https://github.com/sponsors/alfonsobries/button"
+              title="Sponsor alfonsobries"
+              height="35"
+              width="116"
+              style="border: 0;"
+            />
           </div>
           <div class="mt-8 md:mt-0 md:order-1">
             <p class="inline-flex items-center text-base leading-6 text-center text-gray-600">
