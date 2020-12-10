@@ -30,6 +30,8 @@ export default {
     ]
   },
 
+  target: 'static',
+
   env: {
     apiUrl: process.env.API_URL || 'https://vue-tailwind-themes-api.test'
   },
@@ -52,6 +54,9 @@ export default {
     '@plugins/components.js',
     '@plugins/exception-handler.js'
   ],
+  build: {
+    extractCSS: true
+  },
   /*
   ** Nuxt.js dev-modules
   */
