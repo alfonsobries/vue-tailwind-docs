@@ -1,12 +1,12 @@
 
-/* purgecss start ignore */
+/*! purgecss start ignore */
 @import 'tailwindcss/base.css';
 @import 'tailwindcss/components.css';
 @import 'tailwindcss/utilities.css';
 @import './code';
 @import './markdown';
 @import './algolia';
-/* purgecss end ignore */
+
 
 .top-20 {
   top: 5rem;
@@ -41,3 +41,5 @@
     stroke-dashoffset: -124;
   }
 }
+
+/*! purgecss end ignore */
