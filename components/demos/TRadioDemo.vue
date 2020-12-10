@@ -1,8 +1,5 @@
 <template>
   <div>
-    <tip v-show="!settings.wrapped" class="border-b text-sm leading-5 items-stretch" closable>
-      Notice that the radio inputs ignore most of the CSS classes. For the demo below we use the <a class="underline" href="https://github.com/tailwindcss/custom-forms">tailwind custom forms plugin</a> that adds the `<i>form-radio</i>` class that make the input more customizable.
-    </tip>
     <div class="p-4">
       <div class="flex" :class="{'-mx-2': !settings.wrapped}">
         <div v-for="option in options" :key="option" :class="{'px-2': !settings.wrapped}">
@@ -20,8 +17,8 @@
         </div>
       </div>
       <p class="mt-4">
-        <span class="text-gray-500 text-sm">Current value:</span>
-        <span class="ml-2 bg-gray-200 font-mono px-3 py-1 rounded text-gray-900  text-sm">{{ currentValue || '-' }}</span>
+        <span class="text-sm text-gray-500">Current value:</span>
+        <span class="px-3 py-1 ml-2 font-mono text-sm text-gray-900 bg-gray-200 rounded">{{ currentValue || '-' }}</span>
       </p>
     </div>
   </div>

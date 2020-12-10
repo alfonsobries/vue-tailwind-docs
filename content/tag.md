@@ -36,8 +36,6 @@ VueJs custom HTML tag with configurable classes and infinite variants. Friendly 
 | variants     | `Object`           | `undefined`   | The different variants of classes the component have  |
 | variant      | `[String, Object]` | `undefined`   | The variant that should be used                       |
 
-
-
 ## Slots
 
 | Slot    | Description        |

@@ -13,41 +13,42 @@ VueJs reactive rich select component inspired in jquery select2 with configurabl
 
 ## Props
 
-| Property                | Type                 | Default value               | Description                                                                                              |
-| ----------------------- | -------------------- | --------------------------- | -------------------------------------------------------------------------------------------------------- |
-| id                      | `String`             | `undefined`                 | id attribute of the button used as the options toggler                                                   |
-| disabled                | `Boolean`            | `undefined`                 | disabled attribute of the button used as the options toggler                                             |
-| name                    | `String`             | `undefined`                 | name attribute of the button used as the options toggler                                                 |
-| readonly                | `Boolean`            | `undefined`                 | readonly attribute of the button used as the options toggler                                             |
-| autofocus               | `Boolean`            | `undefined`                 | autofocus attribute of the button used as the options toggler                                            |
-| required                | `Boolean`            | `undefined`                 | required attribute of the button used as the options toggler                                             |
-| tabindex                | `[String, Number]`   | `undefined`                 | tabindex attribute of the button used as the options toggler                                             |
-| options                 | `[Array, Object]`    | `[]`                        | The initial list of options in any of the valid formats accepted                                         |
-| valueAttribute          | `String`             | `undefined`                 | Attribute from the options that should be used as the value of the selected option, accepts dot dotation |
-| textAttribute           | `String`             | `undefined`                 | Attribute from the options that should be used as the text of the selected option, accepts dot dotation  |
-| delay                   | `Number`             | `250`                       | Time in milliseconds between after performs a search when fetching results from custom function          |
-| fetchOptions            | `Function`           | `undefined`                 | Method for fetching the options, receives the `query` as string and the `nextPage` if apply              |
-| minimumInputLength      | `Number`             | `undefined`                 | Minimum length of the search query to start filtering the results                                        |
-| minimumInputLengthText  | `[Function, String]` | * (see below)               | The text that is shown before the user reaches the min length for trigger a query (if set)               |
-| minimumResultsForSearch | `Number`             | `undefined`                 | If set, The minimum length of the options list needed to show the search box                             |
-| value (v-model)         | `[String, Number]`   | `null`                      | The current value of the component                                                                       |
-| hideSearchBox           | `Boolean`            | `false`                     | If set will not show a search box                                                                        |
-| openOnFocus             | `Boolean`            | `true`                      | If set will open the dropdown when the component is focused                                              |
-| closeOnSelect           | `Boolean`            | `true`                      | If set will close the dropdown once an option is selected                                                |
-| selectOnClose           | `Boolean`            | `false`                     | If set will select the highligted option when the dropdown is closed                                     |
-| clearable               | `Boolean`            | `false`                     | If set will show a close button to clear the value of the input                                          |
-| placeholder             | `String`             | `undefined`                 | Text that is being shown while no option selected                                                        |
-| searchBoxPlaceholder    | `String`             | `'Search...'`               | Text that is being shown in the search box while empty                                                   |
-| noResultsText           | `String`             | `'No results found'`        | Text that is being shown when the search query doesn't return any result                                 |
-| searchingText           | `String`             | `'Searching...'`            | Text that is being shown while the input is querying the results                                         |
-| loadingMoreResultsText  | `String`             | `'Loading more results...'` | Text that is being shown when the search box is loading more paginated results                           |
-| maxHeight               | `[String, Number]`   | `300`                       | Max height of the dropdown parsed as px, also accepts the height as string in any valid units            |
-| classes                 | `Object`             | `{...}`  (see below)        | The default CSS classes                                                                                  |
-| fixedClasses            | `Object`             | `{...}`  (see below)        | The default CSS Fixed classes shared for all variants                                                    |
-| variants                | `Object`             | `undefined`                 | The different variants of classes the component have                                                     |
-| variant                 | `[String, Object]`   | `undefined`                 | The variant that should be used                                                                          |
 
-<small>* The minimumInputLengthText accepts an `string` or a `Function` that receive the min input length and the current query and should return an string, example:</small>
+| Property                | Type                      | Default value               | Description                                                                                              |
+| ----------------------- | ------------------------- | --------------------------- | -------------------------------------------------------------------------------------------------------- |
+| id                      | `String`                  | `undefined`                 | id attribute of the button used as the options toggler                                                   |
+| disabled                | `Boolean`                 | `undefined`                 | disabled attribute of the button used as the options toggler                                             |
+| name                    | `String`                  | `undefined`                 | name attribute of the button used as the options toggler                                                 |
+| readonly                | `Boolean`                 | `undefined`                 | readonly attribute of the button used as the options toggler                                             |
+| autofocus               | `Boolean`                 | `undefined`                 | autofocus attribute of the button used as the options toggler                                            |
+| required                | `Boolean`                 | `undefined`                 | required attribute of the button used as the options toggler                                             |
+| tabindex                | `[String, Number]`        | `undefined`                 | tabindex attribute of the button used as the options toggler                                             |
+| options                 | `[Array, Object]`         | `[]`                        | The initial list of options in any of the valid formats accepted                                         |
+| valueAttribute          | `String`                  | `undefined`                 | Attribute from the options that should be used as the value of the selected option, accepts dot dotation |
+| textAttribute           | `String`                  | `undefined`                 | Attribute from the options that should be used as the text of the selected option, accepts dot dotation  |
+| delay                   | `Number`                  | `250`                       | Time in milliseconds between after performs a search when fetching results from custom function          |
+| fetchOptions            | `Function`                | `undefined`                 | Method for fetching the options, receives the `query` as string and the `nextPage` if apply              |
+| minimumInputLength      | `Number`                  | `undefined`                 | Minimum length of the search query to start filtering the results                                        |
+| minimumInputLengthText  | `[Function, String]`      | * (see below)               | The text that is shown before the user reaches the min length for trigger a query (if set)               |
+| minimumResultsForSearch | `Number`                  | `undefined`                 | If set, The minimum length of the options list needed to show the search box                             |
+| value (`v-model`)       | `[Array, String, Number]` | `null`                      | The value for the element                                                                                |
+| hideSearchBox           | `Boolean`                 | `false`                     | If set will not show a search box                                                                        |
+| openOnFocus             | `Boolean`                 | `true`                      | If set will open the dropdown when the component is focused                                              |
+| closeOnSelect           | `Boolean`                 | `true`                      | If set will close the dropdown once an option is selected                                                |
+| selectOnClose           | `Boolean`                 | `false`                     | If set will select the highligted option when the dropdown is closed                                     |
+| clearable               | `Boolean`                 | `false`                     | If set will show a close button to clear the value of the input                                          |
+| placeholder             | `String`                  | `undefined`                 | Text that is being shown while no option selected                                                        |
+| searchBoxPlaceholder    | `String`                  | `'Search...'`               | Text that is being shown in the search box while empty                                                   |
+| noResultsText           | `String`                  | `'No results found'`        | Text that is being shown when the search query doesn't return any result                                 |
+| searchingText           | `String`                  | `'Searching...'`            | Text that is being shown while the input is querying the results                                         |
+| loadingMoreResultsText  | `String`                  | `'Loading more results...'` | Text that is being shown when the search box is loading more paginated results                           |
+| maxHeight               | `[String, Number]`        | `300`                       | Max height of the dropdown parsed as px, also accepts the height as string in any valid units            |
+| classes                 | `Object`                  | `{...}`  (see below)        | The default CSS classes                                                                                  |
+| fixedClasses            | `Object`                  | `{...}`  (see below)        | The default CSS Fixed classes shared for all variants                                                    |
+| variants                | `Object`                  | `undefined`                 | The different variants of classes the component have                                                     |
+| variant                 | `[String, Object]`        | `undefined`                 | The variant that should be used                                                                          |
+
+<small>* The minimumInputLengthText accepts an `string` or a `Function` that receive the min input length as first paramater and the current query as the second one, and it should return an string. Example:</small>
 
 ```
 (minimumInputLength: number, _query?: string) => {
@@ -60,7 +61,7 @@ VueJs reactive rich select component inspired in jquery select2 with configurabl
 This component expects an object with classes named after every child element.
 
 The properties in that object are the following:
-
+          
 | Property                  | Description                                                      |
 | ------------------------- | ---------------------------------------------------------------- |
 | wrapper                   | Div that wraps the whole component                               |
@@ -79,7 +80,7 @@ The properties in that object are the following:
 | searchBox                 | The search box input                                             |
 | optgroup                  | The div that wraps an optgroup                                   |
 | option                    | The default option item                                          |
-| disabledOption            | The option item when its disabled  <since>1.3.3+</since>                              |
+| disabledOption            | The option item when its disabled                                |
 | highlightedOption         | The option item when its highlighted                             |
 | selectedOption            | The option item when it's selected                               |
 | selectedHighlightedOption | The option item when its selected & highlighted                  |
@@ -96,7 +97,9 @@ The properties in that object are the following:
 
 ### Default fixed classes
 
-As you may know, the fixed classes are shared and merged with the different variants and default classes. The classes we define here as default are the ones that you usually will need to make this component works correctly so you can only focus on colors, typography, etc when creating your theme.
+As you may know, the fixed classes are merged with the different variants and default classes.
+
+The default `fixedClasses` on this component are the ones you usually will need as a minimum to ensure this component works as expected.
 
 ```js
 {
@@ -138,26 +141,26 @@ As you may know, the fixed classes are shared and merged with the different vari
 {
   wrapper: '',
   buttonWrapper: '',
-  selectButton: 'border bg-white rounded p-2 focus:outline-none focus:shadow-outline',
+  selectButton: 'px-3 py-2 text-black transition duration-100 ease-in-out bg-white border border-gray-300 rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed',
   selectButtonLabel: '',
-  selectButtonPlaceholder: 'text-gray-500',
-  selectButtonIcon: '',
-  selectButtonClearButton: 'hover:bg-gray-200 text-gray-500 rounded',
+  selectButtonPlaceholder: 'text-gray-400',
+  selectButtonIcon: 'text-gray-600',
+  selectButtonClearButton: 'hover:bg-blue-100 text-gray-600 rounded transition duration-100 ease-in-out',
   selectButtonClearIcon: '',
-  dropdown: 'rounded bg-white shadow',
-  dropdownFeedback: 'text-sm text-gray-500',
-  loadingMoreResults: 'text-sm text-gray-500',
+  dropdown: '-mt-1 bg-white border-b border-gray-300 border-l border-r rounded-b shadow-sm',
+  dropdownFeedback: 'pb-2 px-3 text-gray-400 text-sm',
+  loadingMoreResults: 'pb-2 px-3 text-gray-400 text-sm',
   optionsList: '',
-  searchWrapper: 'bg-white p-2',
-  searchBox: 'p-2 bg-gray-200 text-sm rounded border focus:outline-none focus:shadow-outline',
-  optgroup: 'text-gray-500 uppercase text-xs py-1 px-2 font-semibold',
+  searchWrapper: 'p-2 placeholder-gray-400',
+  searchBox: 'px-3 py-2 bg-gray-50 text-sm rounded border focus:outline-none focus:shadow-outline border-gray-300',
+  optgroup: 'text-gray-400 uppercase text-xs py-1 px-2 font-semibold',
   option: '',
   disabledOption: '',
-  highlightedOption: 'bg-gray-300',
-  selectedOption: 'font-semibold bg-gray-100',
-  selectedHighlightedOption: 'bg-gray-300 font-semibold',
-  optionContent: 'flex justify-between items-center p-2',
-  optionLabel: 'truncate block',
+  highlightedOption: 'bg-blue-100',
+  selectedOption: 'font-semibold bg-gray-100 bg-blue-500 font-semibold text-white',
+  selectedHighlightedOption: 'font-semibold bg-gray-100 bg-blue-600 font-semibold text-white',
+  optionContent: 'flex justify-between items-center px-3 py-2',
+  optionLabel: '',
   selectedIcon: '',
   enterClass: '',
   enterActiveClass: 'opacity-0 transition ease-out duration-100',
@@ -172,43 +175,76 @@ As you may know, the fixed classes are shared and merged with the different vari
 
 ```js
 {
-  // Remember that these classes are merged with the fixed classes
+  fixedClasses: {
+    wrapper: 'relative',
+    buttonWrapper: 'inline-block relative w-full',
+    selectButton: 'w-full flex text-left justify-between items-center px-3 py-2 text-black transition duration-100 ease-in-out border rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed',
+    selectButtonLabel: 'block truncate',
+    selectButtonPlaceholder: 'block truncate',
+    selectButtonIcon: 'fill-current flex-shrink-0 ml-1 h-4 w-4',
+    selectButtonClearButton: 'rounded flex flex-shrink-0 items-center justify-center absolute right-0 top-0 m-2 h-6 w-6 transition duration-100 ease-in-out',
+    selectButtonClearIcon: 'fill-current h-3 w-3',
+    dropdown: 'absolute w-full z-10 -mt-1 absolute border-b border-l border-r rounded-b shadow-sm z-10',
+    dropdownFeedback: '',
+    loadingMoreResults: '',
+    optionsList: 'overflow-auto',
+    searchWrapper: 'inline-block w-full',
+    searchBox: 'inline-block w-full',
+    optgroup: '',
+    option: 'cursor-pointer',
+    disabledOption: 'opacity-50 cursor-not-allowed',
+    highlightedOption: 'cursor-pointer',
+    selectedOption: 'cursor-pointer',
+    selectedHighlightedOption: 'cursor-pointer',
+    optionContent: '',
+    optionLabel: 'truncate block',
+    selectedIcon: 'fill-current h-4 w-4',
+    enterClass: '',
+    enterActiveClass: '',
+    enterToClass: '',
+    leaveClass: '',
+    leaveActiveClass: '',
+    leaveToClass: ''
+  },
   classes: {
     wrapper: '',
     buttonWrapper: '',
-    selectButton: 'border bg-white rounded p-2 focus:outline-none focus:shadow-outline',
+    selectButton: 'bg-white border-gray-300',
     selectButtonLabel: '',
-    selectButtonPlaceholder: 'text-gray-500',
-    selectButtonIcon: '',
-    selectButtonClearButton: 'hover:bg-gray-200 text-gray-500 rounded',
+    selectButtonPlaceholder: 'text-gray-400',
+    selectButtonIcon: 'text-gray-600',
+    selectButtonClearButton: 'hover:bg-blue-100 text-gray-600',
     selectButtonClearIcon: '',
-    dropdown: 'rounded bg-white shadow',
-    dropdownFeedback: 'text-sm text-gray-500',
-    loadingMoreResults: 'text-sm text-gray-500',
+    dropdown: 'bg-white border-gray-300',
+    dropdownFeedback: 'pb-2 px-3 text-gray-400 text-sm',
+    loadingMoreResults: 'pb-2 px-3 text-gray-400 text-sm',
     optionsList: '',
-    searchWrapper: 'bg-white p-2',
-    searchBox: 'p-2 bg-gray-200 text-sm rounded border focus:outline-none focus:shadow-outline',
-    optgroup: 'text-gray-500 uppercase text-xs py-1 px-2 font-semibold',
+    searchWrapper: 'p-2 placeholder-gray-400',
+    searchBox: 'px-3 py-2 bg-gray-50 text-sm rounded border focus:outline-none focus:shadow-outline border-gray-300',
+    optgroup: 'text-gray-400 uppercase text-xs py-1 px-2 font-semibold',
     option: '',
-    highlightedOption: 'bg-gray-300',
-    selectedOption: 'font-semibold bg-gray-100',
-    selectedHighlightedOption: 'bg-gray-300 font-semibold',
-    optionContent: 'flex justify-between items-center p-2 cursor-pointer',
-    optionLabel: 'truncate block',
+    disabledOption: '',
+    highlightedOption: 'bg-blue-100',
+    selectedOption: 'font-semibold bg-gray-100 bg-blue-500 font-semibold text-white',
+    selectedHighlightedOption: 'font-semibold bg-gray-100 bg-blue-600 font-semibold text-white',
+    optionContent: 'flex justify-between items-center px-3 py-2',
+    optionLabel: '',
     selectedIcon: '',
     enterClass: '',
     enterActiveClass: 'opacity-0 transition ease-out duration-100',
     enterToClass: 'opacity-100',
     leaveClass: 'transition ease-in opacity-100',
     leaveActiveClass: '',
-    leaveToClass: 'opacity-0 duration-75',
+    leaveToClass: 'opacity-0 duration-75'
   },
   variants: {
     danger: {
       // As explained in the "Theming" sections we only add the classes we want to override
-      selectButton: 'border border-red-500 text-red-500 bg-red-100 rounded p-2 focus:outline-none focus:shadow-outline',
-      selectButtonPlaceholder: 'text-red-400',
-      selectButtonClearButton: 'hover:bg-red-200 text-red-500 rounded',
+      selectButton: 'border-red-300 bg-red-50 text-red-900',
+      selectButtonPlaceholder: 'text-red-200',
+      selectButtonIcon: 'text-red-500',
+      selectButtonClearButton: 'hover:bg-red-200 text-red-500',
+      dropdown: 'bg-red-50 border-red-300'
     },
     //... More variants
   }
@@ -307,14 +343,14 @@ The example above will look like this: (search and select a repository):
 
 Allows you to replace the option content inside the list of options
 
-| Slot          | type    | Description                                                                                                                                |
-| ------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| index         | Number  | The index of the option                                                                                                                    |
-| isHighlighted | Boolean | If the option is highlighted                                                                                                               |
-| isSelected    | Boolean | If the option is selected                                                                                                                  |
-| option        | Object  | And object with the `text` and `value` attribute together with a `raw` attribute that contains the original option value before normalized |
-| query         | String  | The current search query                                                                                                                   |
-| className     | String  | The optionContent class in case you can to re-apply it                                                                                     |
+| Slot          | type    | Description                                                                                                                        |
+| ------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| index         | Number  | The index of the option                                                                                                            |
+| isHighlighted | Boolean | If the option is highlighted                                                                                                       |
+| isSelected    | Boolean | If the option is selected                                                                                                          |
+| option        | Object  | And object with the `text` and `value` attributes within `raw` attribute that contains the original option value before normalized |
+| query         | String  | The current search query                                                                                                           |
+| className     | String  | The optionContent class in case you can to re-apply it                                                                             |
 
 #### Example: 
 
@@ -324,10 +360,11 @@ Consider that the options come from an ajax query that contains a `repo` object 
 <template>
   <t-rich-select
     :fetch-options="fetchOptions"
-    placeholder="select an option"
+    placeholder="Search for a repository"
     value-attribute="full_name"
     text-attribute="full_name"
     :minimum-input-length="1"
+    class="max-w-sm mx-auto"
   >
     <template
       slot="option"
@@ -340,7 +377,7 @@ Consider that the options come from an ajax query that contains a `repo` object 
             :src="option.raw.owner.avatar_url"
           >
         </span>
-        <div class="flex flex-col ml-2 text-gray-800">
+        <div class="flex flex-col w-full ml-2 text-gray-800">
           <strong>
             {{ option.raw.full_name }}
             <span v-if="isSelected">(Selected)</span>
@@ -354,15 +391,17 @@ Consider that the options come from an ajax query that contains a `repo` object 
 
 <script>
 export default {
+  name: 'RichSelectOptionSlot',
   methods: {
     fetchOptions (q) {
       return fetch(`https://api.github.com/search/repositories?q=${q}&type=public`)
-        .then((response) => response.json())
-        .then((data) => ({ results: data.items }))
+        .then(response => response.json())
+        .then(data => ({ results: data.items }))
     }
   }
 }
 </script>
+
 ```
 
 The example above will look like this: (search for a repository):

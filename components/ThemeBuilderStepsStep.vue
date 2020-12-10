@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex w-full p-3 my-3 rounded text-left"
+    class="flex w-full p-3 my-3 text-left rounded"
     :class="{
       'cursor-not-allowed': !isEnabled,
       'group hover:bg-gray-900 cursor-pointer' : isEnabled,
@@ -30,9 +30,9 @@
       </p>
     </div>
     <span
-      class="rounded-full p-3 h-12 w-12 flex items-center justify-center mr-3 shadow-inner -mr-12"
+      class="flex items-center justify-center w-12 h-12 p-3 -mr-12 rounded-full shadow-inner"
       :class="{
-        'bg-orange-500' : isActive,
+        'bg-blue-500' : isActive,
         'bg-gray-700' : !isActive
       }"
     >

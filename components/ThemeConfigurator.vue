@@ -9,6 +9,7 @@
           :component-name="componentName"
           label="Fixed classes"
           description="Fixed classes shared by all the variants"
+          main
         />
 
         <theme-configurator-classes

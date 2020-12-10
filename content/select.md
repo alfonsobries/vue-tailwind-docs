@@ -27,27 +27,32 @@ VueJs reactive `<select></select>` component with configurable classes, variants
 
 ## Props
 
-| Property          | Type                      | Default value   | Description                                                                                                                                 |
-| ----------------- | ------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| value (`v-model`) | `[Array, String, Number]` | `undefined`     | The value for the element                                                                                                                   |
-| id                | `String`                  | `undefined`     | HTML attribute                                                                                                                              |
-| autofocus         | `Boolean`                 | `undefined`     | HTML attribute                                                                                                                              |
-| disabled          | `Boolean`                 | `undefined`     | HTML attribute                                                                                                                              |
-| name              | `String`                  | `undefined`     | HTML attribute                                                                                                                              |
-| readonly          | `Boolean`                 | `undefined`     | HTML attribute                                                                                                                              |
-| required          | `Boolean`                 | `undefined`     | HTML attribute                                                                                                                              |
-| tabindex          | `[String, Number]`        | `undefined`     | HTML attribute                                                                                                                              |
-| multiple          | `Boolean`                 | `undefined`     | HTML attribute                                                                                                                              |
-| placeholder       | `String`                  | `undefined`     | When set it prepend an empty `option` tag with the value as text and the option value of `null`                                             |
-| options           | `[Array, Object]`         | `undefined`     | The options of the select (see [options format](#options-format))                                                                           |
-| textAttribute     | `String`                  | `undefined`     | Optional attribute from the option to use as the text<br />(see [define the value/text attributes](#define-the-valuetext-attributes))       |
-| valueAttribute    | `String`                  | `undefined`     | Optional attribute to use as the value of the `option` tag <br />(see [define the value/text attributes](#define-the-valuetext-attributes)) |
-| wrapped           | `Boolean`                 | `undefined`     | If set the input will be wrapped in a div within a svg icon (see [wrap select](#wrap-select))                                               |
-| classes           | `[String, Object, Array]` | `'form-select'` | The default CSS classes                                                                                                                     |
-| fixedClasses      | `[String, Object, Array]` | `undefined`     | Fixed CSS classes that will be merged with the active set of classes                                                                        |
-| variants          | `Object`                  | `undefined`     | The different variants of classes the component have                                                                                        |
-| variant           | `[String, Object]`        | `undefined`     | The variant that will be used                                                                                                               |
+| Property          | Type                      | Default value | Description                                                                                                                                      |
+| ----------------- | ------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| value (`v-model`) | `[Array, String, Number]` | `undefined`   | The value for the element                                                                                                                        |
+| id                | `String`                  | `undefined`   | HTML attribute                                                                                                                                   |
+| autofocus         | `Boolean`                 | `undefined`   | HTML attribute                                                                                                                                   |
+| disabled          | `Boolean`                 | `undefined`   | HTML attribute                                                                                                                                   |
+| name              | `String`                  | `undefined`   | HTML attribute                                                                                                                                   |
+| readonly          | `Boolean`                 | `undefined`   | HTML attribute                                                                                                                                   |
+| required          | `Boolean`                 | `undefined`   | HTML attribute                                                                                                                                   |
+| tabindex          | `[String, Number]`        | `undefined`   | HTML attribute                                                                                                                                   |
+| multiple          | `Boolean`                 | `undefined`   | HTML attribute                                                                                                                                   |
+| placeholder       | `String`                  | `undefined`   | When set it will prepend an empty `option` tag with the text the value of `null`                                                                 |
+| options           | `[Array, Object]`         | `undefined`   | The options of the select (see [options format](#options-format))                                                                                |
+| textAttribute     | `String`                  | `undefined`   | Used to extract the text of the `option` from the options list. <br />(see [define the value/text attributes](#define-the-valuetext-attributes)) |
+| valueAttribute    | `String`                  | `undefined`   | Used to extract the value of the `option` from the options list <br />(see [define the value/text attributes](#define-the-valuetext-attributes)) |
+| wrapped           | `Boolean`                 | `false`       | If set, the select will be wrapped in a div within an SVG icon (see [wrap select](#wrap-select))                                                 |
+| classes           | `[String, Object, Array]` | ...           | The default CSS classes                                                                                                                          |
+| fixedClasses      | `[String, Object, Array]` | `undefined`   | Fixed CSS classes that will be merged with the active set of classes                                                                             |
+| variants          | `Object`                  | `undefined`   | The different variants of classes the component have                                                                                             |
+| variant           | `[String, Object]`        | `undefined`   | The variant that will be used                                                                                                                    |
 
+#### Default value of the *classes* prop:
+
+```css
+block w-full pl-3 pr-10 py-2 text-black placeholder-gray-400 transition duration-100 ease-in-out bg-white border border-gray-300 rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed
+```
 ## Options format
 
 This component accepts the `options` in different formats:
@@ -83,13 +88,10 @@ This component accepts the `options` in different formats:
 ```
 
 <tip>
-  Notice that you can optionally add a `disabled` attribute
-  <span class="px-2 py-1 ml-2 text-xs leading-none text-orange-700 bg-orange-200 rounded-lg">
-    v1.3.3+
-  </span>
+  Notice that you can optionally add a `disabled` attribute.
 </tip>
 
-### Objec t with value:text pairs
+### Object with value => text pairs
 ```html
 <t-select :options="{
   A: 'Option A',
@@ -130,7 +132,7 @@ This component accepts the `options` in different formats:
 
 ## Define the value/text attributes
 
-When your options come in a format that is not handled by the component you can define which attributes you want to use as the `value` and the `text` of every option tag.
+When your options come in a format not handled by the component, you can define which attributes you want to use as the `value` and the `text` of every option tag.
 
 Example:
 
@@ -151,7 +153,7 @@ One alternative is to `map` the options to match one of the accepted formats:
 ```
 
 <ok-tip>
-A better approach is to use the <strong>valueAttribute</strong> and <strong>textAttribute</strong>.
+A better approach is to use the <strong>valueAttribute</strong> and <strong>textAttribute</strong> props.
 </ok-tip>
 
 ```html
@@ -170,20 +172,22 @@ A better approach is to use the <strong>valueAttribute</strong> and <strong>text
 Notice that in the example above we are using dot notation to get a nested attribute in the option for the `textAttribute`. That notation also works for the `valueAttribute`.
 </tip>
 
-## Wrap select
+## Wrapped select
 
-This component accepts the `wrapped` setting (or prop) that when set it will wrap the `select` tag in a `div` and will add a sibling `span` with an `svg` icon. This can give you more flexibility to customize your component.
+This component accepts the `wrapped` prop that, when set it will wrap the `select` tag in a `DIV` and will add a sibling `SPAN` with an a `SVG` icon. This can give you more flexibility to customize your component.
 
-
-Remember that the component can set as "wrapped" when installed or by using the `wrapped` prop (see [wrap inputs](/docs/theming#wrap-inputs) for more info):
+Remember that the component can set as "wrapped" when installed or by using the `wrapped` prop (see [wrapped inputs](/docs/theming#wrapped-inputs) for more info):
 
 ```js
 // When installed
 const settings = {
-  TSelect: {
-    wrapped: true,
-    // classes, variants, etc...
-  },
+  't-select': {
+    component: TSelect,
+    props: {
+      wrapped: true,
+      // classes, variants, etc...
+    }
+  }
   // ...
 }
 
@@ -211,7 +215,7 @@ A wrapped select will be rendered like this:
 
 ### Classes for wrapped select
 
-When the select is wrapped the classes, variants, etc need to be an object with the following properties:
+When the select is wrapped the `classes`, `variants`, etc need to be an object with the following properties:
 
 | Property     | Description                                                                |
 | ------------ | -------------------------------------------------------------------------- |
@@ -224,14 +228,17 @@ When the select is wrapped the classes, variants, etc need to be an object with 
 
 ```js
 const settings = {
-  TSelect: {
-    wrapped: true,
-    classes: {
-      wrapper: 'relative',
-      input: 'appearance-none bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal',
-      arrowWrapper: 'pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700',
-      arrow: 'fill-current h-4 w-4',
-    }
+  't-select': {
+    component: TSelect,
+    props: {
+      wrapped: true,
+      classes: {
+        wrapper: 'relative',
+        input: 'block w-full py-2 pl-3 pr-10 text-black placeholder-gray-400 transition duration-100 ease-in-out bg-white border border-gray-300 rounded shadow-sm bg-none focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed focus:border-blue-500',
+        arrowWrapper: 'pointer-events-none absolute inset-y-0 right-0 flex items-center px-2',
+        arrow: 'fill-current h-4 w-4'
+      }
+    },
     // Variants and fixed classes in the same `object` format ...
   },
   // ...
@@ -245,21 +252,27 @@ If you use the settings above the component will be rendered like this:
 <preview>
   <t-select :classes="{
     wrapper: 'relative',
-    input: 'appearance-none bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full leading-normal',
-    arrowWrapper: 'pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700',
-    arrow: 'fill-current h-4 w-4',  
+    input: 'block w-full py-2 pl-3 pr-10 text-black placeholder-gray-400 transition duration-100 ease-in-out bg-white border border-gray-300 rounded shadow-sm bg-none focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed focus:border-blue-500',
+    arrowWrapper: 'pointer-events-none absolute inset-y-0 right-0 flex items-center px-2',
+    arrow: 'fill-current h-4 w-4'
   }" :options="['Option 1', 'Option 2', 'Option 3']" wrapped />
 </preview>
 
 ### Customize the select icon
 
-If you want to use your own HTML instead of the default SVG icon you can use the `arrow` or `arrowWrapper` slots, use the first one if you only want to override the SVG icon and the second one if you want to override the whole icon wrapper.
+If you want to use your own HTML instead of the default SVG icon you can use the `arrow` or `arrowWrapper` slots. Use the first one if you only want to override the SVG icon and the second one if you want to override the whole icon wrapper.
 
-Both slots yield in the slot scope the current variant, the original classes the element has (from the theme), and the current value of the component in case you want to use those values inside the slot.
+On the `scope` of both slot you have access to the currrent `variant`, the original classes the element has (`className`), and the current `value` of the component in case you want to use those values inside the slot.
 
 ##### Example:
 
-Let's say that for some reason you want to use an ascii down arrow instead of the default SVG icon, an angry emoji when it has an `error` variant and just because you can show a potato emoji when the current value is `>=2`, you know, a typical real-world use:
+Let's say that for some reason you want to:
+
+- Use an ASCII down arrow (▼) instead of the default SVG icon,
+- An angry emoji when the input has the `error` variant,
+- And, just because you can, show a potato emoji when the current value is `>=2`
+
+You know, a typical real-world use case:
 
 ```html
 <t-select wrapped :options="[1,2,3]" variant="wrappedDemo">

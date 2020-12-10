@@ -72,30 +72,16 @@ The properties in that object are the following:
 
 ### Default fixed classes
 
-The component classes have a default value with the minimum CSS classes needed to work as expected. If you replace the classes or create variants, you should keep the `wrapper` and `overlay` classes. Those classes are related to the display and position and help this component works as expected.
+As you may know, the fixed classes are merged with the different variants and default classes.
+
+The default `fixedClasses` on this component are the ones you usually will need as a minimum to ensure this component works as expected.
 
 ```js
 {
-  overlay: 'overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed',
-  wrapper: 'relative mx-auto ',
-  modal: 'overflow-hidden relative',
-  body: '',
-  header: '',
-  footer: '',
-  close: '',
-  closeIcon: '',
-  overlayEnterClass: '',
-  overlayEnterActiveClass: '',
-  overlayEnterToClass: '',
-  overlayLeaveClass: '',
-  overlayLeaveActiveClass: '',
-  overlayLeaveToClass: '',
-  enterClass: '',
-  enterActiveClass: '',
-  enterToClass: '',
-  leaveClass: '',
-  leaveActiveClass: '',
-  leaveToClass: '',
+  overlay: 'overflow-auto scrolling-touch left-0 top-0 bottom-0 right-0 w-full h-full fixed',
+  wrapper: 'relative mx-auto',
+  modal: 'overflow-visible relative ',
+  close: 'flex items-center justify-center',
 };
 ```
 
@@ -106,13 +92,13 @@ Classes that define the default style of the component.
 ```js
 {
   overlay: 'z-40 bg-black bg-opacity-50',
-  wrapper: 'z-50 max-w-lg',
-  modal: 'bg-white shadow',
-  body: '',
-  header: '',
-  footer: '',
-  close: 'absolute right-0 top-0',
-  closeIcon: 'h-5 w-5 fill-current',
+  wrapper: 'z-50 max-w-lg px-3 py-12',
+  modal: 'bg-white shadow rounded',
+  body: 'p-3',
+  header: 'border-b border-gray-100 p-3 rounded-t',
+  footer: 'bg-gray-100 p-3 rounded-b',
+  close: 'bg-gray-100 text-gray-600 rounded-full absolute right-0 top-0 -m-3 h-8 w-8 transition duration-100 ease-in-out hover:bg-gray-200 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50',
+  closeIcon: 'fill-current h-4 w-4',
   overlayEnterClass: '',
   overlayEnterActiveClass: 'opacity-0 transition ease-out duration-100',
   overlayEnterToClass: 'opacity-100',
@@ -130,7 +116,7 @@ Classes that define the default style of the component.
 
 ### Margin and width
 
-If you need to add some margin or spacing between the modal and the screen or define a different width, the `wrapper` attribute is the most appropriate example:
+If you need to add some margin or spacing between the modal and the screen or define a different width, the `wrapper` attribute is the most appropriate. Example:
 
 ```js
 {
@@ -146,31 +132,43 @@ If you need to add some margin or spacing between the modal and the screen or de
 ```js
 {
   fixedClasses: {
-    overlay: 'z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed bg-opacity-50',
-    wrapper: 'z-50 relative mx-auto my-0 max-w-lg mt-12',
-    modal: 'bg-white shadow overflow-hidden relative',
-    body: 'p-4',
-    header: 'p-4 border-b text-sm font-semibold uppercase text-gray-700',
-    footer: 'p-2 border-t',
-    close: 'absolute right-0 top-0 m-3 text-gray-700 hover:text-gray-600',
-    closeIcon: 'h-5 w-5 fill-current'
+    overlay: 'z-40  overflow-auto scrolling-touch left-0 top-0 bottom-0 right-0 w-full h-full fixed bg-opacity-50',
+    wrapper: 'relative mx-auto z-50 max-w-lg px-3 py-12',
+    modal: 'overflow-visible relative  rounded',
+    body: 'p-3',
+    header: 'border-b p-3 rounded-t',
+    footer: ' p-3 rounded-b',
+    close: 'flex items-center justify-center rounded-full absolute right-0 top-0 -m-3 h-8 w-8 transition duration-100 ease-in-out focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50'
   },
   classes: {
-    overlay: 'bg-black ',
+    overlay: 'bg-black',
     wrapper: '',
-    modal: '',
-    body: 'p-4',
-    header: 'text-gray-700',
-    footer: '',
-    close: 'text-gray-700 hover:text-gray-600',
-    closeIcon: ''
+    modal: 'bg-white shadow',
+    body: 'p-3',
+    header: 'border-gray-100',
+    footer: 'bg-gray-100',
+    close: 'bg-gray-100 text-gray-600 hover:bg-gray-200',
+    closeIcon: 'fill-current h-4 w-4',
+    overlayEnterClass: '',
+    overlayEnterActiveClass: 'opacity-0 transition ease-out duration-100',
+    overlayEnterToClass: 'opacity-100',
+    overlayLeaveClass: 'transition ease-in opacity-100',
+    overlayLeaveActiveClass: '',
+    overlayLeaveToClass: 'opacity-0 duration-75',
+    enterClass: '',
+    enterActiveClass: '',
+    enterToClass: '',
+    leaveClass: '',
+    leaveActiveClass: '',
+    leaveToClass: ''
   },
   variants: {
     danger: {
-      overlay: 'bg-red-500',
-      header: 'border-red-100 text-red-700',
-      footer: 'border-red-100 bg-red-100',
-      close: 'text-red-700 hover:text-red-600'
+      overlay: 'bg-red-100',
+      header: 'border-red-50 text-red-700',
+      close: 'bg-red-50 text-red-700 hover:bg-red-200 border-red-100 border',
+      modal: 'bg-white border border-red-100 shadow-lg',
+      footer: 'bg-red-50'
     }
   }
 }

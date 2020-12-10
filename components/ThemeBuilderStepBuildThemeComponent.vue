@@ -1,13 +1,13 @@
 <template>
   <fieldset :class="{ 'border-2 border-orange-300': selected }">
     <div
-      class="flex items-center p-4 text-base font-medium leading-6 text-gray-900"
+      class="flex items-center p-4 text-base font-medium leading-6 text-gray-900 cursor-pointer"
       :class="{
         'border-b': selected,
         'border-t': index > 0,
-        'border border-green-200 cursor-pointer': ready
+        'border border-green-200 ': ready
       }"
-      @click="ready ? $emit('select') : undefined"
+      @click="$emit('select')"
     >
       <icon v-if="ready" class="w-4 h-4 text-green-500">
         <polygon id="Path-126" points="0 11 2 9 7 14 18 3 20 5 7 18" />

@@ -41,8 +41,7 @@ export const state = () => ({
         },
         {
           to: '/docs/settings',
-          text: 'Override settings',
-          since: '1.2.0'
+          text: 'Override settings'
         },
         {
           to: '/docs/workflow',
@@ -67,16 +66,16 @@ export const state = () => ({
           text: 'Select'
         },
         {
+          to: '/docs/checkbox',
+          text: 'Checkbox'
+        },
+        {
           to: '/docs/radio',
           text: 'Radio'
         },
         {
           to: '/docs/button',
           text: 'Button'
-        },
-        {
-          to: '/docs/checkbox',
-          text: 'Checkbox'
         }
       ]
     },
@@ -90,8 +89,7 @@ export const state = () => ({
         },
         {
           to: '/docs/datepicker',
-          text: 'Datepicker',
-          since: '1.2.0'
+          text: 'Datepicker'
         },
         {
           to: '/docs/checkbox-group',
@@ -107,8 +105,7 @@ export const state = () => ({
         },
         {
           to: '/docs/toggle',
-          text: 'Toggle',
-          since: '1.1.0'
+          text: 'Toggle'
         }
       ]
     },
@@ -134,8 +131,7 @@ export const state = () => ({
         },
         {
           to: '/docs/dialog',
-          text: 'Dialog',
-          since: '1.3.0'
+          text: 'Dialog'
         },
         {
           to: '/docs/pagination',

@@ -15,18 +15,16 @@
             <label
               key="---"
               for="variant---"
-              class="px-3 py-2 flex items-center "
+              class="flex items-center px-3 py-2 "
             >
-              <input
+              <t-radio
                 id="variant---"
                 v-model="variant"
                 :value="''"
                 name="variant"
-                type="radio"
-                class="form-radio h-4 w-4 text-orange-600 transition duration-150 ease-in-out"
-              >
+              />
 
-              <span class="block text-sm leading-5 font-medium text-gray-700 ml-3 capitalize">
+              <span class="block ml-3 text-sm font-medium leading-5 text-gray-700 capitalize">
                 Default
               </span>
             </label>
@@ -35,25 +33,23 @@
               v-for="(v, variantName) in settings.variants"
               :key="variantName"
               :for="`variant-${variantName}`"
-              class="px-3 py-2 flex items-center "
+              class="flex items-center px-3 py-2 "
             >
-              <input
+              <t-radio
                 :id="`variant-${variantName}`"
                 v-model="variant"
                 :value="variantName"
                 name="variant"
-                type="radio"
-                class="form-radio h-4 w-4 text-orange-600 transition duration-150 ease-in-out"
-              >
+              />
 
-              <span class="block text-sm leading-5 font-medium text-gray-700 ml-3 capitalize">
+              <span class="block ml-3 text-sm font-medium leading-5 text-gray-700 capitalize">
                 {{ variantName }}
               </span>
             </label>
           </div>
         </t-input-group>
 
-        <div class="flex flex-wrap align-bottom -mx-3">
+        <div class="flex flex-wrap -mx-3 align-bottom">
           <t-input-group
             variant="playground"
             label="Current page"
@@ -82,21 +78,21 @@
           >
             <t-input v-model="params.limit" type="number" variant="playground" placeholder="Limit" />
           </t-input-group>
-          <label class="px-3 py-2 flex items-center mt-4 ">
+          <label class="flex items-center px-3 py-2 mt-4 ">
             <t-checkbox v-model="params.hideEllipsis" />
-            <span class="block text-sm leading-5 font-medium text-gray-700 ml-3 capitalize">
+            <span class="block ml-3 text-sm font-medium leading-5 text-gray-700 capitalize">
               Hide ellipsis
             </span>
           </label>
-          <label class="px-3 py-2 flex items-center mt-4 ">
+          <label class="flex items-center px-3 py-2 mt-4 ">
             <t-checkbox v-model="params.hideFirstLastControls" />
-            <span class="block text-sm leading-5 font-medium text-gray-700 ml-3 capitalize">
+            <span class="block ml-3 text-sm font-medium leading-5 text-gray-700 capitalize">
               Hide first & last
             </span>
           </label>
-          <label class="px-3 py-2 flex items-center mt-4 ">
+          <label class="flex items-center px-3 py-2 mt-4 ">
             <t-checkbox v-model="params.hidePrevNextControls" />
-            <span class="block text-sm leading-5 font-medium text-gray-700 ml-3 capitalize">
+            <span class="block ml-3 text-sm font-medium leading-5 text-gray-700 capitalize">
               Hide prev & next
             </span>
           </label>
@@ -107,8 +103,8 @@
 </template>
 
 <script>
+import { defaultTheme } from '../../utils/demoTheme'
 import ComponentPlayground from './ComponentPlayground'
-
 export default ComponentPlayground.extend({
   data () {
     return {
@@ -122,30 +118,7 @@ export default ComponentPlayground.extend({
         hideFirstLastControls: false,
         hidePrevNextControls: false
       },
-      settings: {
-        classes: {
-          wrapper: 'table border-collapse text-center bg-white mx-auto mt-2',
-          element: 'w-8 h-8 border table-cell',
-          disabledElement: 'w-8 h-8 border table-cell',
-          ellipsisElement: 'w-8 h-8 border table-cell',
-          activeButton: 'bg-gray-300 w-full h-full',
-          disabledButton: 'opacity-25 w-full h-full cursor-not-allowed',
-          button: 'hover:bg-gray-200 w-full h-full',
-          ellipsis: ''
-        },
-        variants: {
-          rounded: {
-            wrapper: 'flex',
-            element: 'w-8 h-8 mx-1',
-            disabledElement: 'w-8 h-8 mx-1',
-            ellipsisElement: 'w-8 h-8 mx-1',
-            activeButton: 'bg-blue-500 w-full h-full text-white rounded-full ',
-            disabledButton: 'opacity-25 w-full h-full cursor-not-allowed rounded-full',
-            button: 'hover:bg-blue-100 w-full h-full text-blue-500 rounded-full ',
-            ellipsis: 'text-gray-500'
-          }
-        }
-      }
+      settings: defaultTheme.TPagination
     }
   }
 })

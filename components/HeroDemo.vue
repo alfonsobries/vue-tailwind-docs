@@ -78,30 +78,6 @@ export default Vue.extend({
       },
       theme: {
         RichSelect: {
-          classes: {
-            wrapper: 'relative',
-            buttonWrapper: 'inline-block w-full relative',
-            selectButton: 'w-full border bg-white flex text-left justify-between items-center rounded p-2 focus:outline-none focus:shadow-outline',
-            selectButtonLabel: 'block truncate',
-            selectButtonPlaceholder: 'block truncate text-gray-500',
-            selectButtonIcon: 'fill-current flex-shrink-0 ml-1 h-4 w-4',
-            selectButtonClearButton: 'hover:bg-gray-200 text-gray-500 rounded flex flex-shrink-0 items-center justify-center absolute right-0 top-0 m-2 h-6 w-6',
-            selectButtonClearIcon: 'fill-current h-3 w-3',
-            dropdown: 'absolute w-full rounded bg-white shadow z-10',
-            dropdownFeedback: 'p-2 text-sm text-gray-500',
-            loadingMoreResults: 'p-2 text-sm text-gray-500',
-            optionsList: 'overflow-auto',
-            searchWrapper: 'inline-block w-full bg-white p-2',
-            searchBox: 'inline-block w-full p-2 bg-gray-200 text-sm rounded border focus:outline-none focus:shadow-outline',
-            optgroup: 'text-gray-500 uppercase text-xs py-1 px-2 font-semibold',
-            option: '',
-            highlightedOption: 'bg-gray-300',
-            selectedOption: 'font-semibold bg-gray-100',
-            selectedHighlightedOption: 'bg-gray-300 font-semibold',
-            optionContent: 'flex justify-between p-2 items-center',
-            optionLabel: 'truncate block',
-            selectedIcon: 'fill-current h-4 w-4'
-          },
           variants: {
             bootstrap: {
               // wrapper: 'relative',
@@ -289,7 +265,7 @@ export default Vue.extend({
             wrapper: 'rounded-lg bg-white text-black shadow-lg w-full',
             body: 'p-4',
             header: 'pt-4 px-4',
-            footer: 'p-4 bg-gray-100 border-t flex justify-end rounded-b'
+            footer: 'p-4 bg-gray-100 flex justify-end rounded-b-lg'
           },
           variants: {
             bootstrap: {
@@ -331,7 +307,7 @@ export default Vue.extend({
           }
         },
         CancelButton: {
-          classes: 'px-5 py-2 rounded-lg hover:underline text-gray-500 transition transition-all ease-in-out duration-200',
+          classes: 'block px-4 py-2 text-blue-500 transition duration-100 ease-in-out border border-transparent rounded hover:text-blue-600 ',
           variants: {
             bootstrap: 'py-2 px-3 text-blue-500 hover:underline',
             bulma: 'border-t text-teal-400 hover:text-teal-900 w-1/2 p-4 transition transition-all ease-in-out duration-200',
@@ -341,7 +317,7 @@ export default Vue.extend({
           }
         },
         ContinueButton: {
-          classes: 'px-5 py-2 rounded-lg ml-3 bg-orange-500 hover:bg-orange-600 text-white transition transition-all ease-in-out duration-200',
+          classes: 'block px-4 py-2 text-white transition duration-100 ease-in-out bg-blue-500 border border-transparent rounded shadow-sm hover:bg-blue-600 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50',
           variants: {
             bootstrap: 'py-2 px-3 rounded ml-3 bg-blue-500 hover:bg-blue-600 text-white',
             bulma: 'border-l border-t text-teal-400 hover:text-teal-900  w-1/2 p-3 transition transition-all ease-in-out duration-200',

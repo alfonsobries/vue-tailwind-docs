@@ -25,20 +25,20 @@
         <ol class="px-4 list-decimal">
           <li class="flex mt-4">
             <span class="block mr-4 -ml-5 text-3xl">⭐️</span>
-            <span>The easiest way to help is by giving me a star in Github <a class="text-orange-500 underline border-orange-300 hover:text-orange-600" href="https://github.com/alfonsobries/vue-tailwind" target="_blank">https://github.com/alfonsobries/vue-tailwind</a></span>
+            <span>The easiest way to help is by giving me a star in Github <a class="text-blue-500 underline border-blue-300 hover:text-blue-600" href="https://github.com/alfonsobries/vue-tailwind" target="_blank">https://github.com/alfonsobries/vue-tailwind</a></span>
           </li>
           <li class="flex mt-4">
             <span class="block mr-4 -ml-5 text-3xl">🔧</span>
-            <span>You can help to add new features or fixing bugs in Github <a class="text-orange-500 underline border-orange-300 hover:text-orange-600" href="https://github.com/alfonsobries/vue-tailwind" target="_blank">https://github.com/alfonsobries/vue-tailwind</a></span>
+            <span>You can help to add new features or fixing bugs in Github <a class="text-blue-500 underline border-blue-300 hover:text-blue-600" href="https://github.com/alfonsobries/vue-tailwind" target="_blank">https://github.com/alfonsobries/vue-tailwind</a></span>
           </li>
           <li class="flex mt-4">
             <span class="block mr-4 -ml-5 text-3xl">📝</span>
-            <span>Improve the documentation by fixing missing or wrong information, typos, or grammar errors (I'm not a native English speaker). Check the source code here: <a class="text-orange-500 underline border-orange-300 hover:text-orange-600" target="_blank" href="https://github.com/alfonsobries/vue-tailwind-themes">https://github.com/alfonsobries/vue-tailwind-themes</a></span>
+            <span>Improve the documentation by fixing missing or wrong information, typos, or grammar errors (I'm not a native English speaker). Check the source code here: <a class="text-blue-500 underline border-blue-300 hover:text-blue-600" target="_blank" href="https://github.com/alfonsobries/vue-tailwind-themes">https://github.com/alfonsobries/vue-tailwind-themes</a></span>
           </li>
           <li class="flex mt-4">
             <span class="block mr-4 -ml-5 text-3xl">💵</span>
             <span>
-              One of the best ways to help me is by sponsoring me in GitHub <a class="text-orange-500 underline border-orange-300 hover:text-orange-600" target="_blank" href="https://github.com/sponsors/alfonsobries">https://github.com/sponsors/alfonsobries</a> so I can spend more time in this project and still pay the bills.
+              One of the best ways to help me is by sponsoring me in GitHub <a class="text-blue-500 underline border-blue-300 hover:text-blue-600" target="_blank" href="https://github.com/sponsors/alfonsobries">https://github.com/sponsors/alfonsobries</a> so I can spend more time in this project and still pay the bills.
               <iframe
                 class="h-8"
                 src="https://github.com/sponsors/alfonsobries/button"
@@ -52,9 +52,9 @@
                 <p class="">
                   Also you can send me a single BTC donation:
                 </p>
-                <p><strong>3NbFXSaNqjve4yWPTs4ALUqHywBDChUxh6</strong></p>
+                <p><strong>bc1q9tqmk92qlkr99t7y9ase5m077xh5dame6cl7rq</strong></p>
                 <p class="text-center">
-                  <img class="max-w-full" src="@/assets/img/3NbFXSaNqjve4yWPTs4ALUqHywBDChUxh6.png">
+                  <img class="max-w-full" src="@/assets/img/bc1q9tqmk92qlkr99t7y9ase5m077xh5dame6cl7rq.png">
                 </p>
               </div>
             </span>
@@ -69,7 +69,7 @@
         </p>
 
         <p class="mt-4">
-          You can contact me through <a class="text-orange-500 underline border-orange-300 hover:text-orange-600" target="_blank" href="https://twitter.com/alfonsobries">twitter</a> or send me an email: <span class="font-mono text-sm bg-gray-200 nowrap">alfonso[at]vexilo.com</span>.</a>
+          You can contact me through <a class="text-blue-500 underline border-blue-300 hover:text-blue-600" target="_blank" href="https://twitter.com/alfonsobries">twitter</a> or send me an email: <span class="font-mono text-sm bg-gray-200 nowrap">alfonso[at]vexilo.com</span>.</a>
         </p>
       </div>
     </div>

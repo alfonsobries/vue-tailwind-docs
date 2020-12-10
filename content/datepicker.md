@@ -7,41 +7,29 @@ description: VueJs reactive date-time picker component with multiple features, c
 
 VueJs reactive date-time picker component with multiple features, configurable classes and variants, and most common events. Friendly with utility-first frameworks like TailwindCSS.
 
-<datepicker-example></datepicker-example>
-
-Code for the example above: 
-
-```html
-<t-datepicker
-  v-model="date"
-  placeholder="Select a date"
-  date-format="Y-m-d"
-  user-format="m/d/Y"
-/>
-```
+<t-datepicker-playground></t-datepicker-playground>
 
 <hr>
-
 
 ## Props
 
 | Property              | Type                              | Default value | Description                                                                                                                    |
 | --------------------- | --------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| value (`v-model`)     | `[Date, String, Number, Array]`   | `null`        | The current value of the component                                                                                             |
 | id                    | `String`                          | `undefined`   | id attribute of the text input that shows the user friendly date                                                               |
 | disabled              | `Boolean`                         | `undefined`   | disabled attribute of the text input that shows the user friendly date                                                         |
-| name                  | `String`                          | `undefined`   | name attribute of the `hidden` input that contains the formatted                                                               |
+| name                  | `String`                          | `undefined`   | name attribute of the `hidden` input that contains the formatted date                                                          |
 | readonly              | `Boolean`                         | `undefined`   | readonly attribute of the text input that shows the user friendly date                                                         |
 | autofocus             | `Boolean`                         | `undefined`   | autofocus attribute of the text input that shows the user friendly date                                                        |
 | required              | `Boolean`                         | `undefined`   | required attribute of the text input that shows the user friendly date                                                         |
 | tabindex              | `[String, Number]`                | `undefined`   | tabindex attribute of the text input that shows the user friendly date                                                         |
-| value (v-model)       | `[Date, String, Number, Array]`   | `null`        | The current value of the component                                                                                             |
 | placeholder           | `String`                          | `undefined`   | Placeholder for the text input that contains the user friendly date                                                            |
-| inputName             | `String`                          | `undefined`   | Name attribute for the text input that contains the user friendly date, the `name` prop is used for the hidden input           |
+| inputName             | `String`                          | `undefined`   | Name attribute for the text input that contains the user friendly date. (The `name` prop is used for the hidden input)         |
 | weekStart             | `Number`                          | `0`           | First day of the week show in the calendar, `0` = Sunday                                                                       |
-| monthsPerView         | `Number`                          | `1`           | How many months calendar show per view (see [Multiple months per view](#multiple-months-per-view))                             |  |
+| monthsPerView         | `Number`                          | `1`           | How many months the calendar show show per view (see [Multiple months per view](#multiple-months-per-view))                    |  |
 | lang                  | `String`                          | `en`          | Default language used in the component                                                                                         |
 | locale                | `Object`                          | `{...}`       | Object that define the localization (see [Localization](#localization))                                                        |
-| locales               | `Object`                          | `{}`          | Object with the different languages objects available     (see [Formatting tokens](#formatting))                               |
+| locales               | `Object`                          | `{}`          | Object with the different languages objects available (see [Formatting tokens](#formatting))                                   |
 | dateFormat            | `String`                          | `'Y-m-d'`     | Formatted date added to the hidden input and to the `v-model` value                                                            |
 | userFormat            | `String`                          | `'F j, Y'`    | User friendly format that is shown in the text input                                                                           |
 | dateFormatter         | `Function`                        | `undefined`   | Allows you to override the default date formatter function (see [Custom date parse and format](#custom-date-parse-and-format)) |
@@ -49,15 +37,15 @@ Code for the example above:
 | closeOnSelect         | `Boolean`                         | `true`        | If set will close the date picker when a date is selected                                                                      |
 | showDaysForOtherMonth | `Boolean`                         | `true`        | If set will show the days for the prev/next button in the current calendar view                                                |
 | show                  | `Boolean`                         | `false`       | If set will show the datepicker open when the component is loaded                                                              |
-| inline                | `Boolean`                         | `false`       | If set will show the datepicker open as a block                                                                                |
-| initialView           | `String`                          | `'day'`       | Initial view of the calendar (other options `'month'`, `'year'` )                                                              |
+| inline                | `Boolean`                         | `false`       | If set will show the datepicker opened                                                                                         |
+| initialView           | `String`                          | `'day'`       | Initial view of the calendar (valid options: `''day''`, `'month'`, `'year'` )                                                  |
 | yearsPerView          | `Number`                          | `12`          | How many years will show in the `year` view                                                                                    |
-| disabledDates         | `[Date, Array, Function, String]` | `undefined`   | Disable a single date, a group or dates or based in a function (see [Disable dates](#disable-dates))                           |
-| highlightDates        | `[Date, Array, Function, String]` | `undefined`   | Highlight a single date, a group or dates or based in a function (see [Highlight dates](#highlight-dates))                     |
+| disabledDates         | `[Date, Array, Function, String]` | `undefined`   | Disable a single date string, a group or dates on an array or based in a function (see [Disable dates](#disable-dates))        |
+| highlightDates        | `[Date, Array, Function, String]` | `undefined`   | Highlight a single date string, a group or dates on an array or based in a function (see [Highlight dates](#highlight-dates))  |
 | maxDate               | `[Date, String]`                  | `undefined`   | Max allowed date                                                                                                               |
 | minDate               | `[Date, String]`                  | `undefined`   | Min allowed date                                                                                                               |
 | initialDate           | `[Date, String]`                  | `undefined`   | Initial active date                                                                                                            |
-| conjunction           | `String`                          | `','`         | When multiple dates or range used to join the dates values                                                                     |
+| conjunction           | `String`                          | `','`         | Used to join the dates values for  multiple dates                                                                              |
 | multiple              | `Boolean`                         | `false`       | When set it will create multiple hidden inputs with all the selected dates (see [Multiple dates](#handle-multiple-dates))      |
 | range                 | `Boolean`                         | `false`       | When set it will expect a range of dates to be selected (see [Range](#ranges))                                                 |
 | clearable             | `Boolean`                         | `true`        | If set will allow you to clear the date value                                                                                  |
@@ -72,8 +60,9 @@ The properties in that object are the following:
 | Property                                    | Description                                                             |
 | ------------------------------------------- | ----------------------------------------------------------------------- |
 | wrapper                                     | Wrapper for the component                                               |
-| inlineWrapper                               | Wrapper for the component when uses is inline                           |
-| <strong>Dropdown related classes</strong>   |
+| inlineWrapper                               | Wrapper for the component when the `inline` options is set              |
+| inlineViews                                 | Wrapper for the views when the `inline` options is set                  |
+| <strong>Dropdown related classes</strong>   |                                                                         |
 | dropdownWrapper                             | Dropdown wrapper                                                        |
 | dropdown                                    | Dropdown                                                                |
 | enterClass                                  | Transition class                                                        |
@@ -136,7 +125,10 @@ The properties in that object are the following:
 
 ### Default fixed classes
 
-As you may know, the fixed classes are shared and merged with the different variants and default classes. The classes we define here as default are the ones that you usually will need to make this component works correctly so you can only focus on colors, typography, etc when creating your theme.
+As you may know, the fixed classes are merged with the different variants and default classes.
+
+The default `fixedClasses` on this component are the ones you usually will need as a minimum to ensure this component works as expected.
+
 
 ```js
 {
@@ -149,7 +141,7 @@ As you may know, the fixed classes are shared and merged with the different vari
   navigatorNextButtonIcon: 'h-6 w-6 inline-flex',
 
   inputWrapper: 'relative',
-  viewGroup: 'inline-flex',
+  viewGroup: 'inline-flex flex-wrap',
   view: 'w-64',
   calendarDaysWrapper: 'grid grid-cols-7',
   calendarHeaderWrapper: 'grid grid-cols-7',
@@ -166,9 +158,9 @@ As you may know, the fixed classes are shared and merged with the different vari
 ```js
 {
   // Dropdown related classes
-  wrapper: 'inline-flex flex-col',
+  wrapper: 'flex flex-col',
   dropdownWrapper: 'relative z-10',
-  dropdown: 'origin-top-left absolute rounded-md shadow-lg',
+  dropdown: 'origin-top-left absolute rounded shadow bg-white overflow-hidden mt-1',
   enterClass: '',
   enterActiveClass: 'transition ease-out duration-100 transform opacity-0 scale-95',
   enterToClass: 'transform opacity-100 scale-100',
@@ -178,81 +170,81 @@ As you may know, the fixed classes are shared and merged with the different vari
 
   // Wrapper for inline calendar
   inlineWrapper: '',
+  inlineViews: 'rounded bg-white border mt-1 inline-flex',
 
   // Text input related classes
   inputWrapper: '',
-  input: 'form-input w-full',
-  clearButton: 'hover:bg-gray-200 text-gray-500 rounded',
+  input: 'block w-full px-3 py-2 text-black placeholder-gray-400 transition duration-100 ease-in-out bg-white border border-gray-300 rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed',
+  clearButton: 'hover:bg-gray-100 rounded transition duration-100 ease-in-out text-gray-600',
   clearButtonIcon: '',
 
   // Picker views
-  viewGroup: 'bg-white border',
+  viewGroup: '',
   view: '',
 
   // Navigator
-  navigator: 'pt-2 px-2',
-  navigatorViewButton: 'transition ease-in-out duration-100 inline-flex cursor-pointer rounded-full px-2 py-1 -ml-1 hover:bg-gray-200',
-  navigatorViewButtonIcon: 'fill-current text-gray-500',
-  navigatorViewButtonBackIcon: 'fill-current text-gray-500',
+  navigator: 'pt-2 px-3',
+  navigatorViewButton: 'transition ease-in-out duration-100 inline-flex cursor-pointer rounded-full px-2 py-1 -ml-1 hover:bg-gray-100',
+  navigatorViewButtonIcon: 'fill-current text-gray-400',
+  navigatorViewButtonBackIcon: 'fill-current text-gray-400',
   navigatorViewButtonMonth: 'text-gray-700 font-semibold',
-  navigatorViewButtonYear: 'text-gray-600 ml-1',
-  navigatorViewButtonYearRange: 'text-gray-600 ml-1',
+  navigatorViewButtonYear: 'text-gray-500 ml-1',
+  navigatorViewButtonYearRange: 'text-gray-500 ml-1',
   navigatorLabel: 'py-1',
   navigatorLabelMonth: 'text-gray-700 font-semibold',
-  navigatorLabelYear: 'text-gray-600 ml-1',
-  navigatorPrevButton: 'transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-gray-200 rounded-full p-1 ml-2 ml-auto disabled:opacity-25 disabled:cursor-not-allowed',
-  navigatorNextButton: 'transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-gray-200 rounded-full p-1 -mr-1 disabled:opacity-25 disabled:cursor-not-allowed',
-  navigatorPrevButtonIcon: 'text-gray-500',
-  navigatorNextButtonIcon: 'text-gray-500',
+  navigatorLabelYear: 'text-gray-500 ml-1',
+  navigatorPrevButton: 'transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-gray-100 rounded-full p-1 ml-2 ml-auto disabled:opacity-50 disabled:cursor-not-allowed',
+  navigatorNextButton: 'transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-gray-100 rounded-full p-1 -mr-1 disabled:opacity-50 disabled:cursor-not-allowed',
+  navigatorPrevButtonIcon: 'text-gray-400',
+  navigatorNextButtonIcon: 'text-gray-400',
 
   // Calendar View
-  calendarWrapper: 'p-2',
+  calendarWrapper: 'px-3 pt-2',
   calendarHeaderWrapper: '',
-  calendarHeaderWeekDay: 'uppercase text-xs text-gray-600 w-8 h-8 flex items-center justify-center',
+  calendarHeaderWeekDay: 'uppercase text-xs text-gray-500 w-8 h-8 flex items-center justify-center',
   calendarDaysWrapper: '',
   calendarDaysDayWrapper: 'w-full h-8 flex flex-shrink-0 items-center',
 
   // Day item
-  otherMonthDay: 'text-sm rounded-full w-8 h-8 mx-auto hover:bg-blue-100 text-gray-400 disabled:opacity-25 disabled:cursor-not-allowed',
+  otherMonthDay: 'text-sm rounded-full w-8 h-8 mx-auto hover:bg-blue-100 text-gray-400 disabled:opacity-50 disabled:cursor-not-allowed',
   emptyDay: '',
   inRangeFirstDay: 'text-sm bg-blue-500 text-white w-full h-8 rounded-l-full',
   inRangeLastDay: 'text-sm bg-blue-500 text-white w-full h-8 rounded-r-full',
-  inRangeDay: 'text-sm bg-blue-200 w-full h-8 disabled:opacity-25 disabled:cursor-not-allowed',
-  selectedDay: 'text-sm rounded-full w-8 h-8 mx-auto bg-blue-500 text-white disabled:opacity-25 disabled:cursor-not-allowed',
-  activeDay: 'text-sm rounded-full bg-blue-100 w-8 h-8 mx-auto disabled:opacity-25 disabled:cursor-not-allowed',
-  highlightedDay: 'text-sm rounded-full bg-blue-200 w-8 h-8 mx-auto disabled:opacity-25 disabled:cursor-not-allowed',
-  day: 'text-sm rounded-full w-8 h-8 mx-auto hover:bg-blue-100 disabled:opacity-25 disabled:cursor-not-allowed',
-  today: 'text-sm rounded-full w-8 h-8 mx-auto hover:bg-blue-100 disabled:opacity-25 disabled:cursor-not-allowed border border-blue-500',
+  inRangeDay: 'text-sm bg-blue-200 w-full h-8 disabled:opacity-50 disabled:cursor-not-allowed',
+  selectedDay: 'text-sm rounded-full w-8 h-8 mx-auto bg-blue-500 text-white disabled:opacity-50 disabled:cursor-not-allowed',
+  activeDay: 'text-sm rounded-full bg-blue-100 w-8 h-8 mx-auto disabled:opacity-50 disabled:cursor-not-allowed',
+  highlightedDay: 'text-sm rounded-full bg-blue-200 w-8 h-8 mx-auto disabled:opacity-50 disabled:cursor-not-allowed',
+  day: 'text-sm rounded-full w-8 h-8 mx-auto hover:bg-blue-100 disabled:opacity-50 disabled:cursor-not-allowed',
+  today: 'text-sm rounded-full w-8 h-8 mx-auto hover:bg-blue-100 disabled:opacity-50 disabled:cursor-not-allowed border border-blue-500',
 
   // Months View
-  monthWrapper: 'p-2',
+  monthWrapper: 'px-3 pt-2',
   selectedMonth: 'text-sm rounded w-full h-12 mx-auto bg-blue-500 text-white',
   activeMonth: 'text-sm rounded w-full h-12 mx-auto bg-blue-100',
   month: 'text-sm rounded w-full h-12 mx-auto hover:bg-blue-100',
 
   // Years View
-  yearWrapper: 'p-2',
+  yearWrapper: 'px-3 pt-2',
   year: 'text-sm rounded w-full h-12 mx-auto hover:bg-blue-100',
   selectedYear: 'text-sm rounded w-full h-12 mx-auto bg-blue-500 text-white',
-  activeYear: 'text-sm rounded w-full h-12 mx-auto bg-blue-100',
-
+  activeYear: 'text-sm rounded w-full h-12 mx-auto bg-blue-100',`
 }
 ```
 
 ## Events
 
-| Event            | Arguments                             | Description                                                 |
-| ---------------- | ------------------------------------- | ----------------------------------------------------------- |
-| input            | `String` (The current date formatted) | Emitted every time the value of the `v-model` change        |
-| change           | `String` (The current date formatted) | Emitted every time the value of the `v-model` change        |
-| focus            | `FocusEvent`                          | Emitted when the text input inside the component is focused |
-| blur             | `FocusEvent`                          | Emitted when the text input inside the component is blurred |
-| keydown          | `KeyboardEvent`                       | Emitted when the user key down any key                      |
-| hidden           | ``                                    | Emitted when the dropdown is hidden                         |
-| shown            | ``                                    | Emitted when the dropdown is shown                          |
-| update:show      | `Boolean`                             | Used to sync the `show` prop                                |
-| activeChange     | `Date`                                | Emitted when the active date change                         |
-| userFormatedDate | `String`                              | Emitted when the user formatted date change                 |
+| Event             | Arguments                             | Description                                                 |
+| ----------------- | ------------------------------------- | ----------------------------------------------------------- |
+| input             | `String` (The current date formatted) | Emitted every time the value of the `v-model` change        |
+| change            | `String` (The current date formatted) | Emitted every time the value of the `v-model` change        |
+| focus             | `FocusEvent`                          | Emitted when the text input inside the component is focused |
+| blur              | `FocusEvent`                          | Emitted when the text input inside the component is blurred |
+| keydown           | `KeyboardEvent`                       | Emitted when the user key down any key                      |
+| hidden            | ``                                    | Emitted when the dropdown is hidden                         |
+| shown             | ``                                    | Emitted when the dropdown is shown                          |
+| update:show       | `Boolean`                             | Used to sync the `show` prop                                |
+| active-change     | `Date`                                | Emitted when the active date change                         |
+| user-date-changed | `String`                              | Emitted when the user formatted date change                 |
 
 ## Scoped slots
 
@@ -262,7 +254,6 @@ As you may know, the fixed classes are shared and merged with the different vari
 | month       | Content of a month button inside the calendar              |
 | year        | Content of a year button inside the calendar               |
 | clearButton | Replaces the SVG icon inside the button to clear the input |
-
 
 ### Day scoped slot
 
@@ -323,7 +314,6 @@ The `month` scoped slot include this information that may be useful for you when
 | month          | The `Date` object that represents the current month          |
 | activeDate     | A `Date` object that represents the current active month     |
 | value          | A `Date` object that represents the currently selected month |
-
 
 #### Example
 
@@ -391,15 +381,18 @@ To keep the bundle size small only the English locale is loaded by default but a
 ```js
 import Vue from 'vue'
 import VueTailwind from 'vue-tailwind'
+import TDatepicker from 'vue-tailwind/dist/t-datepicker'
 import Spanish from 'vue-tailwind/dist/l10n/es'
 
 const settings = {
-  // TInput: {...},
   // ...,
-  TDatepicker: {
-    // classes: {...},
-    // fixedClasses: {...},
-    locale: Spanish,
+  't-datepicker': {
+    component: TDatepicker,
+    props: {
+      // classes: {...},
+      // fixedClasses: {...},
+      locale: Spanish,
+    }    
   }
 }
 
@@ -420,6 +413,8 @@ If you need multiple locales you can use the `locales` prop of the date-picker, 
 import Vue from 'vue'
 import VueTailwind from 'vue-tailwind'
 
+import TDatepicker from 'vue-tailwind/dist/t-datepicker'
+
 import English from 'vue-tailwind/dist/l10n/index'
 import Spanish from 'vue-tailwind/dist/l10n/es'
 import Mandarin from 'vue-tailwind/dist/l10n/zh'
@@ -427,20 +422,22 @@ import Japanese from 'vue-tailwind/dist/l10n/ja'
 import French from 'vue-tailwind/dist/l10n/fr'
 
 const settings = {
-  // TInput: {...},
   // ...,
-  TDatepicker: {
-    // classes: {...},
-    // fixedClasses: {...},
-    locales: {
-      en:  English,
-      es:  Spanish,
-      zh:  Mandarin,
-      ja:  Japanese,
-      fr:  French,
-    },
-    // Optionally define the default language
-    lang: 'es'
+  't-datepicker': {
+    component: TDatepicker,
+    props: {
+      // classes: {...},
+      // fixedClasses: {...},
+      locales: {
+        en:  English,
+        es:  Spanish,
+        zh:  Mandarin,
+        ja:  Japanese,
+        fr:  French,
+      },
+      // Optionally define the default language
+      lang: 'es'
+    }
   }
 }
 
@@ -455,7 +452,7 @@ When using the component you can switch the language by using the `lang` prop.
 
 ### Custom localization
 
-Of you you can also define your own localization file, just use one of the ones available in the [source code](https://github.com/alfonsobries/vue-tailwind/tree/master/src/l10n) as a base and add it to your settings as you do with any of the imported files.
+You can also define your own localization file, just use one of the ones available in the [source code](https://github.com/alfonsobries/vue-tailwind/tree/master/src/l10n) as a base and add it to your settings.
 
 Since the custom localization files are merged to the default localization you just need to define the attributes you want to override.
 
@@ -465,6 +462,7 @@ Example:
 ```js
 import Vue from 'vue'
 import VueTailwind from 'vue-tailwind'
+import TDatepicker from 'vue-tailwind/dist/t-datepicker'
 
 const customLocale = {
   weekdays: {
@@ -473,12 +471,14 @@ const customLocale = {
 }
 
 const settings = {
-  // TInput: {...},
   // ...,
-  TDatepicker: {
-    // classes: {...},
-    // fixedClasses: {...},
-    locale: customLocale,
+  't-datepicker': {
+    component: TDatepicker,
+    props: {
+      // classes: {...},
+      // fixedClasses: {...},
+      locale: customLocale,
+    }
   }
 }
 
@@ -494,7 +494,7 @@ Notice that in the custom locale I am only defining one of the different attribu
 
 ## Formatting tokens
 
-*Credits to the guys behind the [Flatpickr](https://flatpickr.js.org/) from were I mostly copied the code behind this formatting feature including the table below:*
+*Credits to the guys behind the [Flatpickr](https://flatpickr.js.org/) from were I mostly copied the code behind this formatting.*
 
 Each character in the table below can be used in `dateFormat` and `userFormat` options to achieve the format you need.
 
@@ -595,7 +595,7 @@ Notice in the example above that the dateFormat prop and userFormat props are no
 
 ## Disable dates
 
-You can use the `disableDates` props to disable one or many fixed dates or based on a function.
+You can use the `disableDates` props to disable one date, many dates on an array or based on a function.
 
 The props accept the following formats:
 
@@ -608,7 +608,7 @@ The props accept the following formats:
 
 #### Example
 
-For this example lets disable dates with an array with all the valid formats:
+For the following example I am disabling dates with an array with all the valid formats:
 
 ```html
 <template>
@@ -645,7 +645,7 @@ export default {
 
 ## Highlight dates
 
-You can use the `highlightDates` props to highlight one or many fixed dates or based on a function.
+You can use the `highlightDates` props to highlight one date, many dates on an array or based on a function.
 
 The props accept the following formats:
 
@@ -695,9 +695,9 @@ export default {
 
 ## Handle multiple dates
 
-The input will allow the user to select multiple dates if the `v-model` (or value) of the input has an array, it doesn't matter if the user set the `multiple` prop. 
+This component allow the user to select multiple dates if the `v-model` (or value) of the input has an array, it doesn't matter if the user set the `multiple` prop. 
 
-When you use the `multiple` prop the difference is that it will render one hidden inputs per value, this especially useful for POST form submissions.
+When you use the `multiple` prop the difference is that it will render one hidden input per value, this especially useful for POST form submissions.
 
 If you set `multiple` to `false` (default value) the hidden input will contain all the dates separated by comma o whatever value set in the `conjunction` prop
 
@@ -707,17 +707,18 @@ If you set `multiple` to `false` (default value) the hidden input will contain a
 
 ## Ranges
 
-The Datepicker is compatible with "range" values, when setting the value of the model will expect an array where the first element represents the "from" value, and the second one the "to" value.
+The Datepicker is compatible with "range" values, when `range` is set, the value of the model will expect an array where the first element represents the "from" value, and the second one the "to" value.
 
 ### Range Values
 
-When the value of a range changes you should consider that the value is handled in three different ways:
+When the value of a component with the `range` setting changes, you should consider that the input value will be handled differently if the `multiple` prop is set or not:
 
-1. The `v-model` or the value of the component will be an array with 2 formatted dates.
+This is how the component handle the value:
 
-2. It will create a hidden input with the formatted dates separated by comma o whatever value used in the `conjunction` prop. If used together with the `multiple` prop it will create two hidden inputs with both (from and two) values.
-
-3. The text input will render the value with the user format and by using the `rangeSeparator` defined in the current localization.
+- The `v-model` of the component will be an array with 2 formatted dates.
+- It will create a hidden input with the formatted dates separated by comma o whatever value used in the `conjunction` prop.
+- If the `multiple` prop is set, it will create two hidden inputs with both "from" and "to" values.
+- The text input will render the value with the user format separated with the `rangeSeparator` defined in the current localization settings.
 
 #### Example
 
@@ -734,4 +735,4 @@ The Datepicker allows you to display multiple calendar per view by using the `mo
 
 ## Timepicker
 
-The time-picker feature will be an important feature of this component but is not ready yet. I am working hard to have it ready as soon as possible. Follow me on twitter [@alfonsobries](https://twitter.com/alfonsobries) so I can keep you updated.
+The time-picker feature will be an important feature of this component but is not ready yet. I am working hard to have it ready as soon as possible. Follow me on twitter [@alfonsobries](https://twitter.com/alfonsobries) for updates.
