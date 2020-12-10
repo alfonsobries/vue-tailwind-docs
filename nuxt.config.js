@@ -1,3 +1,4 @@
+const colors = require('tailwindcss/colors')
 require('dotenv').config()
 
 export default {
@@ -63,7 +64,28 @@ export default {
   buildModules: [
     '@nuxt/typescript-build',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss',
+    [
+      '@nuxtjs/tailwindcss', {
+        theme: {
+          extend: {
+            colors
+          }
+        },
+        variants: {
+          extend: {
+            opacity: ['disabled'],
+            cursor: ['disabled']
+          }
+        },
+        plugins: [
+          require('@tailwindcss/forms')
+        ],
+        purge: {
+          enabled: false,
+          content: []
+        }
+      }
+    ],
     ['@nuxtjs/google-analytics', {
       id: 'UA-142051519-1'
     }]
