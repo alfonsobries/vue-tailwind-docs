@@ -7,8 +7,8 @@
       <t-checkbox v-if="model === undefined" :id="value" disabled :value="value" />
       <t-checkbox v-else :id="value" v-model="localValue" :value="value" />
     </div>
-    <div class="flex-grow pl-2 text-sm leading-5">
-      <label :for="value" class="mb-1 font-medium text-gray-700">{{ label }}</label>
+    <div class="flex-grow pl-2 ">
+      <label :for="value" class="mb-1 text-sm font-medium leading-5 text-gray-700">{{ label }}</label>
       <div class="mt-1" :class="{ 'opacity-50': localValue !== undefined && ! localValue.includes(value) }">
         <slot />
       </div>
