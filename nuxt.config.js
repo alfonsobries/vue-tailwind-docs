@@ -1,3 +1,4 @@
+const colors = require('tailwindcss/colors')
 require('dotenv').config()
 
 export default {
@@ -57,8 +58,27 @@ export default {
   build: {
     extractCSS: true
   },
-  purgeCSS: {
-    enabled: false
+  tailwindcss: {
+    purge: {
+      enabled: false
+    },
+    config: {
+      theme: {
+        extend: {
+          colors
+        }
+      },
+      variants: {
+        extend: {
+          opacity: ['disabled'],
+          cursor: ['disabled']
+        }
+      },
+      plugins: [
+        // eslint-disable-next-line global-require
+        require('@tailwindcss/forms')
+      ]
+    }
   },
   /*
   ** Nuxt.js dev-modules
