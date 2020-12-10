@@ -1,5 +1,3 @@
-import colors from 'tailwindcss/colors'
-
 require('dotenv').config()
 
 export default {
@@ -59,6 +57,9 @@ export default {
   build: {
     extractCSS: true
   },
+  purgeCSS: {
+    enabled: false
+  },
   /*
   ** Nuxt.js dev-modules
   */
@@ -70,26 +71,6 @@ export default {
       id: 'UA-142051519-1'
     }]
   ],
-  tailwindcss: {
-    theme: {
-      extend: {
-        colors
-      }
-    },
-    variants: {
-      extend: {
-        opacity: ['disabled'],
-        cursor: ['disabled']
-      }
-    },
-    plugins: [
-      require('@tailwindcss/forms')
-    ],
-    purge: {
-      enabled: false,
-      content: []
-    }
-  },
   /*
   ** Nuxt.js modules
   */
