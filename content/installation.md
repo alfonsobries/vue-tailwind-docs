@@ -264,25 +264,18 @@ const MySettings = {
 // Vue.use(VueTailwind, MySettings)
 ```
 
+You also need to add the library's path so `purgecss` can whitelist the default theme. (`node_modules/vue-tailwind/dist/*.js`.)
 
 ```js
-// postcss.config.js (from https://tailwindcss.com/docs/controlling-file-size#setting-up-purgecss)
-const purgecss = require('@fullhuman/postcss-purgecss')({
-  content: [
-    './MySettings.js',
-  ],
-
-  // Include any special characters you're using in this regular expression
-  defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
-})
-
+// tailwind.config.js
 module.exports = {
-  plugins: [
-    require('tailwindcss'),
-    require('autoprefixer'),
-    ...process.env.NODE_ENV === 'production'
-      ? [purgecss]
-      : []
-  ]
+  purge: {
+    content: [
+      './MySettings.js',
+      'node_modules/vue-tailwind/dist/*.js'
+    ],
+    // ...
+  },
+  // ...
 }
 ```
