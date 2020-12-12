@@ -18,18 +18,26 @@
       <button
         type="button"
         class="px-6 py-2 text-xs font-semibold text-white border shadow-lg rounded-t-md"
-        :class="{ 'bg-gray-800 border-gray-800 ': !newSyntax, 'bg-gray-500 border-gray-500': newSyntax }"
-        @click="newSyntax = false"
+        :class="{ 'bg-gray-800 border-gray-800 ': syntax === 'new', 'bg-gray-500 border-gray-500': syntax !== 'new' }"
+        @click="syntax = 'new'"
       >
-        Install whole library (old syntax)
+        Install whole library
       </button>
       <button
         type="button"
         class="px-6 py-2 text-xs font-semibold text-white border shadow-lg rounded-t-md"
-        :class="{ 'bg-gray-800 border-gray-800 ': newSyntax, 'bg-gray-500 border-gray-500': !newSyntax }"
-        @click="newSyntax = true"
+        :class="{ 'bg-gray-800 border-gray-800 ': syntax === 'select', 'bg-gray-500 border-gray-500': syntax !== 'select' }"
+        @click="syntax = 'select'"
       >
-        Install only the components I need (new syntax)
+        Install only the components I need
+      </button>
+      <button
+        type="button"
+        class="px-6 py-2 text-xs font-semibold text-white border shadow-lg rounded-t-md"
+        :class="{ 'bg-gray-800 border-gray-800 ': syntax === 'old', 'bg-gray-500 border-gray-500': syntax !== 'old' }"
+        @click="syntax = 'old'"
+      >
+        Install whole library (old syntax)
       </button>
     </div>
     <div class="relative">
@@ -86,16 +94,24 @@ export default Vue.extend({
   data () {
     return {
       copied: undefined,
-      newSyntax: false,
+      syntax: 'new',
       installCode: `npm install --save vue-tailwind
 // Or yarn add vue-tailwind`
     }
   },
   computed: {
     codeToUse () {
-      return this.newSyntax ? this.codeNewSyntax : this.code
+      if (this.syntax === 'new') {
+        return this.newSyntax
+      }
+
+      if (this.syntax === 'old') {
+        return this.oldSyntax
+      }
+
+      return this.selectSyntax
     },
-    code () {
+    oldSyntax () {
       const settings = JSON.stringify(this.theme, null, 2)
         .replace(/"([^"]+)":/g, '$1:')
         .replace(/\"/g, '\'')
@@ -109,7 +125,42 @@ Vue.use(VueTailwind, settings)
 
 `
     },
-    codeNewSyntax () {
+    newSyntax () {
+      const themeV2 = {}
+
+      Object.keys(this.theme).forEach((componentName) => {
+        const props = this.theme[componentName]
+
+        themeV2[kebabCase(componentName)] = {
+          component: componentName,
+          props
+        }
+      })
+
+      let settings = JSON.stringify(themeV2, null, 2)
+        .replace(/"([^"]+)":/g, '$1:')
+        .replace(/\"/g, '\'')
+
+      Object.keys(this.theme).forEach((componentName) => {
+        settings = settings.replace(`${kebabCase(componentName)}:`, `'${kebabCase(componentName)}':`)
+        settings = settings.replace(`'${componentName}'`, componentName)
+      })
+
+      return `import Vue from 'vue'
+import VueTailwind from 'vue-tailwind'
+
+import {
+  ${
+    Object.keys(this.theme).join(',\n  ')
+  },
+} from 'vue-tailwind/dist/components'
+
+const settings = ${settings}
+
+Vue.use(VueTailwind, settings)
+`
+    },
+    selectSyntax () {
       const themeV2 = {}
 
       Object.keys(this.theme).forEach((componentName) => {
