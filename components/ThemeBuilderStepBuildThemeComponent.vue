@@ -1,5 +1,5 @@
 <template>
-  <fieldset :class="{ 'border-2 border-orange-300': selected }">
+  <fieldset :class="{ 'ring ring-2 ring-blue-500 ring-opacity-50': selected }">
     <div
       class="flex items-center p-4 text-base font-medium leading-6 text-gray-900 cursor-pointer"
       :class="{
