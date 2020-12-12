@@ -85,7 +85,7 @@
         />
       </template>
 
-      <div v-show="view === 'demo' || !hideTabs" ref="wrapper" class="relative w-full max-w-full bg-gray-700 shadow-inner pattern2">
+      <div v-show="view === 'demo'" ref="wrapper" class="relative w-full max-w-full bg-gray-700 shadow-inner pattern2">
         <div
           ref="resizable"
           :style="`min-width:${minWidth}px`"
