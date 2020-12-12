@@ -1,15 +1,43 @@
 <template>
   <div class="max-w-full overflow-auto">
     <tip class="items-stretch text-sm leading-5 border-b">
-      In this tab you can view, download and copy the settings to make your theme look like the <a href="#" class="font-medium underline" @click.prevent="$emit('select', 'demo')">demo</a>. If you want to modify these settings use the <a href="#" class="font-medium underline" @click.prevent="$emit('select', 'customize')">customize</a> tab.
+      In this tab you can view and download or copy the settings to make your theme look like the <a href="#" class="font-medium underline" @click.prevent="$emit('select', 'demo')">demo</a>. If you want to modify these settings use the <a href="#" class="font-medium underline" @click.prevent="$emit('select', 'customize')">customize</a> tab.
     </tip>
     <div class="p-4">
       <t-alert class="mb-4" :show="copied === true" variant="success" @hidden="copied = undefined">
         The code was copied correctly!
       </t-alert>
+
       <t-alert class="mb-4" :show="copied === false" variant="error" @hidden="copied = undefined">
         Something went wrong! We could not copy the code try to copy it manually.
       </t-alert>
+
+      <div class="relative px-2 -mb-1">
+        <button
+          type="button"
+          class="px-6 py-2 text-xs font-semibold text-white border shadow-lg rounded-t-md"
+          :class="{ 'bg-gray-800 border-gray-800 ': syntax === 'new', 'bg-gray-500 border-gray-500': syntax !== 'new' }"
+          @click="syntax = 'new'"
+        >
+          Install within library
+        </button>
+        <button
+          type="button"
+          class="px-6 py-2 text-xs font-semibold text-white border shadow-lg rounded-t-md"
+          :class="{ 'bg-gray-800 border-gray-800 ': syntax === 'select', 'bg-gray-500 border-gray-500': syntax !== 'select' }"
+          @click="syntax = 'select'"
+        >
+          Only intall this component
+        </button>
+        <button
+          type="button"
+          class="px-6 py-2 text-xs font-semibold text-white border shadow-lg rounded-t-md"
+          :class="{ 'bg-gray-800 border-gray-800 ': syntax === 'old', 'bg-gray-500 border-gray-500': syntax !== 'old' }"
+          @click="syntax = 'old'"
+        >
+          Install with old syntax
+        </button>
+      </div>
 
       <div class="relative">
         <div class="absolute top-0 right-0 flex items-center m-4">
@@ -29,7 +57,7 @@
         </div>
 
         <no-ssr>
-          <vue-code-highlight>{{ code }}</vue-code-highlight>
+          <vue-code-highlight>{{ codeToUse }}</vue-code-highlight>
         </no-ssr>
       </div>
     </div>
@@ -41,7 +69,7 @@ import Vue from 'vue'
 import { component as VueCodeHighlight } from 'vue-code-highlight'
 import copy from 'clipboard-copy'
 import Icon from '@/components/Icon'
-
+import kebabCase from 'lodash/kebabCase'
 export default Vue.extend({
   components: {
     VueCodeHighlight,
@@ -59,11 +87,23 @@ export default Vue.extend({
   },
   data () {
     return {
-      copied: undefined
+      copied: undefined,
+      syntax: 'new'
     }
   },
   computed: {
-    code () {
+    codeToUse () {
+      if (this.syntax === 'new') {
+        return this.newSyntax
+      }
+
+      if (this.syntax === 'old') {
+        return this.oldSyntax
+      }
+
+      return this.selectSyntax
+    },
+    oldSyntax () {
       const code = {}
 
       code[this.componentName] = this.settings
@@ -72,17 +112,70 @@ export default Vue.extend({
         .replace(/"([^"]+)":/g, '$1:')
         .replace(/\"/g, '\'')
       return `import Vue from 'vue'
-import VueTailwind from 'vue-tailwind'
+import VueTailwind from 'vue-tailwind/dist/full'
 
 const settings = ${settings}
 
 Vue.use(VueTailwind, settings)
 `
+    },
+    newSyntax () {
+      const themeV2 = {}
+
+      themeV2[kebabCase(this.componentName)] = {
+        component: this.componentName,
+        props: this.settings
+      }
+
+      let settings = JSON.stringify(themeV2, null, 2)
+        .replace(/"([^"]+)":/g, '$1:')
+        .replace(/\"/g, '\'')
+
+      settings = settings.replace(`${kebabCase(this.componentName)}:`, `'${kebabCase(this.componentName)}':`)
+      settings = settings.replace(`'${this.componentName}'`, this.componentName)
+
+      return `import Vue from 'vue'
+import VueTailwind from 'vue-tailwind'
+import {
+  ${
+    this.componentName
+  },
+} from 'vue-tailwind/dist/components'
+
+const settings = ${settings}
+
+Vue.use(VueTailwind, settings)
+`
+    },
+    selectSyntax () {
+      const themeV2 = {}
+
+      themeV2[kebabCase(this.componentName)] = {
+        component: this.componentName,
+        props: this.settings
+      }
+
+      let settings = JSON.stringify(themeV2, null, 2)
+        .replace(/"([^"]+)":/g, '$1:')
+        .replace(/\"/g, '\'')
+
+      settings = settings.replace(`${kebabCase(this.componentName)}:`, `'${kebabCase(this.componentName)}':`)
+      settings = settings.replace(`'${this.componentName}'`, this.componentName)
+
+      return `import Vue from 'vue'
+import VueTailwind from 'vue-tailwind'
+import ${this.componentName} from 'vue-tailwind/dist/${kebabCase(this.componentName)}';
+
+const settings = ${settings}
+
+Vue.use(VueTailwind, settings)
+
+`
     }
   },
   methods: {
     copyCode () {
-      copy(this.code)
+      copy(this.codeToUse)
         .then(() => {
           this.copied = true
         }).catch(() => {
@@ -91,7 +184,7 @@ Vue.use(VueTailwind, settings)
     },
     downloadCode () {
       const element = document.createElement('a')
-      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(this.code))
+      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(this.codeToUse))
       element.setAttribute('download', 'vue-tailwind.js')
 
       element.style.display = 'none'

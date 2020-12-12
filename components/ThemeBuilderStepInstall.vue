@@ -122,7 +122,6 @@ import VueTailwind from 'vue-tailwind/dist/full'
 const settings = ${settings}
 
 Vue.use(VueTailwind, settings)
-
 `
     },
     newSyntax () {
@@ -148,7 +147,6 @@ Vue.use(VueTailwind, settings)
 
       return `import Vue from 'vue'
 import VueTailwind from 'vue-tailwind'
-
 import {
   ${
     Object.keys(this.theme).join(',\n  ')
