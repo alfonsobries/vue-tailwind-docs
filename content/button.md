@@ -71,7 +71,30 @@ When the component is rendered as RouterLink you can use the properties of that 
 
 ## InertiaJs compatibility
 
-This button is compatible with `inertia-link` and will be converted if the `href` prop is set and the `InertiaLink` component is available.
+This button is compatible with `inertia-link` and will be converted if the `href` prop is set, the `tagName` is `'a'` and the `InertiaLink` component is available.
+
+<tip>
+Pro tip: You can create a custom component, so you don't need to change the  `tagName` every time. <nuxt-link class="underline" to="/docs/settings#use-the-settings-to-create-different-components">(See override settings)</nuxt-link>
+</tip>
+
+```js
+import Vue from 'vue'
+import VueTailwind from 'vue-tailwind'
+
+import TButton from 'vue-tailwind/dist/t-button'
+
+const settings = {
+  // Set the tagName as `a` so you can use easily use with Inertia
+  't-inertia': {
+    component: TButton,
+    props: {
+      tagName: 'a',
+    }
+  },
+}
+
+Vue.use(VueTailwind, settings)
+```
 
 ### InertiaLink Props
 
