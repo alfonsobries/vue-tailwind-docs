@@ -36,6 +36,7 @@ VueJs reactive rich select component inspired in jquery select2 with configurabl
 | openOnFocus             | `Boolean`                 | `true`                      | If set will open the dropdown when the component is focused                                              |
 | closeOnSelect           | `Boolean`                 | `true`                      | If set will close the dropdown once an option is selected                                                |
 | selectOnClose           | `Boolean`                 | `false`                     | If set will select the highligted option when the dropdown is closed                                     |
+| multiple                | `Boolean`                 | `false`                     | If set will create a multiselect with tags component                                                     |
 | clearable               | `Boolean`                 | `false`                     | If set will show a close button to clear the value of the input                                          |
 | placeholder             | `String`                  | `undefined`                 | Text that is being shown while no option selected                                                        |
 | searchBoxPlaceholder    | `String`                  | `'Search...'`               | Text that is being shown in the search box while empty                                                   |
@@ -566,3 +567,25 @@ export default {
 The example above will look like this: (search for an option)
 
 <rich-select-create-option-example></rich-select-create-option-example>
+
+## Multi-select
+
+When the `multiple` prop is set you can use array values on the `v-model`.
+
+```vue
+<template>
+  <t-rich-select
+    multiple
+    :close-on-select="false"
+    :options="['Option A', 'Option B', 'Option C', 'Option D']"
+    placeholder="Select multiple options"
+    :value="['Option B', 'Option C']"
+  ></t-rich-select>
+</template>
+```
+
+<preview>
+<t-rich-select multiple :close-on-select="false" :options="['Option A', 'Option B', 'Option C', 'Option D']" placeholder="Select multiple options" :value="['Option B', 'Option C']"></t-rich-select>
+</preview>
+
+<tip>For better UX use the `multiple` options and the `:close-on-select="false"` options together.</tip>
