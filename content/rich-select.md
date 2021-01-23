@@ -14,40 +14,40 @@ VueJs reactive rich select component inspired in jquery select2 with configurabl
 ## Props
 
 
-| Property                | Type                      | Default value               | Description                                                                                              |
-| ----------------------- | ------------------------- | --------------------------- | -------------------------------------------------------------------------------------------------------- |
-| id                      | `String`                  | `undefined`                 | id attribute of the button used as the options toggler                                                   |
-| disabled                | `Boolean`                 | `undefined`                 | disabled attribute of the button used as the options toggler                                             |
-| name                    | `String`                  | `undefined`                 | name attribute of the button used as the options toggler                                                 |
-| readonly                | `Boolean`                 | `undefined`                 | readonly attribute of the button used as the options toggler                                             |
-| autofocus               | `Boolean`                 | `undefined`                 | autofocus attribute of the button used as the options toggler                                            |
-| required                | `Boolean`                 | `undefined`                 | required attribute of the button used as the options toggler                                             |
-| tabindex                | `[String, Number]`        | `undefined`                 | tabindex attribute of the button used as the options toggler                                             |
-| options                 | `[Array, Object]`         | `[]`                        | The initial list of options in any of the valid formats accepted                                         |
-| valueAttribute          | `String`                  | `undefined`                 | Attribute from the options that should be used as the value of the selected option, accepts dot dotation |
-| textAttribute           | `String`                  | `undefined`                 | Attribute from the options that should be used as the text of the selected option, accepts dot dotation  |
-| delay                   | `Number`                  | `250`                       | Time in milliseconds between after performs a search when fetching results from custom function          |
-| fetchOptions            | `Function`                | `undefined`                 | Method for fetching the options, receives the `query` as string and the `nextPage` if apply              |
-| minimumInputLength      | `Number`                  | `undefined`                 | Minimum length of the search query to start filtering the results                                        |
-| minimumInputLengthText  | `[Function, String]`      | * (see below)               | The text that is shown before the user reaches the min length for trigger a query (if set)               |
-| minimumResultsForSearch | `Number`                  | `undefined`                 | If set, The minimum length of the options list needed to show the search box                             |
-| value (`v-model`)       | `[Array, String, Number]` | `null`                      | The value for the element                                                                                |
-| hideSearchBox           | `Boolean`                 | `false`                     | If set will not show a search box                                                                        |
-| openOnFocus             | `Boolean`                 | `true`                      | If set will open the dropdown when the component is focused                                              |
-| closeOnSelect           | `Boolean`                 | `true`                      | If set will close the dropdown once an option is selected                                                |
-| selectOnClose           | `Boolean`                 | `false`                     | If set will select the highligted option when the dropdown is closed                                     |
-| multiple                | `Boolean`                 | `false`                     | If set will create a multiselect with tags component                                                     |
-| clearable               | `Boolean`                 | `false`                     | If set will show a close button to clear the value of the input                                          |
-| placeholder             | `String`                  | `undefined`                 | Text that is being shown while no option selected                                                        |
-| searchBoxPlaceholder    | `String`                  | `'Search...'`               | Text that is being shown in the search box while empty                                                   |
-| noResultsText           | `String`                  | `'No results found'`        | Text that is being shown when the search query doesn't return any result                                 |
-| searchingText           | `String`                  | `'Searching...'`            | Text that is being shown while the input is querying the results                                         |
-| loadingMoreResultsText  | `String`                  | `'Loading more results...'` | Text that is being shown when the search box is loading more paginated results                           |
-| maxHeight               | `[String, Number]`        | `300`                       | Max height of the dropdown parsed as px, also accepts the height as string in any valid units            |
-| classes                 | `Object`                  | `{...}`  (see below)        | The default CSS classes                                                                                  |
-| fixedClasses            | `Object`                  | `{...}`  (see below)        | The default CSS Fixed classes shared for all variants                                                    |
-| variants                | `Object`                  | `undefined`                 | The different variants of classes the component have                                                     |
-| variant                 | `[String, Object]`        | `undefined`                 | The variant that should be used                                                                          |
+| Property                      | Type                      | Default value               | Description                                                                                              |
+| ----------------------------- | ------------------------- | --------------------------- | -------------------------------------------------------------------------------------------------------- |
+| id                            | `String`                  | `undefined`                 | id attribute of the button used as the options toggler                                                   |
+| disabled                      | `Boolean`                 | `undefined`                 | disabled attribute of the button used as the options toggler                                             |
+| name                          | `String`                  | `undefined`                 | name attribute of the button used as the options toggler                                                 |
+| readonly                      | `Boolean`                 | `undefined`                 | readonly attribute of the button used as the options toggler                                             |
+| autofocus                     | `Boolean`                 | `undefined`                 | autofocus attribute of the button used as the options toggler                                            |
+| required                      | `Boolean`                 | `undefined`                 | required attribute of the button used as the options toggler                                             |
+| tabindex                      | `[String, Number]`        | `undefined`                 | tabindex attribute of the button used as the options toggler                                             |
+| options                       | `[Array, Object]`         | `[]`                        | The initial list of options in any of the valid formats accepted                                         |
+| valueAttribute                | `String`                  | `undefined`                 | Attribute from the options that should be used as the value of the selected option, accepts dot dotation |
+| textAttribute                 | `String`                  | `undefined`                 | Attribute from the options that should be used as the text of the selected option, accepts dot dotation  |
+| delay                         | `Number`                  | `250`                       | Time in milliseconds between after performs a search when fetching results from custom function          |
+| fetchOptions                  | `Function`                | `undefined`                 | Method for fetching the options, receives the `query` as string and the `nextPage` if apply              |
+| minimumInputLength            | `Number`                  | `undefined`                 | Minimum length of the search query to start filtering the results                                        |
+| minimumInputLengthText        | `[Function, String]`      | * (see below)               | The text that is shown before the user reaches the min length for trigger a query (if set)               |
+| minimumResultsForSearch       | `Number`                  | `undefined`                 | If set, The minimum length of the options list needed to show the search box                             |
+| value (`v-model`)             | `[Array, String, Number]` | `null`                      | The value for the element                                                                                |
+| hideSearchBox                 | `Boolean`                 | `false`                     | If set will not show a search box                                                                        |
+| openOnFocus                   | `Boolean`                 | `true`                      | If set will open the dropdown when the component is focused                                              |
+| closeOnSelect                 | `Boolean`                 | `true`                      | If set will close the dropdown once an option is selected                                                |
+| selectOnClose                 | `Boolean`                 | `false`                     | If set will select the highligted option when the dropdown is closed                                     |
+| multiple <since>2.1.0+</since> | `Boolean`                 | `false`                     | If set will create a multiselect with tags component                                                     |
+| clearable                     | `Boolean`                 | `false`                     | If set will show a close button to clear the value of the input                                          |
+| placeholder                   | `String`                  | `undefined`                 | Text that is being shown while no option selected                                                        |
+| searchBoxPlaceholder          | `String`                  | `'Search...'`               | Text that is being shown in the search box while empty                                                   |
+| noResultsText                 | `String`                  | `'No results found'`        | Text that is being shown when the search query doesn't return any result                                 |
+| searchingText                 | `String`                  | `'Searching...'`            | Text that is being shown while the input is querying the results                                         |
+| loadingMoreResultsText        | `String`                  | `'Loading more results...'` | Text that is being shown when the search box is loading more paginated results                           |
+| maxHeight                     | `[String, Number]`        | `300`                       | Max height of the dropdown parsed as px, also accepts the height as string in any valid units            |
+| classes                       | `Object`                  | `{...}`  (see below)        | The default CSS classes                                                                                  |
+| fixedClasses                  | `Object`                  | `{...}`  (see below)        | The default CSS Fixed classes shared for all variants                                                    |
+| variants                      | `Object`                  | `undefined`                 | The different variants of classes the component have                                                     |
+| variant                       | `[String, Object]`        | `undefined`                 | The variant that should be used                                                                          |
 
 <small>* The minimumInputLengthText accepts an `string` or a `Function` that receive the min input length as first paramater and the current query as the second one, and it should return an string. Example:</small>
 
@@ -569,6 +569,8 @@ The example above will look like this: (search for an option)
 <rich-select-create-option-example></rich-select-create-option-example>
 
 ## Multi-select
+
+Since <since>2.1.0+</since>
 
 When the `multiple` prop is set you can use array values on the `v-model`.
 
