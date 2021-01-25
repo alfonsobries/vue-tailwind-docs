@@ -30,26 +30,26 @@ VueJs reactive `<input type="radio" />` component with configurable classes, var
 
 ## Props
 
-| Property          | Type                                | Default value | Description                                                                                      |
-| ----------------- | ----------------------------------- | ------------- | ------------------------------------------------------------------------------------------------ |
-| value             | `[String, Object, Number, Boolean]` | `'on'`        | The value for the radio element                                                                  |
-| model (`v-model`) | `[String, Object, Number, Boolean]` | `undefined`   | The element used for the `v-model`                                                               |
-| checked           | `[Boolean, String]`                 | `false`       | HTML attribute                                                                                   |
-| id                | `String`                            | `undefined`   | HTML attribute                                                                                   |
-| autofocus         | `Boolean`                           | `undefined`   | HTML attribute                                                                                   |
-| disabled          | `Boolean`                           | `undefined`   | HTML attribute                                                                                   |
-| name              | `String`                            | `undefined`   | HTML attribute                                                                                   |
-| readonly          | `Boolean`                           | `undefined`   | HTML attribute                                                                                   |
-| required          | `Boolean`                           | `undefined`   | HTML attribute                                                                                   |
-| tabindex          | `[String, Number]`                  | `undefined`   | HTML attribute                                                                                   |
-| wrapped           | `Boolean`                           | `false`       | If set the input will be wrapped in a div within some extra HTML (see [wrapped radio](#wrapped-radio)) |
-| wrapperTag        | `String`                            | `'label'`     | The HTML tag used to wrap the input when `wrapped` is set to `true`                              |
-| label             | `String`                            | `undefined`   | When the input is `wrapped` the label is added as sibling of the input                           |
-| labelTag          | `String`                            | `'span'`      | The HTML tag to use for the label                                                                |
-| classes           | `[String, Array, Object]`           | ...           | The default CSS classes                                                                          |
-| fixedClasses      | `[String, Array, Object]`           | `undefined`   | Fixed CSS classes that will be merged with the active set of classes                             |
-| variants          | `Object`                            | `undefined`   | The different variants of classes the component have                                             |
-| variant           | `[String, Object]`                  | `undefined`   | The variant that will be used                                                                    |
+| Property          | Type                                       | Default value | Description                                                                                            |
+| ----------------- | ------------------------------------------ | ------------- | ------------------------------------------------------------------------------------------------------ |
+| value             | `[String, Object, Number, Boolean, Array]` | `'on'`        | The value for the radio element                                                                        |
+| model (`v-model`) | `[String, Object, Number, Boolean, Array]` | `undefined`   | The element used for the `v-model`                                                                     |
+| checked           | `[Boolean, String]`                        | `false`       | HTML attribute                                                                                         |
+| id                | `String`                                   | `undefined`   | HTML attribute                                                                                         |
+| autofocus         | `Boolean`                                  | `undefined`   | HTML attribute                                                                                         |
+| disabled          | `Boolean`                                  | `undefined`   | HTML attribute                                                                                         |
+| name              | `String`                                   | `undefined`   | HTML attribute                                                                                         |
+| readonly          | `Boolean`                                  | `undefined`   | HTML attribute                                                                                         |
+| required          | `Boolean`                                  | `undefined`   | HTML attribute                                                                                         |
+| tabindex          | `[String, Number]`                         | `undefined`   | HTML attribute                                                                                         |
+| wrapped           | `Boolean`                                  | `false`       | If set the input will be wrapped in a div within some extra HTML (see [wrapped radio](#wrapped-radio)) |
+| wrapperTag        | `String`                                   | `'label'`     | The HTML tag used to wrap the input when `wrapped` is set to `true`                                    |
+| label             | `String`                                   | `undefined`   | When the input is `wrapped` the label is added as sibling of the input                                 |
+| labelTag          | `String`                                   | `'span'`      | The HTML tag to use for the label                                                                      |
+| classes           | `[String, Array, Object]`                  | ...           | The default CSS classes                                                                                |
+| fixedClasses      | `[String, Array, Object]`                  | `undefined`   | Fixed CSS classes that will be merged with the active set of classes                                   |
+| variants          | `Object`                                   | `undefined`   | The different variants of classes the component have                                                   |
+| variant           | `[String, Object]`                         | `undefined`   | The variant that will be used                                                                          |
 
 #### Default value of the *classes* prop:
 

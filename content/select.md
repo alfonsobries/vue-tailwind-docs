@@ -29,7 +29,7 @@ VueJs reactive `<select></select>` component with configurable classes, variants
 
 | Property          | Type                      | Default value | Description                                                                                                                                      |
 | ----------------- | ------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| value (`v-model`) | `[Array, String, Number]` | `undefined`   | The value for the element                                                                                                                        |
+| value (`v-model`) | `[Array, String, Number, Object, Boolean]` | `undefined`   | The value for the element                                                                                                                        |
 | id                | `String`                  | `undefined`   | HTML attribute                                                                                                                                   |
 | autofocus         | `Boolean`                 | `undefined`   | HTML attribute                                                                                                                                   |
 | disabled          | `Boolean`                 | `undefined`   | HTML attribute                                                                                                                                   |
