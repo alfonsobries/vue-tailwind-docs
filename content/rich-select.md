@@ -339,6 +339,17 @@ The example above will look like this: (search and select a repository):
 
 <rich-select-label-slot-example></rich-select-label-slot-example>
 
+### Arrow slot
+
+Since <since>2.1.2+</since>
+
+Allows you to change the arrow icon on the input
+
+| Slot      | type   | Description                                                                                                                                |
+| --------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| query     | String | The current search query                                                                                                                   |
+| option    | Object | And object with the `text` and `value` attribute together with a `raw` attribute that contains the original option value before normalized |
+| className | String | The selectedButtonLabel class in case you can to re-apply it                                                                               |
 
 ### Option slot
 
