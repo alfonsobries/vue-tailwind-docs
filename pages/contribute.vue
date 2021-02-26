@@ -24,6 +24,10 @@
 
         <ol class="px-4 list-decimal">
           <li class="flex mt-4">
+            <span class="block mr-4 -ml-5 text-3xl">🎖</span>
+            <span>Consider nominating me for the Github Stars program (@alfonsobries) <a class="text-blue-500 underline border-blue-300 hover:text-blue-600" href="https://stars.github.com/nominate/" target="_blank">https://stars.github.com/nominate/</a></span>
+          </li>
+          <li class="flex mt-4">
             <span class="block mr-4 -ml-5 text-3xl">⭐️</span>
             <span>The easiest way to help is by giving me a star in Github <a class="text-blue-500 underline border-blue-300 hover:text-blue-600" href="https://github.com/alfonsobries/vue-tailwind" target="_blank">https://github.com/alfonsobries/vue-tailwind</a></span>
           </li>
