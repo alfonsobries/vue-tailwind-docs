@@ -63,38 +63,42 @@ This component expects an object with classes named after every child element.
 
 The properties in that object are the following:
           
-| Property                  | Description                                                      |
-| ------------------------- | ---------------------------------------------------------------- |
-| wrapper                   | Div that wraps the whole component                               |
-| buttonWrapper             | Div that wraps the button that is used as the input              |
-| selectButton              | Button that is used as the input                                 |
-| selectButtonLabel         | Div inside the button that holds the text of the selected option |
-| selectButtonPlaceholder   | Div that contains the placeholder when no value selected         |
-| selectButtonIcon          | Icon with the chevron inside the button                          |
-| selectButtonClearButton   | Button for clear the selected value                              |
-| selectButtonClearIcon     | Cross icon inside the clear button                               |
-| dropdown                  | Dropdown wrapper                                                 |
-| dropdownFeedback          | Searching, min input length, and no results text                 |
-| loadingMoreResults        | Loading more results text in paginated search                    |
-| optionsList               | The list of options                                              |
-| searchWrapper             | Div that wraps the search box                                    |
-| searchBox                 | The search box input                                             |
-| optgroup                  | The div that wraps an optgroup                                   |
-| option                    | The default option item                                          |
-| disabledOption            | The option item when its disabled                                |
-| highlightedOption         | The option item when its highlighted                             |
-| selectedOption            | The option item when it's selected                               |
-| selectedHighlightedOption | The option item when its selected & highlighted                  |
-| optionContent             | Div that wraps the option text                                   |
-| optionLabel               | The option text                                                  |
-| selectedIcon              | The option checkmark icon                                        |
-| enterClass                | Vue Custom Transition Class for the options dropdown             |
-| enterActiveClass          | Vue Custom Transition Class for the options dropdown             |
-| enterToClass              | Vue Custom Transition Class for the options dropdown             |
-| leaveClass                | Vue Custom Transition Class for the options dropdown             |
-| leaveActiveClass          | Vue Custom Transition Class for the options dropdown             |
-| leaveToClass              | Vue Custom Transition Class for the options dropdown             |
-
+| Property                        | Description                                                      |
+| ------------------------------- | ---------------------------------------------------------------- |
+| wrapper                         | Div that wraps the whole component                               |
+| buttonWrapper                   | Div that wraps the button that is used as the input              |
+| selectButton                    | Button that is used as the input                                 |
+| selectButtonLabel               | Div inside the button that holds the text of the selected option |
+| selectButtonTagWrapper          | Div that wraps the tags on the multiselect                       |
+| selectButtonTag                 | Multiselect option tag                                           |
+| selectButtonTagText             | Multiselect option tag text                                      |
+| selectButtonTagDeleteButton     | Multiselect option tag delete button                             |
+| selectButtonTagDeleteButtonIcon | Multiselect option tag delete button icon                        |
+| selectButtonPlaceholder         | Div that contains the placeholder when no value selected         |
+| selectButtonIcon                | Icon with the chevron inside the button                          |
+| selectButtonClearButton         | Button for clear the selected value                              |
+| selectButtonClearIcon           | Cross icon inside the clear button                               |
+| dropdown                        | Dropdown wrapper                                                 |
+| dropdownFeedback                | Searching, min input length, and no results text                 |
+| loadingMoreResults              | Loading more results text in paginated search                    |
+| optionsList                     | The list of options                                              |
+| searchWrapper                   | Div that wraps the search box                                    |
+| searchBox                       | The search box input                                             |
+| optgroup                        | The div that wraps an optgroup                                   |
+| option                          | The default option item                                          |
+| disabledOption                  | The option item when its disabled                                |
+| highlightedOption               | The option item when its highlighted                             |
+| selectedOption                  | The option item when it's selected                               |
+| selectedHighlightedOption       | The option item when its selected & highlighted                  |
+| optionContent                   | Div that wraps the option text                                   |
+| optionLabel                     | The option text                                                  |
+| selectedIcon                    | The option checkmark icon                                        |
+| enterClass                      | Vue Custom Transition Class for the options dropdown             |
+| enterActiveClass                | Vue Custom Transition Class for the options dropdown             |
+| enterToClass                    | Vue Custom Transition Class for the options dropdown             |
+| leaveClass                      | Vue Custom Transition Class for the options dropdown             |
+| leaveActiveClass                | Vue Custom Transition Class for the options dropdown             |
+| leaveToClass                    | Vue Custom Transition Class for the options dropdown             |
 
 ### Default fixed classes
 
@@ -108,6 +112,11 @@ The default `fixedClasses` on this component are the ones you usually will need 
   buttonWrapper: 'inline-block relative w-full',
   selectButton: 'w-full flex text-left justify-between items-center',
   selectButtonLabel: 'block truncate',
+  selectButtonTagWrapper: 'flex flex-wrap overflow-hidden',
+  selectButtonTag: 'bg-blue-500 block disabled:cursor-not-allowed disabled:opacity-50 duration-100 ease-in-out focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded shadow-sm text-sm text-white transition white-space-no m-0.5 max-w-full overflow-hidden h-8 flex items-center',
+  selectButtonTagText: 'px-3',
+  selectButtonTagDeleteButton: '-ml-1.5 h-full hover:bg-blue-600 hover:shadow-sm inline-flex items-center px-2 transition',
+  selectButtonTagDeleteButtonIcon: 'w-3 h-3',
   selectButtonPlaceholder: 'block truncate',
   selectButtonIcon: 'fill-current flex-shrink-0 ml-1 h-4 w-4',
   selectButtonClearButton: 'flex flex-shrink-0 items-center justify-center absolute right-0 top-0 m-2 h-6 w-6',
@@ -144,6 +153,11 @@ The default `fixedClasses` on this component are the ones you usually will need 
   buttonWrapper: '',
   selectButton: 'px-3 py-2 text-black transition duration-100 ease-in-out bg-white border border-gray-300 rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed',
   selectButtonLabel: '',
+  selectButtonTagWrapper: '-mx-2 -my-2.5 py-1 pr-8',
+  selectButtonTag: 'bg-blue-500 block disabled:cursor-not-allowed disabled:opacity-50 duration-100 ease-in-out focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded shadow-sm text-sm text-white transition white-space-no m-0.5 max-w-full overflow-hidden h-8 flex items-center',
+  selectButtonTagText: 'px-3',
+  selectButtonTagDeleteButton: '-ml-1.5 h-full hover:bg-blue-600 hover:shadow-sm inline-flex items-center px-2 transition',
+  selectButtonTagDeleteButtonIcon: '',
   selectButtonPlaceholder: 'text-gray-400',
   selectButtonIcon: 'text-gray-600',
   selectButtonClearButton: 'hover:bg-blue-100 text-gray-600 rounded transition duration-100 ease-in-out',
@@ -179,13 +193,18 @@ The default `fixedClasses` on this component are the ones you usually will need 
   fixedClasses: {
     wrapper: 'relative',
     buttonWrapper: 'inline-block relative w-full',
-    selectButton: 'w-full flex text-left justify-between items-center px-3 py-2 text-black transition duration-100 ease-in-out border rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed',
+    selectButton: 'w-full flex text-left justify-between items-center',
     selectButtonLabel: 'block truncate',
+    selectButtonTagWrapper: 'flex flex-wrap overflow-hidden',
+    selectButtonTag: 'bg-blue-500 block disabled:cursor-not-allowed disabled:opacity-50 duration-100 ease-in-out focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded shadow-sm text-sm text-white transition white-space-no m-0.5 max-w-full overflow-hidden h-8 flex items-center',
+    selectButtonTagText: 'px-3',
+    selectButtonTagDeleteButton: '-ml-1.5 h-full hover:bg-blue-600 hover:shadow-sm inline-flex items-center px-2 transition',
+    selectButtonTagDeleteButtonIcon: 'w-3 h-3',
     selectButtonPlaceholder: 'block truncate',
     selectButtonIcon: 'fill-current flex-shrink-0 ml-1 h-4 w-4',
-    selectButtonClearButton: 'rounded flex flex-shrink-0 items-center justify-center absolute right-0 top-0 m-2 h-6 w-6 transition duration-100 ease-in-out',
+    selectButtonClearButton: 'flex flex-shrink-0 items-center justify-center absolute right-0 top-0 m-2 h-6 w-6',
     selectButtonClearIcon: 'fill-current h-3 w-3',
-    dropdown: 'absolute w-full z-10 -mt-1 absolute border-b border-l border-r rounded-b shadow-sm z-10',
+    dropdown: 'absolute w-full z-10',
     dropdownFeedback: '',
     loadingMoreResults: '',
     optionsList: 'overflow-auto',
@@ -205,18 +224,23 @@ The default `fixedClasses` on this component are the ones you usually will need 
     enterToClass: '',
     leaveClass: '',
     leaveActiveClass: '',
-    leaveToClass: ''
+    leaveToClass: '',
   },
   classes: {
     wrapper: '',
     buttonWrapper: '',
-    selectButton: 'bg-white border-gray-300',
+    selectButton: 'px-3 py-2 text-black transition duration-100 ease-in-out bg-white border border-gray-300 rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed',
     selectButtonLabel: '',
+    selectButtonTagWrapper: '-mx-2 -my-2.5 py-1 pr-8',
+    selectButtonTag: 'bg-blue-500 block disabled:cursor-not-allowed disabled:opacity-50 duration-100 ease-in-out focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded shadow-sm text-sm text-white transition white-space-no m-0.5 max-w-full overflow-hidden h-8 flex items-center',
+    selectButtonTagText: 'px-3',
+    selectButtonTagDeleteButton: '-ml-1.5 h-full hover:bg-blue-600 hover:shadow-sm inline-flex items-center px-2 transition',
+    selectButtonTagDeleteButtonIcon: '',
     selectButtonPlaceholder: 'text-gray-400',
     selectButtonIcon: 'text-gray-600',
-    selectButtonClearButton: 'hover:bg-blue-100 text-gray-600',
+    selectButtonClearButton: 'hover:bg-blue-100 text-gray-600 rounded transition duration-100 ease-in-out',
     selectButtonClearIcon: '',
-    dropdown: 'bg-white border-gray-300',
+    dropdown: '-mt-1 bg-white border-b border-gray-300 border-l border-r rounded-b shadow-sm',
     dropdownFeedback: 'pb-2 px-3 text-gray-400 text-sm',
     loadingMoreResults: 'pb-2 px-3 text-gray-400 text-sm',
     optionsList: '',
@@ -236,7 +260,7 @@ The default `fixedClasses` on this component are the ones you usually will need 
     enterToClass: 'opacity-100',
     leaveClass: 'transition ease-in opacity-100',
     leaveActiveClass: '',
-    leaveToClass: 'opacity-0 duration-75'
+    leaveToClass: 'opacity-0 duration-75',
   },
   variants: {
     danger: {
