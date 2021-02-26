@@ -102,17 +102,21 @@
         </div>
       </div>
     </footer>
+
+    <nominate />
   </div>
 </template>
 
 <script>
 import TheNavigation from '@/components/TheNavigation'
+import Nominate from '@/components/Nominate'
 import Icon from '@/components/Icon'
 import Hero from '@/components/Hero'
 import Form from 'vform'
 export default {
   components: {
     TheNavigation,
+    Nominate,
     Icon,
     Hero
   },
