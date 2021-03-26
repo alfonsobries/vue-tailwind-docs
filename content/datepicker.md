@@ -161,12 +161,12 @@ The default `fixedClasses` on this component are the ones you usually will need 
   wrapper: 'flex flex-col',
   dropdownWrapper: 'relative z-10',
   dropdown: 'origin-top-left absolute rounded shadow bg-white overflow-hidden mt-1',
-  enterClass: '',
-  enterActiveClass: 'transition ease-out duration-100 transform opacity-0 scale-95',
-  enterToClass: 'transform opacity-100 scale-100',
-  leaveClass: 'transition ease-in transform opacity-100 scale-100',
-  leaveActiveClass: '',
-  leaveToClass: 'transform opacity-0 scale-95 duration-75',
+  enterClass: 'opacity-0 scale-95',
+  enterActiveClass: 'transition transform ease-out duration-100',
+  enterToClass: 'opacity-100 scale-100',
+  leaveClass: 'opacity-100 scale-100',
+  leaveActiveClass: 'transition transform ease-in duration-75',
+  leaveToClass: 'opacity-0 scale-95',
 
   // Wrapper for inline calendar
   inlineWrapper: '',

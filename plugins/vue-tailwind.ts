@@ -146,12 +146,12 @@ Vue.use(VueTailwind, {
         wrapper: '',
         dropdownWrapper: 'lg:hidden bg-white shadow-sm z-30 -mt-1 h-full overflow-y-auto scrolling-touch fixed top-0 pt-20 w-full',
         dropdown: '',
-        enterClass: '',
-        enterActiveClass: 'transition ease-out duration-100 transform opacity-0',
-        enterToClass: 'transform opacity-100',
-        leaveClass: 'transition ease-in transform opacity-100',
-        leaveActiveClass: '',
-        leaveToClass: 'transform opacity-0 duration-75'
+        enterClass: 'opacity-0',
+        enterActiveClass: 'transition ease-out duration-100 transform',
+        enterToClass: 'opacity-100',
+        leaveClass: 'opacity-100',
+        leaveActiveClass: 'transition ease-in duration-75 transform',
+        leaveToClass: 'opacity-0'
       },
       searchBox: {
         wrapper: 'max-w-lg w-full lg:max-w-xs relative',

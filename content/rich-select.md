@@ -177,12 +177,12 @@ The default `fixedClasses` on this component are the ones you usually will need 
   optionContent: 'flex justify-between items-center px-3 py-2',
   optionLabel: '',
   selectedIcon: '',
-  enterClass: '',
-  enterActiveClass: 'opacity-0 transition ease-out duration-100',
+  enterClass: 'opacity-0',
+  enterActiveClass: 'transition ease-out duration-100',
   enterToClass: 'opacity-100',
-  leaveClass: 'transition ease-in opacity-100',
-  leaveActiveClass: '',
-  leaveToClass: 'opacity-0 duration-75',
+  leaveClass: 'opacity-100',
+  leaveActiveClass: 'transition ease-in duration-75',
+  leaveToClass: 'opacity-0',
 }
 ```
 
@@ -255,12 +255,12 @@ The default `fixedClasses` on this component are the ones you usually will need 
     optionContent: 'flex justify-between items-center px-3 py-2',
     optionLabel: '',
     selectedIcon: '',
-    enterClass: '',
-    enterActiveClass: 'opacity-0 transition ease-out duration-100',
+    enterClass: 'opacity-0',
+    enterActiveClass: 'transition ease-out duration-100',
     enterToClass: 'opacity-100',
-    leaveClass: 'transition ease-in opacity-100',
-    leaveActiveClass: '',
-    leaveToClass: 'opacity-0 duration-75',
+    leaveClass: 'opacity-100',
+    leaveActiveClass: 'transition ease-in duration-75',
+    leaveToClass: 'opacity-0',
   },
   variants: {
     danger: {
