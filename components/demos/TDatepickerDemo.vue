@@ -4,11 +4,14 @@
       v-model="currentValue"
       :clearable="settings.clearable"
       :inline="settings.inline"
-      :range="settings.range"
-      :multiple="settings.multiple"
+      :range="settings.range && !settings.timepicker"
+      :multiple="settings.multiple && !settings.timepicker"
+      :timepicker="settings.timepicker"
+      :am-pm="settings.amPm"
       :months-per-view="settings.monthsPerView"
       :week-start="settings.weekStart"
       :user-format="settings.userFormat"
+      :date-format="settings.timepicker ? 'Y-m-d G:i:S K' : 'Y-m-d'"
     />
 
     <p class="mt-4">
@@ -41,6 +44,11 @@ export default ComponentDemo.extend({
       this.currentValue = null
       await this.$nextTick()
       this.currentValue = currentValue
+    },
+    'settings.timepicker' (timepicker) {
+      if (timepicker) {
+        this.currentValue = null
+      }
     },
     'settings.range' (range) {
       if (range) {

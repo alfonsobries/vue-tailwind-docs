@@ -106,16 +106,30 @@
           </label>
 
           <label class="flex items-center px-3 py-2 mt-4 ">
-            <t-checkbox v-model="params.range" name="range" />
+            <t-checkbox v-model="params.range" name="range" :disabled="params.timepicker" />
             <span class="block ml-3 text-sm font-medium leading-5 text-gray-700 capitalize">
               Range
             </span>
           </label>
 
           <label class="flex items-center px-3 py-2 mt-4 ">
-            <t-checkbox v-model="params.multiple" name="multiple" />
+            <t-checkbox v-model="params.multiple" name="multiple" :disabled="params.timepicker" />
             <span class="block ml-3 text-sm font-medium leading-5 text-gray-700 capitalize">
               Multiple
+            </span>
+          </label>
+
+          <label class="flex items-center px-3 py-2 mt-4 ">
+            <t-checkbox v-model="params.timepicker" name="timepicker" />
+            <span class="block ml-3 text-sm font-medium leading-5 text-gray-700 capitalize">
+              Timepicker
+            </span>
+          </label>
+
+          <label class="flex items-center px-3 py-2 mt-4 ">
+            <t-checkbox v-model="params.amPm" name="amPm" :disabled="!params.timepicker" />
+            <span class="block ml-3 text-sm font-medium leading-5 text-gray-700 capitalize">
+              AM/PM
             </span>
           </label>
         </div>
@@ -133,6 +147,8 @@ export default ComponentPlayground.extend({
     return {
       variant: '',
       params: {
+        timepicker: false,
+        amPm: true,
         clearable: true,
         inline: true,
         range: false,

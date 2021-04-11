@@ -1,9 +1,9 @@
 ---
-title: Datepicker Component
+title: Datetimepicker Component
 description: VueJs reactive date-time picker component with multiple features, configurable classes, and variants. Friendly with utility-first frameworks like TailwindCSS.
 ---
 
-# Date picker (TDatePicker)
+# Datetime picker (TDatePicker)
 
 VueJs reactive date-time picker component with multiple features, configurable classes and variants, and most common events. Friendly with utility-first frameworks like TailwindCSS.
 
@@ -13,43 +13,47 @@ VueJs reactive date-time picker component with multiple features, configurable c
 
 ## Props
 
-| Property              | Type                              | Default value | Description                                                                                                                    |
-| --------------------- | --------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| value (`v-model`)     | `[Date, String, Number, Array]`   | `null`        | The current value of the component                                                                                             |
-| id                    | `String`                          | `undefined`   | id attribute of the text input that shows the user friendly date                                                               |
-| disabled              | `Boolean`                         | `undefined`   | disabled attribute of the text input that shows the user friendly date                                                         |
-| name                  | `String`                          | `undefined`   | name attribute of the `hidden` input that contains the formatted date                                                          |
-| readonly              | `Boolean`                         | `undefined`   | readonly attribute of the text input that shows the user friendly date                                                         |
-| autofocus             | `Boolean`                         | `undefined`   | autofocus attribute of the text input that shows the user friendly date                                                        |
-| required              | `Boolean`                         | `undefined`   | required attribute of the text input that shows the user friendly date                                                         |
-| tabindex              | `[String, Number]`                | `undefined`   | tabindex attribute of the text input that shows the user friendly date                                                         |
-| placeholder           | `String`                          | `undefined`   | Placeholder for the text input that contains the user friendly date                                                            |
-| inputName             | `String`                          | `undefined`   | Name attribute for the text input that contains the user friendly date. (The `name` prop is used for the hidden input)         |
-| weekStart             | `Number`                          | `0`           | First day of the week show in the calendar, `0` = Sunday                                                                       |
-| monthsPerView         | `Number`                          | `1`           | How many months the calendar show show per view (see [Multiple months per view](#multiple-months-per-view))                    |  |
-| lang                  | `String`                          | `en`          | Default language used in the component                                                                                         |
-| locale                | `Object`                          | `{...}`       | Object that define the localization (see [Localization](#localization))                                                        |
-| locales               | `Object`                          | `{}`          | Object with the different languages objects available (see [Formatting tokens](#formatting))                                   |
-| dateFormat            | `String`                          | `'Y-m-d'`     | Formatted date added to the hidden input and to the `v-model` value                                                            |
-| userFormat            | `String`                          | `'F j, Y'`    | User friendly format that is shown in the text input                                                                           |
-| dateFormatter         | `Function`                        | `undefined`   | Allows you to override the default date formatter function (see [Custom date parse and format](#custom-date-parse-and-format)) |
-| dateParser            | `Function`                        | `undefined`   | Allows you to override the default date parser function (see [Custom date parse and format](#custom-date-parse-and-format))    |
-| closeOnSelect         | `Boolean`                         | `true`        | If set will close the date picker when a date is selected                                                                      |
-| showDaysForOtherMonth | `Boolean`                         | `true`        | If set will show the days for the prev/next button in the current calendar view                                                |
-| show                  | `Boolean`                         | `false`       | If set will show the datepicker open when the component is loaded                                                              |
-| inline                | `Boolean`                         | `false`       | If set will show the datepicker opened                                                                                         |
-| initialView           | `String`                          | `'day'`       | Initial view of the calendar (valid options: `''day''`, `'month'`, `'year'` )                                                  |
-| yearsPerView          | `Number`                          | `12`          | How many years will show in the `year` view                                                                                    |
-| disabledDates         | `[Date, Array, Function, String]` | `undefined`   | Disable a single date string, a group or dates on an array or based in a function (see [Disable dates](#disable-dates))        |
-| highlightDates        | `[Date, Array, Function, String]` | `undefined`   | Highlight a single date string, a group or dates on an array or based in a function (see [Highlight dates](#highlight-dates))  |
-| maxDate               | `[Date, String]`                  | `undefined`   | Max allowed date                                                                                                               |
-| minDate               | `[Date, String]`                  | `undefined`   | Min allowed date                                                                                                               |
-| initialDate           | `[Date, String]`                  | `undefined`   | Initial active date                                                                                                            |
-| conjunction           | `String`                          | `','`         | Used to join the dates values for  multiple dates                                                                              |
-| multiple              | `Boolean`                         | `false`       | When set it will create multiple hidden inputs with all the selected dates (see [Multiple dates](#handle-multiple-dates))      |
-| range                 | `Boolean`                         | `false`       | When set it will expect a range of dates to be selected (see [Range](#ranges))                                                 |
-| clearable             | `Boolean`                         | `true`        | If set will allow you to clear the date value                                                                                  |
-
+| Property                        | Type                              | Default value | Description                                                                                                                    |
+| ------------------------------- | --------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| value (`v-model`)               | `[Date, String, Number, Array]`   | `null`        | The current value of the component                                                                                             |
+| id                              | `String`                          | `undefined`   | id attribute of the text input that shows the user friendly date                                                               |
+| disabled                        | `Boolean`                         | `undefined`   | disabled attribute of the text input that shows the user friendly date                                                         |
+| name                            | `String`                          | `undefined`   | name attribute of the `hidden` input that contains the formatted date                                                          |
+| readonly                        | `Boolean`                         | `undefined`   | readonly attribute of the text input that shows the user friendly date                                                         |
+| autofocus                       | `Boolean`                         | `undefined`   | autofocus attribute of the text input that shows the user friendly date                                                        |
+| required                        | `Boolean`                         | `undefined`   | required attribute of the text input that shows the user friendly date                                                         |
+| tabindex                        | `[String, Number]`                | `undefined`   | tabindex attribute of the text input that shows the user friendly date                                                         |
+| placeholder                     | `String`                          | `undefined`   | Placeholder for the text input that contains the user friendly date                                                            |
+| inputName                       | `String`                          | `undefined`   | Name attribute for the text input that contains the user friendly date. (The `name` prop is used for the hidden input)         |
+| weekStart                       | `Number`                          | `0`           | First day of the week show in the calendar, `0` = Sunday                                                                       |
+| monthsPerView                   | `Number`                          | `1`           | How many months the calendar show show per view (see [Multiple months per view](#multiple-months-per-view))                    |  |
+| lang                            | `String`                          | `en`          | Default language used in the component                                                                                         |
+| locale                          | `Object`                          | `{...}`       | Object that define the localization (see [Localization](#localization))                                                        |
+| locales                         | `Object`                          | `{}`          | Object with the different languages objects available (see [Formatting tokens](#formatting))                                   |
+| dateFormat                      | `String`                          | `'Y-m-d'`     | Formatted date added to the hidden input and to the `v-model` value                                                            |
+| userFormat                      | `String`                          | `'F j, Y'`    | User friendly format that is shown in the text input                                                                           |
+| dateFormatter                   | `Function`                        | `undefined`   | Allows you to override the default date formatter function (see [Custom date parse and format](#custom-date-parse-and-format)) |
+| dateParser                      | `Function`                        | `undefined`   | Allows you to override the default date parser function (see [Custom date parse and format](#custom-date-parse-and-format))    |
+| closeOnSelect                   | `Boolean`                         | `true`        | If set will close the date picker when a date is selected                                                                      |
+| showDaysForOtherMonth           | `Boolean`                         | `true`        | If set will show the days for the prev/next button in the current calendar view                                                |
+| show                            | `Boolean`                         | `false`       | If set will show the datepicker open when the component is loaded                                                              |
+| inline                          | `Boolean`                         | `false`       | If set will show the datepicker opened                                                                                         |
+| initialView                     | `String`                          | `'day'`       | Initial view of the calendar (valid options: `''day''`, `'month'`, `'year'` )                                                  |
+| yearsPerView                    | `Number`                          | `12`          | How many years will show in the `year` view                                                                                    |
+| disabledDates                   | `[Date, Array, Function, String]` | `undefined`   | Disable a single date string, a group or dates on an array or based in a function (see [Disable dates](#disable-dates))        |
+| highlightDates                  | `[Date, Array, Function, String]` | `undefined`   | Highlight a single date string, a group or dates on an array or based in a function (see [Highlight dates](#highlight-dates))  |
+| maxDate                         | `[Date, String]`                  | `undefined`   | Max allowed date                                                                                                               |
+| minDate                         | `[Date, String]`                  | `undefined`   | Min allowed date                                                                                                               |
+| initialDate                     | `[Date, String]`                  | `undefined`   | Initial active date                                                                                                            |
+| initialTime <since>^2,2</since> | `[Date, String]`                  | `undefined`   | Useful to set an initial time without setting an initial date                                                                  |
+| conjunction                     | `String`                          | `','`         | Used to join the dates values for  multiple dates                                                                              |
+| multiple                        | `Boolean`                         | `false`       | When set it will create multiple hidden inputs with all the selected dates (see [Multiple dates](#handle-multiple-dates))      |
+| range                           | `Boolean`                         | `false`       | When set it will expect a range of dates to be selected (see [Range](#ranges))                                                 |
+| clearable                       | `Boolean`                         | `true`        | If set will allow you to clear the date value                                                                                  |
+| datepicker <since>^2,2</since>  | `Boolean`                         | `true`        | If set to `false` it will hide the date picker to show only the `timepicker` if set                                            |
+| timepicker <since>^2,2</since>  | `Boolean`                         | `false`       | If set it will show a timepicker input                                                                                         |
+| amPm <since>^2,2</since>        | `Boolean`                         | `false`       | If set it will show the timepicker input with an AM/PM toggle, otherwise it will use 24 hours format                           |
+| showSeconds <since>^2,2</since> | `Boolean`                         | `false`       | If set it will add an extra input to the timepicker so you can set the seconds                                                 |
 
 ## Classes and variants format
 
@@ -57,71 +61,85 @@ This component expects an object with classes named after every child element.
 
 The properties in that object are the following:
 
-| Property                                    | Description                                                             |
-| ------------------------------------------- | ----------------------------------------------------------------------- |
-| wrapper                                     | Wrapper for the component                                               |
-| inlineWrapper                               | Wrapper for the component when the `inline` options is set              |
-| inlineViews                                 | Wrapper for the views when the `inline` options is set                  |
-| <strong>Dropdown related classes</strong>   |                                                                         |
-| dropdownWrapper                             | Dropdown wrapper                                                        |
-| dropdown                                    | Dropdown                                                                |
-| enterClass                                  | Transition class                                                        |
-| enterActiveClass                            | Transition class                                                        |
-| enterToClass                                | Transition class                                                        |
-| leaveClass                                  | Transition class                                                        |
-| leaveActiveClass                            | Transition class                                                        |
-| leaveToClass                                | Transition class                                                        |
-| <strong>Text input related classes</strong> |                                                                         |
-| inputWrapper                                | Input wrapper                                                           |
-| input                                       | Text input                                                              |
-| clearButton                                 | Clear butotn                                                            |
-| clearButtonIcon                             | Claer button icon                                                       |
-| <strong>Picker views</strong>               |                                                                         |
-| viewGroup                                   | Groups all the views, for example when shows multiple months            |
-| view                                        | A single view of the calendar                                           |
-| <strong>Navigator</strong>                  |                                                                         |
-| navigator                                   | Date navigator wrapper                                                  |
-| navigatorViewButton                         | View toggler button                                                     |
-| navigatorViewButtonIcon                     | View toggler button icon                                                |
-| navigatorViewButtonBackIcon                 | View toggler button back icon                                           |
-| navigatorViewButtonMonth                    | View toggler month text                                                 |
-| navigatorViewButtonYear                     | View toggler year text                                                  |
-| navigatorViewButtonYearRange                | View toggler year range text                                            |
-| navigatorLabel                              | Label show instead of the button when have more that one month per view |
-| navigatorLabelMonth                         | Label month text                                                        |
-| navigatorLabelYear                          | Label year                                                              |
-| navigatorPrevButton                         | Navigator prev button                                                   |
-| navigatorNextButton                         | Navigator next button                                                   |
-| navigatorPrevButtonIcon                     | Navigator prev button  icon                                             |
-| navigatorNextButtonIcon                     | Navigator prev next  icon                                               |
-| <strong>Calendar View</strong>              |                                                                         |
-| calendarWrapper                             | Calendar wrapper                                                        |
-| calendarHeaderWrapper                       | Calendar header wrapper                                                 |
-| calendarHeaderWeekDay                       | Calendar header week day                                                |
-| calendarDaysWrapper                         | Calendar days list wrapper                                              |
-| calendarDaysDayWrapper                      | Calendar single day wrapper                                             |
-| <strong>Day item</strong>                   |                                                                         |
-| otherMonthDay                               | Day that is for another month                                           |
-| emptyDay                                    | Html tag used as placeholder when we dont show other month days         |
-| inRangeFirstDay                             | First day for ranges                                                    |
-| inRangeLastDay                              | Last day for ranges                                                     |
-| inRangeDay                                  | Day inside a range                                                      |
-| selectedDay                                 | Day selected                                                            |
-| activeDay                                   | Day active (for keyboard navigation)                                    |
-| highlightedDay                              | Highlighted day                                                         |
-| day                                         | Default day                                                             |
-| today                                       | Today day                                                               |
-| <strong>Months View</strong>                |                                                                         |
-| monthWrapper                                | Month list wrapper                                                      |
-| selectedMonth                               | Selected month                                                          |
-| activeMonth                                 | Active month   (for keyboard navigation)                                |
-| month                                       | Default month                                                           |
-| <strong>Years View</strong>                 |                                                                         |
-| yearWrapper                                 | Years list wrapper                                                      |
-| year                                        | Default year                                                            |
-| selectedYear                                | Selected year                                                           |
-| activeYear                                  | Active year                                                             |
-
+| Property                                                 | Description                                                                         |
+| -------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| wrapper                                                  | Wrapper for the component                                                           |
+| inlineWrapper                                            | Wrapper for the component when the `inline` options is set                          |
+| inlineViews                                              | Wrapper for the views when the `inline` options is set                              |
+| <strong>Dropdown related classes</strong>                |                                                                                     |
+| dropdownWrapper                                          | Dropdown wrapper                                                                    |
+| dropdown                                                 | Dropdown                                                                            |
+| enterClass                                               | Transition class                                                                    |
+| enterActiveClass                                         | Transition class                                                                    |
+| enterToClass                                             | Transition class                                                                    |
+| leaveClass                                               | Transition class                                                                    |
+| leaveActiveClass                                         | Transition class                                                                    |
+| leaveToClass                                             | Transition class                                                                    |
+| <strong>Text input related classes</strong>              |                                                                                     |
+| inputWrapper                                             | Input wrapper                                                                       |
+| input                                                    | Text input                                                                          |
+| clearButton                                              | Clear butotn                                                                        |
+| clearButtonIcon                                          | Claer button icon                                                                   |
+| <strong>Picker views</strong>                            |                                                                                     |
+| viewGroup                                                | Groups all the views, for example when shows multiple months                        |
+| view                                                     | A single view of the calendar                                                       |
+| <strong>Navigator</strong>                               |                                                                                     |
+| navigator                                                | Date navigator wrapper                                                              |
+| navigatorViewButton                                      | View toggler button                                                                 |
+| navigatorViewButtonIcon                                  | View toggler button icon                                                            |
+| navigatorViewButtonBackIcon                              | View toggler button back icon                                                       |
+| navigatorViewButtonMonth                                 | View toggler month text                                                             |
+| navigatorViewButtonYear                                  | View toggler year text                                                              |
+| navigatorViewButtonYearRange                             | View toggler year range text                                                        |
+| navigatorLabel                                           | Label show instead of the button when have more that one month per view             |
+| navigatorLabelMonth                                      | Label month text                                                                    |
+| navigatorLabelYear                                       | Label year                                                                          |
+| navigatorPrevButton                                      | Navigator prev button                                                               |
+| navigatorNextButton                                      | Navigator next button                                                               |
+| navigatorPrevButtonIcon                                  | Navigator prev button  icon                                                         |
+| navigatorNextButtonIcon                                  | Navigator prev next  icon                                                           |
+| <strong>Calendar View</strong>                           |                                                                                     |
+| calendarWrapper                                          | Calendar wrapper                                                                    |
+| calendarHeaderWrapper                                    | Calendar header wrapper                                                             |
+| calendarHeaderWeekDay                                    | Calendar header week day                                                            |
+| calendarDaysWrapper                                      | Calendar days list wrapper                                                          |
+| calendarDaysDayWrapper                                   | Calendar single day wrapper                                                         |
+| <strong>Day item</strong>                                |                                                                                     |
+| otherMonthDay                                            | Day that is for another month                                                       |
+| emptyDay                                                 | Html tag used as placeholder when we dont show other month days                     |
+| inRangeFirstDay                                          | First day for ranges                                                                |
+| inRangeLastDay                                           | Last day for ranges                                                                 |
+| inRangeDay                                               | Day inside a range                                                                  |
+| selectedDay                                              | Day selected                                                                        |
+| activeDay                                                | Day active (for keyboard navigation)                                                |
+| highlightedDay                                           | Highlighted day                                                                     |
+| day                                                      | Default day                                                                         |
+| today                                                    | Today day                                                                           |
+| <strong>Months View</strong>                             |                                                                                     |
+| monthWrapper                                             | Month list wrapper                                                                  |
+| selectedMonth                                            | Selected month                                                                      |
+| activeMonth                                              | Active month   (for keyboard navigation)                                            |
+| month                                                    | Default month                                                                       |
+| <strong>Years View</strong>                              |                                                                                     |
+| yearWrapper                                              | Years list wrapper                                                                  |
+| year                                                     | Default year                                                                        |
+| selectedYear                                             | Selected year                                                                       |
+| activeYear                                               | Active year                                                                         |
+| <strong>Timepicker Related</strong>  <since>^2.2</since> |                                                                                     |
+| timepickerWrapper                                        | Divs that wraps the entire timepicker section                                       |
+| timepickerTimeWrapper                                    | Div that wraps the timepicker text inputs within the AM/PM toggle and the ok button |
+| timepickerTimeFieldsWrapper                              | Div that wraps the timepicker text inputs                                           |
+| timepickerOkButton                                       | Timepicker submit button                                                            |
+| timepickerInput                                          | Timepicker hours/minutes and seconds text inputs                                    |
+| timepickerTimeLabel                                      | "Time" label                                                                        |
+| timepickerAmPmWrapper                                    | AM/PM Toggle wrapper                                                                |
+| timepickerAmPmWrapperChecked                             | AM/PM Toggle wrapper when checked (PM selected)                                     |
+| timepickerAmPmWrapperDisabled                            | AM/PM Toggle wrapper when disabled (currently unused state)                         |
+| timepickerAmPmWrapperCheckedDisabled                     | AM/PM Toggle wrapper when checked and disabled (currently unused state)             |
+| timepickerAmPmButton                                     | AM/PM button                                                                        |
+| timepickerAmPmButtonChecked                              | AM/PM button when is selected                                                       |
+| timepickerAmPmCheckedPlaceholder                         | "AM" placeholder when PM is selected                                                |
+| timepickerAmPmUncheckedPlaceholder                       | "PM" placeholder when AM is selected                                                |
 
 ### Default fixed classes
 
@@ -157,9 +175,10 @@ The default `fixedClasses` on this component are the ones you usually will need 
 
 ```js
 {
-  // Dropdown related classes
   wrapper: 'flex flex-col',
   dropdownWrapper: 'relative z-10',
+
+  // Dropdown related classes
   dropdown: 'origin-top-left absolute rounded shadow bg-white overflow-hidden mt-1',
   enterClass: 'opacity-0 scale-95',
   enterActiveClass: 'transition transform ease-out duration-100',
@@ -170,7 +189,7 @@ The default `fixedClasses` on this component are the ones you usually will need 
 
   // Wrapper for inline calendar
   inlineWrapper: '',
-  inlineViews: 'rounded bg-white border mt-1 inline-flex',
+  inlineViews: 'rounded bg-white border mt-1 inline-flex flex-col',
 
   // Text input related classes
   inputWrapper: '',
@@ -199,7 +218,7 @@ The default `fixedClasses` on this component are the ones you usually will need 
   navigatorNextButtonIcon: 'text-gray-400',
 
   // Calendar View
-  calendarWrapper: 'px-3 pt-2',
+  calendarWrapper: 'px-3 py-2',
   calendarHeaderWrapper: '',
   calendarHeaderWeekDay: 'uppercase text-xs text-gray-500 w-8 h-8 flex items-center justify-center',
   calendarDaysWrapper: '',
@@ -218,16 +237,32 @@ The default `fixedClasses` on this component are the ones you usually will need 
   today: 'text-sm rounded-full w-8 h-8 mx-auto hover:bg-blue-100 disabled:opacity-50 disabled:cursor-not-allowed border border-blue-500',
 
   // Months View
-  monthWrapper: 'px-3 pt-2',
+  monthWrapper: 'px-3 py-2',
   selectedMonth: 'text-sm rounded w-full h-12 mx-auto bg-blue-500 text-white',
   activeMonth: 'text-sm rounded w-full h-12 mx-auto bg-blue-100',
   month: 'text-sm rounded w-full h-12 mx-auto hover:bg-blue-100',
 
   // Years View
-  yearWrapper: 'px-3 pt-2',
+  yearWrapper: 'px-3 py-2',
   year: 'text-sm rounded w-full h-12 mx-auto hover:bg-blue-100',
   selectedYear: 'text-sm rounded w-full h-12 mx-auto bg-blue-500 text-white',
-  activeYear: 'text-sm rounded w-full h-12 mx-auto bg-blue-100',`
+  activeYear: 'text-sm rounded w-full h-12 mx-auto bg-blue-100',
+
+  // Time selector *Since 2.2*
+  timepickerWrapper: 'flex items-center px-4 py-2 space-x-2',
+  timepickerTimeWrapper: 'flex items-center space-x-2',
+  timepickerTimeFieldsWrapper: 'bg-gray-100 rounded-md w-full text-right flex items-center border border-gray-100 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50',
+  timepickerOkButton: 'text-blue-600 text-sm uppercase font-semibold transition duration-100 ease-in-out border border-transparent focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 rounded cursor-pointer',
+  timepickerInput: 'text-center w-8 border-transparent bg-transparent p-0 h-6 text-sm transition duration-100 ease-in-out border border-transparent focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 rounded',
+  timepickerTimeLabel: 'flex-grow text-sm text-gray-500',
+  timepickerAmPmWrapper: 'relative inline-flex flex-shrink-0 transition duration-200 ease-in-out bg-gray-100 border border-transparent rounded cursor-pointer focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50',
+  timepickerAmPmWrapperChecked: 'relative inline-flex flex-shrink-0 transition duration-200 ease-in-out bg-gray-100 border border-transparent rounded cursor-pointer focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50',
+  timepickerAmPmWrapperDisabled: 'relative inline-flex flex-shrink-0 transition duration-200 ease-in-out opacity-50 cursor-not-allowed',
+  timepickerAmPmWrapperCheckedDisabled: 'relative inline-flex flex-shrink-0 transition duration-200 ease-in-out opacity-50 cursor-not-allowed',
+  timepickerAmPmButton: 'absolute flex items-center justify-center w-6 h-6 text-xs text-gray-800 transition duration-200 ease-in-out transform translate-x-0 bg-white rounded shadow',
+  timepickerAmPmButtonChecked: 'absolute flex items-center justify-center w-6 h-6 text-xs text-gray-800 transition duration-200 ease-in-out transform translate-x-full bg-white rounded shadow',
+  timepickerAmPmCheckedPlaceholder: 'flex items-center justify-center w-6 h-6 text-xs text-gray-500 rounded-sm',
+  timepickerAmPmUncheckedPlaceholder: 'flex items-center justify-center w-6 h-6 text-xs text-gray-500 rounded-sm',
 }
 ```
 
@@ -276,7 +311,7 @@ The `day` scoped slot include this information that may be useful for you when r
 
 #### Example
 
-Let`s show a cake when the day is in an hypothetical array of birthdays and a taco every tuesday:
+Let`s show a cake when the day is in a hypothetical array of birthdays and a taco every Tuesday:
 
 ```html
 <t-datepicker
@@ -494,7 +529,7 @@ Notice that in the custom locale I am only defining one of the different attribu
 
 ## Formatting tokens
 
-*Credits to the guys behind the [Flatpickr](https://flatpickr.js.org/) from were I mostly copied the code behind this formatting.*
+*Credits to the guys behind the [Flatpickr](https://flatpickr.js.org/) from where I mostly copied the code behind this formatting.*
 
 Each character in the table below can be used in `dateFormat` and `userFormat` options to achieve the format you need.
 
@@ -543,7 +578,7 @@ You may escape formatting tokens using `\\`.
 
 ## Custom date parse and format
 
-If you want to use your own date formatter / parser you can do it by using the  `dateFormatter` and `dateParser` props. You don't need to use it both, but you need to ensure that the formatted date works for the parsed date and vice versa.
+If you want to use your own date formatter / parser you can do it by using the  `dateFormatter` and `dateParser` props. You don't need to use both, but you need to ensure that the formatted date works for the parsed date and vice versa.
 
 Both props expect a function that receives the following parameters:
 
@@ -595,7 +630,7 @@ Notice in the example above that the dateFormat prop and userFormat props are no
 
 ## Disable dates
 
-You can use the `disableDates` props to disable one date, many dates on an array or based on a function.
+You can use the `disableDates` props to disable one date, many dates on an array, or based on a function.
 
 The props accept the following formats:
 
@@ -645,7 +680,7 @@ export default {
 
 ## Highlight dates
 
-You can use the `highlightDates` props to highlight one date, many dates on an array or based on a function.
+You can use the `highlightDates` props to highlight one date, many dates on an array, or based on a function.
 
 The props accept the following formats:
 
@@ -695,11 +730,11 @@ export default {
 
 ## Handle multiple dates
 
-This component allow the user to select multiple dates if the `v-model` (or value) of the input has an array, it doesn't matter if the user set the `multiple` prop. 
+This component allows the user to select multiple dates if the `v-model` (or value) of the input has an array, it doesn't matter if the user sets the `multiple` prop. 
 
 When you use the `multiple` prop the difference is that it will render one hidden input per value, this especially useful for POST form submissions.
 
-If you set `multiple` to `false` (default value) the hidden input will contain all the dates separated by comma o whatever value set in the `conjunction` prop
+If you set `multiple` to `false` (default value) the hidden input will contain all the dates separated by a comma o whatever value set in the `conjunction` prop
 
 #### Example
 
@@ -713,7 +748,7 @@ The Datepicker is compatible with "range" values, when `range` is set, the value
 
 When the value of a component with the `range` setting changes, you should consider that the input value will be handled differently if the `multiple` prop is set or not:
 
-This is how the component handle the value:
+This is how the component handles the value:
 
 - The `v-model` of the component will be an array with 2 formatted dates.
 - It will create a hidden input with the formatted dates separated by comma o whatever value used in the `conjunction` prop.
@@ -726,7 +761,7 @@ This is how the component handle the value:
 
 ## Multiple months per view
 
-The Datepicker allows you to display multiple calendar per view by using the `monthsPerView` prop.
+The Datepicker allows you to display multiple calendars per view by using the `monthsPerView` prop.
 
 #### Example
 
@@ -734,5 +769,109 @@ The Datepicker allows you to display multiple calendar per view by using the `mo
 
 
 ## Timepicker
+Since <since>^2.2</since>
 
-The time-picker feature will be an important feature of this component but is not ready yet. I am working hard to have it ready as soon as possible. Follow me on twitter [@alfonsobries](https://twitter.com/alfonsobries) for updates.
+You can add a timepicker by setting the `timepicker` prop.
+
+
+```html
+<t-datepicker timepicker />
+```
+
+<preview class="flex flex-col items-center p-4 bg-gray-100 border rounded shadow-inner">
+  <t-datepicker
+    inline
+    timepicker
+  />
+</preview>
+
+<tip>
+The timepicker is currently no compatible with the `range` and `multiple` options and you cannot disable specific times for the moment.
+</tip>
+
+
+### AM/PM Format
+
+Use the `amPm` prop to show an AM/PM toggle:
+
+```html
+<t-datepicker
+  timepicker
+  am-pm
+/>
+```
+
+<preview class="flex flex-col items-center p-4 bg-gray-100 border rounded shadow-inner">
+  <t-datepicker
+    inline
+    timepicker
+    am-pm
+  />
+</preview>
+
+### Show Seconds
+
+Use the `showSeconds` prop to show an extra input to set the seconds
+
+```html
+<t-datepicker
+  timepicker
+  show-seconds
+/>
+```
+
+<preview class="flex flex-col items-center p-4 bg-gray-100 border rounded shadow-inner">
+  <t-datepicker
+    inline
+    timepicker
+    show-seconds
+  />
+</preview>
+
+### Set initial time
+
+Use the `initialTime` prop to set an initial time for the timepicker without needed to set an initial date
+
+```html
+<t-datepicker
+  timepicker
+  initial-time="09:00"
+/>
+```
+
+<preview class="flex flex-col items-center p-4 bg-gray-100 border rounded shadow-inner">
+  <t-datepicker
+    inline
+    timepicker
+    initial-time="09:00"
+  />
+</preview>
+
+### Timepicker only
+
+Set `datepicker=false`  together with the `timepicker` option to show a timepicker only.
+
+```html
+<t-datepicker
+  value="09:30:15 AM"
+  user-format="G:i:S K"
+  date-format="G:i:S K"
+  timepicker
+  :datepicker="false"
+/>
+```
+
+<preview class="flex flex-col items-center p-4 bg-gray-100 border rounded shadow-inner">
+  <t-datepicker
+    inline
+    value="09:30:15 AM"
+    user-format="G:i:S K"
+    date-format="G:i:S K"
+    timepicker
+    :datepicker="false"
+  />
+</preview>
+
+<tip>
+To show the time formated you should play with the `userFormat` and  `dateFormat` props since the time is still treated as a date internally. See the example above.
+</tip>

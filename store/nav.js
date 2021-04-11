@@ -89,7 +89,8 @@ export const state = () => ({
         },
         {
           to: '/docs/datepicker',
-          text: 'Datepicker'
+          text: 'Datetime Picker',
+          updated: '2021-04-10'
         },
         {
           to: '/docs/checkbox-group',
