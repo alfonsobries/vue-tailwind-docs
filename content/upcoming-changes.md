@@ -11,7 +11,9 @@ Updates and deprecations coming in the future and how to prepare for them.
 
 ### 1. Time-picker feature for the Datepicker component
 
-I'm working on adding a time picker to the Datepicker component, probably that feature will be released as a new optional setting that shouldn't conflict with the current version but there is a possibility that may affect the way the component is used.
+~~I'm working on adding a time picker to the Datepicker component, probably that feature will be released as a new optional setting that shouldn't conflict with the current version but there is a possibility that may affect the way the component is used.~~
+
+Ready [See docs →](/docs/datepicker#timepicker)
 
 ### 2. More components on the way
 

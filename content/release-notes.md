@@ -9,6 +9,11 @@ What's new in the latest version of the vue-tailwind library.
 
 <hr>
 
+## vue-tailwind v.2.2
+
+####  New features
+
+1. Finally you can use a timepicker on the `TDatepicker` component [Read more →](/docs/datepicker#timepicker)
 
 ## vue-tailwind v.2.0
 
