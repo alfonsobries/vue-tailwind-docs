@@ -37,7 +37,7 @@
           </li>
           <li class="flex mt-4">
             <span class="block mr-4 -ml-5 text-3xl">📝</span>
-            <span>Improve the documentation by fixing missing or wrong information, typos, or grammar errors (I'm not a native English speaker). Check the source code here: <a class="text-blue-500 underline border-blue-300 hover:text-blue-600" target="_blank" href="https://github.com/alfonsobries/vue-tailwind-themes">https://github.com/alfonsobries/vue-tailwind-themes</a></span>
+            <span>Improve the documentation by fixing missing or wrong information, typos, or grammar errors (I'm not a native English speaker). Check the source code here: <a class="text-blue-500 underline border-blue-300 hover:text-blue-600" target="_blank" href="https://github.com/alfonsobries/vue-tailwind-docs">https://github.com/alfonsobries/vue-tailwind-docs</a></span>
           </li>
           <li class="flex mt-4">
             <span class="block mr-4 -ml-5 text-3xl">💵</span>
