@@ -39,7 +39,7 @@ With the custom theme I previously define, the alerts above will look like this:
 This is how the variants of the alert above look like:
 
 ```js
-const theme{
+const theme = {
   // ...
   TAlert: {
     classes: {
