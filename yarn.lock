@@ -12226,7 +12226,7 @@ tailwindcss@^1.9.6:
     reduce-css-calc "^2.1.6"
     resolve "^1.14.2"
 
-tailwindcss@^2.0.1, "tailwindcss@npm:@tailwindcss/postcss7-compat":
+tailwindcss@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@tailwindcss/postcss7-compat/-/postcss7-compat-2.0.1.tgz#901b02546e537e85beddbc13443226f46929efc8"
   integrity sha512-SdWGioSKNhCIuoX2gCYhfs9HhWnOf1dvIed5G2i/lbqReGA27LG5KpH4glDunHWevWAY7h/WISZblE6xDCC/UA==
@@ -13097,10 +13097,10 @@ vue-style-loader@^4.1.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-tailwind@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/vue-tailwind/-/vue-tailwind-2.2.0.tgz#a92247be22c85816dbee61e083ef71715f2a6170"
-  integrity sha512-1z0k4EQ4iMONgbobQ1+7ae/cevlyWgD1B7bMS4jkAlF9sowdZJPAzQQ1a7ebHkB2PI/l+ngTw9QzCDeTUjtAzA==
+vue-tailwind@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/vue-tailwind/-/vue-tailwind-2.3.0.tgz#dd6968d44502aae5f4e1bbc3cf3056552ff0e6a1"
+  integrity sha512-5Ilk/pI3/uhOK4DywcML2CCPd4i3oRYzpp21orgbpoyg7qkXMByPpxmsNtSluvIGxm1wu7xdJ4bDbkbtlRDTVw==
   dependencies:
     body-scroll-lock "^3.1.5"
     lodash.clonedeep "^4.5.0"
@@ -13113,9 +13113,6 @@ vue-tailwind@^2.2.0:
     lodash.merge "^4.6.2"
     lodash.pick "^4.4.0"
     lodash.range "^3.2.0"
-    postcss "^7"
-    tailwindcss "npm:@tailwindcss/postcss7-compat"
-    vue "^2.6"
 
 vue-template-compiler@^2.6.12:
   version "2.6.12"
@@ -13135,7 +13132,7 @@ vue@^2.5.16:
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
   integrity sha512-VfPwgcGABbGAue9+sfrD4PuwFar7gPb1yl1UK1MwXoQPAw0BKSqWfoYCT/ThFrdEVWoI51dBuyCoiNU9bZDZxQ==
 
-vue@^2.6, vue@^2.6.12:
+vue@^2.6.12:
   version "2.6.12"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.12.tgz#f5ebd4fa6bd2869403e29a896aed4904456c9123"
   integrity sha512-uhmLFETqPPNyuLLbsKz6ioJ4q7AZHzD8ZVFNATNyICSZouqP2Sz0rotWQC8UNBF6VGSCs5abnKJoStA6JbCbfg==
