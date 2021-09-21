@@ -17,7 +17,7 @@
     "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxtjs/auth": "^4.9.1",
     "@nuxtjs/axios": "^5.12.2",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "axios-cancel": "^0.2.2",
     "body-scroll-lock": "^3.1.5",
     "clipboard-copy": "^4.0.1",
