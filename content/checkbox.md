@@ -129,7 +129,7 @@ The "Checked" attributes are optional.
 ```js
 const settings = {
   't-checkbox': {
-    component: TChexbox,
+    component: TCheckbox,
     props: {
       wrapped: true,
       classes: {
