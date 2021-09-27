@@ -36,22 +36,23 @@ VueJs Modal component with configurable classes and infinite variants. Friendly 
 
 ## Props
 
-| Property          | Type               | Default value        | Description                                                                                                                              |
-| ----------------- | ------------------ | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| name              | `String`           | `undefined`          | Use to open and close the modal by his name                                                                                              |
-| value (v-model)   | `Boolean`          | `false`              | Will show the modal according to the value                                                                                               |
-| header            | `String`           | `undefined`          | The content of the header                                                                                                                |
-| footer            | `String`           | `undefined`          | The content of the footer                                                                                                                |
-| clickToClose      | `Boolean`          | `true`               | If true, the modal will close when the user click the overlay                                                                            |
-| escToClose        | `Boolean`          | `true`               | If true, the modal will close when the user press the `esc` button                                                                       |
-| noBody            | `Boolean`          | `false`              | If true, the modal will be rendered without body, header, and footer                                                                     |
-| hideCloseButton   | `Boolean`          | `false`              | If true, the modal will hide the close button                                                                                            |
-| disableBodyScroll | `Boolean`          | `true`               | When set, the body of the page will be locked so a large modal can be scrollable                                                         |
-| focusOnOpen       | `Boolean`          | `true`               | When set, the modal will be focused after opened. This is necessary if you want that the modal close on when the user press the`esc` key |
-| fixedClasses      | `Object`           | `{...}`  (see below) | The default CSS Fixed classes shared for all variants                                                                                    |
-| classes           | `Object`           | `{...}`  (see below) | The default CSS classes                                                                                                                  |
-| variants          | `Object`           | `undefined`          | The different variants of classes the component have                                                                                     |
-| variant           | `[String, Object]` | `undefined`          | The variant that should be used                                                                                                          |
+| Property                                    | Type               | Default value        | Description                                                                                                                              |
+| ------------------------------------------- | ------------------ | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| name                                        | `String`           | `undefined`          | Use to open and close the modal by his name                                                                                              |
+| value (v-model)                             | `Boolean`          | `false`              | Will show the modal according to the value                                                                                               |
+| header                                      | `String`           | `undefined`          | The content of the header                                                                                                                |
+| footer                                      | `String`           | `undefined`          | The content of the footer                                                                                                                |
+| clickToClose                                | `Boolean`          | `true`               | If true, the modal will close when the user click the overlay                                                                            |
+| escToClose                                  | `Boolean`          | `true`               | If true, the modal will close when the user press the `esc` button                                                                       |
+| noBody                                      | `Boolean`          | `false`              | If true, the modal will be rendered without body, header, and footer                                                                     |
+| hideCloseButton                             | `Boolean`          | `false`              | If true, the modal will hide the close button                                                                                            |
+| disableBodyScroll                           | `Boolean`          | `true`               | When set, the body of the page will be locked so a large modal can be scrollable                                                         |
+| bodyScrollLockOptions <since>2.5.0+</since> | `Object`           | `{}`                 | Use it to set custom settings from the `body-scroll-lock` package                                                                        |
+| focusOnOpen                                 | `Boolean`          | `true`               | When set, the modal will be focused after opened. This is necessary if you want that the modal close on when the user press the`esc` key |
+| fixedClasses                                | `Object`           | `{...}`  (see below) | The default CSS Fixed classes shared for all variants                                                                                    |
+| classes                                     | `Object`           | `{...}`  (see below) | The default CSS classes                                                                                                                  |
+| variants                                    | `Object`           | `undefined`          | The different variants of classes the component have                                                                                     |
+| variant                                     | `[String, Object]` | `undefined`          | The variant that should be used                                                                                                          |
 
 ## Classes and variants format
 
