@@ -264,6 +264,44 @@ export default {
 </script>
 ``` 
 
+## Setting your modal content to scroll
+
+When `disableBodyScroll` is set to `true`, `vue-tailwind` uses [body-scroll-lock](https://www.npmjs.com/package/body-scroll-lock) to fix the background scrolling whilst the modal is open. To do this, body-scroll-lock disables the `touchmove` event on iOS, as mentioned [here](https://www.npmjs.com/package/body-scroll-lock#user-content-allowtouchmove). Meaning that if you try to make the content of your modal scrollable, like this:
+
+```js
+{
+  fixedClasses: {
+    body: 'overflow-y-scroll max-h-screen',
+  },
+}
+```
+
+Then on iOS, the content will be hidden.
+
+To fix this problem, as of version <since>2.5.0</since> you must pass the `bodyScrollLockOptions` the `allowTouchMove` as documented in the [body-scroll-lock](https://www.npmjs.com/package/body-scroll-lock#user-content-allowtouchmove) package. Note, the code below is modified slightly from the `body-scroll-lock` example as it detects the existence of a class name rather than an attribute. The resulting configuration is:
+
+```js
+{
+  bodyScrollLockOptions: {
+    allowTouchMove: (el) => {
+      while (el && el !== document.body) {
+        if (el.classList.contains('body-scroll-lock-ignore) {
+          return true;
+        }
+
+        el = el.parentElement;
+      }
+    }
+  },
+  fixedClasses: {
+    body: 'overflow-y-scroll max-h-screen body-scroll-lock-ignore',
+  },
+}
+```
+
+Note that you must ensure the class name `body-scroll-lock-ignore` is the same in the `allowTouchMove` method and the `body` fixed classes value.
+
+
 ## Events
 
 | Name         | Params               | Description                                                       |
