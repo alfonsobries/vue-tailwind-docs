@@ -27,7 +27,7 @@
           :class="{ 'bg-gray-800 border-gray-800 ': syntax === 'select', 'bg-gray-500 border-gray-500': syntax !== 'select' }"
           @click="syntax = 'select'"
         >
-          Only intall this component
+          Only install this component
         </button>
         <button
           type="button"
