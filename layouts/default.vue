@@ -29,7 +29,9 @@
             </p>
           </div>
           <div class="max-w-md mt-8 lg:mt-0 lg:ml-8">
-            <form aria-labelledby="newsletter-headline" @submit.prevent="submitNewsletter">
+          
+ 
+            <form aria-labelledby="newsletter-headline" action="https://vue-tailwind.us14.list-manage.com/subscribe?u=ef11d982212f0fdd1b4c927a3&id=c1e06346f2" method="post">
               <t-input-group
                 :variant="{
                   'newsletterSuccess': newsletterSent,
@@ -37,7 +39,9 @@
                 }"
                 :feedback="newsletterSent ? 'You have successfully subscribed to the newsletter!. check your inbox to confirm' :form.errors.get('email')"
               >
+               <input type="hidden" name="b_ef11d982212f0fdd1b4c927a3_c1e06346f2" tabindex="-1">
                 <t-input
+                  name="EMAIL" 
                   v-model="form.email"
                   :variant="{
                     'newsletterSuccess': newsletterSent,
@@ -52,7 +56,7 @@
                   @input="form.errors.clear('email')"
                 />
                 <div class="mt-3 sm:mt-0 sm:ml-3 sm:flex-shrink-0">
-                  <button class="block px-5 py-3 text-white transition duration-100 ease-in-out bg-blue-500 border border-transparent rounded shadow-sm hover:bg-blue-600 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed">
+                  <button type="submit" class="block px-5 py-3 text-white transition duration-100 ease-in-out bg-blue-500 border border-transparent rounded shadow-sm hover:bg-blue-600 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed">
                     Notify me
                   </button>
                 </div>
